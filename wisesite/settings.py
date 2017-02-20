@@ -39,7 +39,7 @@ SECRET_KEY = '%t5f-e2lt&*1x1@sx2dkz9n)u+cen^!b1lfml2sin3nq52&h%j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['photocritic.pythonanywhere.com']
 
 # Application definition
 
