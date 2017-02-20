@@ -1,0 +1,174 @@
+{% extends "informer\base.html" %}
+{% load compress %}
+{% load i18n %}
+{% block content %}
+	<div class="page-header-area"><!-- =-=-=-=-=-=-= Transparent Breadcrumb =-=-=-=-=-=-= -->
+		<div class="container">
+		   <div class="row">
+			  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="header-page">
+					<h1>{% trans 'Профиль пользователя' %}</h1>
+				</div>
+			  </div>
+		   </div>
+		</div>
+	</div>
+	<div class="main-content-area clearfix"><!-- =-=-=-=-=-=-= Main Content Area =-=-=-=-=-=-= -->
+		<section class="section-padding error-page pattern-bg"><!-- =-=-=-=-=-=-= Latest Ads =-=-=-=-=-=-= -->
+		   <div class="container"><!-- Main Container -->
+				<div class="ad-archive-desc box-shadow">
+				<form action="" method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+					<div class="row"><!-- Row margin-bottom-20 -->
+						<div class="col-md-6 col-md-push-6 col-sm-6 col-xs-12"><!-- Middle Content Area -->
+							<div class="form-grid"><!--  Form -->
+								{{formset_adds.management_form}}
+								<!--/{/{formset_adds.as_p/}/}-->
+								{% for form in formset_adds %}
+									{% for field in form %}
+									<div class="form-group">
+										{% if field.name == 'website' %}
+											<p>
+												<label for="id_user-0-website">{% trans 'Вебсайт' %}:</label>
+												<input id="id_user-0-website" name="user-0-website" placeholder="{% trans 'Вебсайт' %}" class="form-control" type="text" value="{{field.value}}">
+											</p>
+										{% endif %}
+										{% if field.name == 'bio' %}
+										<p>
+											<label for="id_user-0-bio">{% trans 'О себе' %}:</label>
+											<textarea id="id_user-0-bio" name="user-0-bio" placeholder="{% trans 'О себе' %}" class="form-control">{{field.value}}</textarea>
+										</p>
+										{% endif %}
+										{% if field.name == 'phone' %}
+										<p>
+											<label for="id_user-0-phone">{% trans 'Телефон' %}:</label>
+											<input id="id_user-0-phone" name="user-0-phone" placeholder="{% trans 'Телефон' %}" class="form-control" value="{{field.value}}"/>
+										</p>
+										{% endif %}
+										{% if field.name == 'city' %}
+										<p>
+											<label for="id_user-0-city">{% trans 'Город' %}:</label>
+											<input id="id_user-0-city" name="user-0-city" placeholder="{% trans 'Город' %}" class="form-control" value="{{field.value}}"/>
+										</p>
+										{% endif %}	
+										{% if field.name == 'country' %}
+										<p>
+											<label for="id_user-0-country">{% trans 'Страна' %}:</label>
+											<input id="id_user-0-country" name="user-0-country" placeholder="{% trans 'Страна' %}" class="form-control" value="{{field.value}}"/>
+										</p>
+										{% endif %}
+										{% if field.name == 'language' %}
+										<p>
+											<label for="id_user-0-language">{% trans 'Язык' %}:</label>
+											{{field}}
+										</p>
+										{% endif %}										
+									</div>
+									{% endfor %}
+								{% endfor %}
+							</div><!-- Form -->
+						</div><!-- Middle Content Area -->
+						<div class="col-md-6  col-md-pull-6  col-xs-12 col-sm-6">
+							<div class="form-grid">
+								{% for form in formset_adds %}
+									{% for field in form %}
+										{% if field.name == 'photo' %}
+										<div class="form-group">
+											<div class="row">
+												<div class="col-md-4 col-md-pull-0  col-xs-4 col-sm-12">
+													<label class='label-user-trumb' for="id_user-trumb">{% trans 'Фото' %}:</label>
+													{% if field.value %}
+														 <img id="id_user-trumb" src="/{{STATIC_URL|cut:'/'}}{{MEDIA_URL}}{{ field.value }}" height=120/>
+													{% else %}
+														 <img id = "id_user-trumb" src="/{{STATIC_URL|cut:'/'}}{{MEDIA_URL}}avatars/avatar.png" height=120/>
+													{% endif %}
+												</div>
+												<div class="col-md-7 col-md-pull-0  col-xs-7 col-sm-12">
+													<p class="user-trumb">
+														{% if not field.value %}
+														<input id="id_user-0-photo" name="user-0-photo" type="file">
+														{% else %}
+														<input id="user-0-photo-clear_id" name="user-0-photo-clear" type="checkbox">
+														<label for="user-0-photo-clear_id">{% trans 'Очистить' %}</label>
+														<br>{% trans 'Изменить' %}:
+														<input id="id_user-0-photo" name="user-0-photo" type="file" class="">
+														{% endif %}
+													</p>
+												</div>
+											</div>
+										</div>
+										{% endif %}
+									{% endfor %}
+								{% endfor %}
+								{{formusr_main.management_form}}
+									{% for field in formusr_main %}
+									{% if field.name == 'first_name' %}
+									<div class="form-group"><p>
+										<label for="id_first_name">{% trans 'Имя' %}:</label>
+										<input id="id_first_name" name="first_name" placeholder="{% trans 'Введите имя' %}" class="form-control" type="text" value="{{field.value}}">
+									</p></div>
+									{% endif %}
+									{% if field.name == 'last_name' %}
+									<div class="form-group"><p>
+										<label for="id_last_name">{% trans 'Фамилия' %}:</label>
+										<input id="id_last_name" name="last_name" placeholder="{% trans 'Введите фамилию' %}" class="form-control" type="text" value="{{field.value}}">
+									</p></div>
+									{% endif %}
+									{% if field.name == 'email' %}
+									<div class="form-group"><p>
+										<label for="id_email">{% trans 'Email' %}:</label>
+										<input id="id_email" name="email" placeholder="{% trans 'email' %}" class="form-control" type="email" value="{{field.value}}">
+										{% if field.help_text %}
+											<div class="clearfix help_text">{{ field.help_text }}</div>
+										{% endif %}
+										{% if field.errors %}
+											<div class="help_text">{{ field.errors }}</div>
+										{% endif %}												
+									</p></div>
+									{% endif %}
+								{% endfor%}
+
+								
+							</div>
+						</div><!-- Middle Content Area  End -->
+					</div><!-- Row End -->
+					<div class="row">
+<!--						<div class="col-md-12 col-md-pull-0  col-xs-12 col-sm-12">
+							<div class="btn-profile-save">
+								<input id="id_user-0-user" name="user-0-user" type="hidden" value="{{user.id}}"/>
+								<button class="btn btn-theme btn-lg btn-block">{% trans 'Сохранить' %}</button>
+							</div>
+						</div>-->
+                                       <div class="col-md-6 col-sm-6 col-xs-12">
+                                          <div class="form-group">
+                                             <div class="skin-minimal form-grid-profile">
+                                                <ul class="list">
+                                                   <li>
+													{% if messages %}
+														{% for message in messages %}
+														<!--<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>-->
+														<div role="alert" class="alert alert-success alert-dismissible">
+																<button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span></button>
+																<strong>{% trans 'Сохранено' %}</strong> - {{ message }}
+														</div>
+														{% endfor %}
+													{% endif %}													
+                                                   </li>
+                                                </ul>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="col-md-6 col-sm-6 col-xs-12 text-right">
+											<div class="form-grid-profile">
+												<input id="id_user-0-user" name="user-0-user" type="hidden" value="{{user.id}}"/>
+												<button type="submit" class="btn btn-theme btn-sm">{% trans 'Сохранить мою информацию' %}</button>
+											</div>
+                                       </div>
+                                    </div>
+					</div>
+				</div>
+				</form>
+		   </div><!-- Main Container End -->
+		</section>
+	</div>
+{% endblock %}

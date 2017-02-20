@@ -1,0 +1,262 @@
+{% extends "informer\base.html" %} {% load compress %} {% load i18n %} {% block content %}
+
+<!-- =-=-=-=-=-=-= Advance Search =-=-=-=-=-=-= -->
+<div id="search-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+			</div>
+		</div>
+	</div>
+</div>
+<!-- =-=-=-=-=-=-= Advance Search End  =-=-=-=-=-=-= -->
+
+<section class="custom-padding gray">
+	<!-- Main Container -->
+	<div class="container">
+	   <!-- Row -->
+	   <div class="row">
+		  <!-- Heading Area -->
+		  <div class="heading-panel">
+			 <div class="col-xs-12 col-md-12 col-sm-12 text-center">
+				<!-- Main Title -->
+				<h1>{% trans 'Создайте свой' %} <span class="heading-color"> {% trans 'информер' %}</span> {% trans 'уже сейчас' %}</h1>
+				<!-- Short Description -->
+				<p class="heading-text">{% trans 'Выберите тему информера и напишите свой текст в готовом шаблоне' %}.</p>
+			 </div>
+		  </div>
+		  <!-- Middle Content Box -->
+		  <div class="col-md-12 col-xs-12 col-sm-12 ">
+			 <div class="row">
+				<!-- Category List -->
+				<ul class="category-list-style">
+				   <!-- Category -->
+				   <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					  <a href="#">{% trans 'Визитная карточка' %}<span>(897 {% trans 'Уже создано' %})</span>
+					  <i class="flaticon-info"></i>
+					  </a> 
+				   </li>
+				   <!-- Category -->
+				   <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					  <a href="#">{% trans 'Поздравительная открытка' %}<span>(397 {% trans 'Уже создано' %})</span>
+					  <i class="flaticon-heart"></i>
+					  </a>
+				   </li>
+				   <!-- Category -->
+				   <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					  <a href="#">{% trans 'Приглашение на событие' %}<span>(897 {% trans 'Уже создано' %})</span>
+					  <i class="flaticon-calendar-2"></i>
+					  </a>
+				   </li>
+				   <!-- Category -->
+				   <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					  <a href="#">{% trans 'Тематическая статья' %}<span>(230 {% trans 'Уже создано' %})</span>
+					  <i class="flaticon-interface"></i>
+					  </a>
+				   </li>
+				   <!-- Category -->
+				   <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					  <a href="#">{% trans 'Карточка товара' %}<span>(97 {% trans 'Уже создано' %})</span>
+					  <i class="flaticon-commerce-1"></i>
+					  </a>
+				   </li>
+				   <!-- Category -->
+				   <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					  <a href="#">{% trans 'Карточка услуги' %}<span>(1123 {% trans 'Уже создано' %})</span>
+					  <i class="flaticon-construction"></i>
+					  </a>
+				   </li>
+				   <!-- Category -->
+				   <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					  <a href="#">{% trans 'Ссылка в интеренете' %}<span>(300 {% trans 'Уже создано' %})</span>
+					  <i class="flaticon-people-3"></i>
+					  </a>
+				   </li>
+				   <!-- Category -->
+				   <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					  <a href="#">{% trans 'Аудио плей-лист' %}<span>(230 {% trans 'Уже создано' %})</span>
+					  <i class="flaticon-music-3"></i>
+					  </a>
+				   </li>
+				   <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					  <a href="#">{% trans 'Галерея фотографий' %}<span>(1247 {% trans 'Уже создано' %})</span>
+					  <i class="flaticon-photo"></i>
+					  </a>
+				   </li>
+				   <!-- Category -->
+				   <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					  <a href="#">{% trans 'Скидочный купон' %}<span>(3397 {% trans 'Уже создано' %})</span>
+					  <i class="flaticon-for-sale"></i>
+					  </a>
+				   </li>
+				   <!-- Category -->
+				   <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					  <a href="#">{% trans 'Абонемент на что-нибудь' %}<span>(111 {% trans 'Уже создано' %})</span>
+					  <i class="flaticon-interface-1"></i>
+					  </a>
+				   </li>
+				   <!-- Category -->
+				   <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					  <a href="#">{% trans 'Видео ролик, фильм' %}<span>(2230 {% trans 'Уже создано' %})</span>
+					  <i class="flaticon-computer"></i>
+					  </a>
+				   </li>
+				   <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					  <a href="#">{% trans '2D или 3D модель' %}<span>(7230 {% trans 'Уже создано' %})</span>
+					  <i class="flaticon-mortgage"></i>
+					  </a>
+				   </li>
+				   <!-- Category -->
+				   <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					  <a href="#">{% trans 'Меню - кафе, рестораны' %}<span>(2230 {% trans 'Уже создано' %})</span>
+					  <i class="flaticon-transport-18"></i>
+					  </a>
+				   </li>
+				   <!-- Category -->
+				   <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					  <a href="#">{% trans 'Электронное письмо' %}<span>(130 {% trans 'Уже создано' %})</span>
+					  <i class="flaticon-web"></i>
+					  </a>
+				   </li>
+				   <!-- Category -->
+				   <li class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					  <a href="#">{% trans 'TV канал в интернете' %}<span>(1230 {% trans 'Уже создано' %})</span>
+					  <i class="flaticon-technology-43"></i>
+					  </a>
+				   </li>
+				</ul>
+				<!-- Category List End -->    
+			 </div>
+		  </div>
+		  <!-- Middle Content Box End -->
+	   </div>
+	   <!-- Row End -->
+	</div>
+	<!-- Main Container End -->
+ </section>
+
+
+<div class="app-download-section parallex">
+	<!-- app-download-section-wrapper -->
+	<div class="app-download-section-wrapper">
+	   <!-- app-download-section-container -->
+	   <div class="app-download-section-container">
+		  <!-- container -->
+		  <div class="container">
+			 <!-- row -->
+			 <div class="row">
+				<!-- col-md-12 -->
+				<div class="col-md-12 col-xs-12 col-sm-12">
+				   <!-- section-title -->
+				   <div class="section-title"> <span>{% trans 'СКАЧАЙТЕ ПРИЛОЖЕНИЕ' %}</span>
+					<span><img src="/static/images/app-logo-1.png" alt="Tiny Logo"></span>
+					<span>{% trans 'ПОД ВАШУ ПЛАТФОРМУ' %}.</span> </div>
+				   <!-- /section-title -->
+				</div>
+				<!-- /col-md-12 -->
+				<!-- col-md-4 -->
+				<div class="col-md-4 col-sm-4">
+				   <!-- Windows Store -->
+				   <a href="#" title="Windows Store" class="btn app-download-button"> <span class="app-store-btn">
+				   <i class="fa fa-windows"></i>
+				   <span>
+				   <span>{% trans 'Загрузить из' %}</span> <span>Windows Store </span> </span>
+				   </span>
+				   </a>
+				   <!-- /Windows Store -->
+				</div>
+				<!-- /col-md-4 -->
+				<!-- col-md-4 -->
+				<div class="col-md-4 col-sm-4">
+				   <!-- Google Store -->
+				   <a href="#" title="Google Store" class="btn app-download-button"> <span class="app-store-btn">
+				   <i class="fa fa-android"></i>
+				   <span>
+				   <span>{% trans 'Загрузить из' %}</span> <span>Google Store </span> </span>
+				   </span>
+				   </a>
+				   <!-- /Google Store -->
+				</div>
+				<!-- /col-md-4 -->
+				<!-- col-md-4 -->
+				<div class="col-md-4 col-sm-4">
+				   <!-- Apple Store -->
+				   <a href="#" title="Windows Store" class="btn app-download-button"> <span class="app-store-btn">
+				   <i class="fa fa-apple"></i>
+				   <span>
+				   <span>{% trans 'Загрузить из' %}</span> <span>Apple Store </span> </span>
+				   </span>
+				   </a>
+				   <!-- /Apple Store -->
+				</div>
+				<!-- /col-md-4 -->
+			 </div>
+			 <!-- /row -->
+		  </div>
+		  <!-- /container -->
+	   </div>
+	   <!-- /app-download-section-container -->
+	</div>
+	<!-- /download-section-wrapper -->
+ </div>
+
+
+<section class="custom-padding gray">
+	<!-- Main Container -->
+	<div class="container">
+	   <!-- Content Box -->
+	   <!-- Row -->
+	   <div class="row">
+		  <!-- Heading Area -->
+		  <div class="heading-panel">
+			 <div class="col-xs-12 col-md-12 col-sm-12 text-center">
+				<!-- Main Title -->
+				<h1>{% trans 'Последние новости в' %} <span class="heading-color"> {% trans 'Блоге' %}</span> информеров</h1>
+				<!-- Short Description -->
+				<p class="heading-text">{% trans 'В блоге информеров мы делимся с новыми возможностями, а также используем блог как обратную связь с клиентами нашего сервиса' %}.</p>
+			 </div>
+		  </div>
+		  <!-- Middle Content Box -->
+		  <div class="col-xs-12 col-md-12 col-sm-12 ">
+			 <div class="row">
+				<div class="col-md-4 col-sm-6 col-xs-12">
+				   <div class="blog-post">
+					  <div class="post-img">
+						 <a href="#"> <img class="img-responsive" alt="" src="/static/images/blog/1.jpg"> </a>
+					  </div>
+					  <div class="post-info"> <a href="">Aug 30, 2017</a> <a href="#">23 comments</a> </div>
+					  <h3 class="post-title"> <a href="#"> Sony Xperia XZ: Release date and everything you need to know</a> </h3>
+					  <p class="post-excerpt"> Автоматическое информирование построена на системе различных тригерров т.е. событий. Когда событие случается выдается ... </p>
+				   </div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-12">
+				   <div class="blog-post">
+					  <div class="post-img">
+						 <a href="#"> <img class="img-responsive" alt="" src="/static/images/blog/2.jpg"> </a>
+					  </div>
+					  <div class="post-info"> <a href="">Aug 30, 2017</a> <a href="#">23 comments</a> </div>
+					  <h3 class="post-title"> <a href="#"> Review of the 2017 Honda Accord Sport </a> </h3>
+					  <p class="post-excerpt"> Автоматическое информирование построена на системе различных тригерров т.е. событий. Когда событие случается выдается ... </p>
+				   </div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-12">
+				   <div class="blog-post">
+					  <div class="post-img">
+						 <a href="#"> <img class="img-responsive" alt="" src="/static/images/blog/3.jpg"> </a>
+					  </div>
+					  <div class="post-info"> <a href="">Aug 30, 2017</a> <a href="#">23 comments</a> </div>
+					  <h3 class="post-title"> <a href="#"> How to Buy a House 6 Must-Dos Before Buying A Home</a> </h3>
+					  <p class="post-excerpt"> Автоматическое информирование построена на системе различных тригерров т.е. событий. Когда событие случается выдается ... </p>
+				   </div>
+				</div>
+			 </div>
+		  </div>
+		  <!-- Middle Content Box End -->
+	   </div>
+	   <!-- Row End -->
+	</div>
+	<!-- Main Container End -->
+</section>
+
+
+{% endblock %}

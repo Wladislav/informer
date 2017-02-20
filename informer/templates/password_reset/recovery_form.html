@@ -1,0 +1,88 @@
+{% extends "informer\index.html" %}
+{% load compress %}
+{% load i18n %}
+{% block content %}
+
+      <!-- =-=-=-=-=-=-= Transparent Breadcrumb =-=-=-=-=-=-= -->
+      <div class="page-header-area">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="header-page">
+							{# Translators: Форма восстановления пароля #}
+                     <h1>{% block title %}{% trans 'Режим восстановления пароля' %}{% endblock %}</h1>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- =-=-=-=-=-=-= Main Content Area =-=-=-=-=-=-= -->
+      <div class="main-content-area clearfix">
+         <!-- =-=-=-=-=-=-= Latest Ads =-=-=-=-=-=-= -->
+         <section class="section-padding error-page pattern-bg ">
+            <!-- Main Container -->
+            <div class="container">
+               <!-- Row -->
+               <div class="row">
+                  <!-- Middle Content Area -->
+                  <div class="col-md-5 col-md-push-7 col-sm-6 col-xs-12">
+                     <!--  Form -->
+                     <div class="form-grid ad-archive-desc">
+                        {% if user.is_authenticated %}
+                        {% blocktrans %}Что такое, {{ user.username }}? Вы же уже авторизорваны.{% endblocktrans %}
+                        {% trans 'Впрочем, всегда можно' %} <a href="{% url 'logout' %}">{% trans 'Выйти' %}</a>.<br/><br/>
+                        {% else %}                     
+                           <form method="post" action="{{ url }}">
+		                        {% csrf_token %}
+										<div class="form-group">
+											<input id="username_or_email" name="username_or_email" placeholder="{% trans 'Имя пользователя или email' %}" class="form-control" type="text">
+										</div>
+										<p><input class="btn btn-theme btn-lg btn-block" type="submit" value="{% trans 'Восстановить мой пароль' %}"></p>
+									</form>
+                           <div class="button-bottom-help">
+										<p class="help-block">{% trans 'Я первый раз здесь, надо' %} <a href="{% url 'registration_register' %}">{% trans 'Зарегистрироваться' %}</a></p>
+										<p class="help-block">{% trans 'Вспомнили пароль? Можете' %} <a href="{% url 'login' %}">{% trans 'Войти' %}</a></p>
+                          </div>
+                        {% endif %}
+                     </div>
+                     <!-- Form -->
+                  </div>
+                  <div class="col-md-7  col-md-pull-5  col-xs-12 col-sm-6">
+                     <div class="heading-panel">
+                        <h3 class="main-title text-left">
+                           {% trans 'Как восстановить пароль?' %}
+                        </h3>
+                     </div>
+                     <div class="content-info">
+                        <div class="features">
+                           <div class="features-icons">
+                              <img src="/static/images/icons/respass_st1.png" alt="img">
+                           </div>
+                           <div class="features-text">
+                              <h3>{% trans 'Заполните поле справа и нажмите кнопку [Восстановить пароль]' %}</h3>
+                              <p>
+                                 {% trans 'Войдите в свою почту указанную при регистрации и нажмите на ссылку в письме.' %}
+                              </p>
+                           </div>
+                        </div>
+                        <div class="features">
+                           <div class="features-icons">
+                              <img src="/static/images/icons/respass_st2.png" alt="img">
+                           </div>
+                           <div class="features-text">
+                              <h3>{% trans 'В открывшейся форме введите новый пароль' %}</h3>
+                              <p>
+                                 {% trans 'После этого ваш пароль будет изменен на новый и вы можете зайти на сайт используя его.' %}
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Middle Content Area  End -->
+               </div>
+               <!-- Row End -->
+            </div>
+            <!-- Main Container End -->
+         </section>
+	</div>
+{% endblock %}

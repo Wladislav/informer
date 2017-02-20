@@ -1,0 +1,97 @@
+{% extends "informer\index.html" %}
+{% load compress %}
+{% load i18n %}
+{% block content %}
+
+      <!-- =-=-=-=-=-=-= Transparent Breadcrumb =-=-=-=-=-=-= -->
+      <div class="page-header-area">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="header-page">
+							{# Translators: Режим сбрасывания пароля, - когда пользователь нажимает на ссылку в своем письме #}
+                     <h1>{% trans 'Восстановление пароля' %}</h1>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- =-=-=-=-=-=-= Main Content Area =-=-=-=-=-=-= -->
+      <div class="main-content-area clearfix">
+         <!-- =-=-=-=-=-=-= Latest Ads =-=-=-=-=-=-= -->
+         <section class="section-padding error-page pattern-bg ">
+            <!-- Main Container -->
+            <div class="container">
+               <!-- Row -->
+               <div class="row">
+                  <!-- Middle Content Area -->
+                  <div class="col-md-5 col-md-push-7 col-sm-6 col-xs-12">
+                     <!--  Form -->
+                     <div class="form-grid">
+                        {% if invalid %}{% url "password_reset_recover" as recovery_url %}
+									<p>{% trans 'Извините, эта ссылка на восстановление пароля ошибочная. Вы можете по-прежнему' %} <a href="{{ recovery_url }}">{% trans 'запросить новый пароль' %}</a>.
+                        {% else %}
+									{% blocktrans %}Здравствуйте, <strong>{{ username }}</strong>. Пожалуйста установите новый пароль.{% endblocktrans %}
+								   <form method="post" action="{% url "password_reset_reset" token %}">
+                           {% csrf_token %}
+									{% for field in form %}
+										<div class="form-group">
+											{{ field.label_tag }}
+											{% if field.name == 'password1' %}
+												<input id="id_password1" name="password1" placeholder="{% trans 'Новый пароль' %}" class="form-control" type="password">
+                                 {% endif %}
+											{% if field.name == 'password2' %}
+												<input id="id_password2" name="password2" placeholder="{% trans 'Подтверждение пароля' %}" class="form-control" type="password">
+                                 {% endif %}
+										</div>
+									{% endfor %}
+									<button class="btn btn-theme btn-lg btn-block">{% trans 'Да, это будет мой новый пароль!' %}</button>
+									</form>
+                        {% endif %}
+
+                     </div>
+                     <!-- Form -->
+                  </div>
+                  <div class="col-md-7  col-md-pull-5  col-xs-12 col-sm-6">
+                     <div class="heading-panel">
+                        <h3 class="main-title text-left">
+									{% if invalid %}{% url "password_reset_recover" as recovery_url %}
+										{% trans 'Ошибка при восстановлении пароля' %}
+									{% else %}
+										{% trans 'Создание нового пароля' %}
+									{% endif %}
+                        </h3>
+                     </div>
+                     <div class="content-info">
+                        <div class="features">
+                           <div class="features-icons">
+                              <img src="/static/images/icons/respass_st1.png" alt="img">
+                           </div>
+                           <div class="features-text">
+                              <h3>{% trans 'Придумайте новый пароль' %}</h3>
+                              <p>
+                                  {% trans 'Пароль чувствителен к регистру. Вводите не более 30 символов. Только буквы, цифры и символы @ . + - _' %}
+                              </p>
+                           </div>
+                        </div>
+                        <div class="features">
+                           <div class="features-icons">
+                              <img src="/static/images/icons/respass_st2.png" alt="img">
+                           </div>
+                           <div class="features-text">
+                              <h3>{% trans 'Нажмите кнопку [Установить новый пароль]' %}</h3>
+                              <p>
+                                  {% trans 'Если все сделано правильно, заходите на сайт.' %}
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Middle Content Area  End -->
+               </div>
+               <!-- Row End -->
+            </div>
+            <!-- Main Container End -->
+         </section>
+      </div>
+{% endblock %}

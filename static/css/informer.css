@@ -1,0 +1,31 @@
+ h1 a {
+        color: #FCA205;
+    }
+    
+p.user-trumb {
+    padding-top: 25px;
+}
+
+img#id_user-trumb {
+    float: left;
+}
+
+label.label-user-trumb {
+    display: block;
+}
+
+.btn-profile-save {
+    padding-top: 25px;
+}
+
+.select2-container--default .select2-selection--single {
+    height: 38px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 34px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 34px; 
+}

@@ -1,0 +1,671 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-19 03:49+0300\n"
+"PO-Revision-Date: 2017-02-08 02:35+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+
+#: .\informer\forms.py:14
+msgid "Email address"
+msgstr "Email address"
+
+#: .\informer\models.py:9
+#, fuzzy
+#| msgid "Имя пользователя"
+msgid "Пользователь"
+msgstr "Username"
+
+#: .\informer\models.py:10
+msgid "Высота (px)"
+msgstr ""
+
+#: .\informer\models.py:11
+msgid "Ширина (px)"
+msgstr ""
+
+#: .\informer\models.py:12
+msgid "Фотография"
+msgstr ""
+
+#: .\informer\models.py:13 .\informer\templates\informer\userprofile.html.py:32
+#: .\informer\templates\informer\userprofile.html:33
+msgid "Вебсайт"
+msgstr "Website"
+
+#: .\informer\models.py:14 .\informer\templates\informer\userprofile.html.py:38
+#: .\informer\templates\informer\userprofile.html:39
+msgid "О себе"
+msgstr "About myself"
+
+#: .\informer\models.py:15 .\informer\templates\informer\userprofile.html.py:44
+#: .\informer\templates\informer\userprofile.html:45
+msgid "Телефон"
+msgstr "Phone"
+
+#: .\informer\models.py:16 .\informer\templates\informer\userprofile.html.py:50
+#: .\informer\templates\informer\userprofile.html:51
+msgid "Город"
+msgstr "City"
+
+#: .\informer\models.py:17 .\informer\templates\informer\userprofile.html.py:56
+#: .\informer\templates\informer\userprofile.html:57
+msgid "Страна"
+msgstr "Country"
+
+#: .\informer\models.py:18 .\informer\templates\informer\userprofile.html.py:62
+msgid "Язык"
+msgstr "Language"
+
+#: .\informer\models.py:19
+msgid "Дата обновления"
+msgstr "Update date"
+
+#: .\informer\models.py:23 .\informer\templates\informer\userprofile.html.py:10
+#, fuzzy
+#| msgid "Имя пользователя"
+msgid "Профиль пользователя"
+msgstr "User profile"
+
+#: .\informer\models.py:24
+#, fuzzy
+#| msgid "Имя пользователя"
+msgid "Профили пользователей"
+msgstr "Users profile"
+
+#: .\informer\templates\informer\base.html:71
+msgid "ЦВЕТОВОЙ СТИЛЬ"
+msgstr "THEME"
+
+#. Translators: Выбирается цветовая схема сайта
+#: .\informer\templates\informer\base.html:74
+msgid "Выберите цвет"
+msgstr "Choose the color"
+
+#. Translators: Ссылка на форму авторизации пользователя
+#: .\informer\templates\informer\base.html:113
+#: .\informer\templates\password_reset\recovery_form.html:44
+#: .\informer\templates\registration\registration_form.html:97
+msgid "Войти"
+msgstr "Login"
+
+#. Translators: Ссылка на форму регистрации пользователя
+#: .\informer\templates\informer\base.html:115
+msgid "Регистрация"
+msgstr "Register"
+
+#. Translators: Ссылка на преход к профилю пользователя
+#: .\informer\templates\informer\base.html:123
+msgid "Мой профиль"
+msgstr "My profile"
+
+#: .\informer\templates\informer\base.html:125
+#, fuzzy
+#| msgid "Зарегистрироваться"
+msgid "Администрировать"
+msgstr "Sign up"
+
+#. Translators: Пользователь покидает сайт (logout)
+#: .\informer\templates\informer\base.html:128
+#: .\informer\templates\password_reset\recovery_form.html:33
+#: .\informer\templates\registration\login.html:29
+msgid "Выйти"
+msgstr "Logout"
+
+#. Translators: Это страницы сайта
+#: .\informer\templates\informer\base.html:162
+msgid "Страницы"
+msgstr "Pages"
+
+#. Translators: Переход на главную страницу сайта
+#: .\informer\templates\informer\base.html:166
+msgid "На главную"
+msgstr "Home"
+
+#. Translators: Переход на страницу с контактной информацией владельца сайта
+#: .\informer\templates\informer\base.html:175
+msgid "Контакты"
+msgstr "Contacts"
+
+#. Translators: Ссылки на социальные сети где представлен wisemarker
+#: .\informer\templates\informer\base.html:246
+msgid "МЫ В СЕТИ"
+msgstr "Social"
+
+#. Translators: Форма ввода почты пользователя для подписки на новости
+#: .\informer\templates\informer\base.html:260
+msgid "Подписаться на новости по почте"
+msgstr "Subscribe to news by e-mail"
+
+#: .\informer\templates\informer\base.html:262
+msgid ""
+"Мы будем отправлять Вам информацию о событиях и интересных информерах, "
+"которые создают пользователи."
+msgstr "We will send you information about events and interesting informers"
+
+#: .\informer\templates\informer\base.html:264
+msgid "Введите ваш почтовый адрес"
+msgstr "Enter email"
+
+#. Translators: Пользователь при регистрации должен согласится с правилами (галочка)
+#: .\informer\templates\informer\base.html:265
+#: .\informer\templates\registration\registration_form.html:62
+msgid "Согласен"
+msgstr "Agree"
+
+#. Translators: Подвал сайта, копирайтинг и слово Дизайн = внешний вид
+#: .\informer\templates\informer\base.html:282
+msgid "Все права защищены. Дизайн"
+msgstr "All rights reserved. Design by "
+
+#: .\informer\templates\informer\userprofile.html:79
+msgid "Фото"
+msgstr "Photo"
+
+#: .\informer\templates\informer\userprofile.html:92
+msgid "Очистить"
+msgstr "Remove"
+
+#: .\informer\templates\informer\userprofile.html:93
+msgid "Изменить"
+msgstr "Change"
+
+#: .\informer\templates\informer\userprofile.html:107
+msgid "Имя"
+msgstr "First name"
+
+#: .\informer\templates\informer\userprofile.html:108
+#: .\informer\templates\registration\registration_form.html:36
+msgid "Введите имя"
+msgstr "Enter your username"
+
+#: .\informer\templates\informer\userprofile.html:113
+msgid "Фамилия"
+msgstr "Last name"
+
+#: .\informer\templates\informer\userprofile.html:114
+msgid "Введите фамилию"
+msgstr "Enter your last name"
+
+#: .\informer\templates\informer\userprofile.html:119
+#: .\informer\templates\registration\registration_form.html:40
+msgid "Email"
+msgstr "Email"
+
+#: .\informer\templates\informer\userprofile.html:120
+msgid "email"
+msgstr "email"
+
+#: .\informer\templates\informer\userprofile.html:136
+#, fuzzy
+#| msgid "Сохранить"
+msgid "Сохранено"
+msgstr "Save"
+
+#: .\informer\templates\informer\userprofile.html:148
+msgid "Сохранить"
+msgstr "Save"
+
+#. Translators: Сообщение об успешно утановленном пароле
+#: .\informer\templates\password_reset\recovery_done.html:12
+msgid "Новый пароль установлен"
+msgstr "The new password is set"
+
+#. Translators: Ссылка на форму авторизации
+#: .\informer\templates\password_reset\recovery_done.html:33
+#: .\informer\templates\registration\activation_complete.html:32
+#: .\informer\templates\registration\login.html:67
+#: .\informer\templates\registration\registration_closed.html:31
+#: .\informer\templates\registration\registration_complete.html:31
+msgid "Войти в сервис"
+msgstr "Login to the service"
+
+#: .\informer\templates\password_reset\recovery_done.html:42
+msgid "Ваш пароль успешно изменен!"
+msgstr "Your password was successfully changed!"
+
+#. Translators: Справа есть кнопка войти
+#: .\informer\templates\password_reset\recovery_done.html:52
+msgid ""
+"Ваш пароль успешно установлен. Вы можете использовать его справа, чтобы "
+"войти."
+msgstr ""
+"Your password has been successfully installed. You can use it the right to "
+"login"
+
+#: .\informer\templates\password_reset\recovery_email.txt:1
+#, python-format
+msgid "Dear %(username)s,"
+msgstr ""
+
+#: .\informer\templates\password_reset\recovery_email.txt:3
+#, python-format
+msgid ""
+"You -- or someone pretending to be you -- has requested a password reset on "
+"%(domain)s."
+msgstr ""
+
+#: .\informer\templates\password_reset\recovery_email.txt:5
+msgid "You can set your new password by following this link:"
+msgstr ""
+
+#: .\informer\templates\password_reset\recovery_email.txt:9
+msgid ""
+"If you don't want to reset your password, simply ignore this email and it "
+"will stay unchanged."
+msgstr ""
+
+#: .\informer\templates\password_reset\recovery_email_subject.txt:1
+#, python-format
+msgid "Password recovery on %(domain)s"
+msgstr ""
+
+#. Translators: Форма восстановления пароля
+#: .\informer\templates\password_reset\recovery_form.html:13
+msgid "Режим восстановления пароля"
+msgstr "Password recovery mode"
+
+#: .\informer\templates\password_reset\recovery_form.html:32
+#, python-format
+msgid "Что такое, %(user.username)s? Вы же уже авторизорваны."
+msgstr "What happened, %(user.username)s? You are already logged in."
+
+#: .\informer\templates\password_reset\recovery_form.html:33
+#: .\informer\templates\registration\login.html:29
+msgid "Впрочем, всегда можно"
+msgstr "However, you can always"
+
+#: .\informer\templates\password_reset\recovery_form.html:38
+msgid "Имя пользователя или email"
+msgstr "Username or email"
+
+#: .\informer\templates\password_reset\recovery_form.html:40
+msgid "Восстановить мой пароль"
+msgstr "Recover my password"
+
+#: .\informer\templates\password_reset\recovery_form.html:43
+#: .\informer\templates\registration\login.html:71
+msgid "Я первый раз здесь, надо"
+msgstr "I am a first time, it is necessary to"
+
+#. Translators: Пользователь при регистрации должен нажать кнопку Зарегистрироваться
+#: .\informer\templates\password_reset\recovery_form.html:43
+#: .\informer\templates\registration\login.html:71
+#: .\informer\templates\registration\registration_form.html:91
+msgid "Зарегистрироваться"
+msgstr "Sign up"
+
+#: .\informer\templates\password_reset\recovery_form.html:44
+msgid "Вспомнили пароль? Можете"
+msgstr "Forgotten password? You can"
+
+#: .\informer\templates\password_reset\recovery_form.html:53
+msgid "Как восстановить пароль?"
+msgstr "How to recover your password?"
+
+#: .\informer\templates\password_reset\recovery_form.html:62
+msgid "Заполните поле справа и нажмите кнопку [Восстановить пароль]"
+msgstr "Fill the box to the right and press [Recover password]"
+
+#: .\informer\templates\password_reset\recovery_form.html:64
+msgid ""
+"Войдите в свою почту указанную при регистрации и нажмите на ссылку в письме."
+msgstr ""
+"Log in to your e-mail specified at registration and click on the link in the "
+"email."
+
+#: .\informer\templates\password_reset\recovery_form.html:73
+msgid "В открывшейся форме введите новый пароль"
+msgstr "In the form, enter a new password"
+
+#: .\informer\templates\password_reset\recovery_form.html:75
+msgid ""
+"После этого ваш пароль будет изменен на новый и вы можете зайти на сайт "
+"используя его."
+msgstr ""
+"After that, your password will be changed to the new one and you can go to "
+"the website"
+
+#. Translators: Режим сбрасывания пароля, - когда пользователь нажимает на ссылку в своем письме
+#: .\informer\templates\password_reset\reset.html:13
+#: .\informer\templates\password_reset\reset_sent.html:37
+msgid "Восстановление пароля"
+msgstr "Password reset"
+
+#: .\informer\templates\password_reset\reset.html:32
+msgid ""
+"Извините, эта ссылка на восстановление пароля ошибочная. Вы можете по-"
+"прежнему"
+msgstr "Sorry, this link to the wrong password recovery. You can login"
+
+#: .\informer\templates\password_reset\reset.html:32
+msgid "запросить новый пароль"
+msgstr "recover my password"
+
+#: .\informer\templates\password_reset\reset.html:34
+#, python-format
+msgid ""
+"Здравствуйте, <strong>%(username)s</strong>. Пожалуйста установите новый "
+"пароль."
+msgstr "Hello, <strong>%(username)s</ strong>. Please set a new password"
+
+#: .\informer\templates\password_reset\reset.html:41
+msgid "Новый пароль"
+msgstr "New password"
+
+#: .\informer\templates\password_reset\reset.html:44
+#: .\informer\templates\registration\registration_form.html:50
+#: .\informer\templates\registration\registration_form.html:51
+msgid "Подтверждение пароля"
+msgstr "Password confirmation"
+
+#: .\informer\templates\password_reset\reset.html:48
+msgid "Да, это будет мой новый пароль!"
+msgstr "Yes, this will be my new password!"
+
+#: .\informer\templates\password_reset\reset.html:59
+msgid "Ошибка при восстановлении пароля"
+msgstr "Error recovery password"
+
+#: .\informer\templates\password_reset\reset.html:61
+msgid "Создание нового пароля"
+msgstr "Create a new password"
+
+#: .\informer\templates\password_reset\reset.html:71
+msgid "Придумайте новый пароль"
+msgstr "Come up with a new password"
+
+#: .\informer\templates\password_reset\reset.html:73
+msgid ""
+"Пароль чувствителен к регистру. Вводите не более 30 символов. Только буквы, "
+"цифры и символы @ . + - _"
+msgstr ""
+"Password is case sensitive. Enter up to 30 characters. Only letters,numbers "
+"and symbols @ . + - _"
+
+#: .\informer\templates\password_reset\reset.html:82
+msgid "Нажмите кнопку [Установить новый пароль]"
+msgstr "Press [Set new password]"
+
+#: .\informer\templates\password_reset\reset.html:84
+msgid "Если все сделано правильно, заходите на сайт."
+msgstr "If done correctly, log in to the site."
+
+#: .\informer\templates\password_reset\reset_sent.html:5
+msgid "Восстановление пароля отправлено"
+msgstr "Password recovery sent"
+
+#: .\informer\templates\password_reset\reset_sent.html:14
+msgid "Вам отправлено письмо"
+msgstr "You will be sent an email"
+
+#: .\informer\templates\password_reset\reset_sent.html:31
+#, python-format
+msgid ""
+"Восстановление пароля отправлено на <strong>%(email)s</strong> %(ago)s "
+"назад. Используйте ссылку в нем, чтобы установить новый пароль."
+msgstr ""
+"Password recovery sent to <strong>%(email)s<strong> %(ago)s ago. Use the "
+"link in it to set a new password."
+
+#: .\informer\templates\password_reset\reset_sent.html:46
+msgid "Зайдите на свою почту указанную при регистрации"
+msgstr "Go to your e-mail specified at registration"
+
+#: .\informer\templates\password_reset\reset_sent.html:48
+msgid "Нажмите на ссылку в сообщении"
+msgstr "Click on the link in the message"
+
+#: .\informer\templates\password_reset\reset_sent.html:57
+msgid "Следуйте дальнейщим инструкциям"
+msgstr "Follow the instructions"
+
+#: .\informer\templates\password_reset\reset_sent.html:59
+msgid "Мы рады что вы помните о нас!"
+msgstr "We are glad that you remember about us!"
+
+#. Translators: Эта форма появляется после успешной активации аккаунта
+#: .\informer\templates\registration\activation_complete.html:12
+msgid "Активация"
+msgstr "Activation"
+
+#: .\informer\templates\registration\activation_complete.html:41
+msgid "Ваша учетная запись активирована!"
+msgstr "Your account is now active!"
+
+#: .\informer\templates\registration\activation_complete.html:50
+msgid "Теперь вы можете зайти на сайт."
+msgstr "Now you can go to the site."
+
+#: .\informer\templates\registration\login.html:12
+msgid "Войдите что бы воспользоваться нашим сервисом"
+msgstr "Sign that would use our service"
+
+#: .\informer\templates\registration\login.html:14
+msgid "Вход в систему"
+msgstr "Member login"
+
+#: .\informer\templates\registration\login.html:28
+#, python-format
+msgid "Что такое, %(user)s? Вы же уже авторизованы."
+msgstr "What happened, %(user)s? You are already logged in."
+
+#: .\informer\templates\registration\login.html:35
+msgid ""
+"Пожалуйста, введите правильное имя пользователя и пароль. Учтите что оба "
+"поля могут быть чувствительны к регистру."
+msgstr ""
+"Please enter a correct username and password. Note that both fields may be "
+"case-sensitive."
+
+#: .\informer\templates\registration\login.html:48
+#: .\informer\templates\registration\registration_form.html:35
+msgid "Имя пользователя"
+msgstr "Username"
+
+#: .\informer\templates\registration\login.html:51
+#: .\informer\templates\registration\registration_form.html:45
+msgid "Пароль"
+msgstr "Your password"
+
+#: .\informer\templates\registration\login.html:54
+msgid "Ваш логин"
+msgstr "Username"
+
+#: .\informer\templates\registration\login.html:57
+msgid "Ваш пароль"
+msgstr "Your password"
+
+#: .\informer\templates\registration\login.html:70
+msgid "Надо вспомнить пароль?"
+msgstr "It is necessary to remember the password?"
+
+#: .\informer\templates\registration\login.html:80
+msgid "Вход в аккаунт"
+msgstr "Member login"
+
+#: .\informer\templates\registration\login.html:90
+msgid "Введите имя пользователя и пароль"
+msgstr "Enter username and password"
+
+#: .\informer\templates\registration\login.html:93
+msgid "Логин чувствителен к регистру и пароль тоже."
+msgstr "Login is case sensitive and password too."
+
+#: .\informer\templates\registration\login.html:102
+msgid "Нажмите кнопку [Войти в сервис]"
+msgstr "Click [Login to the service]"
+
+#: .\informer\templates\registration\login.html:104
+msgid "После авторизации можно начать управлять информерами."
+msgstr "After authorization you can begin to manage informers."
+
+#: .\informer\templates\registration\login.html:114
+msgid "Вход уже произведен"
+msgstr "Member login"
+
+#: .\informer\templates\registration\login.html:123
+#, fuzzy
+#| msgid "Вы уже авторизированы в ситеме"
+msgid "Вы уже авторизированы в системе"
+msgstr "You are already logged in"
+
+#: .\informer\templates\registration\login.html:125
+msgid "Пользуйтесь сервисом пожалуйста."
+msgstr "Use the service please."
+
+#: .\informer\templates\registration\logout.html:5
+msgid "Выход"
+msgstr "Logout"
+
+#: .\informer\templates\registration\logout.html:6
+msgid "Спасибо, что были с нами. Ждем вас снова."
+msgstr "Thank you for being with us. We are waiting for you again."
+
+#: .\informer\templates\registration\registration_closed.html:11
+msgid "Регистрация отключена"
+msgstr "Registration is disabled"
+
+#: .\informer\templates\registration\registration_closed.html:40
+msgid "Извините, но рагистрация новых пользователей временно отключена!"
+msgstr "Sorry, but the registration of new users is temporarily disabled!"
+
+#: .\informer\templates\registration\registration_closed.html:49
+msgid "Если вы уже регистрировались раньше, можете войти."
+msgstr "If you have already registered before, you can enter."
+
+#: .\informer\templates\registration\registration_complete.html:11
+msgid "Регистрация завершена"
+msgstr "Registration is completed"
+
+#: .\informer\templates\registration\registration_complete.html:50
+msgid ""
+"\n"
+"                                Спасибо за уделённое время. На ваш e-mail "
+"отправлен \n"
+"                                код подтверждения. Необходимо подтвердить "
+"регистрацию, \n"
+"                                просто кликнув по указанной ссылке.\n"
+"\t\t\t\t\t\t\t\t\t\t"
+msgstr ""
+"\n"
+"Thank you for your time. In your e-mail has been sent\n"
+"confirmation code. You must confirm registration,\n"
+"simply by clicking on the link.\n"
+"\t"
+
+#. Translators: Призыв к пользователю зарегистрироваться в системе
+#: .\informer\templates\registration\registration_form.html:13
+msgid "Зарегистрируйтесь для использования сервиса"
+msgstr "Register to use the service"
+
+#: .\informer\templates\registration\registration_form.html:41
+msgid "Введите Email"
+msgstr "Enter email"
+
+#: .\informer\templates\registration\registration_form.html:46
+msgid "Введите пароль"
+msgstr "Enter password"
+
+#: .\informer\templates\registration\registration_form.html:62
+msgid "с правилами использования"
+msgstr "with terms and conditions"
+
+#: .\informer\templates\registration\registration_form.html:72
+msgid ""
+"Разрешается до 30 символов, в том числе буквы, цифры и знаки [@][+][-][.]"
+msgstr ""
+"Permission is granted up to 30 characters, including letters, numbers and "
+"signs [@] [+] [-] [.]"
+
+#: .\informer\templates\registration\registration_form.html:75
+msgid "Адрес электронной почты Email"
+msgstr "Email"
+
+#: .\informer\templates\registration\registration_form.html:78
+msgid "Придумайте пароль"
+msgstr "Come up with a new password"
+
+#: .\informer\templates\registration\registration_form.html:81
+msgid "Подтвердите пароль еще раз для верности"
+msgstr "Confirm password once again for correctness"
+
+#. Translators: Пользователь может всмпонить что уже регистрироваля, но не помнит пароль
+#: .\informer\templates\registration\registration_form.html:95
+msgid "Уже регистрировались?"
+msgstr "Already registered?"
+
+#: .\informer\templates\registration\registration_form.html:95
+msgid "Вспомнить пароль"
+msgstr "Remember password"
+
+#. Translators: Пользователь может всмпонить что уже регистрироваля и даже помнит свой пароль
+#: .\informer\templates\registration\registration_form.html:97
+msgid "Если помните логин и пароль, можете"
+msgstr "If you remember your login and password, you can"
+
+#. Translators: Пользователю объясняют преимущества регистрации
+#: .\informer\templates\registration\registration_form.html:107
+msgid "Что мне даст регистрация?"
+msgstr "What I get from registration?"
+
+#: .\informer\templates\registration\registration_form.html:116
+msgid "Возможность создавать информеры"
+msgstr "The ability to create informers"
+
+#: .\informer\templates\registration\registration_form.html:118
+msgid ""
+"Вы сможете создавать свои динамические информеры используя их в различных "
+"сферах своей жизни."
+msgstr ""
+"You can create your own dynamic widgets using them in different areas of "
+"their lives."
+
+#: .\informer\templates\registration\registration_form.html:127
+msgid "Получать статистику по информерам"
+msgstr "Get statistics informers"
+
+#: .\informer\templates\registration\registration_form.html:129
+msgid ""
+"Статистику количество показов в том числе уникальных, а также регион где был "
+"показан информер."
+msgstr ""
+"The statistics of the number of hits, including the unique, and the region "
+"where it was shown informer."
+
+#: .\informer\templates\registration\registration_form.html:138
+msgid "Получать лайки и комментарии."
+msgstr "Get like and comments."
+
+#: .\informer\templates\registration\registration_form.html:140
+msgid ""
+"Если захотите, то будете получать лайки за ваш информер и комментарии к нему."
+msgstr "If you want, you will receive liks for your widget and comments."
+
+#: .\informer\templates\registration\registration_form.html:149
+msgid "Хотите больше возможностей?"
+msgstr "Want more options?"
+
+#: .\informer\templates\registration\registration_form.html:151
+msgid "Узнать о всех возможностях можно кликнув по ссылке"
+msgstr "Learn about all the opportunities you can by clicking on the link"
+
+#: .\informer\views.py:122
+#, fuzzy
+#| msgid "Ваш пароль успешно изменен!"
+msgid "Профиль успешно обновлен."
+msgstr "Your password was successfully changed!"
+
+#~ msgid "Перевод"
+#~ msgstr "Language"

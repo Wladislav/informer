@@ -1,0 +1,61 @@
+{% extends "informer\base.html" %}
+{% load compress %}
+{% load i18n %}
+{% block content %}
+     <!-- =-=-=-=-=-=-= Transparent Breadcrumb =-=-=-=-=-=-= -->
+      <div class="page-header-area">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="header-page">
+                     <h1>{% trans 'Регистрация отключена' %}</h1>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- =-=-=-=-=-=-= Main Content Area =-=-=-=-=-=-= -->
+      <div class="main-content-area clearfix">
+         <!-- =-=-=-=-=-=-= Latest Ads =-=-=-=-=-=-= -->
+         <section class="section-padding error-page pattern-bg">
+            <!-- Main Container -->
+            <div class="container">
+               <!-- Row -->
+               <div class="row">
+                  <!-- Middle Content Area -->
+                  <div class="col-md-5 col-md-push-7 col-sm-6 col-xs-12">
+                     <!--  Form -->
+                     <div class="form-grid">
+                        <form action="{% url 'login' %}">
+                           <div class="fieldset">
+                               <button class="btn btn-theme btn-lg ">{% trans 'Войти в сервис' %}</button>
+                           </div>
+                        </form>
+                     </div>
+                     <!-- Form -->
+                  </div>
+                  <div class="col-md-7  col-md-pull-5  col-xs-12 col-sm-6">
+                     <div class="heading-panel">
+                        <h3 class="main-title text-left">
+                           {% trans 'Извините, но рагистрация новых пользователей временно отключена!' %}   
+                        </h3>
+                     </div>
+                     <div class="content-info">
+                        <div class="features">
+                           <div class="features-icons">
+                              <img src="/static/images/icons/attentions.png" alt="img">
+                           </div>
+                           <div class="features-text">
+                              <h3>{% trans 'Если вы уже регистрировались раньше, можете войти.' %}</h3>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Middle Content Area  End -->
+               </div>
+               <!-- Row End -->
+            </div>
+            <!-- Main Container End -->
+         </section>
+	</div>
+{% endblock %}

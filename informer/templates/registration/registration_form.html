@@ -1,0 +1,163 @@
+{% extends "informer\base.html" %}
+{% load compress %}
+{% load i18n %}
+<!--/{% load staticfiles %/}-->
+{% block content %}
+      <!-- =-=-=-=-=-=-= Transparent Breadcrumb =-=-=-=-=-=-= -->
+      <div class="page-header-area">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="header-page">
+                     {# Translators: Призыв к пользователю зарегистрироваться в системе #}
+                     <h1>{% trans 'Зарегистрируйтесь для использования сервиса' %}</h1>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   <section class="section-padding error-page pattern-bg ">
+    <!-- Main Container -->
+    <div class="container">
+       <!-- Row -->
+       <div class="row">
+          <!-- Middle Content Area -->
+          <div class="col-md-5 col-md-push-7 col-sm-12 col-xs-12">
+             <!--  Form --><!--<input id="id_username" name="username" placeholder="Имя пользователя" class="form-control" type="text">-->
+             <div class="form-grid ad-archive-desc box-shadow" >
+                <form method="post" action="">
+                  {% csrf_token %}
+                  {% for field in form %}
+                   <div class="form-group ">
+                        {% if field.name != 'tos' %}
+                           {# Translators: Пользователь при регистрации должен в поле ввести свое имя #}
+                           {% if field.name == 'username' %}
+                              <label for="id_username">{% trans 'Имя пользователя' %}:</label>
+                              <input name="username" placeholder="{% trans 'Введите имя' %}" class="form-control" type="text">
+                           {% endif %}
+                           {# Translators: Пользователь при регистрации должен в поле ввести свой Email #}
+                           {% if field.name == 'email' %}
+                              <label for="id_email">{% trans 'Email' %}:</label>
+                              <input name="email" placeholder="{% trans 'Введите Email' %}" class="form-control" type="email">
+                           {% endif %}
+                           {# Translators: Пользователь при регистрации должен в поле ввести пароль #}
+                           {% if field.name == 'password1' %}
+                              <label for="id_password1">{% trans 'Пароль' %}:</label>
+                              <input name="password1" placeholder="{% trans 'Введите пароль' %}" class="form-control" type="password">
+                           {% endif %}
+                           {# Translators: Пользователь при регистрации должен в поле ввести подтверждение пароля #}
+                           {% if field.name == 'password2' %}
+                              <label for="id_password2">{% trans 'Подтверждение пароля' %}:</label>
+                              <input name="password2" placeholder="{% trans 'Подтверждение пароля' %}" class="form-control" type="password">
+                           {% endif %}
+                        {% endif %}
+                        {% if field.name == 'tos' %}
+                        <div class="row">
+                           <div class="col-xs-12 col-sm-12">
+                              <div class="skin-minimal">
+                                 <ul class="list">
+                                    <li>
+                                       <input  name="tos" type="checkbox" id="minimal-checkbox-1">
+                                       {# Translators: Пользователь при регистрации должен согласится с правилами (галочка) #}
+                                    <label for="minimal-checkbox-1">{% trans 'Согласен' %} <a href="#">{% trans 'с правилами использования' %}</a></label>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                        {% endif %}
+                        {% if field.name != 'tos' %}
+                           {% if field.help_text %}
+                              {% if field.name == 'username' %}
+                                 <div class="clearfix help_text">{% trans 'Разрешается до 30 символов, в том числе буквы, цифры и знаки [@][+][-][.]' %}</div>
+                              {% endif %}
+                              {% if field.name == 'email' %}
+                                 <div class="clearfix help_text">{% trans 'Адрес электронной почты Email' %}</div>
+                              {% endif %}
+                              {% if field.name == 'password1' %}
+                                 <div class="clearfix help_text">{% trans 'Придумайте пароль' %}</div>
+                              {% endif %}
+                              {% if field.name == 'password2' %}
+                                 <div class="clearfix help_text">{% trans 'Подтвердите пароль еще раз для верности' %}</div>
+                              {% endif %}
+                           {% endif %}
+                           {% if field.errors %}
+                              <div class="myerrors clearfix help_text">{{ field.errors }}</div>
+                           {% endif %}
+                        {% endif %}
+                   </div>
+                  {% endfor %}
+                  {# Translators: Пользователь при регистрации должен нажать кнопку Зарегистрироваться #}
+                  <input type="submit" value="{% trans 'Зарегистрироваться' %}" class="btn btn-theme btn-lg btn-block">
+                </form>
+                     <div class="button-bottom-help">
+                     {# Translators: Пользователь может всмпонить что уже регистрироваля, но не помнит пароль #}
+                     <p class="help-block">{% trans 'Уже регистрировались?' %} <a href="{% url 'password_reset_recover' %}">{% trans 'Вспомнить пароль' %}</a></p>
+                     {# Translators: Пользователь может всмпонить что уже регистрироваля и даже помнит свой пароль #}
+                    <p class="help-block">{% trans 'Если помните логин и пароль, можете' %} <a href="{% url 'login' %}">{% trans 'Войти' %}</a></p>
+                    </div>
+             </div>
+             <!-- Form -->
+          </div>
+         
+          <div class="col-md-7  col-md-pull-5  col-sm-12 col-xs-12">
+             <div class="heading-panel">
+                <h3 class="main-title text-left">
+                  {# Translators: Пользователю объясняют преимущества регистрации #}
+                  {% trans 'Что мне даст регистрация?' %}  
+                </h3>
+             </div>
+             <div class="content-info">
+                <div class="features">
+                   <div class="features-icons">
+                      <img src="/static/images/icons/respass_st1.png" alt="img">
+                   </div>
+                   <div class="features-text">
+                      <h3>{% trans 'Возможность создавать информеры' %}</h3>
+                      <p>
+                         {% trans 'Вы сможете создавать свои динамические информеры используя их в различных сферах своей жизни.' %}
+                      </p>
+                   </div>
+                </div>
+                <div class="features">
+                   <div class="features-icons">
+                      <img src="/static/images/icons/respass_st2.png" alt="img">
+                   </div>
+                   <div class="features-text">
+                      <h3>{% trans 'Получать статистику по информерам' %}</h3>
+                      <p>
+                         {% trans 'Статистику количество показов в том числе уникальных, а также регион где был показан информер.' %}
+                      </p>
+                   </div>
+                </div>
+                <div class="features">
+                   <div class="features-icons">
+                      <img src="/static/images/icons/respass_st3.png" alt="img">
+                   </div>
+                   <div class="features-text">
+                      <h3>{% trans 'Получать лайки и комментарии.' %}</h3>
+                      <p>
+                         {% trans 'Если захотите, то будете получать лайки за ваш информер и комментарии к нему.' %}
+                      </p>
+                   </div>
+                </div>
+                <div class="features">
+                   <div class="features-icons">
+                      <img src="/static/images/icons/respass_st4.png" alt="img">
+                   </div>
+                   <div class="features-text">
+                      <h3>{% trans 'Хотите больше возможностей?' %}</h3>
+                      <p>
+                         {% trans 'Узнать о всех возможностях можно кликнув по ссылке' %} <a href="{% url 'index' %}">НЕ ТУДА</a>
+                      </p>
+                   </div>
+                </div>
+             </div>
+          </div>
+          <!-- Middle Content Area  End -->
+       </div>
+       <!-- Row End -->
+    </div>
+    <!-- Main Container End -->
+    </section>
+    {% endblock %}

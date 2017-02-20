@@ -1,0 +1,146 @@
+ h1 a {
+        color: #FCA205;
+    }
+    
+p.user-trumb {
+    padding-top: 25px;
+}
+
+img#id_user-trumb {
+    float: left;
+}
+
+label.label-user-trumb {
+    display: block;
+}
+
+.btn-profile-save {
+    padding-top: 25px;
+}
+
+.select2-container--default .select2-selection--single {
+    height: 38px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 38px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 38px; 
+}
+
+.alert .close {
+   top: 2px;
+}
+
+.alert {
+    background-clip: padding-box;
+    border: 0 none;
+    border-radius: 0;
+    color: #fff;
+    margin-bottom: 0px;
+    padding: 10px 10px 10px 45px;
+    position: relative;
+}
+
+.alert::after {
+    content: "";
+    font-family: FontAwesome;
+    font-size: 1.6rem;
+    left: 15px;
+    position: absolute;
+    top: 10px;
+}
+
+.form-grid {
+    /*box-shadow: 0 2px 2px #ccc;*/
+    padding: 30px;
+}
+
+.form-grid-profile {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.box-shadow {
+    box-shadow: 0 2px 2px #ccc;
+}
+
+.btn-sm {
+    padding: 15px 16px;
+    font-size: 12px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.blog-post {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #f1f1f1;
+    color: #162532;
+    margin-bottom: 30px;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+}
+
+.custom-padding {
+    padding: 40px 0 60px 0;
+}
+
+.search-form-control {
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    box-shadow: none;
+    color: #555;
+    font-size: 14px;
+    height: auto;
+    padding: 15px 12px;
+    transition: all 0.2s cubic-bezier(0, 0, 0.58, 1) 0s;
+    display: block;
+    width: 100%;
+    line-height: 1.42857143;
+    font-family: inherit;    
+}
+
+.parallex .section-title {
+    color: #fff;
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.footer-area .footer-content {
+    padding: 70px 0 0px;
+
+}
+
+.footer-area::before {
+    background: rgba(25, 25, 25, 0.8) none repeat scroll 0 0;
+}
+
+.footer-widget .widget-newsletter .fieldset form input[type="text"] {
+	border: medium none;
+	color: #999;
+	font-size: 16px;
+	height: 48px;
+	padding: 0 15px;
+	width: 100%;
+}
+
+.leftstr {
+    float: left;
+    padding-right: 15px;
+    color: #f58936;
+}
+
+ul.category-list-style li a {
+    font-size: 16px;
+}
