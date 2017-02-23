@@ -277,7 +277,7 @@ msgstr "DOWNLOAD THE APP"
 
 #: .\informer\templates\informer\index.html:153
 msgid "ПОД ВАШУ ПЛАТФОРМУ"
-msgstr "FORr YOUR PLATFORM"
+msgstr "FOR YOUR PLATFORM"
 
 #: .\informer\templates\informer\index.html:163
 #: .\informer\templates\informer\index.html:175
