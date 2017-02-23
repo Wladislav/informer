@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-19 03:49+0300\n"
+"POT-Creation-Date: 2017-02-23 16:10+0300\n"
 "PO-Revision-Date: 2017-02-08 02:35+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -29,15 +29,15 @@ msgstr "Username"
 
 #: .\informer\models.py:10
 msgid "Высота (px)"
-msgstr ""
+msgstr "Height"
 
 #: .\informer\models.py:11
 msgid "Ширина (px)"
-msgstr ""
+msgstr "Width"
 
 #: .\informer\models.py:12
 msgid "Фотография"
-msgstr ""
+msgstr "Avatar"
 
 #: .\informer\models.py:13 .\informer\templates\informer\userprofile.html.py:32
 #: .\informer\templates\informer\userprofile.html:33
@@ -111,10 +111,8 @@ msgid "Мой профиль"
 msgstr "My profile"
 
 #: .\informer\templates\informer\base.html:125
-#, fuzzy
-#| msgid "Зарегистрироваться"
 msgid "Администрировать"
-msgstr "Sign up"
+msgstr "Administrate"
 
 #. Translators: Пользователь покидает сайт (logout)
 #: .\informer\templates\informer\base.html:128
@@ -124,50 +122,184 @@ msgid "Выйти"
 msgstr "Logout"
 
 #. Translators: Это страницы сайта
-#: .\informer\templates\informer\base.html:162
+#: .\informer\templates\informer\base.html:161
 msgid "Страницы"
 msgstr "Pages"
 
 #. Translators: Переход на главную страницу сайта
-#: .\informer\templates\informer\base.html:166
+#: .\informer\templates\informer\base.html:165
 msgid "На главную"
 msgstr "Home"
 
 #. Translators: Переход на страницу с контактной информацией владельца сайта
-#: .\informer\templates\informer\base.html:175
+#: .\informer\templates\informer\base.html:174
 msgid "Контакты"
 msgstr "Contacts"
 
-#. Translators: Ссылки на социальные сети где представлен wisemarker
-#: .\informer\templates\informer\base.html:246
-msgid "МЫ В СЕТИ"
-msgstr "Social"
-
 #. Translators: Форма ввода почты пользователя для подписки на новости
-#: .\informer\templates\informer\base.html:260
+#: .\informer\templates\informer\base.html:258
+#: .\informer\templates\informer\footer.html:45
 msgid "Подписаться на новости по почте"
 msgstr "Subscribe to news by e-mail"
 
 #: .\informer\templates\informer\base.html:262
+#: .\informer\templates\informer\footer.html:47
 msgid ""
 "Мы будем отправлять Вам информацию о событиях и интересных информерах, "
 "которые создают пользователи."
 msgstr "We will send you information about events and interesting informers"
 
 #: .\informer\templates\informer\base.html:264
+#: .\informer\templates\informer\footer.html:49
 msgid "Введите ваш почтовый адрес"
 msgstr "Enter email"
 
 #. Translators: Пользователь при регистрации должен согласится с правилами (галочка)
 #: .\informer\templates\informer\base.html:265
+#: .\informer\templates\informer\footer.html:50
 #: .\informer\templates\registration\registration_form.html:62
 msgid "Согласен"
 msgstr "Agree"
 
 #. Translators: Подвал сайта, копирайтинг и слово Дизайн = внешний вид
-#: .\informer\templates\informer\base.html:282
+#: .\informer\templates\informer\base.html:283
+#: .\informer\templates\informer\footer.html:66
 msgid "Все права защищены. Дизайн"
 msgstr "All rights reserved. Design by "
+
+#. Translators: Ссылки на социальные сети где представлен wisemarker
+#: .\informer\templates\informer\footer.html:31
+msgid "МЫ В СЕТИ"
+msgstr "Social"
+
+#: .\informer\templates\informer\index.html:23
+msgid "Создайте свой"
+msgstr "Create your own"
+
+#: .\informer\templates\informer\index.html:23
+msgid "информер"
+msgstr "informer"
+
+#: .\informer\templates\informer\index.html:23
+msgid "уже сейчас"
+msgstr "now"
+
+#: .\informer\templates\informer\index.html:25
+msgid "Выберите тему информера и напишите свой текст в готовом шаблоне"
+msgstr "Choose a theme informer and write your text in the template ready"
+
+#: .\informer\templates\informer\index.html:35
+msgid "Визитная карточка"
+msgstr "Visiting card"
+
+#: .\informer\templates\informer\index.html:35
+#: .\informer\templates\informer\index.html:41
+#: .\informer\templates\informer\index.html:47
+#: .\informer\templates\informer\index.html:53
+#: .\informer\templates\informer\index.html:59
+#: .\informer\templates\informer\index.html:65
+#: .\informer\templates\informer\index.html:71
+#: .\informer\templates\informer\index.html:77
+#: .\informer\templates\informer\index.html:82
+#: .\informer\templates\informer\index.html:88
+#: .\informer\templates\informer\index.html:94
+#: .\informer\templates\informer\index.html:100
+#: .\informer\templates\informer\index.html:105
+#: .\informer\templates\informer\index.html:111
+#: .\informer\templates\informer\index.html:117
+#: .\informer\templates\informer\index.html:123
+msgid "Уже создано"
+msgstr "already created"
+
+#: .\informer\templates\informer\index.html:41
+msgid "Поздравительная открытка"
+msgstr "Greeting card"
+
+#: .\informer\templates\informer\index.html:47
+msgid "Приглашение на событие"
+msgstr "Invitation to the event"
+
+#: .\informer\templates\informer\index.html:53
+msgid "Тематическая статья"
+msgstr ""
+
+#: .\informer\templates\informer\index.html:59
+msgid "Карточка товара"
+msgstr "Feature article"
+
+#: .\informer\templates\informer\index.html:65
+msgid "Карточка услуги"
+msgstr "Card services"
+
+#: .\informer\templates\informer\index.html:71
+msgid "Ссылка в интеренете"
+msgstr "Related Links"
+
+#: .\informer\templates\informer\index.html:77
+msgid "Аудио плей-лист"
+msgstr "Audio playlist"
+
+#: .\informer\templates\informer\index.html:82
+msgid "Галерея фотографий"
+msgstr "Photo gallery"
+
+#: .\informer\templates\informer\index.html:88
+msgid "Скидочный купон"
+msgstr "Discount coupon"
+
+#: .\informer\templates\informer\index.html:94
+msgid "Абонемент на что-нибудь"
+msgstr "Subscribe to something"
+
+#: .\informer\templates\informer\index.html:100
+msgid "Видео ролик, фильм"
+msgstr "Video clip or movie"
+
+#: .\informer\templates\informer\index.html:105
+msgid "2D или 3D модель"
+msgstr "2D or 3D model"
+
+#: .\informer\templates\informer\index.html:111
+msgid "Меню - кафе, рестораны"
+msgstr "Menu - cafes, restaurants"
+
+#: .\informer\templates\informer\index.html:117
+msgid "Электронное письмо"
+msgstr "Any Email"
+
+#: .\informer\templates\informer\index.html:123
+msgid "TV канал в интернете"
+msgstr "TV channel on the Internet"
+
+#: .\informer\templates\informer\index.html:151
+msgid "СКАЧАЙТЕ ПРИЛОЖЕНИЕ"
+msgstr "DOWNLOAD THE APP"
+
+#: .\informer\templates\informer\index.html:153
+msgid "ПОД ВАШУ ПЛАТФОРМУ"
+msgstr "FORr YOUR PLATFORM"
+
+#: .\informer\templates\informer\index.html:163
+#: .\informer\templates\informer\index.html:175
+#: .\informer\templates\informer\index.html:187
+msgid "Загрузить из"
+msgstr "Download from"
+
+#: .\informer\templates\informer\index.html:214
+msgid "Последние новости в"
+msgstr "Latest news in"
+
+#: .\informer\templates\informer\index.html:214
+msgid "Блоге"
+msgstr "Blog"
+
+#: .\informer\templates\informer\index.html:216
+msgid ""
+"В блоге информеров мы делимся с новыми возможностями, а также используем "
+"блог как обратную связь с клиентами нашего сервиса"
+msgstr ""
+"The Informer blog we share with new features, as well as use"
+"Blog as a customer feedback of our service"
 
 #: .\informer\templates\informer\userprofile.html:79
 msgid "Фото"
@@ -207,15 +339,19 @@ msgstr "Email"
 msgid "email"
 msgstr "email"
 
-#: .\informer\templates\informer\userprofile.html:136
+#: .\informer\templates\informer\userprofile.html:139
+msgid "Сохранить"
+msgstr "Save"
+
+#: .\informer\templates\informer\userprofile.html:152
 #, fuzzy
 #| msgid "Сохранить"
 msgid "Сохранено"
 msgstr "Save"
 
-#: .\informer\templates\informer\userprofile.html:148
-msgid "Сохранить"
-msgstr "Save"
+#: .\informer\templates\informer\userprofile.html:164
+msgid "Сохранить мою информацию"
+msgstr "Save my profile"
 
 #. Translators: Сообщение об успешно утановленном пароле
 #: .\informer\templates\password_reset\recovery_done.html:12
@@ -449,7 +585,9 @@ msgid "Теперь вы можете зайти на сайт."
 msgstr "Now you can go to the site."
 
 #: .\informer\templates\registration\login.html:12
-msgid "Войдите что бы воспользоваться нашим сервисом"
+#, fuzzy
+#| msgid "Войдите что бы воспользоваться нашим сервисом"
+msgid "Войдите что бы воспользоваться сервисом"
 msgstr "Sign that would use our service"
 
 #: .\informer\templates\registration\login.html:14
@@ -661,7 +799,7 @@ msgstr "Want more options?"
 msgid "Узнать о всех возможностях можно кликнув по ссылке"
 msgstr "Learn about all the opportunities you can by clicking on the link"
 
-#: .\informer\views.py:122
+#: .\informer\views.py:139
 #, fuzzy
 #| msgid "Ваш пароль успешно изменен!"
 msgid "Профиль успешно обновлен."
