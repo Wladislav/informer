@@ -147,7 +147,7 @@
                         <ul class="menu-logo">
                            <li>
                               {% if LANGUAGE_CODE == 'ru' %}
-                                 <a href="/{{LANGUAGE_CODE}}"><img src="/static/images/logo.png" alt="logo"> </a>
+                                 <a href="/{{LANGUAGE_CODE}}"><img src="/static/images/logo_ru.png" alt="logo"> </a>
                               {% else %}
                                  <a href="/{{LANGUAGE_CODE}}"><img src="/static/images/logo_en.png" alt="logo"> </a>
                               {% endif %}
@@ -212,15 +212,20 @@
                            <div class="col-lg-7 col-sm-6 col-xs-12 column">
                               <div class="footer-widget about-widget">
                                  <div class="logo">
-                                    <a href="index.html"><img alt="" class="img-responsive" src="/static/images/logo-1.png"></a>
+                                    {% if LANGUAGE_CODE == 'ru' %}
+                                       <a href="/{{LANGUAGE_CODE}}"><img src="/static/images/logo-1_ru.png" class="img-responsive" alt="logo"> </a>
+                                    {% else %}
+                                       <a href="/{{LANGUAGE_CODE}}"><img src="/static/images/logo-1_en.png" class="img-responsive" alt="logo"> </a>
+                                    {% endif %}                                    
+                                    <!--<a href="index.html"><img alt="" class="img-responsive" src="/static/images/logo-1.png"></a>-->
                                  </div>
                                  <div class="text">
-                                    <p>Платформа: Python3 + Django</p>
+                                    <p>{% trans 'Платформа: Python3 + Django' %}</p>
                                  </div>
                                  <ul class="contact-info">
-                                    <li><span class="icon fa fa-map-marker"></span> ул. Яснополянская 13, г. Краснодар</li>
-                                    <li><span class="icon fa fa-phone"></span> +7(988) 411 20 77</li>
-                                    <li><span class="icon fa fa-envelope-o"></span> wisemarker@adminstration.com</li>
+                                    <li><span class="icon fa fa-map-marker"></span>{% trans 'ул. Яснополянская 13, г. Краснодар' %}</li>
+                                    <li><span class="icon fa fa-phone"></span>+7(988) 411 20 77</li>
+                                    <li><span class="icon fa fa-envelope-o"></span>wisemarker@adminstration.com</li>
                                     <!--<li><span class="icon fa fa-fax"></span> +7(988) 411 20 77</li>-->
                                  </ul>
                                  <div class="social-links-two clearfix"> 
@@ -235,7 +240,8 @@
                            <!--Footer Column-->
                            <div class="col-lg-5 col-sm-6 col-xs-12 column">
                               <div class="heading-panel">
-                                 <h3 class="main-title text-left">Приложения</h3>
+                                 {# Translators: Подвал сайта, краткий список приложений #}
+                                 <h3 class="main-title text-left">{% trans 'Приложения' %}</h3>
                               </div>
                               <div class="footer-widget links-widget">
                                  <ul>
