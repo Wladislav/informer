@@ -8,6 +8,7 @@ https://docs.djangoproject.com/en/1.9/topics/settings/
 import os
 from django.utils.translation import ugettext_lazy as _
 
+
 LANGUAGES = (
     ('ru', _('Russin')),
     ('en', _('English')),
@@ -60,6 +61,8 @@ INSTALLED_APPS = [
     'registration',
     'password_reset',
     'compressor',
+    #debugg
+    'dbgp',
 ]
 
 MIDDLEWARE_CLASSES = [

@@ -107,7 +107,6 @@ def user_profile(request):
                                                  fields=('user', 'photo', 'website', 'bio', 'phone', 'city', 'country', 'language'),)
                                                  #widgets = {'language':forms.Select(choices=settings.LANGUAGES)})
     formset_adds = ProfileInlineFormset(instance=user)
-
     if request.user.is_authenticated() and request.user.id == user.id:
         if request.method == "POST":
             formusr_main = DjangoProfileInlineFormset(request.POST, instance=user)
