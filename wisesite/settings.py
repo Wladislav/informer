@@ -62,7 +62,8 @@ INSTALLED_APPS = [
     'password_reset',
     'compressor',
     #debugg
-    'dbgp',
+    #'dbgp',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -75,6 +76,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'wisesite.urls'
@@ -159,3 +161,5 @@ LOCALE_PATHS = (
 COMPRESS_ENABLED = False
 COMPRESS_OFFLINE = True
 COMPRESS_OUTPUT_DIR = 'cache'
+
+INTERNAL_IPS = '127.0.0.1'

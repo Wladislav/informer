@@ -27,6 +27,24 @@ from django.template.response import TemplateResponse
 from django.utils.http import is_safe_url, urlsafe_base64_decode
 from django.shortcuts import resolve_url
 from django.core.exceptions import ObjectDoesNotExist
+import logging
+
+logger = logging.getLogger('informer_views')
+logger.setLevel(logging.DEBUG)
+# create file handler which logs even debug messages
+fh = logging.FileHandler('spam.log')
+fh.setLevel(logging.DEBUG)
+# create console handler with a higher log level
+ch = logging.StreamHandler()
+ch.setLevel(logging.ERROR)
+# create formatter and add it to the handlers
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+ch.setFormatter(formatter)
+fh.setFormatter(formatter)
+# add the handlers to logger
+logger.addHandler(ch)
+logger.addHandler(fh)
+#logging.info(LOGIN_REDIRECT_URL)
 
 def login_handler(sender, request, **kwargs):
     user = request.user
@@ -55,10 +73,10 @@ def login_user(request, template_name='registration/login.html',
             LOGIN_REDIRECT_URL = settings.LOGIN_REDIRECT_URL
             try:
                 user_profile = UserProfile.objects.get(pk=user.id)
-                LOGIN_REDIRECT_URL = "/%s" % user_profile.language
+                LOGIN_REDIRECT_URL = '/%s/' % user_profile.language
                 request.session[LANGUAGE_SESSION_KEY] = user_profile.language                
             except (ObjectDoesNotExist, UserProfile.DoesNotExist):
-                LOGIN_REDIRECT_URL = '/accounts/profile'
+                LOGIN_REDIRECT_URL = '%s/accounts/profile/' % user_profile.language
             # Ensure the user-originating redirection url is safe.
             if not is_safe_url(url=redirect_to, host=request.get_host()):
                 redirect_to = resolve_url(LOGIN_REDIRECT_URL)
@@ -119,7 +137,8 @@ def user_profile(request):
                 formusr_main.save()
             if fsv and fuv:
                 messages.success(request, _('Профиль успешно обновлен.')) #Profile details updated.
-            return HttpResponseRedirect('/accounts/profile/')
+                logger.debug('Fine!')
+            #return HttpResponseRedirect('/accounts/profile/')
 
         return render(request, "informer/userprofile.html", {
             "user": {'first_name':user.first_name,
