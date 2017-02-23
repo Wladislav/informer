@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-23 17:23+0300\n"
+"POT-Creation-Date: 2017-02-23 17:44+0300\n"
 "PO-Revision-Date: 2017-02-08 02:35+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -145,37 +145,37 @@ msgid "ул. Яснополянская 13, г. Краснодар"
 msgstr "str. Yasnopolyanskaya 13, Krasnodar"
 
 #. Translators: Подвал сайта, краткий список приложений
-#: .\informer\templates\informer\base.html:244
+#: .\informer\templates\informer\base.html:243
 msgid "Приложения"
 msgstr "Mobile APP"
 
 #. Translators: Форма ввода почты пользователя для подписки на новости
-#: .\informer\templates\informer\base.html:264
+#: .\informer\templates\informer\base.html:263
 #: .\informer\templates\informer\footer.html:45
 msgid "Подписаться на новости по почте"
 msgstr "Subscribe to news by e-mail"
 
-#: .\informer\templates\informer\base.html:268
+#: .\informer\templates\informer\base.html:267
 #: .\informer\templates\informer\footer.html:47
 msgid ""
 "Мы будем отправлять Вам информацию о событиях и интересных информерах, "
 "которые создают пользователи."
 msgstr "We will send you information about events and interesting informers"
 
-#: .\informer\templates\informer\base.html:270
+#: .\informer\templates\informer\base.html:269
 #: .\informer\templates\informer\footer.html:49
 msgid "Введите ваш почтовый адрес"
 msgstr "Enter email"
 
 #. Translators: Пользователь при регистрации должен согласится с правилами (галочка)
-#: .\informer\templates\informer\base.html:271
+#: .\informer\templates\informer\base.html:270
 #: .\informer\templates\informer\footer.html:50
 #: .\informer\templates\registration\registration_form.html:62
 msgid "Согласен"
 msgstr "Agree"
 
 #. Translators: Подвал сайта, копирайтинг и слово Дизайн = внешний вид
-#: .\informer\templates\informer\base.html:289
+#: .\informer\templates\informer\base.html:288
 #: .\informer\templates\informer\footer.html:66
 msgid "Все права защищены. Дизайн"
 msgstr "All rights reserved. Design by "
@@ -234,19 +234,19 @@ msgstr "Invitation to the event"
 
 #: .\informer\templates\informer\index.html:53
 msgid "Тематическая статья"
-msgstr ""
+msgstr "Feature article"
 
 #: .\informer\templates\informer\index.html:59
 msgid "Карточка товара"
-msgstr "Feature article"
+msgstr "Product сard"
 
 #: .\informer\templates\informer\index.html:65
 msgid "Карточка услуги"
-msgstr "Card services"
+msgstr "Service card"
 
 #: .\informer\templates\informer\index.html:71
 msgid "Ссылка в интеренете"
-msgstr "Related Links"
+msgstr "Related links"
 
 #: .\informer\templates\informer\index.html:77
 msgid "Аудио плей-лист"
@@ -305,6 +305,10 @@ msgstr "Latest news in"
 #: .\informer\templates\informer\index.html:214
 msgid "Блоге"
 msgstr "Blog"
+
+#: .\informer\templates\informer\index.html:214
+msgid "информеров"
+msgstr "informers"
 
 #: .\informer\templates\informer\index.html:216
 msgid ""
