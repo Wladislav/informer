@@ -7,6 +7,7 @@ from django.shortcuts import redirect
 from django.contrib.auth import logout 
 from django.contrib.auth.views import login
 from registration.backends.model_activation.views import RegistrationView
+from password_reset.views import (Reset, ResetDone)
 from django.conf import settings
 from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -15,6 +16,7 @@ from .models import UserProfile
 from django.forms.models import inlineformset_factory
 from django.forms import modelform_factory
 from django.core.exceptions import PermissionDenied
+from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth.signals import user_logged_in, user_logged_out, user_login_failed
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import LANGUAGE_SESSION_KEY
@@ -111,6 +113,10 @@ def index(request):
 
 class newRegistratonView(RegistrationView):
     form_class = RegistrationFormTOSAndEmail
+
+class InformerReset(Reset):
+    success_url = reverse_lazy('recovery_done')
+reset = InformerReset.as_view()
 
 def lang_context_processor(request):
     return {'LANG': request.LANGUAGE_CODE}
