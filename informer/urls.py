@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^accounts/', include('registration.backends.hmac.urls')),
     url('^', include('django.contrib.auth.urls')),
     url(r'^accounts/profile/$', views.user_profile, name='user_profile'),
+    #url(r'^', include('debug_toolbar_htmltidy.urls')),
     #url(r'^accounts/profile/(?P<pk>[\d]+)/$', views.user_profile, name="user_profile"),
 ]
 

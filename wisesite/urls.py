@@ -31,4 +31,5 @@ if settings.DEBUG:
     import debug_toolbar
     urlpatterns += [
         url(r'^debug/', include(debug_toolbar.urls)),
+        url(r'^', include('debug_toolbar_htmltidy.urls')),
     ]

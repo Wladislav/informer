@@ -66,9 +66,10 @@ INSTALLED_APPS = [
     'registration',
     'password_reset',
     'compressor',
-    #debugg
-    #'dbgp',
+
+    #debug apps
     'debug_toolbar',
+    #'debug_toolbar_htmltidy',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -82,6 +83,22 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+]
+
+DEBUG_TOOLBAR_PANELS = [
+    'debug_toolbar.panels.versions.VersionsPanel',
+    'debug_toolbar.panels.timer.TimerPanel',
+    'debug_toolbar.panels.settings.SettingsPanel',
+    'debug_toolbar.panels.headers.HeadersPanel',
+    'debug_toolbar.panels.request.RequestPanel',
+    'debug_toolbar.panels.sql.SQLPanel',
+    'debug_toolbar.panels.staticfiles.StaticFilesPanel',
+    'debug_toolbar.panels.templates.TemplatesPanel',
+    'debug_toolbar.panels.cache.CachePanel',
+    'debug_toolbar.panels.signals.SignalsPanel',
+    'debug_toolbar.panels.logging.LoggingPanel',
+    'debug_toolbar.panels.redirects.RedirectsPanel',
+    #'debug_toolbar_htmltidy.panels.HTMLTidyDebugPanel',    
 ]
 
 ROOT_URLCONF = 'wisesite.urls'
@@ -167,4 +184,4 @@ COMPRESS_ENABLED = False
 COMPRESS_OFFLINE = True
 COMPRESS_OUTPUT_DIR = 'cache'
 
-INTERNAL_IPS = '127.0.0.1'
+INTERNAL_IPS = ('127.0.0.1', 'photocritic.pythonanywhere.com',)
