@@ -7,3 +7,12 @@ db.sqlite3
 MyProject.komodoproject
 .cache
 *.log
+.bashrc
+.joe_state
+.local/
+.profile
+.python_history
+.pythonstartup.py
+.vimrc
+.virtualenvs/
+README.txt
