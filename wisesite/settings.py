@@ -33,7 +33,7 @@ AUTH_USER_EMAIL_UNIQUE = True
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "onedeveloptesting@gmail.com"
-EMAIL_HOST_PASSWORD = 'g23047203'
+EMAIL_HOST_PASSWORD = 'jdivkcennbtxrpii'
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'onedeveloptesting@gmail.com'
 # Quick-start development settings - unsuitable for production
