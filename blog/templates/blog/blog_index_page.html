@@ -1,0 +1,75 @@
+{% extends "informer/base.html" %}
+{% load compress %}
+{% load i18n %}
+{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% block body_class %}template-blogindexpage{% endblock %}
+
+{% block content %}
+<!-- =-=-=-=-=-=-= Transparent Breadcrumb =-=-=-=-=-=-= -->
+<div class="page-header-area">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="header-page">
+               <h1>{% trans 'Последние новости' %} <p class="heading-color">{{ page.title }}</p></h1>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<section class="section-padding error-page pattern-bgs gray">
+    <!-- Main Container -->
+    <div class="container">
+       <!-- Row -->
+       <div class="row">
+          <!-- Middle Content Area -->
+          <div class="col-md-12 col-xs-12 col-sm-12">
+             <div class="row">
+                <!-- Blog Archive -->
+                <div class="posts-masonry">
+                   <!-- Blog Post-->
+                   {% for post in blogpages %}
+                        {% with post=post.specific %}
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                               <div class="blog-post blog-post-list">
+                                 {% with post.main_image as main_image %}
+                                 <div class="post-img">
+                                    <a href="{% pageurl post %}">
+                                       {% if main_image %}
+                                          {% image main_image fill-358x239 %}
+                                       {% else %}
+                                          <a href="{% pageurl post %}"> <img class="img-responsive" alt="{{ post.title }}" src="/static/images/blog/1.jpg"></a>
+                                       {% endif %}</a> 
+                                 </div>
+                                 {% endwith %}
+                                 <div class="post-info"> <a href="{% pageurl post %}">{{ post.date }}</a> <a href="{% pageurl post %}">23 comments</a> </div>
+                                 <h3 class="post-title"> <a href="{% pageurl post %}">{{ post.title }}</a> </h3>
+                                 {{ post.body|richtext|cut:'<p></p>' }}
+                               </div>
+                            </div>
+                        {% endwith %}
+                   {% endfor %}
+                   <!-- Blog Post-->
+                </div>
+                <div class="col-md-12 col-xs-12 col-sm-12">
+                   <ul class="pagination pagination-lg">
+                     {% if blogpages.has_previous %}
+                        <li> <a href="?page={{ blogpages.previous_page_number }}"> <i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
+                     {% endif %}
+                     {% for page_num in blogpages.paginator.page_range %}
+                        <li {% if page_num == blogpages.number %}class="active"{% endif %}> <a href="?page={{ page_num }}">{{ page_num }}</a> </li>
+                     {% endfor %}
+                     {% if blogpages.has_next %}
+                        <li><a href="?page={{ blogpages.next_page_number }}"> <i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                     {% endif %}
+                   </ul>
+                </div>
+             </div>
+          </div>
+       </div>
+       <!-- Row End -->
+    </div>
+    <!-- Main Container End -->
+</section>
+{% endblock %}

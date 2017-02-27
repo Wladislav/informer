@@ -45,7 +45,7 @@ SECRET_KEY = '%t5f-e2lt&*1x1@sx2dkz9n)u+cen^!b1lfml2sin3nq52&h%j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['photocritic.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'photocritic.pythonanywhere.com']
 
 # Application definition
 
@@ -58,17 +58,32 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.utils.translation',
     
-    #projects app
-    'customuseradmin',
-    'informer',
-    
     #other apps
     'registration',
     'password_reset',
     'compressor',
+    'wagtail.wagtailforms',
+    'wagtail.wagtailredirects',
+    'wagtail.wagtailembeds',
+    'wagtail.wagtailsites',
+    'wagtail.wagtailusers',
+    'wagtail.wagtailsnippets',
+    'wagtail.wagtaildocs',
+    'wagtail.wagtailimages',
+    'wagtail.wagtailsearch',
+    'wagtail.wagtailadmin',
+    'wagtail.wagtailcore',
+
+    #projects app
+    'customuseradmin',
+    'informer',
+    'blog',
+    
+    'modelcluster',
+    'taggit',    
 
     #debug apps
-    'debug_toolbar',
+    #'debug_toolbar',
     #'debug_toolbar_htmltidy',
 ]
 
@@ -82,7 +97,9 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'wagtail.wagtailcore.middleware.SiteMiddleware',
+    'wagtail.wagtailredirects.middleware.RedirectMiddleware',
+    #'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 DEBUG_TOOLBAR_PANELS = [
@@ -120,6 +137,13 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'wisesite.wsgi.application'
+
+WAGTAIL_SITE_NAME = 'INFORMER'
+WAGTAIL_FRONTEND_LOGIN_TEMPLATE = 'informer/login.html'
+WAGTAIL_FRONTEND_LOGIN_URL = 'login_user'
+
+BLOG_PAGINATOR_PER_PAGE = 6
+TAGS_PAGINATOR_PER_PAGE = 36
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases

@@ -29,3 +29,7 @@ label.label-user-trumb {
 .select2-container--default .select2-selection--single .select2-selection__arrow {
     height: 34px; 
 }
+
+.card .tab-content {
+    padding: 0px 20px 0px 20px;
+}

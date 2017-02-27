@@ -1,0 +1,259 @@
+.page-explorer .listing .index .privacy-indicator {
+    font-size: 1em;
+    opacity: 1;
+    position: absolute;
+    right: 48.75em;
+    top: 2em;
+    /* margin-left: 17em; */
+}
+
+.tag {
+    background-color: #f58936;
+}
+
+@media screen and (min-width: 50em) {
+    .logo img {
+        width: inherit;
+        float: none;
+        margin: auto;
+        display: block;
+}
+
+.listing .no-children a:hover {
+    color: #f58936;
+}
+
+.nolink:hover {
+    color: #f58936;
+}
+
+.listing td, .listing th {
+    padding: 0.5em 0.5em;
+}
+
+.logo img {
+    width: inherit; 
+    border: 0;
+    margin-right: 1em;
+}
+
+header {
+    background-color: #f58936;
+}
+
+a {
+    color: #f58936;
+}
+
+header .button {
+    background-color: #c76f2c;
+}
+
+header .button:hover {
+    background-color: #9f5823;
+}
+
+.replace-file-input:hover button {
+    background-color: #c76f2c;
+}
+
+.explorer a:hover {
+    background: #9f5823;
+}
+
+input[type=checkbox]:checked:before {
+    color: #f58936;
+}
+
+a:hover {
+    color: #9f5823;
+}
+
+.dropdown .dropdown-toggle:hover {
+    background-color: #c76f2c;
+}
+
+.dropdown .dropdown-toggle {
+    color: #fff;
+    background-color: #f58936;
+}
+
+.messages .success {
+    background-color: hsl(141, 72%, 34%);
+}
+
+.listing .index .button {
+    background-color: #fff;
+    color: #f58936;
+    border-color: #f58936;
+}
+
+.listing .index .button:hover {
+    color: #fff;
+    background: #c76f2c;
+    border-color: #9f5823;
+}
+
+.button:hover {
+    background-color: #c76f2c;
+    color: #fff;
+    border-color: transparent;
+}
+.listing .title h2 a:hover {
+    color: #f58936;
+}
+
+.listing .button-secondary:hover {
+    border-color: #f58936;
+    background-color: #f58936;
+}
+
+.button.action-choose.button-small {
+    color: #ffffff;
+}
+
+a.edit-link.button.button-small.button-secondary {
+    color: #fafafa;
+}
+
+button.button.action-clear.button-small.button-secondary {
+    color: white;
+}
+
+.button-secondary {
+    color: #f58936;
+}
+
+.status-tag {
+    min-width: 120px;
+}
+
+input, textarea, select, .richtext, .tagit {
+    font-family: sans-serif;
+}
+
+.object.empty .add .button:hover:before {
+    background-color: #f58936;
+}
+.object.empty .add .button:before {
+    background-color: #e9b04d;
+}
+.page-explorer .listing .index {
+     background-color: #f58936;
+}
+
+.page-explorer .listing .index .button {
+    border-color: #b5601f;
+}
+
+.page-explorer .listing .index .button.bicolor {
+    background: #c76f2c;
+}
+
+.breadcrumb li:hover {
+    background: #ad622a;
+}
+
+.breadcrumb li a, .breadcrumb li span {
+    color: inherit;
+}
+
+.page-explorer .listing .index .button:hover {
+    background: #9f5823;
+}
+
+.t-inverted .u-btn-current:hover {
+    background-color: #9f5823;
+    border-color: #9f5823;
+}
+
+.t-dark .u-link:hover {
+    color: #f58936;
+}
+
+.icon.teal {
+    color: #c76f2c;
+}
+
+form.status-tag:hover, a.status-tag:hover, a.status-tag.primary:hover {
+    border-color: #9f5823;
+    background-color: #f58936;
+    color: #fafafa;
+}
+
+.xdsoft_datetimepicker .xdsoft_next, .xdsoft_datetimepicker .xdsoft_prev, .xdsoft_datetimepicker .xdsoft_today_button {
+    color: #f58936;
+}
+
+.xdsoft_datetimepicker {
+    border: 1px solid #f58936;
+}
+
+.xdsoft_datetimepicker .xdsoft_calendar td:hover, .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box > div > div:hover {
+     background: #f58936;
+}
+
+.status-tag.primary {
+    color: #666;
+    border: 1px solid #aaa;
+    background: #fff;
+}
+
+.listing th.ord a:hover:before {
+    color: #f58936;
+}
+
+.privacy-indicator .label-private:before, .privacy-indicator .label-public:before {
+    font-size: 1.5em;
+    color: #f58936;
+}
+
+.t-default .u-btn-current {
+    border-color: rgba(0, 0, 0, 0.15);
+    color: #f58936;
+}
+
+.t-default .u-btn-current:hover {
+    background: #f58936;
+    color: #fff;
+    border-color: #c76f2c;
+}
+
+.tab-nav.merged {
+     background-color: #f58936;
+}
+
+.tab-nav a {
+    background-color: #c76f2c;
+    border-top: 0.3em solid #9a5622;
+}
+
+.tab-nav a:hover {
+    border-top-color: #404040;
+}
+
+.dropdown ul a:hover {
+    background-color: #c76f2c;
+}
+
+.dropdown ul {
+    background-color: #f58936;
+}
+
+.dropdown.open .dropdown-toggle {
+    background-color: #c76f2c;
+}
+
+.object > h2 {
+    background: #fdf7cc;
+}
+
+.object > h2:before, .object > h2 label:before {
+    background-color: #e9b04d;
+}
+
+input:focus, textarea:focus, select:focus, .richtext:focus, .tagit:focus {
+    border-color: #f58936;
+    background-color: #fffcf8;
+}
+

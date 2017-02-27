@@ -18,13 +18,20 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf.urls.i18n import i18n_patterns
 from django.conf import settings
+from wagtail.wagtailcore import urls as wagtail_urls
+from wagtail.wagtaildocs import urls as wagtaildocs_urls
+from wagtail.wagtailadmin import urls as wagtailadmin_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^cms/', include(wagtailadmin_urls)),
+    url(r'^documents/', include(wagtaildocs_urls)),
+    url(r'^pages/', include(wagtail_urls)),        
 ]
 
 urlpatterns += i18n_patterns(
     url(r'', include('informer.urls')),
+    url(r'', include(wagtail_urls)),
 )
 
 if settings.DEBUG:

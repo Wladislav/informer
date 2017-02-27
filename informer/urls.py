@@ -1,6 +1,8 @@
 from django.conf.urls import include, url
 from .import views
 from password_reset import views as password_reset_views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
@@ -16,7 +18,7 @@ urlpatterns = [
     url(r'^accounts/profile/$', views.user_profile, name='user_profile'),
     #url(r'^', include('debug_toolbar_htmltidy.urls')),
     #url(r'^accounts/profile/(?P<pk>[\d]+)/$', views.user_profile, name="user_profile"),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 

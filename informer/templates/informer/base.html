@@ -32,27 +32,26 @@
       <!-- =-=-=-=-=-=-= Animation =-=-=-=-=-=-= -->
       <link rel="stylesheet" href="/static/css/animate.min.css" type="text/css">
       <!-- =-=-=-=-=-=-= Select Options =-=-=-=-=-=-= -->
-      <link href="/static/css/select2.min.css" rel="stylesheet" />
+      <link rel="stylesheet" href="/static/css/select2.min.css">
       <!-- =-=-=-=-=-=-= noUiSlider =-=-=-=-=-=-= -->
-      <link href="/static/css/nouislider.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="/static/css/nouislider.min.css">
       <!-- =-=-=-=-=-=-= Listing Slider =-=-=-=-=-=-= -->
-      <link href="/static/css/slider.css" rel="stylesheet">
+      <link rel="stylesheet" href="/static/css/slider.css">
       <!-- =-=-=-=-=-=-= Owl carousel =-=-=-=-=-=-= -->
       <link rel="stylesheet" type="text/css" href="/static/css/owl.carousel.css">
       <link rel="stylesheet" type="text/css" href="/static/css/owl.theme.css">
       <!-- =-=-=-=-=-=-= Check boxes =-=-=-=-=-=-= -->
-      <link href="/static/skins/minimal/minimal.css" rel="stylesheet">
+      <link rel="stylesheet" href="/static/skins/minimal/minimal.css">
       <!-- =-=-=-=-=-=-= Responsive Media =-=-=-=-=-=-= -->
-      <link href="/static/css/responsive-media.css" rel="stylesheet">
+      <link rel="stylesheet" href="/static/css/responsive-media.css">
       <!-- =-=-=-=-=-=-= Check boxes =-=-=-=-=-=-= -->
-      <link href="/static/skins/minimal/minimal.css" rel="stylesheet">
+      <link rel="stylesheet" href="/static/skins/minimal/minimal.css">
       <!-- =-=-=-=-=-=-= Informer style =-=-=-=-=-=-= -->
-      <link href="/static/css/informer.css" rel="stylesheet">
+      <link rel="stylesheet" href="/static/css/informer.css">
       {% endcompress %}
       <!-- =-=-=-=-=-=-= Template Color =-=-=-=-=-=-= -->
       <link rel="stylesheet" id="color" href="/static/css/colors/defualt.css">
-      <!-- =-=-=-=-=-=-= For Style Switcher =-=-=-=-=-=-= -->
-      <link rel="stylesheet" id="theme-color" type="text/css" href="#" />
+
       <!-- JavaScripts -->
       {% compress js %}
       <script src="/static/js/modernizr.js"></script>
@@ -65,23 +64,6 @@
       <![endif]-->
    </head>
    <body>
-     <!-- =-=-=-=-=-=-= Color Switcher =-=-=-=-=-=-= -->
-<!--    <div class="color-switcher" id="choose_color">
-         <a href="#." class="picker_close"><i class="fa fa-gear"></i></a>
-         <h5>{% trans 'ЦВЕТОВОЙ СТИЛЬ' %}</h5>
-         <div class="theme-colours">
-            {# Translators: Выбирается цветовая схема сайта #}
-            <p>{% trans 'Выберите цвет' %}</p>
-            <ul>
-               <li><a href="#." class="defualt" id="defualt"></a></li>
-               <li><a href="#." class="green" id="green"></a></li>
-               <li><a href="#." class="blue" id="blue"></a></li>
-               <li><a href="#." class="red" id="red"></a></li>
-               <li><a href="#." class="sea-green" id="sea-green"></a></li>
-            </ul>
-         </div>
-         <div class="clearfix"> </div>
-      </div>-->
       <!-- =-=-=-=-=-=-= Light Header =-=-=-=-=-=-= -->
       <div class="colored-header">
          <!-- Top Bar -->
@@ -170,6 +152,7 @@
                                  <li><a href="#">Flat Variation</a></li>
                               </ul>
                            </li>
+                           <li><a href="/{{LANGUAGE_CODE}}/blog/">{% trans 'Новости' %}</a></li>
                            {# Translators: Переход на страницу с контактной информацией владельца сайта #}
                             <li><a href="#">{% trans 'Контакты' %}</a></li>
                         </ul>
