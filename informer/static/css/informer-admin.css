@@ -1955,7 +1955,7 @@ form ul {
 
 fieldset {
   border: 0;
-  padding: 0 0 2em;
+  padding: 0 0 0.5em;
   margin: 0;
 }
 
@@ -6145,4 +6145,16 @@ footer,
 .tab-nav a:hover {
     color: #fff;
     border-top-color: #ffcba2;
+}
+
+/*page editor css*/
+
+.full input, .full textarea, .full .richtext {
+    /*padding-left: 20px;*/
+    padding-right: 20px;
+    border-radius: 0;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    font-size: 1.2em;
+    line-height: 1.6em;
 }
