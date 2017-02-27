@@ -78,9 +78,9 @@
 												<div class="col-md-4 col-md-pull-0  col-xs-4 col-sm-12">
 													<label class='label-user-trumb' for="id_user-trumb">{% trans 'Фото' %}:</label>
 													{% if field.value %}
-														 <img id="id_user-trumb" src="/{{STATIC_URL|cut:'/'}}{{MEDIA_URL}}{{ field.value }}" height=120/>
+														 <img id="id_user-trumb" src="/{{STATIC_URL|cut:'/'}}{{MEDIA_URL}}avatars/{{ field.value }}" height=120>
 													{% else %}
-														 <img id = "id_user-trumb" src="/{{STATIC_URL|cut:'/'}}{{MEDIA_URL}}avatars/avatar.png" height=120/>
+														 <img id = "id_user-trumb" src="/{{STATIC_URL|cut:'/'}}{{MEDIA_URL}}avatars/avatar.png" height=120>
 													{% endif %}
 												</div>
 												<div class="col-md-7 col-md-pull-0  col-xs-7 col-sm-12">

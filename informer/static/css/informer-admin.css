@@ -4151,20 +4151,6 @@ body.ready .listing .children a, body.ready
   color: #f58936;
 }
 
-.status-tag {
-  border-radius: 2px;
-  text-align: center;
-  display: inline-block;
-  text-transform: uppercase;
-  padding: 0 0.5em;
-  border: 1px solid #b3b3b3;
-  color: #b3b3b3;
-  -webkit-font-smoothing: auto;
-  font-size: 0.8em;
-  margin: 0 0.5em 0.5em;
-  background: #fff url("../../wagtailadmin/images/bg-dark-diag.svg");
-}
-
 .status-tag.primary {
   color: #666;
   border: 1px solid #666;
@@ -4279,10 +4265,6 @@ hr {
 img {
   max-width: 100%;
   height: auto;
-}
-
-.show-transparency {
-  background: url("../../wagtailadmin/images/transparency.svg");
 }
 
 .inline {
@@ -5535,62 +5517,6 @@ body.explorer-open .explorer-close {
   border-width: 0 5px 5px;
 }
 
-@font-face {
-  font-family: "Open Sans";
-  src: url("../../wagtailadmin/fonts/opensans-light.woff2") format("woff2"), url("../../wagtailadmin/fonts/opensans-light.woff") format("woff"), url("../../wagtailadmin/fonts/opensans-light.ttf") format("truetype");
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Open Sans";
-  src: url("../../wagtailadmin/fonts/opensans-regular.woff2") format("woff2"), url("../../wagtailadmin/fonts/opensans-regular.woff") format("woff"), url("../../wagtailadmin/fonts/opensans-regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Open Sans";
-  src: url("../../wagtailadmin/fonts/opensans-semibold.woff2") format("woff2"), url("../../wagtailadmin/fonts/opensans-semibold.woff") format("woff"), url("../../wagtailadmin/fonts/opensans-semibold.ttf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Open Sans";
-  src: url("../../wagtailadmin/fonts/opensans-bold.woff2") format("woff2"), url("../../wagtailadmin/fonts/opensans-bold.woff") format("woff"), url("../../wagtailadmin/fonts/opensans-bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Roboto Slab";
-  src: url("../../wagtailadmin/fonts/robotoslab-regular.woff2") format("woff2"), url("../../wagtailadmin/fonts/robotoslab-regular.woff") format("woff"), url("../../wagtailadmin/fonts/robotoslab-regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Roboto Slab";
-  src: url("../../wagtailadmin/fonts/robotoslab-bold.woff2") format("woff2"), url("../../wagtailadmin/fonts/robotoslab-bold.woff") format("woff"), url("../../wagtailadmin/fonts/robotoslab-bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'wagtail';
-  src: url("../../wagtailadmin/fonts/wagtail.eot");
-  src: url("../../wagtailadmin/fonts/wagtail.eot?#iefix") format("embedded-opentype"), url("../../wagtailadmin/fonts/wagtail.ttf") format("truetype"), url("../../wagtailadmin/fonts/wagtail.svg#wagtail") format("svg"), url("../../wagtailadmin/fonts/wagtail.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  @font-face {
-    font-family: 'wagtail';
-    src: url("../../wagtailadmin/fonts/wagtail.svg#wagtail") format("svg");
-  }
-}
 
 #wagtail .o-icon {
   display: inline-block;
