@@ -130,7 +130,7 @@ label.label-user-trumb {
     line-height: 26px;
     margin-bottom: 30px;
     padding: 0 20px;
-    color: #999;
+    color: #535353;
 }
 
 .parallex .section-title {
@@ -170,4 +170,13 @@ ul.category-list-style li a {
 
 .header-top {
     background-color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    position: relative;
+    /* font-family: 'Roboto', serif; */
+    font-weight: normal;
+    margin: 0px;
+    background: none;
+    line-height: 1.2em;
 }

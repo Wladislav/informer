@@ -144,7 +144,7 @@ WAGTAIL_FRONTEND_LOGIN_TEMPLATE = 'informer/login.html'
 WAGTAIL_FRONTEND_LOGIN_URL = 'login_user'
 
 BLOG_PAGINATOR_PER_PAGE = 6
-TAGS_PAGINATOR_PER_PAGE = 36
+TAGS_PAGINATOR_PER_PAGE = 24
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases

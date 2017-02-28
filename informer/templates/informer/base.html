@@ -104,7 +104,7 @@
                                  {# Translators: Ссылка на преход к профилю пользователя #}
                                  <li><a href="{% url 'user_profile' %}">{% trans 'Мой профиль' %}</a></li>
                                  {% if user.is_superuser %}
-                                    <li><a href="{% url 'admin:index' %}">{% trans 'Администрировать' %}</a></li>
+                                    <li><a href="/cms">{% trans 'Администрировать' %}</a></li>
                                  {% endif %}                                 
                                  {# Translators: Пользователь покидает сайт (logout) #}
                                  <li><a href="{% url 'logout_user' %}"><i class="fa fa-sign-in"></i>{% trans 'Выйти' %}</a></li>

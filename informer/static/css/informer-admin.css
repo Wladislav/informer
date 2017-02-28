@@ -2868,7 +2868,7 @@ li.focused > .help {
 .fields > li,
 .field-col {
   padding-top: 0.5em;
-  padding-bottom: 1.2em;
+  padding-bottom: 0.5em;
 }
 
 .fields > li:before, .fields > li:after,
@@ -3123,7 +3123,7 @@ body.ready .help {
     width: 16.66667%;
     padding-right: 1.5%;
     padding-left: 1.5%;
-    padding-top: 1.2em;
+    padding-top: 0.5em;
     padding-left: 0;
   }
   .radio_select label,
@@ -3167,7 +3167,7 @@ body.ready .help {
     box-sizing: border-box;
     display: inline;
     float: left;
-    width: 83.33333%;
+    width: 100%; /*83.33333%;*/
     padding-right: 0;
     padding-left: 0;
   }
@@ -6134,7 +6134,7 @@ footer,
     font-size: 1em;
     opacity: 1;
     position: absolute;
-    right: 48.75em;
+    right: 10em;
     top: 2em;
 }
 

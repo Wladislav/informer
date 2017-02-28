@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.utils.translation import ugettext_lazy as _
 import django.core.exceptions
+from wagtail.wagtailadmin.edit_handlers import FieldPanel
+from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
 class UserProfile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, verbose_name = _('Пользователь'), related_name='user', primary_key=True, on_delete=models.CASCADE)
@@ -24,7 +26,21 @@ class UserProfile(models.Model):
         verbose_name_plural = _('Профили пользователей')
     def __str__(self):
         return "Профиль пользователя: %s" % self.user    
-    
+    panels = [
+        FieldPanel('user'),
+        FieldPanel('website'),
+        FieldPanel('bio'),
+        FieldPanel('phone'),
+        FieldPanel('city'),
+        FieldPanel('country'),
+        FieldPanel('language'),
+        FieldPanel('country'),
+        FieldPanel('last_update'),
+        ImageChooserPanel('photo'),        
+        FieldPanel('img_height'),
+        FieldPanel('img_width'),
+    ]
+
 def create_profile(sender, **kwargs):
      user = kwargs["instance"]
      if kwargs["created"]:

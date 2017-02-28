@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 from django.contrib import admin
+from blog.models import BlogCategory
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.admin import UserAdmin    
 from django.utils.translation import ugettext_lazy as _
@@ -11,3 +12,7 @@ class CustomUserAdmin(UserAdmin):
     list_filter = ('is_staff', 'is_superuser', 'is_active',)
         
 admin.site.register(User, CustomUserAdmin)
+
+@admin.register(BlogCategory)
+class AdminCategory(admin.ModelAdmin):
+    pass
