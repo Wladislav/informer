@@ -73,6 +73,7 @@ INSTALLED_APPS = [
     'wagtail.wagtailsearch',
     'wagtail.wagtailadmin',
     'wagtail.wagtailcore',
+    'wagtail_modeltranslation',
 
     #projects app
     'customuseradmin',
@@ -155,6 +156,7 @@ DATABASES = {
     }
 }
 
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators

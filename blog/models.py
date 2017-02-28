@@ -11,6 +11,7 @@ from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, MultiFie
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailsearch import index
 from wagtail.wagtailsnippets.models import register_snippet
+from wagtail_modeltranslation.models import TranslationMixin
 
 class BlogIndexPage(Page):
     intro = RichTextField(blank=True)
@@ -36,7 +37,7 @@ class BlogIndexPage(Page):
 class BlogPageTag(TaggedItemBase):
     content_object = ParentalKey('BlogPage', related_name='tagged_items')
     
-class BlogPage(Page):
+class BlogPage(TranslationMixin, Page):
     date = models.DateField("Post date")
     intro = models.CharField(max_length=250)
     body = RichTextField(blank=True)

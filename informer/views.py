@@ -144,7 +144,7 @@ def user_profile(request):
             if fsv and fuv:
                 messages.success(request, _('Профиль успешно обновлен.')) #Profile details updated.
                 logger.debug('Fine!')
-            #return HttpResponseRedirect('/accounts/profile/')
+            return HttpResponseRedirect('/accounts/profile/')
 
         return render(request, "informer/userprofile.html", {
             "user": {'first_name':user.first_name,
