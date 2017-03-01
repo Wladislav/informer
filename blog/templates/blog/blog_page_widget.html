@@ -1,0 +1,25 @@
+{% load compress %}
+{% load i18n %}
+{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% for post in blogpages %}
+     {% with post=post.specific %}
+         <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="blog-post blog-post-list">
+              {% with post.main_image as main_image %}
+              <div class="post-img">
+                 <a href="{% pageurl post %}">
+                    {% if main_image %}
+                       {% image main_image fill-358x239 %}
+                    {% else %}
+                       <a href="{% pageurl post %}"> <img class="img-responsive" alt="{{ post.title }}" src="/static/images/blog/1.jpg"></a>
+                    {% endif %}</a> 
+              </div>
+              {% endwith %}
+              <div class="post-info"> <a href="{% pageurl post %}">{{ post.date }}</a> <a href="{% pageurl post %}">23 comments</a> </div>
+              <h3 class="post-title"> <a href="{% pageurl post %}">{{ post.title }}</a> </h3>
+              {{ post.body|richtext|cut:'<p></p>' }}
+            </div>
+         </div>
+     {% endwith %}
+{% endfor %}

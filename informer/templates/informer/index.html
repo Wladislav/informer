@@ -200,7 +200,6 @@
 	<!-- /download-section-wrapper -->
  </div>
 
-
 <section class="custom-padding gray">
 	<!-- Main Container -->
 	<div class="container">
@@ -217,40 +216,8 @@
 			 </div>
 		  </div>
 		  <!-- Middle Content Box -->
-		  <div class="col-xs-12 col-md-12 col-sm-12 ">
-			 <div class="row">
-				<div class="col-md-4 col-sm-6 col-xs-12">
-				   <div class="blog-post">
-					  <div class="post-img">
-						 <a href="#"> <img class="img-responsive" alt="" src="/static/images/blog/1.jpg"> </a>
-					  </div>
-					  <div class="post-info"> <a href="">Aug 30, 2017</a> <a href="#">23 comments</a> </div>
-					  <h3 class="post-title"> <a href="#"> Sony Xperia XZ: Release date and everything you need to know</a> </h3>
-					  <p class="post-excerpt"> Автоматическое информирование построена на системе различных тригерров т.е. событий. Когда событие случается выдается ... </p>
-				   </div>
-				</div>
-				<div class="col-md-4 col-sm-6 col-xs-12">
-				   <div class="blog-post">
-					  <div class="post-img">
-						 <a href="#"> <img class="img-responsive" alt="" src="/static/images/blog/2.jpg"> </a>
-					  </div>
-					  <div class="post-info"> <a href="">Aug 30, 2017</a> <a href="#">23 comments</a> </div>
-					  <h3 class="post-title"> <a href="#"> Review of the 2017 Honda Accord Sport </a> </h3>
-					  <p class="post-excerpt"> Автоматическое информирование построена на системе различных тригерров т.е. событий. Когда событие случается выдается ... </p>
-				   </div>
-				</div>
-				<div class="col-md-4 col-sm-6 col-xs-12">
-				   <div class="blog-post">
-					  <div class="post-img">
-						 <a href="#"> <img class="img-responsive" alt="" src="/static/images/blog/3.jpg"> </a>
-					  </div>
-					  <div class="post-info"> <a href="">Aug 30, 2017</a> <a href="#">23 comments</a> </div>
-					  <h3 class="post-title"> <a href="#"> How to Buy a House 6 Must-Dos Before Buying A Home</a> </h3>
-					  <p class="post-excerpt"> Автоматическое информирование построена на системе различных тригерров т.е. событий. Когда событие случается выдается ... </p>
-				   </div>
-				</div>
-			 </div>
-		  </div>
+		  {% load last_blog_news %}
+		  {% last_blog_news 3 %}
 		  <!-- Middle Content Box End -->
 	   </div>
 	   <!-- Row End -->

@@ -145,11 +145,7 @@
                               <ul class="drop-down-multilevel effect-expand-top effect-fade" style="transition: all 400ms ease;">
                                  {# Translators: Переход на главную страницу сайта #}
                                  <li><a href="/{{LANGUAGE_CODE}}">{% trans 'На главную' %}</a></li>
-                                 <li><a href="#">Modern Variation</a></li>
-                                 <li><a href="#">Minimal Variation</a></li>
-                                 <li><a href="#">Fancy Variation</a></li>
-                                 <li><a href="#">Grid Variation</a></li>
-                                 <li><a href="#">Flat Variation</a></li>
+                                 <li><a href="/{{LANGUAGE_CODE}}/blog">{% trans 'Новости в блоге' %}</a></li>
                               </ul>
                            </li>
                            <li><a href="/{{LANGUAGE_CODE}}/blog/">{% trans 'Новости' %}</a></li>
@@ -164,19 +160,6 @@
       </div>
       <!-- Navigation Menu End -->
       <!-- =-=-=-=-=-=-= Light Header End  =-=-=-=-=-=-= -->
-      <!-- =-=-=-=-=-=-= Transparent Breadcrumb =-=-=-=-=-=-= -->
-      <!--<div class="page-header-area">
-         <div class="container">
-            <div class="row">
-               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                  <div class="header-page">
-                     <h1>Create Your Account</h1>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>-->
-      <!-- =-=-=-=-=-=-= Transparent Breadcrumb End =-=-=-=-=-=-= -->
       <!-- =-=-=-=-=-=-= Main Content Area =-=-=-=-=-=-= -->
         <div class="main-content-area clearfix">    
           {% block content %}
