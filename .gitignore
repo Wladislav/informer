@@ -15,4 +15,5 @@ MyProject.komodoproject
 .pythonstartup.py
 .vimrc
 .virtualenvs/
+.static/media/
 README.txt
