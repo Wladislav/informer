@@ -39,5 +39,6 @@ if settings.DEBUG:
     import debug_toolbar
     urlpatterns += [
         url(r'^debug/', include(debug_toolbar.urls)),
+        url(r'^comments/', include('django_comments.urls')),
         #url(r'^', include('debug_toolbar_htmltidy.urls')),
     ]

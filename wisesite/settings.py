@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.utils.translation',
+    'django.contrib.sites',
     
     #other apps
     'registration',
@@ -68,6 +69,7 @@ INSTALLED_APPS = [
     'wagtail.wagtailadmin',
     'wagtail.wagtailcore',
     'wagtail_modeltranslation',
+    'django_comments',
 
     #projects app
     'customuseradmin',
@@ -139,6 +141,8 @@ WAGTAIL_FRONTEND_LOGIN_URL = 'login_user'
 
 BLOG_PAGINATOR_PER_PAGE = 6
 TAGS_PAGINATOR_PER_PAGE = 24
+SITE_ID = 1 #for django.contrib.sites
+COMMENTS_APP = 'blog' #for django_comments 
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases

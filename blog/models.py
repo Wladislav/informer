@@ -15,6 +15,13 @@ from wagtail_modeltranslation.models import TranslationMixin
 from django.utils.translation import ugettext_lazy as _
 from django.db.models.signals import post_save
 from django.contrib.auth.models import User
+from django.template.defaultfilters import truncatechars_html
+from django_comments.moderation import CommentModerator, moderator
+import re
+
+class EntryModerator(CommentModerator):
+    email_notification = True
+    enable_field = 'enable_comments'
 
 class BlogIndexPage(Page):
     intro = RichTextField(blank=True)
@@ -35,7 +42,12 @@ class BlogIndexPage(Page):
         except EmptyPage:
             # If page is out of range (e.g. 9999), deliver last page of results.
             resources = paginator.page(paginator.num_pages)        
-        
+        for page_res in resources:
+            # Obrezaem do 130 simvolov
+            truncated_text = truncatechars_html(page_res.specific.body.strip('\r'),150)
+            # Udalaem html tegi + <p>chistiy tekst</p>
+            page_res.specific.body = '<p>'+re.sub(r'\<[^>]*\>', ' ', truncated_text)+'</p>'
+
         context['blogpages'] = resources
         return context
     
@@ -43,9 +55,11 @@ class BlogPageTag(TaggedItemBase):
     content_object = ParentalKey('BlogPage', related_name='tagged_items')
     
 class BlogPage(TranslationMixin, Page):
+    
     class Meta:
         verbose_name = _('Запись в блоге')
         verbose_name_plural = _('Записи в блоге')
+        
     date = models.DateField("Post date")
     intro = models.CharField(max_length=250)
     body = RichTextField(blank=True)
@@ -126,3 +140,20 @@ class BlogCategory(TranslationMixin, models.Model):
         FieldPanel('name'),
         ImageChooserPanel('icon'),
     ]
+    
+class Entry(models.Model):
+    class Meta:
+        verbose_name = _('Список комментариев')
+        verbose_name_plural = _('Список комментариев')    
+    title = models.CharField(max_length=250)
+    body = models.TextField()
+    pub_date = models.DateField()
+    enable_comments = models.BooleanField()
+    panels = [
+        FieldPanel('title'),
+        FieldPanel('body'),
+        FieldPanel('pub_date'),
+        FieldPanel('enable_comments'),
+    ]
+    
+moderator.register(Entry, EntryModerator)
