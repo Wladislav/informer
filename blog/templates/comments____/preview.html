@@ -1,0 +1,67 @@
+{% extends "informer/base.html" %}
+{% load i18n %}
+{% load comments_xtd %}
+{% block content %}
+   <!-- =-=-=-=-=-=-= Transparent Breadcrumb =-=-=-=-=-=-= -->
+   <div class="page-header-area">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+               <div class="header-page">
+                  {# Translator: Перевести как Preview your comment #}
+                  <h1>{% trans "Предварительный просмотр комментария" %}</h1>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="main-content-area clearfix"><!-- =-=-=-=-=-=-= Main Content Area =-=-=-=-=-=-= -->
+      <section class="section-padding error-page pattern-bg "><!-- =-=-=-=-=-=-= Latest Ads =-=-=-=-=-=-= -->
+         <div class="container"><!-- Main Container -->
+            <div class="row"><!-- Row -->
+               <div class="col-md-6 col-md-push-6 col-sm-6 col-xs-12"><!-- Middle Content Area -->
+               
+                  <div class="form-grid ad-archive-desc box-shadow"><!--  Form -->
+                     {% include "comments/form.html" %}
+                  </div><!-- Form -->
+                  
+               </div><!-- Middle Content Area -->
+               <div class="col-md-6  col-md-pull-6 col-sm-6 col-xs-12">
+                  
+                  <div class="heading-panel">
+                     <h3 class="main-title text-left">
+                        {% if not comment %}
+                           {# Translators: Перевести как Empty comment #}
+                           {% trans 'Пустой комментарий' %}
+                        {% else %}
+                           {% trans 'Ваш комментарий' %}:
+                        {% endif %}
+                     </h3>
+                  </div>
+                  
+                  <div class="content-info">
+                     <div class="features">
+                        <div class="features-icons">
+                           <a href="{{ form.cleaned_data.url }}">
+                              {{ form.cleaned_data.email|xtd_comment_gravatar }}
+                           </a>                           
+                              {% if form.cleaned_data.url %}
+                                 <a href="{{ form.cleaned_data.url }}" target="_new">
+                              {% endif %}
+                              {% if form.cleaned_data.url %}</a>{% endif %}                          
+                           </a>
+                        </div>
+                        <div class="features-text">
+                           <h3>{{ comment }}</h3>
+                           <p>Дата комментария: {% now "N j, Y, P" %}</p>
+                           <p>{{ form.cleaned_data.name }}</p>
+                        </div>
+                     </div>
+                  </div>
+               
+               </div>
+            </div><!-- Row -->
+         </div><!-- Main Container -->
+      </section>
+   </div><!-- Main Container End -->
+{% endblock %}

@@ -21,6 +21,7 @@ from django.conf import settings
 from wagtail.wagtailcore import urls as wagtail_urls
 from wagtail.wagtaildocs import urls as wagtaildocs_urls
 from wagtail.wagtailadmin import urls as wagtailadmin_urls
+from wagtail.wagtailimages import urls as wagtailimages_urls
 from django.conf.urls.static import static
 
 urlpatterns = [
@@ -32,13 +33,14 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     url(r'', include('informer.urls')),
+    url(r'^comments/', include('django_comments_xtd.urls')),
     url(r'', include(wagtail_urls)),
+    url(r'^images/', include(wagtailimages_urls)),
 )
 
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns += [
         url(r'^debug/', include(debug_toolbar.urls)),
-        url(r'^comments/', include('django_comments.urls')),
         #url(r'^', include('debug_toolbar_htmltidy.urls')),
     ]

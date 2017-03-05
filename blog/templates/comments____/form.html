@@ -1,0 +1,58 @@
+{% load i18n %}
+{% load comments %}
+
+<form method="POST" action="{% comment_form_target %}" class="form-horizontal">
+  {% csrf_token %}
+  <fieldset>
+    <div><input type="hidden" name="next" value="{% url 'comments-xtd-sent' %}"/></div>
+
+    <div class="alert alert-danger hidden" data-comment-element="errors">
+    </div>
+
+    {% for field in form %}
+      {% if field.is_hidden %}<div>{{ field }}</div>{% endif %}
+    {% endfor %}
+
+    <div style="display:none">{{ form.honeypot }}</div>
+
+    <div class="form-group {% if 'comment' in form.errors %}has-error{% endif %}">
+        <label for="id_name"> Comment </label>
+        {{ form.comment }}
+    </div>
+    {% if not user.is_authenticated %}
+    <div class="form-group {% if 'name' in form.errors %}has-error{% endif %}">
+      <label for="id_name"> 
+        <label for="id_name"> You name </label>
+      </label>
+      {{ form.name }}
+    </div>
+
+    <div class="form-group {% if 'email' in form.errors %}has-error{% endif %}">
+      <label for="id_email">{{ form.email.label }}</label>
+      {{ form.email }}
+      <span class="clearfix help_text">{{ form.email.help_text }}</span>
+    </div>
+
+    <div class="form-group {% if 'url' in form.errors %}has-error{% endif %}">
+      <label for="id_url"> Website </label>
+      {{ form.url }}
+    </div>
+    {% endif %}
+    <div class="skin-minimal form-group">
+       <ul class="list">
+          <li>
+             {# Translator: Перевести как Notify me about follow-up comments #}
+             <label for="minimal-checkbox-1">
+             <input  id="id_followup{% if cid %}_{{ cid }}{% endif %}" name="followup" type="checkbox">
+              {% trans 'Сообщите мне о последующих комментариях' %}
+             </label>
+          </li>
+       </ul>
+    </div>     
+  </fieldset>
+  
+  <div class="form-group">
+      <input type="submit" name="post" value="send" class="btn btn-primary btn-theme" />
+      <input type="submit" name="preview" value="preview" class="btn btn-default btn-theme" />
+  </div>
+</form>

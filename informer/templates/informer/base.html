@@ -1,7 +1,6 @@
 {% load compress %}
 {% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
-
 <!DOCTYPE html>
 <html lang="{{LANGUAGE_CODE}}">
    <head>
@@ -144,8 +143,9 @@
                               <!-- drop down multilevel  -->
                               <ul class="drop-down-multilevel effect-expand-top effect-fade" style="transition: all 400ms ease;">
                                  {# Translators: Переход на главную страницу сайта #}
-                                 <li><a href="/{{LANGUAGE_CODE}}">{% trans 'На главную' %}</a></li>
+                                 <li><a href="/{{LANGUAGE_CODE}}/">{% trans 'На главную' %}</a></li>
                                  <li><a href="/{{LANGUAGE_CODE}}/blog">{% trans 'Новости в блоге' %}</a></li>
+                                 <li><a href="/{{LANGUAGE_CODE}}/faq">{% trans 'Ответы на вопросы' %}</a></li>
                               </ul>
                            </li>
                            <li><a href="/{{LANGUAGE_CODE}}/blog/">{% trans 'Новости' %}</a></li>

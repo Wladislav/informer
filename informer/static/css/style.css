@@ -3436,8 +3436,8 @@ label {
 	overflow: hidden;
 }
 .blog-post a {
-	color: inherit;
-	text-decoration: none;
+    color: #f58936;
+    text-decoration: none;
 }
 .post-info a {
 	margin-right: 20px;
@@ -5169,7 +5169,7 @@ ul.category-list-data li:hover a span {
 	padding: 30px;
 }
 .form-grid .skin-minimal .list li label {
-	padding-left: 10px;
+	padding-left: 0px;
 }
 .form-grid .skin-minimal .list li label a {
 	color: #777;

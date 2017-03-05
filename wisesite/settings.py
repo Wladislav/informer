@@ -70,12 +70,9 @@ INSTALLED_APPS = [
     'wagtail.wagtailcore',
     'wagtail_modeltranslation',
     'django_comments',
-
-    #projects app
-    'customuseradmin',
+    'django_comments_xtd',
     'informer',
     'blog',
-    
     'modelcluster',
     'taggit',    
 
@@ -120,7 +117,17 @@ ROOT_URLCONF = 'wisesite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['informer/templates/','informer/templates/password_reset/','informer/templates/registration'],
+        'DIRS': [
+            'informer/templates/',
+            'informer/templates/password_reset/',
+            'informer/templates/registration',
+            'blog/templates/',
+            'blog/templates/blog/',
+            'django_comments_xtd/templates/',
+            'django_comments_xtd/templates/comments',
+            'django_comments_xtd/templates/comments/django_comments_xtd',
+            #os.path.join(os.path.dirname(__file__), "templates"),            
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -142,7 +149,27 @@ WAGTAIL_FRONTEND_LOGIN_URL = 'login_user'
 BLOG_PAGINATOR_PER_PAGE = 6
 TAGS_PAGINATOR_PER_PAGE = 24
 SITE_ID = 1 #for django.contrib.sites
-COMMENTS_APP = 'blog' #for django_comments 
+COMMENTS_APP = 'django_comments_xtd' #for django_comments
+COMMENTS_XTD_CONFIRM_EMAIL = True
+COMMENTS_XTD_MAX_THREAD_LEVEL = 2
+# COMMENTS_XTD_MAX_THREAD_LEVEL_BY_MODEL = {
+#     'blog.BlogPage': 2,
+# }
+COMMENTS_XTD_FROM_EMAIL = "onedeveloptesting@gmail.com"
+COMMENTS_XTD_SEND_HTML_EMAIL = True
+COMMENTS_XTD_THREADED_EMAILS = True
+COMMENTS_XTD_FORM_CLASS = "django_comments_xtd.forms.XtdCommentForm"
+
+MANAGERS = (
+    ('Менеджер блога', 'photocritic72@gmail.com'),
+)
+
+# Разрешить отправку email сообщений на консоль:
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+SCOMMENTS_XTD_MODEL = "django_comments_xtd.models.CommentPost"
+#COMMENTS_XTD_MARKUP_FALLBACK_FILTER = 'markdown'
+UNREGISTERED_USER_CAN_COMMENT = True #custom settings for comment
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
@@ -156,7 +183,6 @@ DATABASES = {
 
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
 
-# Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -177,7 +203,7 @@ AUTH_PASSWORD_VALIDATORS = [
 LOGIN_REDIRECT_URL = "index"
 LOGOUT_REDIRECT_URL = "index"
 REGISTRATION_OPEN = True
-RECOVER_ONLY_ACTIVE_USERS = False
+RECOVER_ONLY_ACTIVE_USERS = False #Password recovery
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
@@ -192,7 +218,7 @@ USE_TZ = True
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    #other finders
+
     'compressor.finders.CompressorFinder',    
 ]
 

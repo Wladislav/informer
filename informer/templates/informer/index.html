@@ -1,5 +1,8 @@
-{% extends "informer/base.html" %} {% load compress %} {% load i18n %} {% block content %}
-
+{% extends "informer/base.html" %}
+{% load compress %}
+{% load i18n %}
+{% load last_blog_news %}
+{% block content %}
 <!-- =-=-=-=-=-=-= Advance Search =-=-=-=-=-=-= -->
 <div id="search-section">
 	<div class="container">
@@ -216,7 +219,6 @@
 			 </div>
 		  </div>
 		  <!-- Middle Content Box -->
-		  {% load last_blog_news %}
 		  {% last_blog_news 3 %}
 		  <!-- Middle Content Box End -->
 	   </div>

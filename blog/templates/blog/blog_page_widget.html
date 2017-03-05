@@ -18,7 +18,7 @@
                     {% endif %}</a> 
               </div>
               {% endwith %}
-              <div class="post-info"> <a href="{% pageurl post %}">{{ post.date }}</a> <a href="{% pageurl post %}">{{ comment_count }} {% trans 'комментариев' %}</a> </div>
+              <div class="post-info"> <a href="{% pageurl post %}">{{ post.date }}</a> <a href="{% pageurl post %}" style="float: right;">{% trans 'Комментариев' %} ({{ comment_count }})</a> </div>
               <h3 class="post-title"> <a href="{% pageurl post %}">{{ post.title }}</a> </h3>
               {{ post.body|richtext|cut:'<p></p>' }}
             </div>

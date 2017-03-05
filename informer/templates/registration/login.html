@@ -46,14 +46,10 @@
                                  <!--/{/{ field.label_tag /}/}-->
                                  {% if field.name == 'username' %}
                                     <label for="id_username">{% trans 'Имя пользователя' %}:</label>
-                                 {% endif %}
-                                 {% if field.name == 'password' %}
-                                    <label for="id_password">{% trans 'Пароль' %}:</label>
-                                 {% endif %}
-                                 {% if field.name == 'username' %}
                                     <input id="id_username" name="username" placeholder="{% trans 'Ваш логин' %}" class="form-control" type="text">
                                  {% endif %}
                                  {% if field.name == 'password' %}
+                                    <label for="id_password">{% trans 'Пароль' %}:</label>
                                     <input name="password" placeholder="{% trans 'Ваш пароль' %}" class="form-control" type="password">
                                  {% endif %}
                                  {% if field.help_text %}

@@ -29,6 +29,7 @@ from django.template.response import TemplateResponse
 from django.utils.http import is_safe_url, urlsafe_base64_decode
 from django.shortcuts import resolve_url
 from django.core.exceptions import ObjectDoesNotExist
+from blog.models import BlogIndexPage
 import logging
 
 logger = logging.getLogger('informer_views')

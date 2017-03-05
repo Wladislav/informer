@@ -1,9 +1,62 @@
+
+a.comments-count {
+    float: right;
+}
+
+textarea#id_comment {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+.author-desc p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.skin-minimal .list li label {
+    padding-left: 0px;
+    font-weight: 500;
+    color: #555;
+    font-size: 16px;
+    font-family: Fira Sans Extra Condensed;
+}
+ 
+ .blog-detial .author-title strong {
+    font-family: Fira Sans Extra Condensed;
+    font-weight: 600;
+}
+
+.blog-detial .blog-section .blog-heading h2 {
+    margin: 10px 0 15px;
+    padding: 13px 18px 0 0;
+ }
+ 
  .post-title {
     font-size: 18px;
     max-height: 2.2em;
     overflow: hidden;
+    color: #000000;
+    font-family: Fira Sans Extra Condensed;
+    font-weight: 400;
+    text-transform: uppercase;
  }
  
+ h3.post-title a {
+    color: #000000;
+    font-family: Fira Sans Extra Condensed;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.post-info a {
+    margin-right: 0px;
+}
+
+.ad-archive-desc.box-shadow {
+    background-color: white;
+}
+
  #id_honeypot {
     display: none;
 }

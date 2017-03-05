@@ -16,12 +16,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 from django.template.defaultfilters import truncatechars_html
-from django_comments.moderation import CommentModerator, moderator
 import re
-
-class EntryModerator(CommentModerator):
-    email_notification = True
-    enable_field = 'enable_comments'
 
 class BlogIndexPage(Page):
     intro = RichTextField(blank=True)
@@ -29,7 +24,6 @@ class BlogIndexPage(Page):
         verbose_name = _('Список записей')
         verbose_name_plural = _('Список записей')
     def get_context(self, request):
-        # Update context to include only published posts, ordered by reverse-chron
         context = super(BlogIndexPage, self).get_context(request)
         blogpages = self.get_children().live().order_by('-first_published_at')
         paginator = Paginator(blogpages, settings.BLOG_PAGINATOR_PER_PAGE)
@@ -37,10 +31,8 @@ class BlogIndexPage(Page):
         try:
             resources = paginator.page(page)
         except PageNotAnInteger:
-            # If page is not an integer, deliver first page.
             resources = paginator.page(1)
         except EmptyPage:
-            # If page is out of range (e.g. 9999), deliver last page of results.
             resources = paginator.page(paginator.num_pages)        
         for page_res in resources:
             # Obrezaem do 130 simvolov
@@ -72,7 +64,11 @@ class BlogPage(TranslationMixin, Page):
             return gallery_item.image
         else:
             return None
-        
+
+    def get_absolute_url(self):
+        abs_url = Page.get_site(self).root_url
+        return abs_url+self.url
+    
     search_fields = Page.search_fields + [
         index.SearchField('intro'),
         index.SearchField('body'),
@@ -106,7 +102,6 @@ class BlogTagIndexPage(Page):
         verbose_name = _('Список тегов')
         verbose_name_plural = _('Список тегов')
     def get_context(self, request):
-        # Filter by tag
         tag = request.GET.get('tag')
         blogpages = BlogPage.objects.filter(tags__name=tag)
         paginator = Paginator(blogpages, settings.TAGS_PAGINATOR_PER_PAGE)
@@ -114,12 +109,10 @@ class BlogTagIndexPage(Page):
         try:
             resources = paginator.page(page)
         except PageNotAnInteger:
-            # If page is not an integer, deliver first page.
             resources = paginator.page(1)
         except EmptyPage:
-            # If page is out of range (e.g. 9999), deliver last page of results.
             resources = paginator.page(paginator.num_pages)         
-        # Update template context
+
         context = super(BlogTagIndexPage, self).get_context(request)
         context['blogpages'] = resources
         return context
@@ -141,19 +134,3 @@ class BlogCategory(TranslationMixin, models.Model):
         ImageChooserPanel('icon'),
     ]
     
-class Entry(models.Model):
-    class Meta:
-        verbose_name = _('Список комментариев')
-        verbose_name_plural = _('Список комментариев')    
-    title = models.CharField(max_length=250)
-    body = models.TextField()
-    pub_date = models.DateField()
-    enable_comments = models.BooleanField()
-    panels = [
-        FieldPanel('title'),
-        FieldPanel('body'),
-        FieldPanel('pub_date'),
-        FieldPanel('enable_comments'),
-    ]
-    
-moderator.register(Entry, EntryModerator)

@@ -25,21 +25,7 @@ class UserProfile(models.Model):
         verbose_name = _('Профиль пользователя')
         verbose_name_plural = _('Профили пользователей')
     def __str__(self):
-        return "Профиль пользователя: %s" % self.user    
-    panels = [
-        FieldPanel('user'),
-        FieldPanel('website'),
-        FieldPanel('bio'),
-        FieldPanel('phone'),
-        FieldPanel('city'),
-        FieldPanel('country'),
-        FieldPanel('language'),
-        FieldPanel('country'),
-        FieldPanel('last_update'),
-        ImageChooserPanel('photo'),        
-        FieldPanel('img_height'),
-        FieldPanel('img_width'),
-    ]
+        return "Профиль пользователя: %s " % self.user    
 
 def create_profile(sender, **kwargs):
      user = kwargs["instance"]

@@ -1,12 +1,10 @@
 from django import template
 from wagtail.wagtailcore.models import Page
 from django.template.defaultfilters import truncatechars_html
-#from django.views.decorators.cache import never_cache
 import re
 
 register = template.Library()
 
-#@register.simple_tag(takes_context=True)
 @register.inclusion_tag('blog/blog_page_widget.html')
 def last_blog_news(value):
     some_pagr_qs = Page.objects.filter(live=1, content_type_id=32, expired=0).order_by('latest_revision_created_at')[:int(value)]

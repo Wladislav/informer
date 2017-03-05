@@ -2,8 +2,8 @@
 {% load compress %}
 {% load i18n %}
 {% load wagtailcore_tags %}
-
 {% load wagtailcore_tags wagtailimages_tags %}
+{% load blog_comment_tags %}
 {% block body_class %}template-blogpage{% endblock %}
 
 {% block content %}
@@ -107,47 +107,38 @@
                         </div>
                      </div>
                      {% load comments %}
+                     {% load comments_xtd %}
                      {% get_comment_form for page as form %}
                      <div class="clearfix"></div>
                      <div class="blog-section">
                         <div class="blog-heading">
                            {% get_comment_count for page as comment_count %}
-                           {# Translators: Количество комментарие к записи в блоге (Comments) #}
+                           {# Translators: Количество комментариев к записи в блоге (Comments) #}
                            <h2>{% trans 'Комментариев' %} ({{ comment_count }})</h2>
                            <hr>
                         </div>
                         <ol class="comment-list">
-                           {% get_comment_list for page as comment_list %}
-                           {% for comment in comment_list %}
-                              <div class="comment-info">
-                                <img class="pull-left hidden-xs img-circle" src="/static/images/blog/c1.png" alt="author">
-                                <div class="author-desc">
-                                  <div class="author-title">
-                                    <strong>{{ comment.user_name }}</strong>
-                                    <ul class="list-inline pull-right">
-                                       <li><a href="#">{{ comment.submit_date }}</a>
-                                       </li>
-                                       <!--<li>
-                                          <a href="#"><i class="fa fa-reply"></i> Reply</a>
-                                       </li>-->
-                                    </ul>
-                                  </div>
-                                  <p>{{ comment.comment }}</p>
-                                </div>
-                              </div>
-                           {% endfor %}                              
+                           {% if comment_count %}
+                             {% get_xtdcomment_tree for page as comments_tree %}
+                             {% include "blog/comments_tree.html" with comments=comments_tree %}
+                           {% endif %}   
                         </ol>
                      </div>
-                     <div class="clearfix"></div>
+                     <!--<div class="clearfix"></div>-->
                      <div class="blog-section">
+                        {% unregistered_user_can_comment as user_can_comment %}
                         <div class="blog-heading">
                            {% if user.is_authenticated %}
                               <h2>{% trans 'Оставьте ваш комментарий' %} </h2>
                            {% else %}
+                              {% if not user_can_comment %}
                               <a class="btn btn-theme btn-lg btn-block" style="color: white" href="{% url 'auth_login' %}">
                                  {# Translators: Написать > Please log in to leave a comment #}
                                  {% trans 'Пожалуйста войдите чтобы оставить комментарий' %}
                               </a>
+                              {% else %}
+                                 <h2>{% trans 'Оставьте ваш комментарий' %} </h2>
+                              {% endif  %}
                            {% endif %}
                            <hr>
                         </div>
@@ -157,57 +148,119 @@
                               {% csrf_token %}
                               <div class="row">
                                  {% for field in form %}
-                                 {% ifequal field.name 'name' %}
-                                    <!--<div class="col-md-4 col-sm-12">
+                                    {% ifequal field.name 'comment' %}
+                                    <div class="col-md-12 col-sm-12">
                                        <div class="form-group">
-                                          <label>{% trans 'Имя' %} <span class="required">*</span>
+                                          <label>{% trans 'Комментарий' %} <span class="required">*</span>
                                           </label>
-                                          <input id="id_name" name="name" type="text" class="form-control" placeholder="">
+                                          <textarea id="id_comment" name="comment" class="form-control" placeholder="" rows="8" cols="6"></textarea>
                                        </div>
-                                    </div>-->
-                                 {% endifequal %}
-                                 {% ifequal field.name 'email' %}
-                                 <!--<div class="col-md-4 col-sm-12">
-                                    <div class="form-group">
-                                       <label>Email <span class="required">*</span>
-                                       </label>
-                                       <input id="id_email" name="email" type="email" class="form-control" placeholder="">
                                     </div>
-                                 </div>-->
-                                 {% endifequal %}
-                                 {% ifequal field.name 'url' %}
-                                 <!--<div class="col-md-4 col-sm-12">
-                                    <div class="form-group">
-                                       <label>{% trans 'Вебсайт' %} <span class=""></span>
-                                       </label>
-                                       <input id="id_url" name="url" type="url" class="form-control" placeholder="">
-                                    </div>
-                                 </div>-->
-                                 {% endifequal %}
-                                 {% ifequal field.name 'comment' %}
-                                 <div class="col-md-12 col-sm-12">
-                                    <div class="form-group">
-                                       <label>{% trans 'Комментарий' %} <span class="required">*</span>
-                                       </label>
-                                       <textarea id="id_comment" name="comment" class="form-control" placeholder="" rows="8" cols="6"></textarea>
-                                    </div>
-                                 </div>
-                                 {% endifequal %}
+                                    {% endifequal %}
                                  {% endfor %}
-                                 {{ form.honeypot }}
                                  {{ form.content_type }}
                                  {{ form.object_pk }}
                                  {{ form.timestamp }}
                                  {{ form.security_hash }}
+                                 {{ form.honeypot }}
+                                 {{ form.reply_to }}
+                                 <div class="col-md-12 col-sm-12 margin-top-20 iclearfix">
+                                    <div class="skin-minimal">
+                                       <ul class="list">
+                                          <li>
+                                             <label for="minimal-checkbox-1">
+                                             <input  id="id_followup" name="followup" type="checkbox">
+                                             {# Translator: Перевести как Notify me about follow-up comments #}
+                                             {% trans 'Сообщите мне о последующих комментариях' %}
+                                             </label>
+                                          </li>
+                                       </ul>
+                                    </div>                                    
+                                 </div>
+                                 <input type="hidden" name="next" value="{{ request.get_full_path }}" />
                                  <div class="col-md-12 col-sm-12 margin-top-20 iclearfix">
                                     {# Translators: Предварительный просмотр комментария в блоге #}
-                                    <button type="submit" name="preview" class="btn btn-theme">{% trans 'Предварительный просмотр' %}</button>
+                                    <button type="submit" name="preview" class="btn btn-theme submit-post">{% trans 'Предварительный просмотр' %}</button>
                                     {# Translators: Запись комментария в блоге #}
-                                    <button type="submit" name="submit" class="btn btn-theme" style="float: right" >{% trans 'Записать комментарий' %}</button>
+                                    <button type="submit" name="submit" class="btn btn-theme submit-preview" style="float: right" >{% trans 'Записать комментарий' %}</button>
                                  </div>
                               </div>
                            </form>
                         </div>
+                        {% else %}
+                           {% if user_can_comment %}
+                              <div class="commentform">
+                                 <form action="{% comment_form_target %}" method="post">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                       {% for field in form %}
+                                          {% ifequal field.name 'name' %}
+                                          <div class="col-md-12 col-sm-12">
+                                             <div class="form-group">
+                                                <label>{% trans 'Имя' %} <span class="required">*</span>
+                                                </label>
+                                                <input id="id_name" name="name" class="form-control" placeholder="" rows="8" cols="6"></input>
+                                             </div>
+                                          </div>
+                                          {% endifequal %}
+                                          {% ifequal field.name 'email' %}
+                                          <div class="col-md-12 col-sm-12">
+                                             <div class="form-group">
+                                                <label>{% trans 'Email' %} <span class="required">*</span>
+                                                </label>
+                                                <input id="id_email" name="email" class="form-control" placeholder="" rows="8" cols="6"></input>
+                                             </div>
+                                          </div>
+                                          {% endifequal %}
+                                          {% ifequal field.name 'url' %}
+                                          <div class="col-md-12 col-sm-12">
+                                             <div class="form-group">
+                                                <label>{% trans 'Вебсайт' %} <span class=""></span>
+                                                </label>
+                                                <input id="id_url" name="url" class="form-control" placeholder="" rows="8" cols="6"></input>
+                                             </div>
+                                          </div>
+                                          {% endifequal %}
+                                          {% ifequal field.name 'comment' %}
+                                          <div class="col-md-12 col-sm-12">
+                                             <div class="form-group">
+                                                <label>{% trans 'Комментарий' %} <span class="required">*</span>
+                                                </label>
+                                                <textarea id="id_comment" name="comment" class="form-control" placeholder="" rows="8" cols="6"></textarea>
+                                             </div>
+                                          </div>
+                                          {% endifequal %}                                          
+                                       {% endfor %}
+                                       {{ form.content_type }}
+                                       {{ form.object_pk }}
+                                       {{ form.timestamp }}
+                                       {{ form.security_hash }}
+                                       {{ form.honeypot }}
+                                       {{ form.reply_to }}
+                                       <div class="col-md-12 col-sm-12 margin-top-20 iclearfix">
+                                          <div class="skin-minimal">
+                                             <ul class="list">
+                                                <li>
+                                                   <label for="minimal-checkbox-1">
+                                                   <input  id="id_followup" name="followup" type="checkbox">
+                                                   {# Translator: Перевести как Notify me about follow-up comments #}
+                                                   {% trans 'Сообщите мне о последующих комментариях' %}
+                                                   </label>
+                                                </li>
+                                             </ul>
+                                          </div>                                    
+                                       </div>
+                                       <input type="hidden" name="next" value="{{ request.get_full_path }}" />
+                                       <div class="col-md-12 col-sm-12 margin-top-20 iclearfix">
+                                          {# Translators: Предварительный просмотр комментария в блоге #}
+                                          <button type="submit" name="preview" class="btn btn-theme submit-post">{% trans 'Предварительный просмотр' %}</button>
+                                          {# Translators: Запись комментария в блоге #}
+                                          <button type="submit" name="submit" class="btn btn-theme submit-preview" style="float: right" >{% trans 'Записать комментарий' %}</button>
+                                       </div>
+                                    </div>
+                                 </form>
+                              </div>                       
+                           {% endif %}
                         {% endif %}
                      </div>
                   </div>
