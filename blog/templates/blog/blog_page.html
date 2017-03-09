@@ -132,7 +132,7 @@
                               <h2>{% trans 'Оставьте ваш комментарий' %} </h2>
                            {% else %}
                               {% if not user_can_comment %}
-                              <a class="btn btn-theme btn-lg btn-block" style="color: white" href="{% url 'auth_login' %}">
+                              <a class="btn btn-theme btn-lg btn-block" style="color: white" href="{% url 'auth_login' %}?next={{request.path}}">
                                  {# Translators: Написать > Please log in to leave a comment #}
                                  {% trans 'Пожалуйста войдите чтобы оставить комментарий' %}
                               </a>

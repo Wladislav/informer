@@ -144,7 +144,7 @@ def user_profile(request):
                 formusr_main.save()
             if fsv and fuv:
                 messages.success(request, _('Профиль успешно обновлен.')) #Profile details updated.
-                logger.debug('Fine!')
+                #logger.debug('Fine!')
             return HttpResponseRedirect('/accounts/profile/')
 
         return render(request, "informer/userprofile.html", {

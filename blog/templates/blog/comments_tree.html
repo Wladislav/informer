@@ -12,8 +12,11 @@
     <a name="c{{ item.comment.id }}"></a>
     <div class="comment-info">
       
-        <!--{{ item.comment.user_email|xtd_comment_gravatar }}-->
-        <img class="pull-left hidden-xs img-circle" src="/static/images/blog/c1.png" alt="author">
+        {% if item.comment.user_id %}
+          {{ item.comment.user_id|xtd_comment_avatar }}
+        {% else %}
+          {{ item.comment.user_email|xtd_comment_gravatar:90 }}
+        {% endif %}
       
       <!--<div class="media-body">-->
       <div class="author-desc">

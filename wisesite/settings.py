@@ -164,12 +164,9 @@ MANAGERS = (
     ('Менеджер блога', 'photocritic72@gmail.com'),
 )
 
-# Разрешить отправку email сообщений на консоль:
-#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-SCOMMENTS_XTD_MODEL = "django_comments_xtd.models.CommentPost"
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # Разрешить отправку email сообщений на консоль
 #COMMENTS_XTD_MARKUP_FALLBACK_FILTER = 'markdown'
-UNREGISTERED_USER_CAN_COMMENT = True #custom settings for comment
+UNREGISTERED_USER_CAN_COMMENT = False
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases

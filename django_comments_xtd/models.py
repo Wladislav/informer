@@ -222,9 +222,9 @@ class TmpXtdComment(dict):
         return (TmpXtdComment, (), None, None, six.iteritems(self))
 
 # ----------------------- informer -------------------------------------
-class CommentPost(XtdComment):
-    title = models.CharField(max_length=250)
-    enable_comments = models.BooleanField()
+# class CommentPost(XtdComment):
+#     title = models.CharField(max_length=250)
+#     enable_comments = models.BooleanField()
 # ----------------------------------------------------------------------
 class BlackListedDomain(models.Model):
     """

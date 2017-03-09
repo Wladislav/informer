@@ -12,9 +12,10 @@ from django.utils.safestring import mark_safe
 
 from django_comments_xtd import get_model as get_comment_model
 from django_comments_xtd.conf import settings
+from django.conf import settings as informersettings
 
 from ..utils import import_formatter
-
+from informer.models import UserProfile
 
 XtdComment = get_comment_model()
 
@@ -357,8 +358,20 @@ register.filter(xtd_comment_gravatar_url)
 # ----------------------------------------------------------------------
 def xtd_comment_gravatar(email, size=48):
     url = xtd_comment_gravatar_url(email, size)
-    return mark_safe('<img src="%s" height="%d" width="%d">' %
+    return mark_safe('<img src="%s" height="%d" width="%d" class="pull-left hidden-xs img-circle">' %
                      (url, size, size))
 
 
 register.filter(xtd_comment_gravatar)
+
+# ---------------------------------------------------------------------
+def xtd_comment_avatar(user_id, size=90):
+    photo_url = informersettings.MEDIA_URL+'/avatars/avatar.png'
+    if user_id!='':
+        user_photo = UserProfile.objects.get(pk=user_id).photo
+        if user_photo:
+            photo_url = user_photo.url
+    return mark_safe('<img src="%s" height="%d" width="%d" class="pull-left hidden-xs img-circle">' %
+                     (photo_url, size, size))    
+    
+register.filter(xtd_comment_avatar)

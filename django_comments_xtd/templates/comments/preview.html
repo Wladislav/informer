@@ -48,7 +48,11 @@
                      <ol class="comment-list">
                          <li class="comment">
                              <div class="comment-info">
-                                 <img class="pull-left hidden-xs img-circle" src="/static/images/blog/c1.png" alt="author"> 
+                                 {% if user_id %}
+                                   {{ user_id|xtd_comment_avatar }}
+                                 {% else %}
+                                   {{ user_email|xtd_comment_gravatar:90 }}
+                                 {% endif %}                              
                                  <div class="author-desc">
                                      <div class="author-title">
                                          <strong>{{ form.cleaned_data.name }}</strong>

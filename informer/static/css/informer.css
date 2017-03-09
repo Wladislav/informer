@@ -191,7 +191,7 @@ label.label-user-trumb {
 .rich-text {
     font-size: 14px;
     line-height: 26px;
-    margin-bottom: 30px;
+    margin-bottom: 10px; /*30px*/
     padding: 0 20px;
     color: #535353;
 }

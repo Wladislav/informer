@@ -1,5 +1,6 @@
 {% extends "informer/base.html" %}
 {% load i18n comments %}
+{% load comments_xtd %}
 {% block content %}
    <!-- =-=-=-=-=-=-= Transparent Breadcrumb =-=-=-=-=-=-= -->
    <div class="page-header-area">
@@ -36,7 +37,7 @@
                   
                   <div class="heading-panel">
                      <h3 class="main-title text-left">
-                        {{ comment.name }} {% trans 'написал:' %}
+                        {% trans 'Исходный текст:' %} 
                      </h3>
                   </div>
                   
@@ -44,7 +45,11 @@
                      <ol class="comment-list">
                          <li class="comment">
                              <div class="comment-info">
-                                 <img class="pull-left hidden-xs img-circle" src="/static/images/blog/c1.png" alt="author"> 
+                                 {% if comment.user_id %}
+                                   {{ comment.user_id|xtd_comment_avatar }}
+                                 {% else %}
+                                   {{ comment.user_email|xtd_comment_gravatar:90 }}
+                                 {% endif %}
                                  <div class="author-desc">
                                      <div class="author-title">
                                          <strong>{{ comment.name }}</strong>

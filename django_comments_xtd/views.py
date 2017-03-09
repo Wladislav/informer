@@ -11,7 +11,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.template import loader, Context
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.csrf import csrf_protect
-
+from django.shortcuts import HttpResponseRedirect
 try:
     from django_comments.models import CommentFlag
     from django_comments.views.utils import next_redirect, confirmation_view
@@ -23,11 +23,11 @@ except ImportError:
 from django_comments_xtd import (get_form, comment_was_posted, signals, signed,
                                  get_model as get_comment_model)
 from django_comments_xtd.conf import settings
+from django.conf import settings as blog_settings
 from django_comments_xtd.models import (TmpXtdComment,
                                         max_thread_level_for_content_type,
                                         LIKEDIT_FLAG, DISLIKEDIT_FLAG)
 from django_comments_xtd.utils import send_mail
-
 
 get_model = None
 if django.VERSION[:2] <= (1, 8):
@@ -137,6 +137,18 @@ comment_was_posted.connect(on_comment_was_posted, sender=TmpXtdComment)
 
 def sent(request):
     comment_pk = request.GET.get("c", None)
+    object_pk = request.GET.get("obj_pk", None)
+    ctype = request.GET.get("ct", None)
+    obj_url = None;
+    if ctype is None or object_pk is None:
+        pass
+    else:
+        try:
+            model = apps.get_model(*ctype.split(".", 1))
+            target = model._default_manager.using(None).get(pk=object_pk)
+            obj_url = target.get_absolute_url()
+        except TypeError:
+            pass   
     # req_ctx = RequestContext(request)
     try:
         comment_pk = int(comment_pk)
@@ -144,7 +156,7 @@ def sent(request):
     except (TypeError, ValueError, XtdComment.DoesNotExist):
         template_arg = ["django_comments_xtd/posted.html",
                         "comments/posted.html"]
-        return render(request, template_arg)
+        return render(request, template_arg, {'obj_url':obj_url,})
     else:
         if (
                 request.is_ajax() and comment.user and
@@ -253,6 +265,13 @@ def reply(request, cid):
 
     form = get_form()(comment.content_object, comment=comment)
     next = request.GET.get("next", reverse("comments-xtd-sent"))
+
+    user_is_authenticated = request.user.is_authenticated
+    
+    if not user_is_authenticated:
+        anonymous_can_comment = blog_settings.UNREGISTERED_USER_CAN_COMMENT
+        if not anonymous_can_comment:
+            return HttpResponseRedirect('/login/?next=%s' % request.path)
 
     template_arg = [
         "django_comments_xtd/%s/%s/reply.html" % (
