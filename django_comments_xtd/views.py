@@ -9,9 +9,10 @@ from django.core.urlresolvers import reverse
 from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
 from django.template import loader, Context
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _ , get_language, to_locale
 from django.views.decorators.csrf import csrf_protect
 from django.shortcuts import HttpResponseRedirect
+
 try:
     from django_comments.models import CommentFlag
     from django_comments.views.utils import next_redirect, confirmation_view
@@ -271,7 +272,8 @@ def reply(request, cid):
     if not user_is_authenticated:
         anonymous_can_comment = blog_settings.UNREGISTERED_USER_CAN_COMMENT
         if not anonymous_can_comment:
-            return HttpResponseRedirect('/login/?next=%s' % request.path)
+            language = to_locale(get_language())
+            return HttpResponseRedirect('/'+language+'/login/?next=%s' % request.path)
 
     template_arg = [
         "django_comments_xtd/%s/%s/reply.html" % (

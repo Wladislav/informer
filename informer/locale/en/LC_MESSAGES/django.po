@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-02 02:03+0300\n"
+"POT-Creation-Date: 2017-03-09 16:22+0300\n"
 "PO-Revision-Date: 2017-02-08 02:35+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -16,6 +16,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.11\n"
+
+#: .\informer\admin.py:23
+msgid "Content"
+msgstr ""
+
+#: .\informer\admin.py:27
+msgid "Metadata"
+msgstr ""
 
 #: .\informer\forms.py:14
 msgid "Email address"
@@ -85,46 +93,50 @@ msgid "Профили пользователей"
 msgstr "Users profile"
 
 #. Translators: Ссылка на форму авторизации пользователя
-#: .\informer\templates\informer\base.html:95
+#: .\informer\templates\informer\base.html:94
 #: .\informer\templates\password_reset\recovery_form.html:44
 #: .\informer\templates\registration\registration_form.html:97
 msgid "Войти"
 msgstr "Login"
 
 #. Translators: Ссылка на форму регистрации пользователя
-#: .\informer\templates\informer\base.html:97
+#: .\informer\templates\informer\base.html:96
 msgid "Регистрация"
 msgstr "Register"
 
 #. Translators: Ссылка на преход к профилю пользователя
-#: .\informer\templates\informer\base.html:105
+#: .\informer\templates\informer\base.html:104
 msgid "Мой профиль"
 msgstr "My profile"
 
-#: .\informer\templates\informer\base.html:107
+#: .\informer\templates\informer\base.html:106
 msgid "Администрировать"
 msgstr "Administrate"
 
 #. Translators: Пользователь покидает сайт (logout)
-#: .\informer\templates\informer\base.html:110
+#: .\informer\templates\informer\base.html:109
 #: .\informer\templates\password_reset\recovery_form.html:33
 #: .\informer\templates\registration\login.html:29
 msgid "Выйти"
 msgstr "Logout"
 
 #. Translators: Это страницы сайта
-#: .\informer\templates\informer\base.html:143
+#: .\informer\templates\informer\base.html:142
 msgid "Страницы"
 msgstr "Pages"
 
 #. Translators: Переход на главную страницу сайта
-#: .\informer\templates\informer\base.html:147
+#: .\informer\templates\informer\base.html:146
 msgid "На главную"
 msgstr "Home"
 
-#: .\informer\templates\informer\base.html:148
+#: .\informer\templates\informer\base.html:147
 msgid "Новости в блоге"
 msgstr "Blog news"
+
+#: .\informer\templates\informer\base.html:148
+msgid "Ответы на вопросы"
+msgstr "Answers on questions"
 
 #: .\informer\templates\informer\base.html:151
 msgid "Новости"
@@ -184,132 +196,132 @@ msgstr "All rights reserved. Design by "
 msgid "МЫ В СЕТИ"
 msgstr "Social"
 
-#: .\informer\templates\informer\index.html:23
+#: .\informer\templates\informer\index.html:26
 msgid "Создайте свой"
 msgstr "Create your own"
 
-#: .\informer\templates\informer\index.html:23
+#: .\informer\templates\informer\index.html:26
 msgid "информер"
 msgstr "informer"
 
-#: .\informer\templates\informer\index.html:23
+#: .\informer\templates\informer\index.html:26
 msgid "уже сейчас"
 msgstr "now"
 
-#: .\informer\templates\informer\index.html:25
+#: .\informer\templates\informer\index.html:28
 msgid "Выберите тему информера и напишите свой текст в готовом шаблоне"
 msgstr "Choose a theme informer and write your text in the template ready"
 
-#: .\informer\templates\informer\index.html:35
+#: .\informer\templates\informer\index.html:38
 msgid "Визитная карточка"
 msgstr "Visiting card"
 
-#: .\informer\templates\informer\index.html:35
-#: .\informer\templates\informer\index.html:41
-#: .\informer\templates\informer\index.html:47
-#: .\informer\templates\informer\index.html:53
-#: .\informer\templates\informer\index.html:59
-#: .\informer\templates\informer\index.html:65
-#: .\informer\templates\informer\index.html:71
-#: .\informer\templates\informer\index.html:77
-#: .\informer\templates\informer\index.html:82
-#: .\informer\templates\informer\index.html:88
-#: .\informer\templates\informer\index.html:94
-#: .\informer\templates\informer\index.html:100
-#: .\informer\templates\informer\index.html:105
-#: .\informer\templates\informer\index.html:111
-#: .\informer\templates\informer\index.html:117
-#: .\informer\templates\informer\index.html:123
+#: .\informer\templates\informer\index.html:38
+#: .\informer\templates\informer\index.html:44
+#: .\informer\templates\informer\index.html:50
+#: .\informer\templates\informer\index.html:56
+#: .\informer\templates\informer\index.html:62
+#: .\informer\templates\informer\index.html:68
+#: .\informer\templates\informer\index.html:74
+#: .\informer\templates\informer\index.html:80
+#: .\informer\templates\informer\index.html:85
+#: .\informer\templates\informer\index.html:91
+#: .\informer\templates\informer\index.html:97
+#: .\informer\templates\informer\index.html:103
+#: .\informer\templates\informer\index.html:108
+#: .\informer\templates\informer\index.html:114
+#: .\informer\templates\informer\index.html:120
+#: .\informer\templates\informer\index.html:126
 msgid "Уже создано"
 msgstr "already created"
 
-#: .\informer\templates\informer\index.html:41
+#: .\informer\templates\informer\index.html:44
 msgid "Поздравительная открытка"
 msgstr "Greeting card"
 
-#: .\informer\templates\informer\index.html:47
+#: .\informer\templates\informer\index.html:50
 msgid "Приглашение на событие"
 msgstr "Invitation to the event"
 
-#: .\informer\templates\informer\index.html:53
+#: .\informer\templates\informer\index.html:56
 msgid "Тематическая статья"
 msgstr "Feature article"
 
-#: .\informer\templates\informer\index.html:59
+#: .\informer\templates\informer\index.html:62
 msgid "Карточка товара"
 msgstr "Product сard"
 
-#: .\informer\templates\informer\index.html:65
+#: .\informer\templates\informer\index.html:68
 msgid "Карточка услуги"
 msgstr "Service card"
 
-#: .\informer\templates\informer\index.html:71
+#: .\informer\templates\informer\index.html:74
 msgid "Ссылка в интеренете"
 msgstr "Related links"
 
-#: .\informer\templates\informer\index.html:77
+#: .\informer\templates\informer\index.html:80
 msgid "Аудио плей-лист"
 msgstr "Audio playlist"
 
-#: .\informer\templates\informer\index.html:82
+#: .\informer\templates\informer\index.html:85
 msgid "Галерея фотографий"
 msgstr "Photo gallery"
 
-#: .\informer\templates\informer\index.html:88
+#: .\informer\templates\informer\index.html:91
 msgid "Скидочный купон"
 msgstr "Discount coupon"
 
-#: .\informer\templates\informer\index.html:94
+#: .\informer\templates\informer\index.html:97
 msgid "Абонемент на что-нибудь"
 msgstr "Subscribe to something"
 
-#: .\informer\templates\informer\index.html:100
+#: .\informer\templates\informer\index.html:103
 msgid "Видео ролик, фильм"
 msgstr "Video clip or movie"
 
-#: .\informer\templates\informer\index.html:105
+#: .\informer\templates\informer\index.html:108
 msgid "2D или 3D модель"
 msgstr "2D or 3D model"
 
-#: .\informer\templates\informer\index.html:111
+#: .\informer\templates\informer\index.html:114
 msgid "Меню - кафе, рестораны"
 msgstr "Menu - cafes, restaurants"
 
-#: .\informer\templates\informer\index.html:117
+#: .\informer\templates\informer\index.html:120
 msgid "Электронное письмо"
 msgstr "Any Email"
 
-#: .\informer\templates\informer\index.html:123
+#: .\informer\templates\informer\index.html:126
 msgid "TV канал в интернете"
 msgstr "TV channel on the Internet"
 
-#: .\informer\templates\informer\index.html:151
+#: .\informer\templates\informer\index.html:154
 msgid "СКАЧАЙТЕ ПРИЛОЖЕНИЕ"
 msgstr "DOWNLOAD THE APP"
 
-#: .\informer\templates\informer\index.html:153
+#: .\informer\templates\informer\index.html:156
 msgid "ПОД ВАШУ ПЛАТФОРМУ"
 msgstr "FOR YOUR PLATFORM"
 
-#: .\informer\templates\informer\index.html:163
-#: .\informer\templates\informer\index.html:175
-#: .\informer\templates\informer\index.html:187
+#: .\informer\templates\informer\index.html:166
+#: .\informer\templates\informer\index.html:178
+#: .\informer\templates\informer\index.html:190
 msgid "Загрузить из"
 msgstr "Download from"
 
-#: .\informer\templates\informer\index.html:213
+#: .\informer\templates\informer\index.html:216
 msgid "Последние новости в"
 msgstr "Latest news in"
 
-#: .\informer\templates\informer\index.html:213
+#: .\informer\templates\informer\index.html:216
 msgid "Блоге"
 msgstr "Blog"
 
-#: .\informer\templates\informer\index.html:213
+#: .\informer\templates\informer\index.html:216
 msgid "информеров"
 msgstr "informers"
 
-#: .\informer\templates\informer\index.html:215
+#: .\informer\templates\informer\index.html:218
 msgid ""
 "В блоге информеров мы делимся с новыми возможностями, а также используем "
 "блог как обратную связь с клиентами нашего сервиса"
@@ -373,7 +385,7 @@ msgstr "The new password is set"
 #. Translators: Ссылка на форму авторизации
 #: .\informer\templates\password_reset\recovery_done.html:33
 #: .\informer\templates\registration\activation_complete.html:32
-#: .\informer\templates\registration\login.html:67
+#: .\informer\templates\registration\login.html:63
 #: .\informer\templates\registration\registration_closed.html:31
 #: .\informer\templates\registration\registration_complete.html:31
 msgid "Войти в сервис"
@@ -443,13 +455,13 @@ msgid "Восстановить мой пароль"
 msgstr "Recover my password"
 
 #: .\informer\templates\password_reset\recovery_form.html:43
-#: .\informer\templates\registration\login.html:71
+#: .\informer\templates\registration\login.html:67
 msgid "Я первый раз здесь, надо"
 msgstr "I am a first time, it is necessary to"
 
 #. Translators: Пользователь при регистрации должен нажать кнопку Зарегистрироваться
 #: .\informer\templates\password_reset\recovery_form.html:43
-#: .\informer\templates\registration\login.html:71
+#: .\informer\templates\registration\login.html:67
 #: .\informer\templates\registration\registration_form.html:91
 msgid "Зарегистрироваться"
 msgstr "Sign up"
@@ -622,54 +634,54 @@ msgstr ""
 msgid "Имя пользователя"
 msgstr "Username"
 
-#: .\informer\templates\registration\login.html:51
+#: .\informer\templates\registration\login.html:49
+msgid "Ваш логин"
+msgstr "Username"
+
+#: .\informer\templates\registration\login.html:52
 #: .\informer\templates\registration\registration_form.html:45
 msgid "Пароль"
 msgstr "Your password"
 
-#: .\informer\templates\registration\login.html:54
-msgid "Ваш логин"
-msgstr "Username"
-
-#: .\informer\templates\registration\login.html:57
+#: .\informer\templates\registration\login.html:53
 msgid "Ваш пароль"
 msgstr "Your password"
 
-#: .\informer\templates\registration\login.html:70
+#: .\informer\templates\registration\login.html:66
 msgid "Надо вспомнить пароль?"
 msgstr "It is necessary to remember the password?"
 
-#: .\informer\templates\registration\login.html:80
+#: .\informer\templates\registration\login.html:76
 msgid "Вход в аккаунт"
 msgstr "Member login"
 
-#: .\informer\templates\registration\login.html:90
+#: .\informer\templates\registration\login.html:86
 msgid "Введите имя пользователя и пароль"
 msgstr "Enter username and password"
 
-#: .\informer\templates\registration\login.html:93
+#: .\informer\templates\registration\login.html:89
 msgid "Логин чувствителен к регистру и пароль тоже."
 msgstr "Login is case sensitive and password too."
 
-#: .\informer\templates\registration\login.html:102
+#: .\informer\templates\registration\login.html:98
 msgid "Нажмите кнопку [Войти в сервис]"
 msgstr "Click [Login to the service]"
 
-#: .\informer\templates\registration\login.html:104
+#: .\informer\templates\registration\login.html:100
 msgid "После авторизации можно начать управлять информерами."
 msgstr "After authorization you can begin to manage informers."
 
-#: .\informer\templates\registration\login.html:114
+#: .\informer\templates\registration\login.html:110
 msgid "Вход уже произведен"
 msgstr "Member login"
 
-#: .\informer\templates\registration\login.html:123
+#: .\informer\templates\registration\login.html:119
 #, fuzzy
 #| msgid "Вы уже авторизированы в ситеме"
 msgid "Вы уже авторизированы в системе"
 msgstr "You are already logged in"
 
-#: .\informer\templates\registration\login.html:125
+#: .\informer\templates\registration\login.html:121
 msgid "Пользуйтесь сервисом пожалуйста."
 msgstr "Use the service please."
 
@@ -809,7 +821,7 @@ msgstr "Want more options?"
 msgid "Узнать о всех возможностях можно кликнув по ссылке"
 msgstr "Learn about all the opportunities you can by clicking on the link"
 
-#: .\informer\views.py:145
+#: .\informer\views.py:146
 #, fuzzy
 #| msgid "Ваш пароль успешно изменен!"
 msgid "Профиль успешно обновлен."

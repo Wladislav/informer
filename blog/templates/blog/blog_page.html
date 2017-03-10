@@ -2,12 +2,13 @@
 {% load compress %}
 {% load i18n %}
 {% load wagtailcore_tags %}
-{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailimages_tags %}
+
 {% load blog_comment_tags %}
 {% block body_class %}template-blogpage{% endblock %}
 
 {% block content %}
-
+<script type="text/javascript" src="https://vk.com/js/api/share.js?94" charset="windows-1251"></script>
 <div class="page-header-area">
    <div class="container">
       <div class="row">
@@ -80,8 +81,20 @@
                            </ul>
                            {% endif %}
                         </div>
+                        {% image page.main_image fill-750x400 as tmp_photo %}
                         <div class="share pull-right">
-                           <div class="social-links-two clearfix"> 
+                           <div class="social-links-two clearfix">
+                              <script type="text/javascript">
+                              document.write(VK.Share.button({
+                              url: 'http://{{request.get_host}}{% pageurl page %}',
+                              title: '{{ page.title }}',
+                              image: 'http://{{request.get_host}}{{ tmp_photo.url}}',
+                              noparse: true
+                              }, {type: 'custom',
+                                  text:'<span class="img-circle fa fa-vk"></span>'}));
+                              </script>
+                              <!--<a class="facebook img-circle" onclick="return VK.Share.click(0, this);" href="//vk.com/share.php?url={{request.get_host}}{% pageurl page %}"><span class="fa fa-vk"></span></a>-->
+                              <a class="odnoklassniki img-circle" href="#"><span class="fa fa-odnoklassniki"></span></a>
                               <a class="facebook img-circle" href="#"><span class="fa fa-facebook-f"></span></a>
                               <a class="twitter img-circle" href="#"><span class="fa fa-twitter"></span></a>
                               <a class="google-plus img-circle" href="#"><span class="fa fa-google-plus"></span></a>

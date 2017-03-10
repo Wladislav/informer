@@ -32,7 +32,7 @@
               {% else %}
               
                 {% if item.comment.allow_thread and not item.comment.is_removed %}
-                  <a href="{{ item.comment.get_reply_url }}"><i class="fa fa-reply"></i> Ответить</a>
+                  <a href="{{ item.comment.get_reply_url }}"><i class="fa fa-reply"></i> {% trans 'Ответить' %}</a>
                 {% endif %}
               
               {% endif %}                
