@@ -90,11 +90,26 @@
                               title: '{{ page.title }}',
                               image: 'http://{{request.get_host}}{{ tmp_photo.url}}',
                               noparse: true
-                              }, {type: 'custom',
-                                  text:'<span class="img-circle fa fa-vk"></span>'}));
+                              },{type: 'custom', text: '<span class="img-circle fa fa-vk"></span>'}));
                               </script>
-                              <!--<a class="facebook img-circle" onclick="return VK.Share.click(0, this);" href="//vk.com/share.php?url={{request.get_host}}{% pageurl page %}"><span class="fa fa-vk"></span></a>-->
-                              <a class="odnoklassniki img-circle" href="#"><span class="fa fa-odnoklassniki"></span></a>
+                              <a target='_blank' class="odnoklassniki img-circle" href="https://connect.ok.ru/offer?url={{request.get_host}}{{ tmp_photo.url}}&title={{ page.title }}&description='Статья в блоге'&imageUrl='http://{{request.get_host}}{{ tmp_photo.url}}'"><span class="fa fa-odnoklassniki"></span></a>
+<!--<div id="ok_shareWidget"></div>
+<script>
+!function (d, id, did, st, title, description, image) {
+  var js = d.createElement("script");
+  js.src = "https://connect.ok.ru/connect.js";
+  js.onload = js.onreadystatechange = function () {
+  if (!this.readyState || this.readyState == "loaded" || this.readyState == "complete") {
+    if (!this.executed) {
+      this.executed = true;
+      setTimeout(function () {
+        OK.CONNECT.insertShareWidget(id,did,st, title, description, image);
+      }, 0);
+    }
+  }};
+  d.documentElement.appendChild(js);
+}(document,"ok_shareWidget","https://{{request.get_host}}",'{"sz":20,"st":"oval","nc":1,"nt":1}',"{{ page.title }}","http://{{request.get_host}}{{ tmp_photo.url}}");
+</script>-->                              
                               <a class="facebook img-circle" href="#"><span class="fa fa-facebook-f"></span></a>
                               <a class="twitter img-circle" href="#"><span class="fa fa-twitter"></span></a>
                               <a class="google-plus img-circle" href="#"><span class="fa fa-google-plus"></span></a>
