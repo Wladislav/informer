@@ -84,7 +84,7 @@
                               <div class="share pull-right">
                                  <div class="social-links-two clearfix">
                                     <script type="text/javascript">
-                                    document.write(VK.Share.button(false, {type: 'custom', text: '<span class="img-circle fa fa-vk"></span>'}));
+                                    document.write(VK.Share.button({ image: '{{ meta.image }}',  noparse: true}, {type: 'custom', text: '<span class="img-circle fa fa-vk"></span>'}));
                                     </script>
                                     <a target='_blank' class="odnoklassniki img-circle" href="https://connect.ok.ru/offer?url={{request.get_host}}{{ tmp_photo.url}}&title={{ page.title }}&description='Статья в блоге'&imageUrl='http://{{request.get_host}}{{ tmp_photo.url}}'"><span class="fa fa-odnoklassniki"></span></a>
                                     <a class="facebook img-circle" href="#"><span class="fa fa-facebook-f"></span></a>
