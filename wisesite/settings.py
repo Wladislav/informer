@@ -172,7 +172,7 @@ UNREGISTERED_USER_CAN_COMMENT = False
 #SEO
 META_SITE_PROTOCOL = 'http'
 META_USE_SITES = None
-META_SITE_DOMAIN = '127.0.0.1:8000'
+META_SITE_DOMAIN = 'photocritic.pythonanywhere.com'
 META_IMAGE_URL = '/media/images/'
 
 # Database
