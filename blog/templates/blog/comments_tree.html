@@ -3,64 +3,57 @@
 {% load comments_xtd %}
 
 {% for item in comments %}
-  {% if item.comment.level == 0 %}
-    <li class="comment">
-  {% else %}
-    <!--<ol class="children">-->
-  {% endif %}
-    
-    <a name="c{{ item.comment.id }}"></a>
-    <div class="comment-info">
-      
-        {% if item.comment.user_id %}
-          {{ item.comment.user_id|xtd_comment_avatar }}
-        {% else %}
-          {{ item.comment.user_email|xtd_comment_gravatar:90 }}
-        {% endif %}
-      
-      <!--<div class="media-body">-->
-      <div class="author-desc">
-        <div class="author-title">
-          <strong>{{ item.comment.name }}</strong>
-          <ul class="list-inline pull-right">
-            <li><a>{{ item.comment.submit_date }}</a>
-            </li>
-            <li id="c{{ comment.id }}">
-              {{ form.reply_to }}
-              {% if item.comment.is_removed %}
-              <p>{% trans "This comment has been removed." %}</p>
-              {% else %}
-              
-                {% if item.comment.allow_thread and not item.comment.is_removed %}
-                  <a href="{{ item.comment.get_reply_url }}"><i class="fa fa-reply"></i> {% trans 'Ответить' %}</a>
-                {% endif %}
-              
-              {% endif %}                
-            </li>
-                
-          </ul>          
-          {% if item.comment.url and not item.comment.is_removed %}
-            <a href="{{ item.comment.url }}" target="_new">
-          {% endif %}
-          
-          {% if item.comment.url %}
-            </a>
-          {% endif %}
-          <a class="permalink" title="comment permalink" href="{% get_comment_permalink item.comment %}">¶</a>
-        </div>
-        <p>{{ item.comment.comment|render_markup_comment }}</p>
-      </div>
-    </div>
-      {% if not item.comment.is_removed and item.children %}
-      <ol class="children">
-        {% include "blog/comments_tree.html" with comments=item.children %}
-      </ol>
-      {% endif %}
-    <!--</div>-->
-    
-  {% if item.comment.level == 0 %}
-    </li>
-  {% else %}
-    <!--</ol>-->
-  {% endif %}
+                                {% if item.comment.level == 0 %}
+                                  <li class="comment">
+                                {% else %}
+                                {% endif %}
+                                  
+                                    <a name="c{{ item.comment.id }}"></a>
+                                    <div class="comment-info">
+                                    {% if item.comment.user_id %}
+                                      {{ item.comment.user_id|xtd_comment_avatar }}
+                                    {% else %}
+                                      {{ item.comment.user_email|xtd_comment_gravatar:90 }}
+                                    {% endif %}
+                                        <div class="author-desc">
+                                            <div class="author-title">
+                                                <strong>{{ item.comment.name }}</strong>
+                                                <ul class="list-inline pull-right">
+                                                    <li><a>{{ item.comment.submit_date }}</a>
+                                                    </li>
+                                                    <li id="c{{ comment.id }}">
+                                                    {{ form.reply_to }}
+                                                    {% if item.comment.is_removed %}
+                                                    <p>{% trans "This comment has been removed." %}</p>
+                                                    {% else %}
+                                                  
+                                                    {% if item.comment.allow_thread and not item.comment.is_removed %}
+                                                        <a href="{{ item.comment.get_reply_url }}"><i class="fa fa-reply"></i> {% trans 'Ответить' %}</a>
+                                                    {% endif %}
+                                                  
+                                                    {% endif %}                
+                                                    </li>
+                                                </ul>          
+                                              {% if item.comment.url and not item.comment.is_removed %}
+                                                    <a href="{{ item.comment.url }}" target="_new">
+                                              {% endif %}
+                                              
+                                              {% if item.comment.url %}
+                                                    </a>
+                                              {% endif %}
+                                                <a class="permalink" title="comment permalink" href="{% get_comment_permalink item.comment %}">¶</a>
+                                            </div>
+                                            <p>{{ item.comment.comment|render_markup_comment }}</p>
+                                        </div>
+                                    </div>
+                                    {% if not item.comment.is_removed and item.children %}
+                                    <ol class="children">
+                                      {% include "blog/comments_tree.html" with comments=item.children %}
+                                    </ol>
+                                    {% endif %}
+                                  
+                                {% if item.comment.level == 0 %}
+                                  </li>
+                                {% else %}
+                                {% endif %}
 {% endfor %}

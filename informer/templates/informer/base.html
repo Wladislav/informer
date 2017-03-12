@@ -1,16 +1,17 @@
 {% load compress %}
 {% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
+{% load meta %}
+{% load gapless %}
+{% gapless %}
 <!DOCTYPE html>
 <html lang="{{LANGUAGE_CODE}}">
-   <head>
+   <head {% meta_namespaces %}>
       <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+      {% include 'meta/meta.html' %}
       <!--[if IE]>
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <![endif]-->
-      <meta name="description" content="">
-      <meta name="author" content="ScriptsBundle">
-      <title>wisemarker.com</title>
       <!-- =-=-=-=-=-=-= Favicons Icon =-=-=-=-=-=-= -->
       <link rel="icon" href="/static/images/favicon.ico?v=2" type="image/x-icon" />
       <!-- =-=-=-=-=-=-= Mobile Specific =-=-=-=-=-=-= -->
@@ -156,105 +157,103 @@
                   </div>
                </div>
             </section>
-         </nav>
-      </div>
-      <!-- Navigation Menu End -->
-      <!-- =-=-=-=-=-=-= Light Header End  =-=-=-=-=-=-= -->
+         </nav><!-- Navigation Menu End -->
+      </div><!-- =-=-=-=-=-=-= Light Header End  =-=-=-=-=-=-= -->
       <!-- =-=-=-=-=-=-= Main Content Area =-=-=-=-=-=-= -->
-        <div class="main-content-area clearfix">    
-          {% block content %}
-          {% endblock %}
-        </div>
-            <!-- Main Container End -->        
-         <!-- =-=-=-=-=-=-= FOOTER =-=-=-=-=-=-= -->
-         <footer class="footer-area">
-            <!--Footer Upper-->
-            <div class="footer-content">
-               <div class="container">
-                  <div class="row clearfix">
-                     <!--Two 4th column-->
-                     <div class="col-md-6 col-sm-12 col-xs-12">
-                        <div class="row clearfix">
-                           <div class="col-lg-7 col-sm-6 col-xs-12 column">
-                              <div class="footer-widget about-widget">
-                                 <div class="logo">
-                                    {% if LANGUAGE_CODE == 'ru' %}
-                                       <a href="/{{LANGUAGE_CODE}}"><img src="/static/images/logo-1_ru.png" class="img-responsive" alt="logo"> </a>
-                                    {% else %}
-                                       <a href="/{{LANGUAGE_CODE}}"><img src="/static/images/logo-1_en.png" class="img-responsive" alt="logo"> </a>
-                                    {% endif %}                                    
-                                    <!--<a href="index.html"><img alt="" class="img-responsive" src="/static/images/logo-1.png"></a>-->
-                                 </div>
-                                 <div class="text">
-                                    <p>{% trans 'Платформа: Python3 + Django' %}</p>
-                                 </div>
-                                 <ul class="contact-info">
-                                    <li><span class="icon fa fa-map-marker"></span>{% trans 'ул. Яснополянская 13, г. Краснодар' %}</li>
-                                    <li><span class="icon fa fa-phone"></span>+7(988) 411 20 77</li>
-                                    <li><span class="icon fa fa-envelope-o"></span>wisemarker@adminstration.com</li>
-                                 </ul>
-                                 <div class="social-links-two clearfix"> 
-                                    <a class="facebook img-circle" href="#"><span class="fa fa-facebook-f"></span></a>
-                                    <a class="twitter img-circle" href="#"><span class="fa fa-twitter"></span></a>
-                                    <a class="google-plus img-circle" href="#"><span class="fa fa-google-plus"></span></a>
-                                    <a class="linkedin img-circle" href="#"><span class="fa fa-pinterest-p"></span></a>
-                                    <a class="linkedin img-circle" href="#"><span class="fa fa-linkedin"></span></a> 
-                                 </div>
+      <div class="main-content-area clearfix">    
+        {% block content %}
+        {% endblock %}
+      </div>
+      <!-- Main Container End -->        
+      <!-- =-=-=-=-=-=-= FOOTER =-=-=-=-=-=-= -->
+      <footer class="footer-area">
+         <!--Footer Upper-->
+         <div class="footer-content">
+            <div class="container">
+               <div class="row clearfix">
+                  <!--Two 4th column-->
+                  <div class="col-md-6 col-sm-12 col-xs-12">
+                     <div class="row clearfix">
+                        <div class="col-lg-7 col-sm-6 col-xs-12 column">
+                           <div class="footer-widget about-widget">
+                              <div class="logo">
+                                 {% if LANGUAGE_CODE == 'ru' %}
+                                    <a href="/{{LANGUAGE_CODE}}"><img src="/static/images/logo-1_ru.png" class="img-responsive" alt="logo"> </a>
+                                 {% else %}
+                                    <a href="/{{LANGUAGE_CODE}}"><img src="/static/images/logo-1_en.png" class="img-responsive" alt="logo"> </a>
+                                 {% endif %}                                    
+                                 <!--<a href="index.html"><img alt="" class="img-responsive" src="/static/images/logo-1.png"></a>-->
+                              </div>
+                              <div class="text">
+                                 <p>{% trans 'Платформа: Python3 + Django' %}</p>
+                              </div>
+                              <ul class="contact-info">
+                                 <li><span class="icon fa fa-map-marker"></span>{% trans 'ул. Яснополянская 13, г. Краснодар' %}</li>
+                                 <li><span class="icon fa fa-phone"></span>+7(988) 411 20 77</li>
+                                 <li><span class="icon fa fa-envelope-o"></span>wisemarker@adminstration.com</li>
+                              </ul>
+                              <div class="social-links-two clearfix"> 
+                                 <a class="facebook img-circle" href="#"><span class="fa fa-facebook-f"></span></a>
+                                 <a class="twitter img-circle" href="#"><span class="fa fa-twitter"></span></a>
+                                 <a class="google-plus img-circle" href="#"><span class="fa fa-google-plus"></span></a>
+                                 <a class="linkedin img-circle" href="#"><span class="fa fa-pinterest-p"></span></a>
+                                 <a class="linkedin img-circle" href="#"><span class="fa fa-linkedin"></span></a> 
                               </div>
                            </div>
-                           <!--Footer Column-->
-                           <div class="col-lg-5 col-sm-6 col-xs-12 column">
-                              <div class="heading-panel">
-                                 {# Translators: Подвал сайта, краткий список приложений #}
-                                 <h3 class="main-title text-left">{% trans 'Приложения' %}</h3>
-                              </div>
-                              <div class="footer-widget links-widget">
-                                 <ul>
-                                    <li><i class="leftstr fa fa-windows"></i><a href="#"> Windows Store</a></li>
-                                    <li><i class="leftstr fa fa-android"></i><a href="#"> Google Store</a></li>
-                                    <li><i class="leftstr fa fa-apple"></i><a href="#"> Apple Store</a></li>
-                                 </ul>
-                              </div>
+                        </div>
+                        <!--Footer Column-->
+                        <div class="col-lg-5 col-sm-6 col-xs-12 column">
+                           <div class="heading-panel">
+                              {# Translators: Подвал сайта, краткий список приложений #}
+                              <h3 class="main-title text-left">{% trans 'Приложения' %}</h3>
+                           </div>
+                           <div class="footer-widget links-widget">
+                              <ul>
+                                 <li><i class="leftstr fa fa-windows"></i><a href="#"> Windows Store</a></li>
+                                 <li><i class="leftstr fa fa-android"></i><a href="#"> Google Store</a></li>
+                                 <li><i class="leftstr fa fa-apple"></i><a href="#"> Apple Store</a></li>
+                              </ul>
                            </div>
                         </div>
                      </div>
-                     <div class="col-md-6 col-sm-12 col-xs-12">
-                        <div class="row clearfix">
-                           <!--Footer Column-->
-                           <div class="col-lg-12 col-sm-12 col-xs-12 column">
-                              <div class="footer-widget news-widget">
-                                 <!-- Newslatter -->
-                                 <div class="heading-panel">
-                                       {# Translators: Форма ввода почты пользователя для подписки на новости #}
-                                       <h3 class="main-title text-left">{% trans 'Подписаться на новости по почте' %}</h3>
-                                 </div>                                 
-                                 <div class="widget widget-newsletter">
-                                    <div class="fieldset">
-                                       <p>{% trans 'Мы будем отправлять Вам информацию о событиях и интересных информерах, которые создают пользователи.' %}</p>
-                                       <form>
-                                          <input class="" placeholder="{% trans 'Введите ваш почтовый адрес' %}" type="text">
-                                          <input class="submit-btn" name="submit" value="{% trans 'Согласен' %}" type="submit"> 
-                                       </form>
-                                    </div>
+                  </div>
+                  <div class="col-md-6 col-sm-12 col-xs-12">
+                     <div class="row clearfix">
+                        <!--Footer Column-->
+                        <div class="col-lg-12 col-sm-12 col-xs-12 column">
+                           <div class="footer-widget news-widget">
+                              <!-- Newslatter -->
+                              <div class="heading-panel">
+                                    {# Translators: Форма ввода почты пользователя для подписки на новости #}
+                                    <h3 class="main-title text-left">{% trans 'Подписаться на новости по почте' %}</h3>
+                              </div>                                 
+                              <div class="widget widget-newsletter">
+                                 <div class="fieldset">
+                                    <p>{% trans 'Мы будем отправлять Вам информацию о событиях и интересных информерах, которые создают пользователи.' %}</p>
+                                    <form>
+                                       <input class="" placeholder="{% trans 'Введите ваш почтовый адрес' %}" type="text">
+                                       <input class="submit-btn" name="submit" value="{% trans 'Согласен' %}" type="submit"> 
+                                    </form>
                                  </div>
-                                 <!-- Newslatter -->
                               </div>
+                              <!-- Newslatter -->
                            </div>
-                           <!--Footer Column-->
                         </div>
+                        <!--Footer Column-->
                      </div>
                   </div>
                </div>
             </div>
-            <!--Footer Bottom-->
-            <div class="footer-copyright">
-               <div class="container clearfix">
-                  <!--Copyright-->
-                  {# Translators: Подвал сайта, копирайтинг и слово Дизайн = внешний вид #}
-                  <div class="copyright text-center">© 2017 <a href="/{{LANGUAGE_CODE}}" target="">wisemarker.com</a> {% trans 'Все права защищены. Дизайн' %} <a href="http://themeforest.net/user/scriptsbundle/portfolio" target="_blank">Scriptsbundle</a></div>
-               </div>
+         </div>
+         <!--Footer Bottom-->
+         <div class="footer-copyright">
+            <div class="container clearfix">
+               <!--Copyright-->
+               {# Translators: Подвал сайта, копирайтинг и слово Дизайн = внешний вид #}
+               <div class="copyright text-center">© 2017 <a href="/{{LANGUAGE_CODE}}" target="">wisemarker.com</a> {% trans 'Все права защищены. Дизайн' %} <a href="http://themeforest.net/user/scriptsbundle/portfolio" target="_blank">Scriptsbundle</a></div>
             </div>
-         </footer>
+         </div>
+      </footer>
          <!-- =-=-=-=-=-=-= FOOTER END =-=-=-=-=-=-= -->
       </div>
       <!-- Back To Top -->
@@ -297,3 +296,4 @@
       {% endcompress %}
    </body>
 </html>
+{% endgapless %}

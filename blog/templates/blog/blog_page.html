@@ -3,261 +3,163 @@
 {% load i18n %}
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
-
 {% load blog_comment_tags %}
 {% block body_class %}template-blogpage{% endblock %}
 
 {% block content %}
-<script type="text/javascript" src="https://vk.com/js/api/share.js?94" charset="windows-1251"></script>
-<div class="page-header-area">
-   <div class="container">
-      <div class="row">
-         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div class="header-page">
-               <h1>{{ page.intro }}
-                   <p class="heading-color">{{ page.date|upper }}</p>
-               </h1>
+      <script type="text/javascript" src="https://vk.com/js/api/share.js?94" charset="windows-1251"></script>
+      <div class="page-header-area">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="header-page">
+                     <h1>{{ page.intro }}
+                         <p class="heading-color">{{ page.date|upper }}</p>
+                     </h1>
+                  </div>
+               </div>
             </div>
          </div>
       </div>
-   </div>
-</div>
-      
-<section class="section-padding error-page pattern-bgs gray ">
-   <!-- Main Container -->
-   <div class="container">
-      <!-- Row -->
-      <div class="row">
-         <!-- =-=-=-=-=-=-= Advertizing Sidebar =-=-=-=-=-=-= -->
-         <div class="col-md-2 col-sm-2  hidden-xs hidden-sm leftbar-stick">
-            <div class="theiaStickySidebar "><img class="box-shadow" alt="" src="/static/images/160x600.png"> </div>
-         </div>
-         <div class="col-md-8 col-xs-12 col-sm-12"><!-- Middle Content Area -->
-            <div class="blog-detial"><!-- Blog Archive -->
-               <div class="blog-post">
-                  <div class="card">
-                     <ul class="nav nav-tabs" role="tablist">
-                        {% for item in page.gallery_images.all %}
-                           {% if forloop.counter == 1 %}
-                              <li role="presentation" class="active"><a href="#set{{forloop.counter}}" aria-controls="home" role="tab" data-toggle="tab">{{ item.caption }}</a></li>
-                           {% else %}
-                              <li role="presentation"><a href="#set{{forloop.counter}}" aria-controls="profile" role="tab" data-toggle="tab">{{ item.caption }}</a></li>
-                           {% endif %}
-                        {% endfor %}
-                     </ul>
-                     <!-- Tab panes -->
-                     <div class="tab-content">
-                        {% for item in page.gallery_images.all %}
-                           {% if forloop.counter == 1 %}
-                              <div role="tabpanel" class="tab-pane active" id="set{{forloop.counter}}">
-                                 <div class="post-img">
-                                 {% image item.image fill-750x400 %}
-                                 </div>
-                              </div>
-                           {% else %}
-                              <div role="tabpanel" class="tab-pane" id="set{{forloop.counter}}">
-                                 <div class="post-img">
-                                 {% image item.image fill-750x400 %}
-                                 </div>
-                              </div>
-                           {% endif %}
-                        {% endfor %}
-                     </div>                     
-                  </div>
-                  <div class="post-info">  </div>
-                  <h1 class="post-title">{{ page.title }}</h1>
-                  <div class="post-excerpt">
-                     <!-- =-=-=-=-=-=-= Advertizing =-=-=-=-=-=-= -->
-                     {{ page.body|richtext }}
-                     <div class="tags-share clearfix">
-                        <div class="tags pull-left">
-                           {% if page.tags.all.count %}
-                           {# Translators: Теги к записи в блоге #}
-                           <h3>{% trans 'Теги' %}:</h3>
-                           <ul>
-                              {% for tag in page.tags.all %}
-                                 <li><a href="{% slugurl 'tags' %}?tag={{ tag }}">{{ tag }}</a></li>
+            
+      <section class="section-padding error-page pattern-bgs gray ">
+         <!-- Main Container -->
+         <div class="container">
+            <!-- Row -->
+            <div class="row">
+               <!-- =-=-=-=-=-=-= Advertizing Sidebar =-=-=-=-=-=-= -->
+               <div class="col-md-2 col-sm-2  hidden-xs hidden-sm leftbar-stick">
+                  <div class="theiaStickySidebar "><img class="box-shadow" alt="" src="/static/images/160x600.png"> </div>
+               </div>
+               <div class="col-md-8 col-xs-12 col-sm-12"><!-- Middle Content Area -->
+                  <div class="blog-detial"><!-- Blog Archive -->
+                     <div class="blog-post">
+                        <div class="card">
+                           <ul class="nav nav-tabs" role="tablist">
+                              {% for item in page.gallery_images.all %}
+                                 {% if forloop.counter == 1 %}
+                                    <li role="presentation" class="active"><a href="#set{{forloop.counter}}" aria-controls="home" role="tab" data-toggle="tab">{{ item.caption }}</a></li>
+                                 {% else %}
+                                    <li role="presentation"><a href="#set{{forloop.counter}}" aria-controls="profile" role="tab" data-toggle="tab">{{ item.caption }}</a></li>
+                                 {% endif %}
                               {% endfor %}
                            </ul>
-                           {% endif %}
-                        </div>
-                        {% image page.main_image width-128 as tmp_photo %}
-                        <div class="share pull-right">
-                           <div class="social-links-two clearfix">
-                              <script type="text/javascript">
-                              document.write(VK.Share.button({
-                              url: 'http://{{request.get_host}}{% pageurl page %}',
-                              title: '{{ page.title }}',
-                              image: 'http://{{request.get_host}}{{ tmp_photo.url}}',
-                              noparse: true
-                              },{type: 'custom', text: '<span class="img-circle fa fa-vk"></span>'}));
-                              </script>
-                              <a target='_blank' class="odnoklassniki img-circle" href="https://connect.ok.ru/offer?url={{request.get_host}}{{ tmp_photo.url}}&title={{ page.title }}&description='Статья в блоге'&imageUrl='http://{{request.get_host}}{{ tmp_photo.url}}'"><span class="fa fa-odnoklassniki"></span></a>
-<!--<div id="ok_shareWidget"></div>
-<script>
-!function (d, id, did, st, title, description, image) {
-  var js = d.createElement("script");
-  js.src = "https://connect.ok.ru/connect.js";
-  js.onload = js.onreadystatechange = function () {
-  if (!this.readyState || this.readyState == "loaded" || this.readyState == "complete") {
-    if (!this.executed) {
-      this.executed = true;
-      setTimeout(function () {
-        OK.CONNECT.insertShareWidget(id,did,st, title, description, image);
-      }, 0);
-    }
-  }};
-  d.documentElement.appendChild(js);
-}(document,"ok_shareWidget","https://{{request.get_host}}",'{"sz":20,"st":"oval","nc":1,"nt":1}',"{{ page.title }}","http://{{request.get_host}}{{ tmp_photo.url}}");
-</script>-->                              
-                              <a class="facebook img-circle" href="#"><span class="fa fa-facebook-f"></span></a>
-                              <a class="twitter img-circle" href="#"><span class="fa fa-twitter"></span></a>
-                              <a class="google-plus img-circle" href="#"><span class="fa fa-google-plus"></span></a>
-                              <a class="linkedin img-circle" href="#"><span class="fa fa-pinterest-p"></span></a>
-                              <a class="linkedin img-circle" href="#"><span class="fa fa-linkedin"></span></a> 
-                           </div>
-                        </div>
-                        <div class="share pull-right">
-                           {% with categories=page.categories.all %}
-                               {% if categories %}
-                                    {# Translators: Категории в который размещена запись в блоге (Posted in) #}
-                                    <!--<h3>{% trans 'Категории' %}:</h3>-->
-                                    <ul>
-                                        {% for category in categories %}
-                                            <li style="display: inline">
-                                                <!--/{% image category.icon fill-32x32 style="vertical-align: middle" %/}
-                                                /{/{ category.name /}/}-->
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                               {% endif %}
-                           {% endwith %}
-                        </div>
-                     </div>
-                     {% load comments %}
-                     {% load comments_xtd %}
-                     {% get_comment_form for page as form %}
-                     <div class="clearfix"></div>
-                     <div class="blog-section">
-                        <div class="blog-heading">
-                           {% get_comment_count for page as comment_count %}
-                           {# Translators: Количество комментариев к записи в блоге (Comments) #}
-                           <h2>{% trans 'Комментариев' %} ({{ comment_count }})</h2>
-                           <hr>
-                        </div>
-                        <ol class="comment-list">
-                           {% if comment_count %}
-                             {% get_xtdcomment_tree for page as comments_tree %}
-                             {% include "blog/comments_tree.html" with comments=comments_tree %}
-                           {% endif %}   
-                        </ol>
-                     </div>
-                     <!--<div class="clearfix"></div>-->
-                     <div class="blog-section">
-                        {% unregistered_user_can_comment as user_can_comment %}
-                        <div class="blog-heading">
-                           {% if user.is_authenticated %}
-                              <h2>{% trans 'Оставьте ваш комментарий' %} </h2>
-                           {% else %}
-                              {% if not user_can_comment %}
-                              <a class="btn btn-theme btn-lg btn-block" style="color: white" href="{% url 'auth_login' %}?next={{request.path}}">
-                                 {# Translators: Написать > Please log in to leave a comment #}
-                                 {% trans 'Пожалуйста войдите чтобы оставить комментарий' %}
-                              </a>
-                              {% else %}
-                                 <h2>{% trans 'Оставьте ваш комментарий' %} </h2>
-                              {% endif  %}
-                           {% endif %}
-                           <hr>
-                        </div>
-                        {% if user.is_authenticated %}
-                        <div class="commentform">
-                           <form action="{% comment_form_target %}" method="post">
-                              {% csrf_token %}
-                              <div class="row">
-                                 {% for field in form %}
-                                    {% ifequal field.name 'comment' %}
-                                    <div class="col-md-12 col-sm-12">
-                                       <div class="form-group">
-                                          <label>{% trans 'Комментарий' %} <span class="required">*</span>
-                                          </label>
-                                          <textarea id="id_comment" name="comment" class="form-control" placeholder="" rows="8" cols="6"></textarea>
+                           <!-- Tab panes -->
+                           <div class="tab-content">
+                              {% for item in page.gallery_images.all %}
+                                 {% if forloop.counter == 1 %}
+                                    <div role="tabpanel" class="tab-pane active" id="set{{forloop.counter}}">
+                                       <div class="post-img">
+                                       {% image item.image fill-750x400 %}
                                        </div>
                                     </div>
-                                    {% endifequal %}
-                                 {% endfor %}
-                                 {{ form.content_type }}
-                                 {{ form.object_pk }}
-                                 {{ form.timestamp }}
-                                 {{ form.security_hash }}
-                                 {{ form.honeypot }}
-                                 {{ form.reply_to }}
-                                 <div class="col-md-12 col-sm-12 margin-top-20 iclearfix">
-                                    <div class="skin-minimal">
-                                       <ul class="list">
-                                          <li>
-                                             <label for="minimal-checkbox-1">
-                                             <input  id="id_followup" name="followup" type="checkbox">
-                                             {# Translator: Перевести как Notify me about follow-up comments #}
-                                             {% trans 'Сообщите мне о последующих комментариях' %}
-                                             </label>
-                                          </li>
-                                       </ul>
-                                    </div>                                    
-                                 </div>
-                                 <input type="hidden" name="next" value="{{ request.get_full_path }}" />
-                                 <div class="col-md-12 col-sm-12 margin-top-20 iclearfix">
-                                    {# Translators: Предварительный просмотр комментария в блоге #}
-                                    <button type="submit" name="preview" class="btn btn-theme submit-post">{% trans 'Предварительный просмотр' %}</button>
-                                    {# Translators: Запись комментария в блоге #}
-                                    <button type="submit" name="submit" class="btn btn-theme submit-preview" style="float: right" >{% trans 'Записать комментарий' %}</button>
+                                 {% else %}
+                                    <div role="tabpanel" class="tab-pane" id="set{{forloop.counter}}">
+                                       <div class="post-img">
+                                       {% image item.image fill-750x400 %}
+                                       </div>
+                                    </div>
+                                 {% endif %}
+                              {% endfor %}
+                           </div>                     
+                        </div>
+                        <div class="post-info">  </div>
+                        <h1 class="post-title">{{ page.title }}</h1>
+                        <div class="post-excerpt">
+                           <!-- =-=-=-=-=-=-= Advertizing =-=-=-=-=-=-= -->
+                           {{ page.body|richtext }}
+                           <div class="tags-share clearfix">
+                              <div class="tags pull-left">
+                                 {% if page.tags.all.count %}
+                                 {# Translators: Теги к записи в блоге #}
+                                 <h3>{% trans 'Теги' %}:</h3>
+                                 <ul>
+                                    {% for tag in page.tags.all %}
+                                       <li><a href="{% slugurl 'tags' %}?tag={{ tag }}">{{ tag }}</a></li>
+                                    {% endfor %}
+                                 </ul>
+                                 {% endif %}
+                              </div>
+                              {% image page.main_image width-128 as tmp_photo %}
+                              <div class="share pull-right">
+                                 <div class="social-links-two clearfix">
+                                    <script type="text/javascript">
+                                    document.write(VK.Share.button(false, {type: 'custom', text: '<span class="img-circle fa fa-vk"></span>'}));
+                                    </script>
+                                    <a target='_blank' class="odnoklassniki img-circle" href="https://connect.ok.ru/offer?url={{request.get_host}}{{ tmp_photo.url}}&title={{ page.title }}&description='Статья в блоге'&imageUrl='http://{{request.get_host}}{{ tmp_photo.url}}'"><span class="fa fa-odnoklassniki"></span></a>
+                                    <a class="facebook img-circle" href="#"><span class="fa fa-facebook-f"></span></a>
+                                    <a class="twitter img-circle" href="#"><span class="fa fa-twitter"></span></a>
+                                    <a class="google-plus img-circle" href="#"><span class="fa fa-google-plus"></span></a>
+                                    <a class="linkedin img-circle" href="#"><span class="fa fa-pinterest-p"></span></a>
+                                    <a class="linkedin img-circle" href="#"><span class="fa fa-linkedin"></span></a> 
                                  </div>
                               </div>
-                           </form>
-                        </div>
-                        {% else %}
-                           {% if user_can_comment %}
+                              <div class="share pull-right">
+                                 {% with categories=page.categories.all %}
+                                     {% if categories %}
+                                          {# Translators: Категории в который размещена запись в блоге (Posted in) #}
+                                          <!--<h3>{% trans 'Категории' %}:</h3>-->
+                                          <ul>
+                                              {% for category in categories %}
+                                                  <li style="display: inline">
+                                                      <!--/{% image category.icon fill-32x32 style="vertical-align: middle" %/}
+                                                      /{/{ category.name /}/}-->
+                                                  </li>
+                                              {% endfor %}
+                                          </ul>
+                                     {% endif %}
+                                 {% endwith %}
+                              </div>
+                           </div>
+                           {% load comments %}
+                           {% load comments_xtd %}
+                           {% get_comment_form for page as form %}
+                           <div class="clearfix"></div>
+                           <div class="blog-section">
+                              <div class="blog-heading">
+                                 {% get_comment_count for page as comment_count %}
+                                 {# Translators: Количество комментариев к записи в блоге (Comments) #}
+                                 <h2>{% trans 'Комментариев' %} ({{ comment_count }})</h2>
+                                 <hr>
+                              </div>
+                              <ol class="comment-list">
+                                 {% if comment_count %}
+                                   {% get_xtdcomment_tree for page as comments_tree %}
+                                   {% include "blog/comments_tree.html" with comments=comments_tree %}
+                                 {% endif %}   
+                              </ol>
+                           </div>
+                           <div class="blog-section">
+                              {% unregistered_user_can_comment as user_can_comment %}
+                              <div class="blog-heading">
+                                 {% if user.is_authenticated %}
+                                    <h2>{% trans 'Оставьте ваш комментарий' %} </h2>
+                                 {% else %}
+                                    {% if not user_can_comment %}
+                                    <a class="btn btn-theme btn-lg btn-block" style="color: white" href="{% url 'auth_login' %}?next={{request.path}}">
+                                       {# Translators: Написать > Please log in to leave a comment #}
+                                       {% trans 'Пожалуйста войдите чтобы оставить комментарий' %}
+                                    </a>
+                                    {% else %}
+                                       <h2>{% trans 'Оставьте ваш комментарий' %} </h2>
+                                    {% endif  %}
+                                 {% endif %}
+                                 <hr>
+                              </div>
+                              {% if user.is_authenticated %}
                               <div class="commentform">
                                  <form action="{% comment_form_target %}" method="post">
                                     {% csrf_token %}
                                     <div class="row">
                                        {% for field in form %}
-                                          {% ifequal field.name 'name' %}
-                                          <div class="col-md-12 col-sm-12">
-                                             <div class="form-group">
-                                                <label>{% trans 'Имя' %} <span class="required">*</span>
-                                                </label>
-                                                <input id="id_name" name="name" class="form-control" placeholder="" rows="8" cols="6"></input>
-                                             </div>
-                                          </div>
-                                          {% endifequal %}
-                                          {% ifequal field.name 'email' %}
-                                          <div class="col-md-12 col-sm-12">
-                                             <div class="form-group">
-                                                <label>{% trans 'Email' %} <span class="required">*</span>
-                                                </label>
-                                                <input id="id_email" name="email" class="form-control" placeholder="" rows="8" cols="6"></input>
-                                             </div>
-                                          </div>
-                                          {% endifequal %}
-                                          {% ifequal field.name 'url' %}
-                                          <div class="col-md-12 col-sm-12">
-                                             <div class="form-group">
-                                                <label>{% trans 'Вебсайт' %} <span class=""></span>
-                                                </label>
-                                                <input id="id_url" name="url" class="form-control" placeholder="" rows="8" cols="6"></input>
-                                             </div>
-                                          </div>
-                                          {% endifequal %}
                                           {% ifequal field.name 'comment' %}
                                           <div class="col-md-12 col-sm-12">
                                              <div class="form-group">
-                                                <label>{% trans 'Комментарий' %} <span class="required">*</span>
-                                                </label>
+                                                <label>{% trans 'Комментарий' %} <span class="required">*</span></label>
                                                 <textarea id="id_comment" name="comment" class="form-control" placeholder="" rows="8" cols="6"></textarea>
                                              </div>
                                           </div>
-                                          {% endifequal %}                                          
+                                          {% endifequal %}
                                        {% endfor %}
                                        {{ form.content_type }}
                                        {{ form.object_pk }}
@@ -287,26 +189,99 @@
                                        </div>
                                     </div>
                                  </form>
-                              </div>                       
-                           {% endif %}
-                        {% endif %}
+                              </div>
+                              {% else %}
+                                 {% if user_can_comment %}
+                                    <div class="commentform">
+                                       <form action="{% comment_form_target %}" method="post">
+                                          {% csrf_token %}
+                                          <div class="row">
+                                             {% for field in form %}
+                                                {% ifequal field.name 'name' %}
+                                                <div class="col-md-12 col-sm-12">
+                                                   <div class="form-group">
+                                                      <label>{% trans 'Имя' %} <span class="required">*</span>
+                                                      </label>
+                                                      <input id="id_name" name="name" class="form-control" placeholder="" rows="8" cols="6"></input>
+                                                   </div>
+                                                </div>
+                                                {% endifequal %}
+                                                {% ifequal field.name 'email' %}
+                                                <div class="col-md-12 col-sm-12">
+                                                   <div class="form-group">
+                                                      <label>{% trans 'Email' %} <span class="required">*</span>
+                                                      </label>
+                                                      <input id="id_email" name="email" class="form-control" placeholder="" rows="8" cols="6"></input>
+                                                   </div>
+                                                </div>
+                                                {% endifequal %}
+                                                {% ifequal field.name 'url' %}
+                                                <div class="col-md-12 col-sm-12">
+                                                   <div class="form-group">
+                                                      <label>{% trans 'Вебсайт' %} <span class=""></span>
+                                                      </label>
+                                                      <input id="id_url" name="url" class="form-control" placeholder="" rows="8" cols="6"></input>
+                                                   </div>
+                                                </div>
+                                                {% endifequal %}
+                                                {% ifequal field.name 'comment' %}
+                                                <div class="col-md-12 col-sm-12">
+                                                   <div class="form-group">
+                                                      <label>{% trans 'Комментарий' %} <span class="required">*</span>
+                                                      </label>
+                                                      <textarea id="id_comment" name="comment" class="form-control" placeholder="" rows="8" cols="6"></textarea>
+                                                   </div>
+                                                </div>
+                                                {% endifequal %}                                          
+                                             {% endfor %}
+                                             {{ form.content_type }}
+                                             {{ form.object_pk }}
+                                             {{ form.timestamp }}
+                                             {{ form.security_hash }}
+                                             {{ form.honeypot }}
+                                             {{ form.reply_to }}
+                                             <div class="col-md-12 col-sm-12 margin-top-20 iclearfix">
+                                                <div class="skin-minimal">
+                                                   <ul class="list">
+                                                      <li>
+                                                         <label for="minimal-checkbox-1">
+                                                         <input  id="id_followup" name="followup" type="checkbox">
+                                                         {# Translator: Перевести как Notify me about follow-up comments #}
+                                                         {% trans 'Сообщите мне о последующих комментариях' %}
+                                                         </label>
+                                                      </li>
+                                                   </ul>
+                                                </div>                                    
+                                             </div>
+                                             <input type="hidden" name="next" value="{{ request.get_full_path }}" />
+                                             <div class="col-md-12 col-sm-12 margin-top-20 iclearfix">
+                                                {# Translators: Предварительный просмотр комментария в блоге #}
+                                                <button type="submit" name="preview" class="btn btn-theme submit-post">{% trans 'Предварительный просмотр' %}</button>
+                                                {# Translators: Запись комментария в блоге #}
+                                                <button type="submit" name="submit" class="btn btn-theme submit-preview" style="float: right" >{% trans 'Записать комментарий' %}</button>
+                                             </div>
+                                          </div>
+                                       </form>
+                                    </div>                       
+                                 {% endif %}
+                              {% endif %}
+                           </div>
+                        </div>
                      </div>
+                     <!-- Blog Grid -->
                   </div>
                </div>
-               <!-- Blog Grid -->
+               <!-- Right Sidebar -->
+               <!-- =-=-=-=-=-=-= Advertizing Sidebar =-=-=-=-=-=-= -->
+               <div class="col-md-2 col-sm-2  hidden-xs hidden-sm rightbar-stick">
+                  <div class="theiaStickySidebar">
+                     <a href="{{ page.get_parent.url }}" class="btn btn-success margin-bottom-10 box-shadow">{% trans 'Назад к блогу' %}</a>
+                  </div>
+               </div>
             </div>
+            <!-- Row End -->
          </div>
-         <!-- Right Sidebar -->
-         <!-- =-=-=-=-=-=-= Advertizing Sidebar =-=-=-=-=-=-= -->
-         <div class="col-md-2 col-sm-2  hidden-xs hidden-sm rightbar-stick">
-            <div class="theiaStickySidebar">
-               <a href="{{ page.get_parent.url }}" class="btn btn-success margin-bottom-10 box-shadow">{% trans 'Назад к блогу' %}</a>
-            </div>
-         </div>
-      </div>
-      <!-- Row End -->
-   </div>
-   <!-- Main Container End -->
-</section>      
+         <!-- Main Container End -->
+      </section>      
 
 {% endblock %}

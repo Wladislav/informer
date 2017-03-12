@@ -74,7 +74,8 @@ INSTALLED_APPS = [
     'informer',
     'blog',
     'modelcluster',
-    'taggit',    
+    'taggit',
+    'meta',
 
     #debug apps
     #'debug_toolbar',
@@ -167,6 +168,12 @@ MANAGERS = (
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # Разрешить отправку email сообщений на консоль
 #COMMENTS_XTD_MARKUP_FALLBACK_FILTER = 'markdown'
 UNREGISTERED_USER_CAN_COMMENT = False
+
+#SEO
+META_SITE_PROTOCOL = 'http'
+META_USE_SITES = None
+META_SITE_DOMAIN = '127.0.0.1:8000'
+META_IMAGE_URL = '/media/images/'
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases

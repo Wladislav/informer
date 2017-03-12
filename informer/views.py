@@ -29,22 +29,17 @@ from django.template.response import TemplateResponse
 from django.utils.http import is_safe_url, urlsafe_base64_decode
 from django.shortcuts import resolve_url
 from django.core.exceptions import ObjectDoesNotExist
-from blog.models import BlogIndexPage
 import logging
 
 logger = logging.getLogger('informer_views')
 logger.setLevel(logging.DEBUG)
-# create file handler which logs even debug messages
 fh = logging.FileHandler('spam.log')
 fh.setLevel(logging.DEBUG)
-# create console handler with a higher log level
 ch = logging.StreamHandler()
 ch.setLevel(logging.ERROR)
-# create formatter and add it to the handlers
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 ch.setFormatter(formatter)
 fh.setFormatter(formatter)
-# add the handlers to logger
 logger.addHandler(ch)
 logger.addHandler(fh)
 #logging.info(LOGIN_REDIRECT_URL)
@@ -80,10 +75,10 @@ def login_user(request, template_name='registration/login.html',
                 request.session[LANGUAGE_SESSION_KEY] = user_profile.language                
             except (ObjectDoesNotExist, UserProfile.DoesNotExist):
                 LOGIN_REDIRECT_URL = '%s/accounts/profile/' % user_profile.language
-            # Ensure the user-originating redirection url is safe.
+            
             if not is_safe_url(url=redirect_to, host=request.get_host()):
                 redirect_to = resolve_url(LOGIN_REDIRECT_URL)
-            # Okay, security check complete. Log the user in.
+            
             auth_login(request, user)
 
             return HttpResponseRedirect(redirect_to)

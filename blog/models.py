@@ -16,15 +16,16 @@ from django.utils.translation import ugettext_lazy as _
 from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 from django.template.defaultfilters import truncatechars_html
+from meta.models import ModelMeta
 import re
 
-class BlogIndexPage(Page):
+class BlogListPage(Page):
     intro = RichTextField(blank=True)
     class Meta:
         verbose_name = _('Список записей')
         verbose_name_plural = _('Список записей')
     def get_context(self, request):
-        context = super(BlogIndexPage, self).get_context(request)
+        context = super(BlogListPage, self).get_context(request)
         blogpages = self.get_children().live().order_by('-first_published_at')
         paginator = Paginator(blogpages, settings.BLOG_PAGINATOR_PER_PAGE)
         page = request.GET.get('page')
@@ -46,7 +47,7 @@ class BlogIndexPage(Page):
 class BlogPageTag(TaggedItemBase):
     content_object = ParentalKey('BlogPage', related_name='tagged_items')
     
-class BlogPage(TranslationMixin, Page):
+class BlogPage(TranslationMixin, ModelMeta, Page):
     
     class Meta:
         verbose_name = _('Запись в блоге')
@@ -65,14 +66,21 @@ class BlogPage(TranslationMixin, Page):
         else:
             return None
 
+    def main_image_url(self):
+        gallery_item = self.gallery_images.first()
+        if gallery_item:
+            return gallery_item.image.get_rendition('fill-750x400').url
+        else:
+            return ''        
+
     def get_absolute_url(self):
         abs_url = Page.get_site(self).root_url
         return abs_url+self.url
     
-    search_fields = Page.search_fields + [
-        index.SearchField('intro'),
-        index.SearchField('body'),
-    ]
+    def get_context(self, request):
+            context = super(BlogPage, self).get_context(request)
+            context['meta'] = self.as_meta(request)
+            return context    
 
     content_panels = Page.content_panels + [
         MultiFieldPanel([
@@ -84,6 +92,22 @@ class BlogPage(TranslationMixin, Page):
         FieldPanel('body'),
         InlinePanel('gallery_images', label="Gallery images"),
     ]
+    
+    search_fields = Page.search_fields + [
+        index.SearchField('intro'),
+        index.SearchField('body'),
+    ]
+    
+    _metadata = {
+        'title': 'title',
+        'description': 'intro',
+        'image': 'main_image_url',
+        'url': 'url',
+        'site_name': 'wisemarker.com',
+        'published_time': 'first_published_at',
+        'modified_time': 'latest_revision_created_at',
+        'use_og': 'True',
+    }    
 
 class BlogPageGalleryImage(TranslationMixin, Orderable):
     page = ParentalKey(BlogPage, related_name='gallery_images')
@@ -97,7 +121,7 @@ class BlogPageGalleryImage(TranslationMixin, Orderable):
         FieldPanel('caption'),
     ]
     
-class BlogTagIndexPage(Page):
+class BlogTagsListPage(Page):
     class Meta:
         verbose_name = _('Список тегов')
         verbose_name_plural = _('Список тегов')
