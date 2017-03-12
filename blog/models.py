@@ -100,6 +100,7 @@ class BlogPage(TranslationMixin, ModelMeta, Page):
     
     _metadata = {
         'title': 'title',
+        'use_title_tag': 'title',
         'description': 'intro',
         'image': 'main_image_url',
         'url': 'url',
@@ -107,6 +108,9 @@ class BlogPage(TranslationMixin, ModelMeta, Page):
         'published_time': 'first_published_at',
         'modified_time': 'latest_revision_created_at',
         'use_og': 'True',
+        'use_twitter':'True',
+        'use_facebook':'True',
+        'use_googleplus':'True',
     }    
 
 class BlogPageGalleryImage(TranslationMixin, Orderable):

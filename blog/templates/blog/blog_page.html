@@ -86,7 +86,30 @@
                                     <script type="text/javascript">
                                     document.write(VK.Share.button({ image: '{{ meta.image }}',  noparse: false}, {type: 'custom', text: '<span class="img-circle fa fa-vk"></span>'}));
                                     </script>
-                                    <a target='_blank' class="odnoklassniki img-circle" href="https://connect.ok.ru/offer?url={{request.get_host}}{{ tmp_photo.url}}&title={{ page.title }}&description='Статья в блоге'&imageUrl='http://{{request.get_host}}{{ tmp_photo.url}}'"><span class="fa fa-odnoklassniki"></span></a>
+                                    <a target='_blank' class="odnoklassniki img-circle" href="https://connect.ok.ru/offer?url={{ meta.url }}&title='{{ page.title }}'&description='{{ page.intro }}'&imageUrl='{{ meta.image }}'"><span class="fa fa-odnoklassniki"></span></a>
+<!--                                    <a id="ok_shareWidget" target='_blank' class="odnoklassniki img-circle"></a>
+                                    <script>
+                                    !function (d, id, did, st, title, description, image) {
+                                      var js = d.createElement("script");
+                                      js.src = "https://connect.ok.ru/connect.js";
+                                      js.onload = js.onreadystatechange = function () {
+                                      if (!this.readyState || this.readyState == "loaded" || this.readyState == "complete") {
+                                        if (!this.executed) {
+                                          this.executed = true;
+                                          setTimeout(function () {
+                                            OK.CONNECT.insertShareWidget(id,did,st, title, description, image);
+                                          }, 0);
+                                        }
+                                      }};
+                                      d.documentElement.appendChild(js);
+                                    }(document,
+                                      "ok_shareWidget",
+                                      '{{ meta.url }}',
+                                      'false',
+                                      '{{ page.title }}',
+                                      '{{ page.intro }}',
+                                      '{{ meta.image }}');
+                                    </script>-->
                                     <a class="facebook img-circle" href="#"><span class="fa fa-facebook-f"></span></a>
                                     <a class="twitter img-circle" href="#"><span class="fa fa-twitter"></span></a>
                                     <a class="google-plus img-circle" href="#"><span class="fa fa-google-plus"></span></a>

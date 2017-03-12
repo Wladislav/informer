@@ -174,7 +174,8 @@ META_SITE_PROTOCOL = 'http'
 META_USE_SITES = None
 META_SITE_DOMAIN = 'photocritic.pythonanywhere.com'
 META_IMAGE_URL = '/media/images/'
-
+GOOGLE_ANALYTICS_TRACKING_ID = ''
+ 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
