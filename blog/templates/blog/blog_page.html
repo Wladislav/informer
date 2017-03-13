@@ -87,8 +87,9 @@
                                     document.write(VK.Share.button({ image: '{{ meta.image }}',  noparse: false}, {type: 'custom', text: '<span class="img-circle fa fa-vk"></span>'}));
                                     </script>
                                     <a target='_blank' class="odnoklassniki img-circle" href="https://connect.ok.ru/offer?url={{ meta.url }}&title='{{ page.title }}'&description='{{ page.intro }}'"><span class="fa fa-odnoklassniki"></span></a>
-                                    <a class="facebook img-circle" href="https://www.facebook.com/sharer.php?u={{ meta.url }}"><span class="fa fa-facebook-f"></span></a>
-                                    <a class="twitter img-circle" href="#"><span class="fa fa-twitter"></span></a>
+                                    <a target='_blank' id="share_fb" class="facebook img-circle" href="https://www.facebook.com/sharer.php?u={{ meta.url }}"><span class="fa fa-facebook-f"></span></a>
+                                    
+                                    <a target='_blank' class="twitter img-circle" href="https://twitter.com/intent/tweet"><span class="fa fa-twitter"></span></a>
                                     <a class="google-plus img-circle" href="#"><span class="fa fa-google-plus"></span></a>
                                     <a class="linkedin img-circle" href="#"><span class="fa fa-pinterest-p"></span></a>
                                     <a class="linkedin img-circle" href="#"><span class="fa fa-linkedin"></span></a> 
