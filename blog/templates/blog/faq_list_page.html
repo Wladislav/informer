@@ -1,0 +1,103 @@
+{% extends "informer/base.html" %}
+{% load i18n %}
+{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% block body_class %}template-blogindexpage{% endblock %}
+{% load comments %}
+{% block content %}
+<!-- =-=-=-=-=-=-= Transparent Breadcrumb =-=-=-=-=-=-= -->
+<div class="page-header-area">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="header-page">
+               <h1>{% trans 'Ответы на вопросы' %} <p class="heading-color">{{ page.title }}</p></h1>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<section class="section-padding error-page pattern-bg">
+    <!-- Main Container -->
+    <div class="container">
+       <!-- Row -->
+       <div class="row">
+                  <!-- Middle Content Area -->
+                  <div class="col-md-8 col-xs-12 col-sm-12">
+                     <ul class="accordion">
+                        {% for post in faqpages %}
+                        {% with post=post.specific %}
+                        <li class="">
+                           <h3 class="accordion-title"><a href="">{{ post.title }}</a></h3>
+                           <div class="accordion-content">
+                              {{ post.body|richtext|cut:'<p></p>' }}
+                           </div>
+                        </li>
+                        {% endwith %}
+                        {% endfor %}
+                     </ul>
+                  </div>
+                  <div class="col-md-4 col-xs-12 col-sm-12">
+                     <!-- Sidebar Widgets -->
+                     <div class="blog-sidebar">
+                        <!-- Categories --> 
+                        <div class="widget">
+                           <div class="widget-heading">
+                              <h4 class="panel-title"><a>Saftey Tips </a></h4>
+                           </div>
+
+                           <div class="widget-content">
+                              <p class="lead">Posting an ad on <a href="#">AdForest.com</a> is free! However, all ads must follow our rules:</p>
+                              <ol>
+                                 <li>Make sure you post in the correct category.</li>
+                                 <li>Do not post the same ad more than once or repost an ad within 48 hours.</li>
+                                 <li>Do not upload pictures with watermarks.</li>
+                                 <li>Do not post ads containing multiple items unless it's a package deal.</li>
+                                 <li>Do not put your email or phone numbers in the title or description.</li>
+                                 <li>Make sure you post in the correct category.</li>
+                                 <li>Do not post the same ad more than once or repost an ad within 48 hours.</li>
+                                 <li>Do not upload pictures with watermarks.</li>
+                              </ol>
+                           </div>
+                        </div>
+                        <!-- Latest News --> 
+                     </div>
+                     <!-- Sidebar Widgets End -->
+                  </div>
+                  <!-- Middle Content Area  End -->
+
+<!--          <div class="col-md-12 col-xs-12 col-sm-12">
+             <div class="row">
+                <div class="posts-masonry">
+                   {% for post in faqpages %}
+                        {% with post=post.specific %}
+                           {% get_comment_count for post as comment_count %}
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                               <div class="blog-post blog-post-list">
+                                 {% with post.main_image as main_image %}
+                                 <div class="post-img">
+                                    <a href="{% pageurl post %}">
+                                       {% if main_image %}
+                                          {% image main_image fill-358x239 %}
+                                       {% else %}
+                                          <a href="{% pageurl post %}"> <img class="img-responsive" alt="{{ post.title }}" src="/static/images/blog/1.jpg"></a>
+                                       {% endif %}</a> 
+                                 </div>
+                                 {% endwith %}
+                                 <div class="post-info"> <a href="{% pageurl post %}">{{ post.date }}</a>
+                                    <a href="{% pageurl post %}" class="comments-count">{% trans 'Комментариев' %} ({{comment_count}})</a> </div>
+                                    <h3 class="post-title"> <a href="{% pageurl post %}">{{ post.title }}</a> </h3>
+                                    {{ post.body|richtext|cut:'<p></p>' }}
+                                 </div>
+                            </div>
+                        {% endwith %}
+                   {% endfor %}
+                </div>
+             </div>
+          </div>-->
+       </div>
+       <!-- Row End -->
+    </div>
+    <!-- Main Container End -->
+</section>
+{% endblock %}

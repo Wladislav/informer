@@ -152,10 +152,10 @@ TAGS_PAGINATOR_PER_PAGE = 24
 SITE_ID = 1 #for django.contrib.sites
 COMMENTS_APP = 'django_comments_xtd' #for django_comments
 COMMENTS_XTD_CONFIRM_EMAIL = True
-COMMENTS_XTD_MAX_THREAD_LEVEL = 2
-# COMMENTS_XTD_MAX_THREAD_LEVEL_BY_MODEL = {
-#     'blog.BlogPage': 2,
-# }
+COMMENTS_XTD_MAX_THREAD_LEVEL = 0
+COMMENTS_XTD_MAX_THREAD_LEVEL_BY_APP_MODEL = {
+    'blog.blogpage': 2,
+}
 COMMENTS_XTD_FROM_EMAIL = "onedeveloptesting@gmail.com"
 COMMENTS_XTD_SEND_HTML_EMAIL = True
 COMMENTS_XTD_THREADED_EMAILS = True

@@ -1,6 +1,40 @@
+.accordion > li {
+    border-bottom: 1px solid #ffffff;
+    padding: 18px 0;
+}
+
+.blog-detial .comment li:last-child {
+    border-left: 2px solid #b0b0b0;
+    margin-left: -5px;
+}
+
+i.fa.fa-reply {
+    color: #f58936;
+}
+
+.blog-detial .comment li {
+    border-right: 0px;
+    padding-right: 10px;
+}
+
+.accordion-content {
+    background-color: white;
+    padding: 10px;
+    margin-top: 8px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    font-family: Roboto;
+}
+
+.blog-sidebar .widget {
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
 
 a.comments-count {
     float: right;
+}
+
+.pattern-bg-orig {
+    background: #fff url(../images/footer-bg1-orig.jpg) repeat-x scroll center bottom;
 }
 
 textarea#id_comment {
@@ -188,7 +222,7 @@ label.label-user-trumb {
     font-family: inherit;    
 }
 
-.rich-text {
+.blog-post .rich-text {
     font-size: 14px;
     line-height: 26px;
     margin-bottom: 10px; /*30px*/

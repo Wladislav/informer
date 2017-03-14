@@ -13,7 +13,7 @@
             <div class="row">
                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                   <div class="header-page">
-                     <h1>{{ page.intro }}
+                     <h1>{{ page.title }}
                          <p class="heading-color">{{ page.date|upper }}</p>
                      </h1>
                   </div>
@@ -29,7 +29,7 @@
             <div class="row">
                <!-- =-=-=-=-=-=-= Advertizing Sidebar =-=-=-=-=-=-= -->
                <div class="col-md-2 col-sm-2  hidden-xs hidden-sm leftbar-stick">
-                  <div class="theiaStickySidebar "><img class="box-shadow" alt="" src="/static/images/160x600.png"> </div>
+                  <!--<div class="theiaStickySidebar "><img class="box-shadow" alt="" src="/static/images/160x600.png"> </div>-->
                </div>
                <div class="col-md-8 col-xs-12 col-sm-12"><!-- Middle Content Area -->
                   <div class="blog-detial"><!-- Blog Archive -->
@@ -50,13 +50,13 @@
                                  {% if forloop.counter == 1 %}
                                     <div role="tabpanel" class="tab-pane active" id="set{{forloop.counter}}">
                                        <div class="post-img">
-                                       {% image item.image fill-750x400 %}
+                                       {% image item.image fill-750x200 %}
                                        </div>
                                     </div>
                                  {% else %}
                                     <div role="tabpanel" class="tab-pane" id="set{{forloop.counter}}">
                                        <div class="post-img">
-                                       {% image item.image fill-750x400 %}
+                                       {% image item.image fill-750x200 %}
                                        </div>
                                     </div>
                                  {% endif %}
@@ -70,45 +70,9 @@
                            {{ page.body|richtext }}
                            <div class="tags-share clearfix">
                               <div class="tags pull-left">
-                                 {% if page.tags.all.count %}
-                                 {# Translators: Теги к записи в блоге #}
-                                 <h3>{% trans 'Теги' %}:</h3>
-                                 <ul>
-                                    {% for tag in page.tags.all %}
-                                       <li><a href="{% slugurl 'tags' %}?tag={{ tag }}">{{ tag }}</a></li>
-                                    {% endfor %}
-                                 </ul>
-                                 {% endif %}
                               </div>
                               {% image page.main_image width-128 as tmp_photo %}
                               <div class="share pull-right">
-                                 <div class="social-links-two clearfix">
-                                    <script type="text/javascript">
-                                    document.write(VK.Share.button({ image: '{{ meta.image }}',  noparse: false}, {type: 'custom', text: '<span class="img-circle fa fa-vk"></span>'}));
-                                    </script>
-                                    <a target='_blank' class="odnoklassniki img-circle" href="https://connect.ok.ru/offer?url={{ meta.url }}&title='{{ page.title }}'&description='{{ page.intro }}'"><span class="fa fa-odnoklassniki"></span></a>
-                                    <a target='_blank' id="share_fb" class="facebook img-circle" href="https://www.facebook.com/sharer.php?u={{ meta.url }}"><span class="fa fa-facebook-f"></span></a>
-                                    <a target='_blank' class="twitter img-circle" href="https://twitter.com/intent/tweet?text={{ page.intro }}&url={{ meta.url }}"><span class="fa fa-twitter"></span></a>
-                                    <a target='_blank' class="google-plus img-circle" href="https://plus.google.com/share?url={{ meta.url }}&title={{ page.title }}&description={{ page.intro }}&image={{ meta.image }}"><span class="fa fa-google-plus"></span></a>
-                                    <!--<a class="linkedin img-circle" href="#"><span class="fa fa-pinterest-p"></span></a>-->
-                                    <!--<a class="linkedin img-circle" href="#"><span class="fa fa-linkedin"></span></a> -->
-                                 </div>
-                              </div>
-                              <div class="share pull-right">
-                                 {% with categories=page.categories.all %}
-                                     {% if categories %}
-                                          {# Translators: Категории в который размещена запись в блоге (Posted in) #}
-                                          <!--<h3>{% trans 'Категории' %}:</h3>-->
-                                          <ul>
-                                              {% for category in categories %}
-                                                  <li style="display: inline">
-                                                      <!--/{% image category.icon fill-32x32 style="vertical-align: middle" %/}
-                                                      /{/{ category.name /}/}-->
-                                                  </li>
-                                              {% endfor %}
-                                          </ul>
-                                     {% endif %}
-                                 {% endwith %}
                               </div>
                            </div>
                            {% load comments %}
@@ -275,7 +239,7 @@
                <!-- =-=-=-=-=-=-= Advertizing Sidebar =-=-=-=-=-=-= -->
                <div class="col-md-2 col-sm-2  hidden-xs hidden-sm rightbar-stick">
                   <div class="theiaStickySidebar">
-                     <a href="{{ page.get_parent.url }}" class="btn btn-success margin-bottom-10 box-shadow">{% trans 'Назад к блогу' %}</a>
+                     <a href="{{ page.get_parent.url }}" class="btn btn-success margin-bottom-10 box-shadow">{% trans 'Назад к FAQ' %}</a>
                   </div>
                </div>
             </div>

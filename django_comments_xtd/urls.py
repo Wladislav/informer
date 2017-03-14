@@ -42,8 +42,8 @@ if django.VERSION[:2] < (1, 8):
         )
 else:
     urlpatterns = pattern_list
-    if settings.COMMENTS_XTD_MAX_THREAD_LEVEL > 0:
-        urlpatterns.append(
-            url(r'^reply/(?P<cid>[\d]+)$', views.reply,
-                name='comments-xtd-reply')
-        )
+    #if settings.COMMENTS_XTD_MAX_THREAD_LEVEL > 0:
+    urlpatterns.append(
+        url(r'^reply/(?P<cid>[\d]+)$', views.reply,
+            name='comments-xtd-reply')
+    )

@@ -24,7 +24,7 @@
                                                     <li id="c{{ comment.id }}">
                                                     {{ form.reply_to }}
                                                     {% if item.comment.is_removed %}
-                                                    <p>{% trans "This comment has been removed." %}</p>
+                                                    <p>{% trans "Этот комментарий был удален." %}</p>
                                                     {% else %}
                                                   
                                                     {% if item.comment.allow_thread and not item.comment.is_removed %}

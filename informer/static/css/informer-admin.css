@@ -3247,7 +3247,7 @@ ul.listing li {
 
 .listing td,
 .listing th {
-  padding: 1.2em 1em;
+  padding: 0.5em 0em; /*1.2em 1em;*/
 }
 
 .listing td.no-padding,
@@ -3439,7 +3439,7 @@ body.ready .listing.chooser tbody .title a {
 }
 
 .listing .actions {
-  margin-top: 0.8em;
+  margin-top: 0.5em;
   text-transform: uppercase;
   margin-bottom: -0.5em;
   font-size: 0.8rem;
@@ -3898,10 +3898,7 @@ table.listing {
   .listing table .no-results-message {
     padding-left: 50px;
   }
-  .listing.full-width td:first-child,
-  .listing.full-width th:first-child {
-    padding-left: 50px;
-  }
+
   .listing.full-width .divider td {
     padding-left: 50px;
   }
@@ -6134,7 +6131,7 @@ footer,
     font-size: 1em;
     opacity: 1;
     position: absolute;
-    right: 10em;
+    right: 10.5em;
     top: 2em;
 }
 

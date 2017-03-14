@@ -22,8 +22,8 @@ import re
 class BlogListPage(Page):
     intro = RichTextField(blank=True)
     class Meta:
-        verbose_name = _('Список записей')
-        verbose_name_plural = _('Список записей')
+        verbose_name = _('Список записей в Блоге')
+        verbose_name_plural = _('Список записей в Блоге')
     def get_context(self, request):
         context = super(BlogListPage, self).get_context(request)
         blogpages = self.get_children().live().order_by('-first_published_at')
@@ -50,8 +50,8 @@ class BlogPageTag(TaggedItemBase):
 class BlogPage(TranslationMixin, ModelMeta, Page):
     
     class Meta:
-        verbose_name = _('Запись в блоге')
-        verbose_name_plural = _('Записи в блоге')
+        verbose_name = _('Запись в Блоге')
+        verbose_name_plural = _('Записи в Блоге')
         
     date = models.DateField("Post date")
     intro = models.CharField(max_length=250)
@@ -162,3 +162,78 @@ class BlogCategory(TranslationMixin, models.Model):
         ImageChooserPanel('icon'),
     ]
     
+class FaqPage(TranslationMixin, ModelMeta, Page):
+    
+    class Meta:
+        verbose_name = _('Запись в FAQ')
+        verbose_name_plural = _('Записи в FAQ')
+        
+    date = models.DateField("Post date of FAQ")
+    body = RichTextField(blank=True)
+
+    def main_image(self):
+        faq_item = self.faq_images.first()
+        if faq_item:
+            return faq_item.image
+        else:
+            return None
+
+    def main_image_url(self):
+        faq_item = self.faq_images.first()
+        if faq_item:
+            return faq_item.image.get_rendition('fill-750x200').url
+        else:
+            return ''        
+
+    def get_absolute_url(self):
+        abs_url = Page.get_site(self).root_url
+        return abs_url+self.url
+    
+    def get_context(self, request):
+            context = super(FaqPage, self).get_context(request)
+            context['meta'] = self.as_meta(request)
+            return context    
+
+    content_panels = Page.content_panels + [
+        MultiFieldPanel([
+            FieldPanel('date'),
+        ], heading="FAQ information"),
+        FieldPanel('body'),
+        InlinePanel('faq_images', label="FAQ images"),
+    ]
+    
+    search_fields = Page.search_fields + [
+        index.SearchField('title'),
+        index.SearchField('body'),
+    ]
+    
+    _metadata = {
+        'title': 'title',
+        'use_title_tag': 'title',
+        'description': 'body',
+        'image': 'main_image_url',
+        'url': 'url',
+        'site_name': 'wisemarker.com',
+        'published_time': 'first_published_at',
+        'modified_time': 'latest_revision_created_at',
+    }
+    
+class FaqPageImage(TranslationMixin, Orderable):
+    faqpage = ParentalKey(FaqPage, related_name='faq_images')
+    image = models.ForeignKey(
+        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
+    )
+    panels = [
+        ImageChooserPanel('image'),
+    ]    
+    
+class FaqListPage(Page):
+    class Meta:
+        verbose_name = _('Список записей FAQ')
+        verbose_name_plural = _('Список записей FAQ')
+    def get_context(self, request):
+        context = super(FaqListPage, self).get_context(request)
+        faqpages = self.get_children().live().order_by('-first_published_at')
+
+        context['faqpages'] = faqpages
+        return context    

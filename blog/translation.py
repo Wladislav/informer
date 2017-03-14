@@ -1,4 +1,4 @@
-from .models import BlogPage, BlogPageGalleryImage, BlogCategory
+from .models import BlogPage, FaqPage, BlogPageGalleryImage, BlogCategory
 from wagtail_modeltranslation.translation import TranslationOptions
 from wagtail_modeltranslation.decorators import register
 
@@ -10,6 +10,13 @@ class BlogPageTR(TranslationOptions):
         'intro',
         'body',
     )
+    
+@register(FaqPage)
+class FaqPageTR(TranslationOptions):
+    fields = (
+        'title',
+        'body',
+    )    
     
 @register(BlogPageGalleryImage)
 class BlogPageGalleryImageTR(TranslationOptions):
