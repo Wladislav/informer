@@ -3420,6 +3420,10 @@ body.ready .listing.chooser tbody .title a {
   color: #4d4d4d;
 }
 
+.privacy-indicator.public {
+    color: white;
+}
+
 .listing .title h2 {
   text-transform: none;
   margin: 0;
@@ -6131,7 +6135,7 @@ footer,
     font-size: 1em;
     opacity: 1;
     position: absolute;
-    right: 10.5em;
+    right: 11em;
     top: 2em;
 }
 
