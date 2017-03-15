@@ -8,6 +8,41 @@
     margin-left: -5px;
 }
 
+h1.faq-title {
+    font-size: 18px;
+    max-height: 2.2em;
+    overflow: hidden;
+    color: #000000;
+    font-family: Fira Sans Extra Condensed;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    margin-top: 10px;
+    padding: 8px 20px;
+    line-height: 1.2em;
+}
+
+.faq-comment {
+    display: block;
+    border-style: dotted;
+    margin-top: 8px;
+    border-color: white;
+    border-top-color: #77778c;
+    padding-top: 8px;
+    border-width: thin;
+    padding-left: 5px;    
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    font-weight: lighter;
+    text-transform: uppercase;    
+}
+
+.blog-detial .blog-section .blog-heading h2 {
+    color: #232323;
+    font-size: 16px;
+    margin: 8px 0 15px;
+    padding: 13px 18px 0 0;
+}
+
 i.fa.fa-reply {
     color: #f58936;
 }

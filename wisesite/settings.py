@@ -76,6 +76,7 @@ INSTALLED_APPS = [
     'modelcluster',
     'taggit',
     'meta',
+    'subscribe',
 
     #debug apps
     #'debug_toolbar',

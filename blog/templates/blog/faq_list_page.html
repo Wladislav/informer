@@ -27,10 +27,15 @@
                      <ul class="accordion">
                         {% for post in faqpages %}
                         {% with post=post.specific %}
+                        {% get_comment_count for post as comment_count %}
                         <li class="">
                            <h3 class="accordion-title"><a href="">{{ post.title }}</a></h3>
                            <div class="accordion-content">
                               {{ post.body|richtext|cut:'<p></p>' }}
+                              <div class="faq-comment">
+                                 <span class="icon fa fa-comment-o"></span>
+                                 <a  href="{% pageurl post %}">{% trans 'Оставить мнение' %} ({{comment_count}})</a>
+                              </div>
                            </div>
                         </li>
                         {% endwith %}

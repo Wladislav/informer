@@ -22,7 +22,7 @@
          </div>
       </div>
             
-      <section class="section-padding error-page pattern-bgs gray ">
+      <section class="section-padding error-page pattern-bg gray ">
          <!-- Main Container -->
          <div class="container">
             <!-- Row -->
@@ -43,6 +43,7 @@
                                     <li role="presentation"><a href="#set{{forloop.counter}}" aria-controls="profile" role="tab" data-toggle="tab">{{ item.caption }}</a></li>
                                  {% endif %}
                               {% endfor %}
+                              <h1 class="faq-title">{{ page.title }}</h1>
                            </ul>
                            <!-- Tab panes -->
                            <div class="tab-content">
@@ -64,7 +65,7 @@
                            </div>                     
                         </div>
                         <div class="post-info">  </div>
-                        <h1 class="post-title">{{ page.title }}</h1>
+                        <!--<h1 class="post-title">{{ page.title }}</h1>-->
                         <div class="post-excerpt">
                            <!-- =-=-=-=-=-=-= Advertizing =-=-=-=-=-=-= -->
                            {{ page.body|richtext }}
