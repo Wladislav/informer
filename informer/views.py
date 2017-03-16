@@ -30,6 +30,8 @@ from django.utils.http import is_safe_url, urlsafe_base64_decode
 from django.shortcuts import resolve_url
 from django.core.exceptions import ObjectDoesNotExist
 import logging
+from django.apps import apps
+from newsletter.forms import SubscriptionForm
 
 logger = logging.getLogger('informer_views')
 logger.setLevel(logging.DEBUG)
@@ -104,8 +106,37 @@ def logout_user(request):
     prefix = lang_context_processor(request)
     return redirect('/'+prefix['LANG'], {})
 
-def index(request):
-    return render(request, 'informer/index.html', {})
+@csrf_protect
+def index(request, form_class=SubscriptionForm, model_str="newsletter.subscription"):
+    site = get_current_site(request)
+    user = request.user
+    context = {'site': site,
+               'user': user,
+               'index_page': True
+               }
+    if request.POST:   
+        try:
+            model = apps.get_model(*model_str.split('.')) 
+            instance = model._default_manager.get(email=request.POST['email'])
+        except model.DoesNotExist: 
+            instance = None
+        form = form_class(request.POST, instance = instance)
+        if form.is_valid():
+            subscribed = form.cleaned_data["subscribed"]
+            translated_message_in = _("Успешно! Вы подписаны на рассылку")
+            translated_message_out = _("Вы были удалены из рассылки") 
+            form.save()
+            if subscribed:
+                message = getattr(settings, "NEWSLETTER_OPTIN_MESSAGE", translated_message_in)
+            else:
+                message = getattr(settings, "NEWSLETTER_OPTOUT_MESSAGE", translated_message_out)
+
+            context['success']  = True
+            context['message']  = message
+            context['form']  = form_class()
+
+    return render(request, 'informer/index.html', context)
+        
 
 class newRegistratonView(RegistrationView):
     form_class = RegistrationFormTOSAndEmail
@@ -138,7 +169,7 @@ def user_profile(request):
             if fuv: 
                 formusr_main.save()
             if fsv and fuv:
-                messages.success(request, _('Профиль успешно обновлен.')) #Profile details updated.
+                messages.success(request, _('Профиль успешно обновлен.'))
                 #logger.debug('Fine!')
             return HttpResponseRedirect('/accounts/profile/')
 

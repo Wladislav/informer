@@ -77,6 +77,7 @@ INSTALLED_APPS = [
     'taggit',
     'meta',
     'subscribe',
+    'newsletter'
 
     #debug apps
     #'debug_toolbar',

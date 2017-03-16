@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Django\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-09 16:22+0300\n"
+"POT-Creation-Date: 2017-03-16 14:23+0300\n"
 "PO-Revision-Date: 2012-02-14 13:24+0000\n"
 "Last-Translator: Jannis Leidel <jannis@leidel.info>\n"
 "Language-Team: English <en@li.org>\n"
@@ -586,11 +586,11 @@ msgstr "Your reply to comment"
 msgid "Исходный текст:"
 msgstr "Original text:"
 
-#: .\django_comments_xtd\views.py:58
+#: .\django_comments_xtd\views.py:59
 msgid "comment confirmation request"
 msgstr ""
 
-#: .\django_comments_xtd\views.py:233
+#: .\django_comments_xtd\views.py:234
 #, fuzzy
 #| msgid "comments"
 msgid "new comment posted"

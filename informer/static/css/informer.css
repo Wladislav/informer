@@ -1,8 +1,57 @@
+.recent-ads-list-location li a {
+    float: left;
+    line-height: 1.3em;
+}
+
+.recent-ads .recent-ads-list-image {
+    width: 11%;
+}
+
+.recent-ads .recent-ads-list {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    margin: 0 0 8px;
+    padding: 0 0 8px;
+}
+
 .accordion > li {
     border-bottom: 1px solid #ffffff;
     padding: 18px 0;
 }
 
+.icheckbox_minimal {
+    background-color: white;
+}
+
+label.subscribe {
+    padding-top: 5px;
+}
+
+.recent-ads .recent-ads-list-title a {
+    color: #c9c9c9;
+}
+
+.recent-ads .recent-ads-list-image-inner {
+    display: block;
+    height: initial;
+    margin: 0 16px 0 0;
+    position: relative;
+    width: initial;
+}
+
+.recent-ads .recent-ads-list-image img {
+    display: block;
+    position: relative;
+    width: initial;
+    z-index: 2;
+}
+
+.recent-ads .recent-ads-list .recent-ads-container .recent-ads-list-content ul.recent-ads-list-location li a {
+    color: #a0a0a0;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: none;
+}
+    
 .blog-detial .comment li:last-child {
     border-left: 2px solid #b0b0b0;
     margin-left: -5px;
@@ -85,7 +134,7 @@ textarea#id_comment {
 
 .skin-minimal .list li label {
     padding-left: 0px;
-    font-weight: 500;
+    font-weight: 300;
     color: #555;
     font-size: 16px;
     font-family: Fira Sans Extra Condensed;

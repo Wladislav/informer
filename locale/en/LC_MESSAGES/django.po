@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-09 16:22+0300\n"
+"POT-Creation-Date: 2017-03-16 14:23+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,39 +17,53 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .\blog\models.py:24 .\blog\models.py:25
-msgid "Список записей"
-msgstr ""
+#: .\blog\models.py:25 .\blog\models.py:26
+msgid "Список записей в Блоге"
+msgstr "List of entries in the Blog"
+
+#: .\blog\models.py:51
+msgid "Запись в Блоге"
+msgstr "Blog entry"
 
 #: .\blog\models.py:52
-msgid "Запись в блоге"
-msgstr ""
+msgid "Записи в Блоге"
+msgstr "Entries in Blog"
 
-#: .\blog\models.py:53
-msgid "Записи в блоге"
-msgstr ""
-
-#: .\blog\models.py:102 .\blog\models.py:103
+#: .\blog\models.py:128 .\blog\models.py:129
 msgid "Список тегов"
-msgstr ""
+msgstr "Tag List"
 
-#: .\blog\models.py:128
+#: .\blog\models.py:154
 msgid "Категория"
 msgstr "Category"
 
 #. Translators: Категории в который размещена запись в блоге (Posted in)
-#: .\blog\models.py:129 .\blog\templates\blog\blog_page.html:96
+#: .\blog\models.py:155 .\blog\templates\blog\blog_page.html:101
 msgid "Категории"
 msgstr "Category"
 
-#: .\blog\templates\blog\blog_index_page.html:15
+#: .\blog\models.py:166
+msgid "Запись в FAQ"
+msgstr "Entry to the FAQ"
+
+#: .\blog\models.py:167
+msgid "Записи в FAQ"
+msgstr "Entries in the FAQ"
+
+#: .\blog\models.py:230 .\blog\models.py:231
+msgid "Список записей FAQ"
+msgstr "List of Entries FAQ"
+
+#: .\blog\templates\blog\blog_list_page.html:15
 msgid "Последние новости"
 msgstr "Last news"
 
 #. Translators: Количество комментариев к записи в блоге (Comments)
-#: .\blog\templates\blog\blog_index_page.html:48
-#: .\blog\templates\blog\blog_page.html:117
+#: .\blog\templates\blog\blog_list_page.html:48
+#: .\blog\templates\blog\blog_page.html:122
 #: .\blog\templates\blog\blog_page_widget.html:21
+#: .\blog\templates\blog\faq_list_page.html:93
+#: .\blog\templates\blog\faq_page.html:53
 msgid "Комментариев"
 msgstr "Comments"
 
@@ -58,74 +72,144 @@ msgstr "Comments"
 msgid "Теги"
 msgstr "Tags"
 
-#: .\blog\templates\blog\blog_page.html:132
-#: .\blog\templates\blog\blog_page.html:140
+#: .\blog\templates\blog\blog_page.html:136
+#: .\blog\templates\blog\blog_page.html:144
+#: .\blog\templates\blog\faq_page.html:67
+#: .\blog\templates\blog\faq_page.html:75
 msgid "Оставьте ваш комментарий"
 msgstr "Leave your comment"
 
 #. Translators: Написать > Please log in to leave a comment
-#: .\blog\templates\blog\blog_page.html:137
+#: .\blog\templates\blog\blog_page.html:141
+#: .\blog\templates\blog\faq_page.html:72
 msgid "Пожалуйста войдите чтобы оставить комментарий"
 msgstr "Please log in to leave a comment"
 
-#: .\blog\templates\blog\blog_page.html:154
-#: .\blog\templates\blog\blog_page.html:227
+#: .\blog\templates\blog\blog_page.html:158
+#: .\blog\templates\blog\blog_page.html:230
+#: .\blog\templates\blog\faq_page.html:89
+#: .\blog\templates\blog\faq_page.html:161
 msgid "Комментарий"
 msgstr "Comment"
 
-#: .\blog\templates\blog\blog_page.html:174
-#: .\blog\templates\blog\blog_page.html:247
+#: .\blog\templates\blog\blog_page.html:177
+#: .\blog\templates\blog\blog_page.html:250
+#: .\blog\templates\blog\faq_page.html:108
+#: .\blog\templates\blog\faq_page.html:181
 msgid "Сообщите мне о последующих комментариях"
 msgstr "Notify me of recent comments"
 
 #. Translators: Предварительный просмотр комментария в блоге
-#: .\blog\templates\blog\blog_page.html:183
-#: .\blog\templates\blog\blog_page.html:256
+#: .\blog\templates\blog\blog_page.html:186
+#: .\blog\templates\blog\blog_page.html:259
+#: .\blog\templates\blog\faq_page.html:117
+#: .\blog\templates\blog\faq_page.html:190
 msgid "Предварительный просмотр"
 msgstr "Preview"
 
 #. Translators: Запись комментария в блоге
-#: .\blog\templates\blog\blog_page.html:185
-#: .\blog\templates\blog\blog_page.html:258
+#: .\blog\templates\blog\blog_page.html:188
+#: .\blog\templates\blog\blog_page.html:261
+#: .\blog\templates\blog\faq_page.html:119
+#: .\blog\templates\blog\faq_page.html:192
 msgid "Записать комментарий"
 msgstr "Save the comment"
 
-#: .\blog\templates\blog\blog_page.html:200
+#: .\blog\templates\blog\blog_page.html:203
+#: .\blog\templates\blog\faq_page.html:134
 msgid "Имя"
 msgstr "Name"
 
-#: .\blog\templates\blog\blog_page.html:209
+#: .\blog\templates\blog\blog_page.html:212
+#: .\blog\templates\blog\faq_page.html:143
 msgid "Email"
 msgstr "Email"
 
-#: .\blog\templates\blog\blog_page.html:218
+#: .\blog\templates\blog\blog_page.html:221
+#: .\blog\templates\blog\faq_page.html:152
 msgid "Вебсайт"
 msgstr "Website"
 
-#: .\blog\templates\blog\blog_page.html:275
+#: .\blog\templates\blog\blog_page.html:278
 msgid "Назад к блогу"
 msgstr "Back to blog"
 
-#: .\blog\templates\blog\blog_tag_index_page.html:12
+#: .\blog\templates\blog\blog_tags_list_page.html:12
 msgid "Наденные новости:"
 msgstr "Found news"
 
 #. Translators: Последние изменения записи в блоге (Revised).
-#: .\blog\templates\blog\blog_tag_index_page.html:36
+#: .\blog\templates\blog\blog_tags_list_page.html:36
 msgid "Изменен"
 msgstr "Changed"
 
-#: .\blog\templates\blog\blog_tag_index_page.html:46
+#: .\blog\templates\blog\blog_tags_list_page.html:46
 msgid "Записей с таким тегом не найдено."
 msgstr "No records found for this tag."
 
-#: .\blog\templates\blog\comments_tree.html:31
-msgid "This comment has been removed."
-msgstr "This comment has been removed."
+#: .\blog\templates\blog\comments_tree.html:27
+#, fuzzy
+#| msgid "Записать комментарий"
+msgid "Этот комментарий был удален."
+msgstr "Save the comment"
 
-#: .\blog\templates\blog\comments_tree.html:35
+#: .\blog\templates\blog\comments_tree.html:31
 msgid "Ответить"
 msgstr "Reply"
+
+#: .\blog\templates\blog\faq_list_page.html:14
+msgid "Ответы на вопросы"
+msgstr "Answers on questions"
+
+#: .\blog\templates\blog\faq_list_page.html:37
+msgid "Оставить мнение"
+msgstr "Leave your comment"
+
+#: .\blog\templates\blog\faq_page.html:209
+#, fuzzy
+#| msgid "Назад к блогу"
+msgid "Назад к FAQ"
+msgstr "Back to blog"
+
+#: .\newsletter\forms.py:11
+msgid "Email address"
+msgstr ""
+
+#: .\newsletter\models.py:12
+msgid "subscribed"
+msgstr ""
+
+#: .\newsletter\models.py:13
+#, fuzzy
+#| msgid "Email"
+msgid "email"
+msgstr "Email"
+
+#: .\newsletter\models.py:14
+msgid "created on"
+msgstr ""
+
+#: .\newsletter\models.py:15
+msgid "updated on"
+msgstr ""
+
+#: .\subscribe\models.py:25
+msgid "User"
+msgstr ""
+
+#: .\subscribe\models.py:38
+msgid "Creation date"
+msgstr ""
+
+#: .\subscribe\templates\subscribe\subscription_delete.html:5
+#: .\subscribe\templates\subscribe\subscription_delete.html:9
+msgid "Un-subscribe"
+msgstr ""
+
+#: .\subscribe\templates\subscribe\subscription_form.html:5
+#: .\subscribe\templates\subscribe\subscription_form.html:9
+msgid "Subscribe"
+msgstr ""
 
 #: .\wisesite\settings.py:13
 msgid "Russin"
@@ -134,3 +218,6 @@ msgstr ""
 #: .\wisesite\settings.py:14
 msgid "English"
 msgstr ""
+
+#~ msgid "This comment has been removed."
+#~ msgstr "This comment has been removed."

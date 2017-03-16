@@ -36,9 +36,7 @@ class BlogListPage(Page):
         except EmptyPage:
             resources = paginator.page(paginator.num_pages)        
         for page_res in resources:
-            # Obrezaem do 130 simvolov
             truncated_text = truncatechars_html(page_res.specific.body.strip('\r'),150)
-            # Udalaem html tegi + <p>chistiy tekst</p>
             page_res.specific.body = '<p>'+re.sub(r'\<[^>]*\>', ' ', truncated_text)+'</p>'
 
         context['blogpages'] = resources
@@ -171,19 +169,19 @@ class FaqPage(TranslationMixin, ModelMeta, Page):
     date = models.DateField("Post date of FAQ")
     body = RichTextField(blank=True)
 
-    def main_image(self):
-        faq_item = self.faq_images.first()
-        if faq_item:
-            return faq_item.image
-        else:
-            return None
-
-    def main_image_url(self):
-        faq_item = self.faq_images.first()
-        if faq_item:
-            return faq_item.image.get_rendition('fill-750x200').url
-        else:
-            return ''        
+    # def main_image(self):
+    #     faq_item = self.faq_images.first()
+    #     if faq_item:
+    #         return faq_item.image
+    #     else:
+    #         return None
+    # 
+    # def main_image_url(self):
+    #     faq_item = self.faq_images.first()
+    #     if faq_item:
+    #         return faq_item.image.get_rendition('fill-750x200').url
+    #     else:
+    #         return ''        
 
     def get_absolute_url(self):
         abs_url = Page.get_site(self).root_url
@@ -199,7 +197,7 @@ class FaqPage(TranslationMixin, ModelMeta, Page):
             FieldPanel('date'),
         ], heading="FAQ information"),
         FieldPanel('body'),
-        InlinePanel('faq_images', label="FAQ images"),
+        # InlinePanel('faq_images', label="FAQ images"),
     ]
     
     search_fields = Page.search_fields + [
@@ -211,21 +209,21 @@ class FaqPage(TranslationMixin, ModelMeta, Page):
         'title': 'title',
         'use_title_tag': 'title',
         'description': 'body',
-        'image': 'main_image_url',
+        # 'image': 'main_image_url',
         'url': 'url',
         'site_name': 'wisemarker.com',
         'published_time': 'first_published_at',
         'modified_time': 'latest_revision_created_at',
     }
     
-class FaqPageImage(TranslationMixin, Orderable):
-    faqpage = ParentalKey(FaqPage, related_name='faq_images')
-    image = models.ForeignKey(
-        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
-    )
-    panels = [
-        ImageChooserPanel('image'),
-    ]    
+# class FaqPageImage(TranslationMixin, Orderable):
+#     faqpage = ParentalKey(FaqPage, related_name='faq_images')
+#     image = models.ForeignKey(
+#         'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
+#     )
+#     panels = [
+#         ImageChooserPanel('image'),
+#     ]    
     
 class FaqListPage(Page):
     class Meta:

@@ -36,6 +36,7 @@ urlpatterns += i18n_patterns(
     url(r'^comments/', include('django_comments_xtd.urls')),
     url(r'', include(wagtail_urls)),
     url(r'^images/', include(wagtailimages_urls)),
+    
 )
 
 if settings.DEBUG:
