@@ -28,12 +28,13 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^cms/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
-    url(r'^pages/', include(wagtail_urls)),        
+    url(r'^pages/', include(wagtail_urls)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += i18n_patterns(
     url(r'', include('informer.urls')),
     url(r'^comments/', include('django_comments_xtd.urls')),
+    #url(r'^tag/(?P<tag>[-\w]+)/', views.tag_view, name="tag"), 
     url(r'', include(wagtail_urls)),
     url(r'^images/', include(wagtailimages_urls)),
     

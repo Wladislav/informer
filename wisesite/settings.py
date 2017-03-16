@@ -30,7 +30,6 @@ EMAIL_HOST_USER = "onedeveloptesting@gmail.com"
 EMAIL_HOST_PASSWORD = 'jdivkcennbtxrpii'
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'onedeveloptesting@gmail.com'
-# Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -79,7 +78,6 @@ INSTALLED_APPS = [
     'subscribe',
     'newsletter'
 
-    #debug apps
     #'debug_toolbar',
     #'debug_toolbar_htmltidy',
 ]
@@ -128,8 +126,9 @@ TEMPLATES = [
             'blog/templates/blog/',
             'django_comments_xtd/templates/',
             'django_comments_xtd/templates/comments',
-            'django_comments_xtd/templates/comments/django_comments_xtd',
-            #os.path.join(os.path.dirname(__file__), "templates"),            
+            'newsletter/templates/admin',
+            'newsletter/templates/newsletter',
+            'subscribe/templates/subscribe',
             ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -178,9 +177,7 @@ META_SITE_DOMAIN = 'photocritic.pythonanywhere.com'
 META_IMAGE_URL = '/media/images/'
 GOOGLE_ANALYTICS_TRACKING_ID = ''
  
-# Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',

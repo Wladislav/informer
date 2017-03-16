@@ -44,7 +44,6 @@ ch.setFormatter(formatter)
 fh.setFormatter(formatter)
 logger.addHandler(ch)
 logger.addHandler(fh)
-#logging.info(LOGIN_REDIRECT_URL)
 
 def login_handler(sender, request, **kwargs):
     user = request.user

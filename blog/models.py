@@ -55,7 +55,7 @@ class BlogPage(TranslationMixin, ModelMeta, Page):
     intro = models.CharField(max_length=250)
     body = RichTextField(blank=True)
     tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
-    categories = ParentalManyToManyField('blog.BlogCategory', blank=True)
+    #categories = ParentalManyToManyField('blog.BlogCategory', blank=True)
 
     def main_image(self):
         gallery_item = self.gallery_images.first()
@@ -84,8 +84,8 @@ class BlogPage(TranslationMixin, ModelMeta, Page):
         MultiFieldPanel([
             FieldPanel('date'),
             FieldPanel('tags'),
-            FieldPanel('categories', widget=forms.CheckboxSelectMultiple),
-        ], heading="Blog information"),
+            # FieldPanel('categories', widget=forms.CheckboxSelectMultiple),
+        ], heading="Допонительная информация"),
         FieldPanel('intro'),
         FieldPanel('body'),
         InlinePanel('gallery_images', label="Gallery images"),
@@ -123,7 +123,7 @@ class BlogPageGalleryImage(TranslationMixin, Orderable):
         FieldPanel('caption'),
     ]
     
-class BlogTagsListPage(Page):
+class BlogTagIndexPage(Page):
     class Meta:
         verbose_name = _('Список тегов')
         verbose_name_plural = _('Список тегов')
@@ -143,22 +143,22 @@ class BlogTagsListPage(Page):
         context['blogpages'] = resources
         return context
     
-@register_snippet
-class BlogCategory(TranslationMixin, models.Model):
-    name = models.CharField(max_length=255)
-    icon = models.ForeignKey(
-        'wagtailimages.Image', null=True, blank=True,
-        on_delete=models.SET_NULL, related_name='+'
-    )
-    class Meta:
-        verbose_name = _('Категория')
-        verbose_name_plural = _('Категории')
-    def __str__(self):
-        return self.name 
-    panels = [
-        FieldPanel('name'),
-        ImageChooserPanel('icon'),
-    ]
+# @register_snippet
+# class BlogCategory(TranslationMixin, models.Model):
+#     name = models.CharField(max_length=255)
+#     icon = models.ForeignKey(
+#         'wagtailimages.Image', null=True, blank=True,
+#         on_delete=models.SET_NULL, related_name='+'
+#     )
+#     class Meta:
+#         verbose_name = _('Категория')
+#         verbose_name_plural = _('Категории')
+#     def __str__(self):
+#         return self.name 
+#     panels = [
+#         FieldPanel('name'),
+#         ImageChooserPanel('icon'),
+#     ]
     
 class FaqPage(TranslationMixin, ModelMeta, Page):
     
@@ -168,20 +168,6 @@ class FaqPage(TranslationMixin, ModelMeta, Page):
         
     date = models.DateField("Post date of FAQ")
     body = RichTextField(blank=True)
-
-    # def main_image(self):
-    #     faq_item = self.faq_images.first()
-    #     if faq_item:
-    #         return faq_item.image
-    #     else:
-    #         return None
-    # 
-    # def main_image_url(self):
-    #     faq_item = self.faq_images.first()
-    #     if faq_item:
-    #         return faq_item.image.get_rendition('fill-750x200').url
-    #     else:
-    #         return ''        
 
     def get_absolute_url(self):
         abs_url = Page.get_site(self).root_url
@@ -197,7 +183,6 @@ class FaqPage(TranslationMixin, ModelMeta, Page):
             FieldPanel('date'),
         ], heading="FAQ information"),
         FieldPanel('body'),
-        # InlinePanel('faq_images', label="FAQ images"),
     ]
     
     search_fields = Page.search_fields + [
@@ -209,22 +194,13 @@ class FaqPage(TranslationMixin, ModelMeta, Page):
         'title': 'title',
         'use_title_tag': 'title',
         'description': 'body',
-        # 'image': 'main_image_url',
         'url': 'url',
         'site_name': 'wisemarker.com',
         'published_time': 'first_published_at',
         'modified_time': 'latest_revision_created_at',
     }
     
-# class FaqPageImage(TranslationMixin, Orderable):
-#     faqpage = ParentalKey(FaqPage, related_name='faq_images')
-#     image = models.ForeignKey(
-#         'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
-#     )
-#     panels = [
-#         ImageChooserPanel('image'),
-#     ]    
-    
+   
 class FaqListPage(Page):
     class Meta:
         verbose_name = _('Список записей FAQ')
