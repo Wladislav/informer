@@ -111,7 +111,8 @@ def index(request, form_class=SubscriptionForm, model_str="newsletter.subscripti
     user = request.user
     context = {'site': site,
                'user': user,
-               'index_page': True
+               'index_page': True,
+               'vcards': '/vcards',
                }
     if request.POST:   
         try:
@@ -154,7 +155,7 @@ def user_profile(request):
     DjangoProfileInlineFormset = modelform_factory(User, DjangoProfileForm, fields=('first_name', 'last_name', 'email'))
     formusr_main = DjangoProfileInlineFormset(instance=user)
     ProfileInlineFormset = inlineformset_factory(User, UserProfile, can_delete=False,
-                                                 fields=('user', 'photo', 'website', 'bio', 'phone', 'city', 'country', 'language'),)
+                                                 fields=('user', 'photo', 'website', 'bio', 'phone', 'city', 'country', 'language', 'timezone'),)
                                                  #widgets = {'language':forms.Select(choices=settings.LANGUAGES)})
     formset_adds = ProfileInlineFormset(instance=user)
     if request.user.is_authenticated() and request.user.id == user.id:

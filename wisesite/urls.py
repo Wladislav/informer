@@ -24,6 +24,7 @@ from wagtail.wagtailadmin import urls as wagtailadmin_urls
 from wagtail.wagtailimages import urls as wagtailimages_urls
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^cms/', include(wagtailadmin_urls)),
@@ -34,15 +35,15 @@ urlpatterns = [
 urlpatterns += i18n_patterns(
     url(r'', include('informer.urls')),
     url(r'^comments/', include('django_comments_xtd.urls')),
-    #url(r'^tag/(?P<tag>[-\w]+)/', views.tag_view, name="tag"), 
+    url(r'', include('dojango.urls')),
     url(r'', include(wagtail_urls)),
     url(r'^images/', include(wagtailimages_urls)),
+
     
 )
 
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns += [
-        url(r'^debug/', include(debug_toolbar.urls)),
-        #url(r'^', include('debug_toolbar_htmltidy.urls')),
+        url(r'^__debug__/', include(debug_toolbar.urls)),
     ]

@@ -20,6 +20,6 @@ class DjangoProfileForm(forms.ModelForm):
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ['user', 'photo', 'website', 'bio', 'phone', 'city', 'country', 'language']
+        fields = ['user', 'photo', 'website', 'bio', 'phone', 'city', 'country', 'language', 'timezone']
         prefix = 'person_adds'
         

@@ -21,7 +21,7 @@ class UserProfileAdmin(admin.ModelAdmin):
         ),
         (
             _('Content'),
-            {'fields': ('photo', 'img_height', 'img_width', 'website', 'bio', 'phone', 'city', 'country', 'language', )}
+            {'fields': ('photo', 'img_height', 'img_width', 'website', 'bio', 'phone', 'city', 'country', 'language', 'timezone',)}
         ),
         (
             _('Metadata'),

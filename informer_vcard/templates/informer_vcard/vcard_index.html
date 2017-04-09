@@ -1,0 +1,114 @@
+{% extends "informer/base.html" %}
+{% load compress %}
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+
+		<div class="page-header-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+                        <div class="header-page">
+                            <h1>{% trans 'Ваши карточки контактов' %}</h1>
+                        </div>                        
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="main-content-area "><!-- =-=-=-=-=-=-= Main Content Area =-=-=-=-=-=-= -->
+			<section class="section-padding error-page pattern-bg">
+				<div class="container nihilo" ><!-- Main Container -->
+					<div id="grid" style="width: 100%; height: 310px;border: 1px solid #999;"></div>
+					<div id="results" class="results" style="height: 30px;border: 1px solid #999;"></div>
+				</div>						
+			</section>
+		</div>
+	<script>
+	var dojoConfig = {
+		locale: '{{LANGUAGE_CODE}}',
+	};		
+	require(['dojo/request',
+			 'dojo/store/Memory',
+			 'dojo/data/ObjectStore',
+			 'dojox/grid/DataGrid',
+			 'dojox/math/round',
+			 'dojo/date/locale',
+			 'dojo/date/stamp',
+			 'dojo/domReady!'],
+			function(request, Memory, ObjectStore, DataGrid, mathRound, DateLocale, DateStamp){
+
+				request("hof-batting.json", { handleAs: "json" }).then(function(data){
+					var store = new Memory({ data: data, idProperty: "id" });
+
+					test_store = new ObjectStore({objectStore: store});
+					
+					function get_filed_name(field_key) {
+						verbose_item = store.data[0];
+						verbose_name = verbose_item.fields_verbose_name[field_key];
+						return verbose_name;
+					}
+					
+					var grid = new DataGrid({
+						"class": "grid",
+						store: test_store,
+						query: { id: "*" },
+						structure: [
+							{ name: get_filed_name("label"), field: "label", width: "22%" },
+							{ name: get_filed_name("model_version"), fields: ["profile","model_version"], width: "7%",
+								formatter: function(fields){
+									var first = fields[0], last = fields[1];
+									return first + " " + last;
+								}								
+							},
+							{ name: get_filed_name("status"), field: "status", width: "5%" },
+							{ name: get_filed_name("language"), field: "language", width: "7%" },
+							{ name: get_filed_name("revision"), field: "revision", width: "10%",
+							  formatter: function(field){
+								datetame = DateStamp.fromISOString(field);
+								lf = DateLocale.format(datetame, {formatLength: "short", locale: dojoConfig.locale});
+								return lf;
+							  }
+							
+							},
+							{ name: get_filed_name("secure_class"), field: "secure_class", width: "5%" },
+							{ name: get_filed_name("note"), field: "note", width: "24%" },
+							{ name: get_filed_name("start"), field: "start", width: "10%",
+							  formatter: function(field){
+								var lf = '-';
+								if (field !== null) {
+									datetame = DateStamp.fromISOString(field);
+									lf = DateLocale.format(datetame, {formatLength: "short", locale: dojoConfig.locale});
+								}
+								return lf;
+							  }
+							},							
+							{ name: get_filed_name("end"), field: "end", width: "10%",
+							  formatter: function(field){
+								var lf = '-';
+								if (field !== null) {
+									datetame = DateStamp.fromISOString(field);
+									lf = DateLocale.format(datetame, {formatLength: "short", locale: dojoConfig.locale});
+								}
+								return lf;
+							  }
+							}
+						]
+					}, "grid");
+
+					grid.startup();
+
+					grid.on("RowClick", function(evt){
+						var idx = evt.rowIndex,
+								rowData = grid.getItem(idx);
+						document.getElementById("results").innerHTML =
+								"You have clicked on " + rowData.last + ", " + rowData.first + ".";
+					}, true);
+
+				}, function(err){
+					alert(err);
+					});
+			});
+	</script>									
+{% endblock %}

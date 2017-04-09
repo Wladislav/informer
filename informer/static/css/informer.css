@@ -1,3 +1,20 @@
+.dojoxGridView {
+    line-height: 1em;
+}
+
+
+textarea.form-control {
+    height: 150px;
+}
+
+.wagtail-userbar {
+     top: 110px !important;
+}
+
+p {
+   margin: 0px 0 20px 0;
+}
+
 .recent-ads-list-location li a {
     float: left;
     line-height: 1.3em;
@@ -20,6 +37,7 @@
 
 .icheckbox_minimal {
     background-color: white;
+    margin-bottom: 3px;
 }
 
 label.subscribe {
@@ -103,7 +121,7 @@ i.fa.fa-reply {
 
 .accordion-content {
     background-color: white;
-    padding: 10px;
+    padding: 18px;
     margin-top: 8px;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
     font-family: Roboto;
@@ -187,8 +205,15 @@ p.user-trumb {
     padding-top: 25px;
 }
 
-p {
-    margin: 0 0 0px;
+p.heading-color {
+    margin: 0px;
+}
+
+.blog-detial .comment-info {
+    border-bottom: 1px solid #f2f2f2;
+    display: block;
+    margin: 10px 0;
+    overflow: hidden;
 }
 
 img#id_user-trumb {

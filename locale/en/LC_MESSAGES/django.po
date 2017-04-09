@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-16 14:23+0300\n"
+"POT-Creation-Date: 2017-04-09 21:17+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,15 +33,6 @@ msgstr "Entries in Blog"
 msgid "Список тегов"
 msgstr "Tag List"
 
-#: .\blog\models.py:154
-msgid "Категория"
-msgstr "Category"
-
-#. Translators: Категории в который размещена запись в блоге (Posted in)
-#: .\blog\models.py:155 .\blog\templates\blog\blog_page.html:101
-msgid "Категории"
-msgstr "Category"
-
 #: .\blog\models.py:166
 msgid "Запись в FAQ"
 msgstr "Entry to the FAQ"
@@ -50,7 +41,7 @@ msgstr "Entry to the FAQ"
 msgid "Записи в FAQ"
 msgstr "Entries in the FAQ"
 
-#: .\blog\models.py:230 .\blog\models.py:231
+#: .\blog\models.py:206 .\blog\models.py:207
 msgid "Список записей FAQ"
 msgstr "List of Entries FAQ"
 
@@ -71,6 +62,11 @@ msgstr "Comments"
 #: .\blog\templates\blog\blog_page.html:75
 msgid "Теги"
 msgstr "Tags"
+
+#. Translators: Категории в который размещена запись в блоге (Posted in)
+#: .\blog\templates\blog\blog_page.html:101
+msgid "Категории"
+msgstr "Category"
 
 #: .\blog\templates\blog\blog_page.html:136
 #: .\blog\templates\blog\blog_page.html:144
@@ -134,16 +130,16 @@ msgstr "Website"
 msgid "Назад к блогу"
 msgstr "Back to blog"
 
-#: .\blog\templates\blog\blog_tags_list_page.html:12
+#: .\blog\templates\blog\blog_tag_index_page.html:12
 msgid "Наденные новости:"
 msgstr "Found news"
 
 #. Translators: Последние изменения записи в блоге (Revised).
-#: .\blog\templates\blog\blog_tags_list_page.html:36
+#: .\blog\templates\blog\blog_tag_index_page.html:36
 msgid "Изменен"
 msgstr "Changed"
 
-#: .\blog\templates\blog\blog_tags_list_page.html:46
+#: .\blog\templates\blog\blog_tag_index_page.html:46
 msgid "Записей с таким тегом не найдено."
 msgstr "No records found for this tag."
 
@@ -170,6 +166,42 @@ msgstr "Leave your comment"
 #| msgid "Назад к блогу"
 msgid "Назад к FAQ"
 msgstr "Back to blog"
+
+#: .\django_tz\forms.py:39
+msgid "Enter a valid date/time."
+msgstr ""
+
+#: .\django_tz\forms.py:40 .\django_tz\forms.py:120
+msgid "Invalid timezone."
+msgstr ""
+
+#: .\django_tz\forms.py:118
+msgid "Enter a valid date."
+msgstr ""
+
+#: .\django_tz\forms.py:119
+msgid "Enter a valid time."
+msgstr ""
+
+#: .\dojango\contrib\auth\forms.py:11
+msgid "New password"
+msgstr ""
+
+#: .\dojango\contrib\auth\forms.py:12
+msgid "New password confirmation"
+msgstr ""
+
+#: .\dojango\contrib\auth\forms.py:19
+msgid "Old password"
+msgstr ""
+
+#: .\dojango\forms\formsets.py:65 .\dojango\forms\formsets.py:67
+msgid "Order"
+msgstr ""
+
+#: .\dojango\forms\formsets.py:69
+msgid "Delete"
+msgstr ""
 
 #: .\newsletter\forms.py:11
 msgid "Email address"
@@ -211,13 +243,16 @@ msgstr ""
 msgid "Subscribe"
 msgstr ""
 
-#: .\wisesite\settings.py:13
+#: .\wisesite\settings.py:10
 msgid "Russin"
 msgstr ""
 
-#: .\wisesite\settings.py:14
+#: .\wisesite\settings.py:11
 msgid "English"
 msgstr ""
+
+#~ msgid "Категория"
+#~ msgstr "Category"
 
 #~ msgid "This comment has been removed."
 #~ msgstr "This comment has been removed."

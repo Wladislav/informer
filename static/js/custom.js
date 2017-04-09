@@ -100,11 +100,12 @@ Designed and Development by: ScriptsBundle
     });
 
     /* ======= Jquery Select Dropdowns ======= */
+    /*
     $("select").select2({
         placeholder: "Select an option",
         allowClear: true,
         width: '100%'
-    });
+    });*/
 
     /* ======= Profile Image Upload ======= */
     $(document).on('change', '.btn-file :file', function() {
@@ -134,7 +135,7 @@ Designed and Development by: ScriptsBundle
     });
 
     /* ======= Masonry Grid System ======= */
-    $('.posts-masonry').imagesLoaded(function() {
+    /*$('.posts-masonry').imagesLoaded(function() {
         $('.posts-masonry').isotope({
             layoutMode: 'masonry',
             transitionDuration: '0.3s'

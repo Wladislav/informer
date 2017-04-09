@@ -131,16 +131,19 @@ a:hover, a:focus {
 img {
 	max-width: 100%;
 }
+
 a, b, div, ul, li {
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	-webkit-tap-highlight-color: transparent;
 	-moz-outline-: none;
 }
+
 ul {
 	list-style: none;
 	padding: 0;
 	margin: 0;
 }
+
 video, object {
 	min-height: 100%;
 	min-width: 100%;
@@ -633,7 +636,7 @@ ul {
 	font-weight: 700;
 	padding-bottom: 20px;
 	position: relative;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 .heading-panel h1::before {
 	background-color: #242424;
@@ -1075,7 +1078,7 @@ ul {
 	border-radius: 3px;
 	color: #fff;
 	padding: 3px 12px;
-	text-transform:capitalize;
+	/*text-transform:capitalize;*/
 }
 #form-panel {
 	background-color: rgba(255, 255, 255, 0.25);
@@ -1240,7 +1243,7 @@ ul {
 .hero .content p:first-child {
 	font-size: 40px;
 	font-weight: 600;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 	font-family: 'Merriweather', serif;
 }
 
@@ -1395,7 +1398,7 @@ ul.category-list-style li a span {
 .category-grid-5 .cat-5-title h2 {
 	font-size: 20px;
 	margin-bottom: 0;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 .category-grid-5 .cat-5-title h2 a {
 	color: #fff;
@@ -1405,7 +1408,7 @@ ul.category-list-style li a span {
 	display: block;
 	font-size: 16px;
 	font-weight: 600;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 .category-grid-5 .cat-5-popular {
 	color: #fff !important;
@@ -1416,7 +1419,7 @@ ul.category-list-style li a span {
 .category-grid-5 .cat-5-popular a {
 	color: #fff;
 	padding: 5px 0;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 	width: 100%;
 }
 .home-category-slider .owl-item:nth-child(9n+1) .category-grid-5 {
@@ -1519,7 +1522,7 @@ ul.category-list-style li a span {
 .background-rotator .heading-caption h1 {
 	font-size: 42px;
 	font-weight: 600;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 .background-rotator .heading-caption h1, .background-rotator .heading-caption p {
 	color: #fff;
@@ -1569,7 +1572,7 @@ ul.category-list-style li a span {
 	color: #232323;
 	font-size: 18px;
 	margin-bottom: 4px;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 .category-grid-box-1:hover {
 	box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.4);
@@ -1579,7 +1582,7 @@ ul.category-list-style li a span {
     font-size: 20px;
     font-weight: 600;
     padding: 5px 30px;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
 }
 .category-grid-box-1 a {
 	color: #fff;
@@ -1593,7 +1596,7 @@ ul.category-list-style li a span {
 	color: #242424;
 	font-size: 16px;
 	margin: 0 0 10px;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 	-webkit-transition: all 0.3s ease-in-out 0s;
 	-moz-transition: all 0.3s ease-in-out 0s;
 	-ms-transition: all 0.3s ease-in-out 0s;
@@ -1630,7 +1633,7 @@ ul.category-list-style li a span {
 	color: #232323;
 	font-size: 18px;
 	margin-bottom: 4px;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 .white.category-grid-box-1 h3 a {
 	color: #232323;
@@ -1819,7 +1822,7 @@ ul.category-list-style li a span {
 	margin-bottom: 0;
 	line-height: 25px;
 	padding-right: 30px;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 .category-grid-box span.price {
 	float: left;
@@ -1909,7 +1912,7 @@ ul.category-list-style li a span {
 .category-grid-box .short-description h3 {
 	font-size: 18px;
 	color: #232323;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 	margin-bottom: 4px;
 }
 .category-grid-box .short-description .btn {
@@ -2163,7 +2166,7 @@ ul.category-list-style li a span {
 	color: #232323;
 	font-size: 18px;
 	margin-bottom: 6px;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 	width: 80%;
 }
 .ad-listing .content-area h3 a {
@@ -2564,7 +2567,7 @@ ul.add_info li i {
 }
 .ad-archive-desc .ad-meta .btn {
 	padding: 3px 10px;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 .ad-archive-desc .ad-meta .btn i {
 	padding-right: 5px;
@@ -2635,7 +2638,7 @@ label {
 	color: #232323;
 	font-size: 18px;
 	margin-bottom: 4px;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 .ad .content-zone .short-description-1 h3 a {
 	color: #232323;
@@ -2694,7 +2697,7 @@ label {
 	color: #232323;
 	font-size: 22px;
 	margin-bottom: 4px;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 .ad-share .ad-box {
 	cursor: pointer;
@@ -2945,7 +2948,7 @@ label {
 	color: #232323;
 	font-size: 22px;
 	margin-bottom: 4px;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 .single-ad .ad-box .ad-title h2 a {
 	color: #232323;
@@ -3433,14 +3436,14 @@ label {
 	overflow: hidden;
 }
 .blog-post a {
-	color: inherit;
-	text-decoration: none;
+    color: #f58936;
+    text-decoration: none;
 }
 .post-info a {
 	margin-right: 20px;
 }
 .post-img {
-	margin-bottom: 25px;
+	margin-bottom: 5px; /*25*/
 	overflow: hidden;
 }
 .post-img img {
@@ -3457,14 +3460,14 @@ label {
 	margin-bottom: 10px;
 	padding: 0 20px;
 	color: #999;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 .post-title {
 	font-size: 18px;
 	margin-bottom: 15px;
 	margin-top: 10px;
 	padding: 0 20px;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 	-webkit-transition: all 0.3s ease 0s;
 	-moz-transition: all 0.3s ease 0s;
 	-ms-transition: all 0.3s ease 0s;
@@ -3530,7 +3533,7 @@ label {
 	font-size: 20px;
 	margin: 40px 0 15px;
 	padding: 13px 18px 0 0;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 .blog-detial .comment-list {
 	list-style: outside none none;
@@ -3870,7 +3873,7 @@ label {
 	display: block;
 	font-weight: 600;
 	font-size: 18px;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 ul.category-list-data {
 	border-bottom: 1px solid #f1f1f1;
@@ -3968,7 +3971,7 @@ ul.category-list-data li:hover a span {
 	width: 100%;
 	color: #fff;
 	font-size: 24px;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 	font-weight: 600;
 	padding: 0 20px;
 }
@@ -4149,7 +4152,7 @@ ul.category-list-data li:hover a span {
 	padding: 60px 15px 50px;
 	position: relative;
 	text-align: center;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 	-webkit-transition: all 0.3s ease 0s;
 	-moz-transition: all 0.3s ease 0s;
 	-ms-transition: all 0.3s ease 0s;
@@ -4436,7 +4439,7 @@ ul.category-list-data li:hover a span {
 	font-weight: 600;
 	line-height: 60px;
 	margin-bottom: 0;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 .parallex-text p {
 	color: #fff !important;
@@ -4495,7 +4498,7 @@ ul.category-list-data li:hover a span {
 	font-size: 32px;
 	margin-bottom: 0;
 	font-weight: 600;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 	transition-delay: 0.15s;
 	transition-delay: 0.05s;
 }
@@ -4667,7 +4670,7 @@ ul.category-list-data li:hover a span {
 }
 .call-action h4 {
 	font-size: 30px;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 .icon-box::before {
 	bottom: 0;
@@ -4821,7 +4824,7 @@ ul.category-list-data li:hover a span {
 	font-size: 20px;
 	margin-bottom: 15px;
 	margin-top: 0;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 
 .heading-title h2 {
@@ -4830,7 +4833,7 @@ ul.category-list-data li:hover a span {
 	font-weight: 600;
 	line-height: 1.4em;
 	margin-bottom: 20px;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 .custom-modal.modal-backdrop.in {
 	opacity: 0.8;
@@ -4962,11 +4965,11 @@ ul.category-list-data li:hover a span {
 	padding: 15px 0;
 }
 .card .tab-content {
-	padding: 20px
+    padding: 0px 20px 0px 20px;
 }
 .card {
 	background: #FFF none repeat scroll 0% 0%;
-	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
 	margin-bottom: 30px;
 }
 .commentForm h2 {
@@ -5121,7 +5124,7 @@ ul.category-list-data li:hover a span {
 
 }
 .pattern-bg {
-	background: #fff url("../images/footer-bg1.jpg") repeat-x scroll center bottom;
+	background: #f0f0f0 url("../images/footer-bg1.jpg") repeat-x scroll center bottom;
 }
 .pattern_dots {
 	background: #fff url("../images/pattern.png") repeat-x scroll 0 0;
@@ -5162,11 +5165,11 @@ ul.category-list-data li:hover a span {
 	position: relative;
 }
 .form-grid {
-	box-shadow: 0 1px 2px #ccc;
+	/*box-shadow: 0 1px 2px #ccc;*/
 	padding: 30px;
 }
 .form-grid .skin-minimal .list li label {
-	padding-left: 10px;
+	padding-left: 0px;
 }
 .form-grid .skin-minimal .list li label a {
 	color: #777;
@@ -5269,7 +5272,7 @@ ul.category-list-data li:hover a span {
 	font-weight: 600;
 	line-height: 60px;
 	margin: 0;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 /* =-=-=-=-=-=-= Comming Soon =-=-=-=-=-=-= */
 .comming-soon-grid {
@@ -5360,7 +5363,7 @@ ul.category-list-data li:hover a span {
 .error-page .error-container > .error-info {
 	color: #050709;
 	font-size: 32px;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 	text-align: center;
 }
 /* =-=-=-=-=-=-= Sidebar Category  =-=-=-=-=-=-= */
@@ -5533,7 +5536,7 @@ ul.category-list-data li:hover a span {
 	font-size: 13px;
 	line-height: 1;
 	padding: 6px;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 
 .form-group {
@@ -6465,7 +6468,7 @@ span.app-store-btn {
 	line-height: 42px;
 	margin-bottom: 75px;
 	text-align: center;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 	width: 100%;
 	word-spacing: 5px;
 }
@@ -6739,7 +6742,7 @@ span.app-store-btn {
 	color: #232323;
 	font-size: 18px;
 	font-weight: 600;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 /* =-=-=-=-=-=-= Pagination =-=-=-=-=-=-= */
 .pagination {
@@ -6780,7 +6783,7 @@ span.app-store-btn {
 .user-profile .profile-detail h6 {
 	font-size: 18px;
 	margin-bottom: 0;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 	color: #232323;
 }
 .user-profile .profile-detail .contact-details {
@@ -7020,7 +7023,7 @@ span.app-store-btn {
 	font-size: 18px;
 	font-weight: 400;
 	margin-top: 20px;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 .profile-edit .dl-horizontal i {
 	font-size: 14px;
@@ -7233,7 +7236,7 @@ span.app-store-btn {
 	font-size: 22px;
 	font-weight: 400;
 	margin-top: 20px;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 .search-result-item-heading a {
 	color: #323232;
@@ -7543,7 +7546,7 @@ a.delete i {
 	font-weight: 600;
 	line-height: 60px;
 	margin: 0;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 .chat-form {
 	background-color: #eff0f4;
@@ -8155,7 +8158,7 @@ footer#footer .widget-newsletter .fieldset P {
 	margin-top: 0;
 	padding-bottom: 0;
 	position: relative;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 .minimal-footer-1 .widget .subscribe-form {
 	margin-top: 10px;
@@ -8229,7 +8232,7 @@ footer#footer .widget-newsletter .fieldset P {
 .minimal-footer .footer-widget h2 {
 	color: #232323;
 	font-size: 18px;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 	padding-bottom: 15px;
 }
 .minimal-footer .footer-widget + .footer-widget {

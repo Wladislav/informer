@@ -26,44 +26,42 @@
 								<!--/{/{formset_adds.as_p/}/}-->
 								{% for form in formset_adds %}
 									{% for field in form %}
-									<div class="form-group">
-										{% if field.name == 'website' %}
-											<p>
-												<label for="id_user-0-website">{% trans 'Вебсайт' %}:</label>
-												<input id="id_user-0-website" name="user-0-website" placeholder="{% trans 'Вебсайт' %}" class="form-control" type="text" value="{{field.value}}">
-											</p>
-										{% endif %}
 										{% if field.name == 'bio' %}
-										<p>
+										<div class="form-group"><p>
 											<label for="id_user-0-bio">{% trans 'О себе' %}:</label>
 											<textarea id="id_user-0-bio" name="user-0-bio" placeholder="{% trans 'О себе' %}" class="form-control">{{field.value}}</textarea>
-										</p>
+										</p></div>
 										{% endif %}
 										{% if field.name == 'phone' %}
-										<p>
+										<div class="form-group"><p>
 											<label for="id_user-0-phone">{% trans 'Телефон' %}:</label>
 											<input id="id_user-0-phone" name="user-0-phone" placeholder="{% trans 'Телефон' %}" class="form-control" value="{{field.value}}"/>
-										</p>
+										</p></div>
 										{% endif %}
 										{% if field.name == 'city' %}
-										<p>
+										<div class="form-group"><p>
 											<label for="id_user-0-city">{% trans 'Город' %}:</label>
 											<input id="id_user-0-city" name="user-0-city" placeholder="{% trans 'Город' %}" class="form-control" value="{{field.value}}"/>
-										</p>
+										</p></div>
 										{% endif %}	
 										{% if field.name == 'country' %}
-										<p>
+										<div class="form-group"><p>
 											<label for="id_user-0-country">{% trans 'Страна' %}:</label>
 											<input id="id_user-0-country" name="user-0-country" placeholder="{% trans 'Страна' %}" class="form-control" value="{{field.value}}"/>
-										</p>
+										</p></div>
 										{% endif %}
 										{% if field.name == 'language' %}
-										<p>
+										<div class="form-group"><p>
 											<label for="id_user-0-language">{% trans 'Язык' %}:</label>
 											{{field}}
-										</p>
-										{% endif %}										
-									</div>
+										</p></div>
+										{% endif %}
+										{% if field.name == 'timezone' %}
+										<div class="form-group"><p>
+											<label for="id_user-0-timezone">{% trans 'Часовой пояс' %}:</label>
+											{{field}}
+										</p></div>
+										{% endif %}											
 									{% endfor %}
 								{% endfor %}
 							</div><!-- Form -->
@@ -126,6 +124,18 @@
 										{% endif %}												
 									</p></div>
 									{% endif %}
+								{% endfor%}
+								{% for form in formset_adds %}
+									{% for field in form %}
+										{% if field.name == 'website' %}
+											<div class="form-group">
+											<p>
+												<label for="id_user-0-website">{% trans 'Вебсайт' %}:</label>
+												<input id="id_user-0-website" name="user-0-website" placeholder="{% trans 'Вебсайт' %}" class="form-control" type="text" value="{{field.value}}">
+											</p>
+											</div>
+										{% endif %}
+									{% endfor%}
 								{% endfor%}
 							</div>
 						</div><!-- Middle Content Area  End -->

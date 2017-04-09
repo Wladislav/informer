@@ -17,6 +17,7 @@ urlpatterns = [
     url(r'^accounts/profile/$', views.user_profile, name='user_profile'),
     url(r'', include('subscribe.urls')),
     url(r'^newsletter/', include('newsletter.urls')),
+    url(r'', include('informer_vcard.urls')),
     #url(r'^', include('debug_toolbar_htmltidy.urls')),
 ]
 
