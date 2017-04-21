@@ -1,7 +1,10 @@
+.centerPanel {
+    height: 500px;
+}
+
 .dojoxGridView {
     line-height: 1em;
 }
-
 
 textarea.form-control {
     height: 150px;

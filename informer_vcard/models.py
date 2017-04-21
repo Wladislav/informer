@@ -95,7 +95,7 @@ class vCard(BaseInformerModel, TimeFramedModel):
                           blank=True,
                           help_text= _('Ссылка в интернете')
                           )
-    secure_class = models.CharField(verbose_name = _('Доступ'),
+    secure = models.CharField(verbose_name = _('Доступ'),
                                     choices=CLASS,
                                     default=CLASS.public,
                                     max_length=20,
@@ -231,7 +231,7 @@ class vCard_email(models.Model):
                                  help_text= _('Предпочтительный')
                                  )
     def __str__(self):
-         return 'vCard Email: %s' % self.Email
+         return 'vCard Email: %s' % self.email
         
 class vCard_names(models.Model):
     
@@ -498,7 +498,13 @@ class vCard_hobby(models.Model):
     owner = models.ForeignKey(vCard, verbose_name = _('Владелец'),
                               on_delete=models.CASCADE,
                               help_text= _('*')
-                              )        
+                              )
+    hobby = models.CharField(verbose_name = _('Увлечение'),
+                                 max_length=256,
+                                 default='',
+                                 blank=False,
+                                 help_text= _('Наименование Увлечения')
+                                 )    
     expertise = models.CharField(verbose_name = _('Увлечение'),
                                  max_length=256,
                                  default='',

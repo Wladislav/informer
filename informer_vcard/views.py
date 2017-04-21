@@ -81,10 +81,7 @@ def get_vcards_dict_format(user_id):
         fields_help_text = {}
         for field in vcard_fields:
             if hasattr(field, 'verbose_name'):
-                vm = str(field.verbose_name)
-                # if vm=='end':
-                #     vm = 'Действует до'
-                fields_verbose_name[field.name] = vm
+                fields_verbose_name[field.name] = str(field.verbose_name)
             if hasattr(field, 'help_text'):
                 fields_help_text[field.name] = str(field.help_text)
         vcard_dict['fields_verbose_name'] = fields_verbose_name

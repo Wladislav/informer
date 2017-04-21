@@ -13,12 +13,6 @@ class BaseInformerModel(VersionedMixin, models.Model):
     
     revision = models.DateTimeField(verbose_name = _('Обновлено'), auto_now=True)
     
-    model_version = models.CharField(verbose_name = _('Версия'),
-                               max_length=7,
-                               default='4.0',
-                               blank=False
-                               )
-    
     system = models.CharField(verbose_name = _('Программа создатель'),
                             max_length=100,
                             default=settings.PROGRAM_NAME+' '+settings.INFORMER_VERSION,
