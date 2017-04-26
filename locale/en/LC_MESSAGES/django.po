@@ -144,8 +144,6 @@ msgid "Записей с таким тегом не найдено."
 msgstr "No records found for this tag."
 
 #: .\blog\templates\blog\comments_tree.html:27
-#, fuzzy
-#| msgid "Записать комментарий"
 msgid "Этот комментарий был удален."
 msgstr "Save the comment"
 
@@ -162,8 +160,6 @@ msgid "Оставить мнение"
 msgstr "Leave your comment"
 
 #: .\blog\templates\blog\faq_page.html:209
-#, fuzzy
-#| msgid "Назад к блогу"
 msgid "Назад к FAQ"
 msgstr "Back to blog"
 
