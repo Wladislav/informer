@@ -2,6 +2,7 @@
 {% load compress %}
 {% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
+{% load langconverter %}
 {% load meta %}
 {% load subscribe_tags %}
 {% load comments %}
@@ -111,8 +112,8 @@
                               {# Translators: Имеется в виду язык сайта #}
                               <i class="fa fa-globe" aria-hidden="true"></i>Language:<span class="caret_"></span><span class="locale">   {{LANGUAGE_CODE|upper}}</span></a>
                            <ul class="dropdown-menu">
-                              <li><a href="/en/{{request.path_info|cut:LANGUAGE_CODE|cut:'//'}}">English</a></li>
-                              <li><a href="/ru/{{request.path_info|cut:LANGUAGE_CODE|cut:'//'}}">Русский</a></li>
+                              <li><a href="{% langconverter request.path_info "en" %}">English</a></li>
+                              <li><a href="{% langconverter request.path_info "ru" %}">Русский</a></li>
                            </ul>
                         </li>
                      </ul>
