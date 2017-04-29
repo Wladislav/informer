@@ -4,6 +4,5 @@ from model_utils import Choices
 INFORMER_STATUS = Choices(
     ('draft',_('Черновик')),
     ('published',_('Опубликовано')),
-    ('deleted',_('Удалено'))
+    ('deleted',_('На удаление'))
     )
-

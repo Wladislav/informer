@@ -22,8 +22,9 @@ class vCard(BaseInformerModel, TimeFramedModel):
         verbose_name_plural = _('Карточки vCard')
         
     STATUS = INFORMER_STATUS
-    CLASS = Choices(('public', _('публично')), ('private', _('приватно')), ('confidential', _('конфедициально')))
+    CLASS = Choices(('public', _('Публично')), ('private', _('Приватно')), ('confidential', _('Конфедициально')))
     
+    # Черновик, Опубликовано, Удалено
     status = StatusField(verbose_name = _('Статус'),
                          help_text= _('Статус объекта'))
     
@@ -306,7 +307,7 @@ class vCard_names(models.Model):
                             help_text= _('*')
                             )
     def __str__(self):
-         return 'vCard name: %s' % self.full_name
+         return '%s' % self.full_name
 
 class vCard_category(models.Model):
     

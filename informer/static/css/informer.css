@@ -3,7 +3,104 @@
 }
 
 .dojoxGridView {
-    line-height: 1em;
+    line-height: 1.3em;
+}
+
+.tundra .dojoxGridRowSelected {
+    background-color: #f58936 !important;
+    color: rgb(255, 255, 255);
+}
+
+.tundra .dijitContentPane {
+    background-color: white;
+    padding-left: 0.2em;
+}
+
+:focus {
+    outline: -webkit-focus-ring-color auto 1px;
+    outline-color: transparent;
+    outline-style: auto;
+    outline-width: 0px;
+}
+
+.tundra .dijitButtonHover .dijitButtonNode,
+.tundra .dijitButtonNodeHover,
+.tundra .dijitToggleButtonHover .dijitButtonNode,
+.tundra .dijitDropDownButtonHover .dijitButtonNode,
+.tundra .dijitComboButton .dijitButtonContentsHover,
+.tundra .dijitComboButton .dijitDownArrowButtonHover {
+
+	border-color: #dfba9d;
+	border-bottom-color:#dfba9d;
+	color:#2d343d;
+	background:#ffffff url("../images/buttonHover.png") repeat-x bottom;
+}
+
+.dijitToggleButton, .dijitButton, .dijitDropDownButton, .dijitComboButton {
+    margin: 0.2em;
+    margin-right: 0px;
+    margin-left: 0px;
+    vertical-align: middle;
+}
+
+.dijitButtonNode {
+    border: 1px solid gray;
+    min-width: 80px;
+}
+.tundra .dojoxGridRowbarSelected {
+    background: inherit;
+    background-color: #f58936 !important;
+    border-right: 1px solid #ccc;
+}
+
+.tundra .dojoxGridRowbarInner {
+    border: none;
+    border-bottom: 1px dotted #c8c1c1;
+    border-right: 1px dotted #c8c1c1;
+}
+
+.tundra .dojoxGridCellFocus {
+    border: 1px dashed rgba(51, 51, 51, 0.69) !important;
+    padding-top: 1px;
+}
+
+.tundra .dojoxGridRowOdd {
+    background-color: #fff8f3;
+}
+
+.tundra th {
+	padding-bottom: 0px;
+    padding-top: 0px;
+	border-color: transparent #ACA899 #919191 transparent;
+    background-color: #f58936;
+	color: #000 !important;
+    border-bottom: 1px dotted transparent;
+    border-top: 2px dotted transparent;
+    border-left: aliceblue dotted #fff;    
+}
+
+.tundra .dijitCheckBox, .tundra .dijitCheckBoxIcon {
+    width: 16px;
+    height: 16px;
+    margin: 0 0 0 0;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    padding: 0;
+}
+
+.tundra .dojoxGridHeader .dojoxGridCell {
+    border-width: 1px;
+    padding-bottom: 0px;
+    border-color: transparent #ACA899 #919191 transparent;
+    background-color: #f58936;
+    color: #fff !important;
+    background-image: inherit;
+    border: 1px dotted #fff;
+    font-family: Fira Sans Extra Condensed;
+    font-weight: 400;
+    text-transform: uppercase;    
 }
 
 textarea.form-control {

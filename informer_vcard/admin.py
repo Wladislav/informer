@@ -6,11 +6,13 @@ from .models import vCard, vCard_phone, vCard_adress, vCard_email, vCard_names, 
 
 @admin.register(vCard)
 class vCardAdmin(admin.ModelAdmin):
+    readonly_fields = ('created','revision','version','system',)
     fields  = (
         'user',
-        ('model_version',
+        ('version',
         'system',
-        'version'),
+        'created',
+        'revision'),
         ('start',
         'end'),
         'status',
@@ -26,7 +28,7 @@ class vCardAdmin(admin.ModelAdmin):
         'note',
         'sound',
         'url',
-        'secure_class',
+        'secure',
     )
     list_filter = ('user', 'revision', 'start', 'end', 'main_name', 'bday')
 
