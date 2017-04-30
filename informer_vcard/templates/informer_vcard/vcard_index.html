@@ -31,11 +31,15 @@
 				 'dojo/_base/lang',				 
 				 'dojox/grid/_CheckBoxSelector',
 				 'dojo/parser',
+				 'dijit/registry',
 				 'dijit/layout/ContentPane',
 				 'dijit/form/Button',
+				 'dojox/grid/Selection',
 				 'dojo/domReady!'],
-				function(request, dom, Memory, ObjectStore, DataGrid, gridCells, mathRound, DateLocale, DateStamp, baseArray, lang, _CheckBoxSelector, parser){
-	
+				function(request, dom, Memory, ObjectStore, DataGrid, gridCells, mathRound, DateLocale, DateStamp, baseArray, lang, _CheckBoxSelector, parser, registry){
+					
+					var btCopy, btEdit, grid;
+					
 					request("vcard-list.json", { handleAs: "json" }).then(function(data){
 						var store = new Memory({ data: data, idProperty: "uid" });
 	
@@ -115,8 +119,10 @@
 						//	document.getElementById("results").innerHTML =
 						//			"You have clicked on " + rowData.last + ", " + rowData.first + ".";
 						//}, true);
+						
 						function reportSelection(node){
 							var items = this.selection.getSelected();
+							manageButtons(items);
 							var tmp = baseArray.map(items, function(item){
 								return item.uid;
 							}, this);
@@ -130,11 +136,23 @@
 					}, function(err){
 						alert(err);
 						});
-					
-		parser.parse(dom.byId('container')).then(function(){
 
-		});					
+					function manageButtons(items){
+						if (items.length != 1) {
+							btCopy.set("disabled", true);
+							btEdit.set("disabled", true);
+							} else {
+							btCopy.set("disabled", false);
+							btEdit.set("disabled", false);								
+							}
+					}						
 					
+					parser.parse(dom.byId('container')).then(function(){
+						btCopy = registry.byId("btCopy");
+						btEdit = registry.byId("btEdit");
+						btCopy.set("disabled", true);
+						btEdit.set("disabled", true);
+					});					
 					
 				});
 		</script>
@@ -144,19 +162,19 @@
 				<div  id="container" class="container tundra" ><!-- Main Container -->
 					
 					<div id="basicFormTab" data-dojo-type="dijit/layout/ContentPane">
-						<button data-dojo-type="dijit/form/Button"
+						<button id="btAdd" data-dojo-type="dijit/form/Button"
 								data-dojo-props="iconClass:'dijitAddIcon', onClick:function(){ console.debug('clicked simple') }">
 							{% trans 'Add' %}
 						</button>						
-						<button data-dojo-type="dijit/form/Button"
+						<button id="btCopy" data-dojo-type="dijit/form/Button"
 								data-dojo-props="iconClass:'dijitPageCopy', onClick:function(){ console.debug('clicked simple') }">
 							{% trans 'Copy' %}
 						</button>
-						<button data-dojo-type="dijit/form/Button"
+						<button id="btEdit" data-dojo-type="dijit/form/Button"
 								data-dojo-props="iconClass:'dijitEdit', onClick:function(){ console.debug('clicked simple') }">
 							{% trans 'Edit' %}
 						</button>							
-						<button data-dojo-type="dijit/form/Button"
+						<button id="btDelete" data-dojo-type="dijit/form/Button"
 								data-dojo-props="iconClass:'dijitDelete', onClick:function(){ console.debug('clicked simple') }">
 							{% trans 'Delete' %}
 						</button>

@@ -8262,3 +8262,13 @@ footer#footer .widget-newsletter .fieldset P {
 .space-bottom-50 {
 	padding-bottom: 50px;
 }
+
+.space-5 {
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+
+.space-10 {
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
