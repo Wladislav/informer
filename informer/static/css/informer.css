@@ -1,3 +1,47 @@
+.dijitAddIcon {
+  background-image: url('../images/16x16/add.png');
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+}
+
+.dijitPageCopy {
+  background-image: url('../images/16x16/doccopy.png');
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+}
+
+.dijitEdit {
+  background-image: url('../images/16x16/edit.png');
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+}
+
+.dijitDelete {
+  background-image: url('../images/16x16/disagree.png');
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+}
+
+.tundra .dijitUpArrowButtonActive,
+.tundra .dijitDownArrowButtonActive,
+.tundra .dijitButtonActive .dijitButtonNode,
+.tundra .dijitToggleButtonActive .dijitButtonNode,
+.tundra .dijitDropDownButtonActive .dijitButtonNode,
+.tundra .dijitButtonContentsActive,
+.tundra .dijitStackController .dijitToggleButtonChecked .dijitButtonNode {
+	
+	border-color:#f58936;
+	background: #ededed url("images/buttonActive.png") bottom repeat-x;
+}
+
 .centerPanel {
     height: 500px;
 }
@@ -45,7 +89,7 @@
 
 .dijitButtonNode {
     border: 1px solid gray;
-    min-width: 80px;
+    min-width: 100px;
 }
 .tundra .dojoxGridRowbarSelected {
     background: inherit;
