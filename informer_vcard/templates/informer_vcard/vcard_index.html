@@ -143,15 +143,22 @@
 							btEdit.set("disabled", true);
 							} else {
 							btCopy.set("disabled", false);
-							btEdit.set("disabled", false);								
+							btEdit.set("disabled", false);
 							}
+						if (items.length > 0) {
+							btDelete.set("disabled", false);
+						} else {
+							btDelete.set("disabled", true);
+						}
 					}						
 					
 					parser.parse(dom.byId('container')).then(function(){
 						btCopy = registry.byId("btCopy");
 						btEdit = registry.byId("btEdit");
+						btDelete = registry.byId("btDelete");
 						btCopy.set("disabled", true);
 						btEdit.set("disabled", true);
+						btDelete.set("disabled", true);
 					});					
 					
 				});
