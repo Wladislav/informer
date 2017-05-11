@@ -83,7 +83,6 @@ INSTALLED_APPS = [
     'meta',
     'subscribe',
     'newsletter',
-    'dojango',
     #'floppyforms',
     'informer_vcard',
     #'debug_toolbar',
@@ -248,5 +247,3 @@ COMPRESS_OFFLINE = True
 COMPRESS_OUTPUT_DIR = 'cache'
 
 INTERNAL_IPS = ('127.0.0.1', 'photocritic.pythonanywhere.com',)
-
-DOJANGO_DOJO_MEDIA_URL = 'static'

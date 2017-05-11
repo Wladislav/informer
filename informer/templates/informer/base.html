@@ -10,12 +10,6 @@
 {% load comments_xtd %}
 {% get_last_xtdcomments 3 as last_comments for blog.blogpage %}
 {% load wagtailuserbar %}
-{% load dojango_base %}
-{% load dojango_filters %}
-{% if not DOJANGO %}
-   {# if the context processor did not pass the DOJANGO context, we set it here #}
-   {% set_dojango_context %}
-{% endif %}
 <!DOCTYPE html>
 <html lang="{{LANGUAGE_CODE}}">
    <head {% meta_namespaces %}>

@@ -124,6 +124,7 @@
 																<span class="helptext">{{ form.help_text|safe }}</span>
 															</p>
 														{% endif %}
+													{% elif field.name == 'tz' %}
 													{% else %}
 														<div class="form-group"><p>
 															{{ field.errors }}
