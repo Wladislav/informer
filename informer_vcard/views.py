@@ -141,67 +141,44 @@ def vcard_list(request, template_name='informer_vcard/vcard_index.html',):
 
 class InformerClearableFileInput(widgets.ClearableFileInput):
     
-    initial_text = ugettext('Currently')
-    input_text = ugettext('Change')
-    clear_checkbox_label = ugettext('Clear')
-    
-    template_with_initial = (
-        '%(initial_text)s: <a href="%(initial_url)s">%(initial)s</a>'
-        '%(clear_template)s%(input_text)s: %(input)s'
-    )
-    template_with_initial_sound = (
-        '<audio controls>'
-            '<source src="%(initial_url)s" type="audio/ogg; codecs=vorbis">'
-            '<source src="%(initial_url)s" type="audio/mpeg; codecs="mp3">'
-            'Your browser does not support HTML5 audio. Here is a <a href="%(initial_url)s">link to the audio</a> instead.'
-        '</audio></br>'
-        '%(clear_template)s%(input_text)s: %(input)s'
-        )
-    template_with_initial_video = (
-        '<video controls>'
-            '<source src="%(initial_url)s" type="video/mp4">'
-            '<source src="%(initial_url)s" type="video/webm">'
-            'Your browser does not support HTML5 video. Here is a <a href="%(initial_url)s">link to the video</a> instead.'
-        '</video>'
-        )
-
-    #template_with_clear = '<label for="%(clear_checkbox_id)s">%(clear_checkbox_label)s%(clear)s</label>'
-    
-    template_with_clear = (
-        '<div class="skin-minimal">'
-           '<ul class="list">'
-              '<li>'
-                '<label for="%(clear_checkbox_id)s">%(clear)s%(clear_checkbox_label)s</label>'
-              '</li>'
-           '</ul>'
-        '</div>'
-    )
-    
-    def render(self, name, value, attrs=None):
-        substitutions = {
-            'initial_text': self.initial_text,
-            'input_text': self.input_text,
-            'clear_template': '',
-            'clear_checkbox_label': self.clear_checkbox_label,
-        }
-        template = '%(input)s'
-        substitutions['input'] = super(ClearableFileInput, self).render(name, value, attrs)
-
-        if self.is_initial(value):
-            extention = str(value)[-3:]
-            if extention == 'mp3' or extention == 'ogg':
-                self.template_with_initial = self.template_with_initial_sound 
-            template = self.template_with_initial
-            substitutions.update(self.get_template_substitution_values(value))
-            if not self.is_required:
-                checkbox_name = self.clear_checkbox_name(name)
-                checkbox_id = self.clear_checkbox_id(checkbox_name)
-                substitutions['clear_checkbox_name'] = conditional_escape(checkbox_name)
-                substitutions['clear_checkbox_id'] = conditional_escape(checkbox_id)
-                substitutions['clear'] = CheckboxInput().render(checkbox_name, False, attrs={'id': checkbox_id})
-                substitutions['clear_template'] = self.template_with_clear % substitutions
-
-        return mark_safe(template % substitutions)    
+    template_name = 'forms/widgets/clearable_file_input.html'
+    # initial_text = ugettext('Currently')
+    # input_text = ugettext('Change')
+    # clear_checkbox_label = ugettext('Clear')
+    # 
+    # template_with_initial = (
+    #     '%(initial_text)s: <a href="%(initial_url)s">%(initial)s</a>'
+    #     '%(clear_template)s%(input_text)s: %(input)s'
+    # )
+    # template_with_initial_sound = (
+    #     '<audio controls>'
+    #         '<source src="%(initial_url)s" type="audio/ogg; codecs=vorbis">'
+    #         '<source src="%(initial_url)s" type="audio/mpeg; codecs="mp3">'
+    #         'Your browser does not support HTML5 audio. Here is a <a href="%(initial_url)s">link to the audio</a> instead.'
+    #     '</audio></br>'
+    #     '%(clear_template)s%(input_text)s: %(input)s'
+    #     )
+    # template_with_initial_video = (
+    #     '<video controls>'
+    #         '<source src="%(initial_url)s" type="video/mp4">'
+    #         '<source src="%(initial_url)s" type="video/webm">'
+    #         'Your browser does not support HTML5 video. Here is a <a href="%(initial_url)s">link to the video</a> instead.'
+    #     '</video>'
+    #     )
+    # 
+    # #template_with_clear = '<label for="%(clear_checkbox_id)s">%(clear_checkbox_label)s%(clear)s</label>'
+    # 
+    # template_with_clear = (
+    #     '<div class="skin-minimal">'
+    #        '<ul class="list">'
+    #           '<li>'
+    #             '<label for="%(clear_checkbox_id)s">%(clear)s%(clear_checkbox_label)s</label>'
+    #           '</li>'
+    #        '</ul>'
+    #     '</div>'
+    # )
+    # 
+ 
 
 @login_required
 def vcard_add_copy_change(request, template_name='informer_vcard/vcard_add_copy_change.html',):

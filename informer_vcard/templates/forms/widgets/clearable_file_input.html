@@ -1,0 +1,15 @@
+<div class="photo-group">
+    {% if is_initial %}{{ initial_text }}: <a href="{{ widget.value.url }}">{{ widget.value }}</a></br>{% if not widget.required %}
+    <div class="skin-minimal">
+        <ul class="list">
+            <li>
+                <label for="{{ checkbox_id }}">
+                <input type="checkbox" name="{{ checkbox_name }}" id="{{ checkbox_id }}" />
+                {{ clear_checkbox_label }}
+                </label>
+            </li>
+       </ul>
+    </div>
+    {% endif %}
+    {{ input_text }}:{% endif %}
+<input type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %} /></div>

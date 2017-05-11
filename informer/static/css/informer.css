@@ -43,6 +43,8 @@ p.form-group.photo-group {
 .photo-group {
     border: 1px solid #ccc;
     padding: 10px;
+    width: 100%;
+    margin: -5px 0px;
 }
 
 .img-responsive {
@@ -53,6 +55,7 @@ span.helptext {
     padding-bottom: 3px;
     color: darkgray;
     font-weight: 200;
+    font-size: 14px;
 }
 
 .tundra .dojoxGridCellFocus {
@@ -88,6 +91,8 @@ span.helptext {
 
 input.geoposition {
     line-height: initial;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
 }
 
 .tundra .dijitTextBox {
@@ -101,7 +106,9 @@ input.geoposition {
 }
 
 .tundra .dijitTextBox input {
-     padding-top: 4px;
+    padding-top: 4px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;     
 }
 
 .tundra .dijitTextBoxFocused {
@@ -268,6 +275,17 @@ input.geoposition {
 
 textarea.form-control {
     height: 150px;
+}
+
+.form-control {
+   font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: #777777;
+}
+
+label {
+    font-weight: 400;
+    /*color: #f58936;*/
 }
 
 .wagtail-userbar {

@@ -47,12 +47,11 @@
 										{% for hidden in vcarf_name.hidden_fields %}
 											{{ hidden }}
 										{% endfor %}										
-										{% for form in vcarf_name.visible_fields %}
-											{% for field in form %}
+										{% for field in vcarf_name.visible_fields %}
 												{% if field.name == 'bday' %}
 												<div class="form-group"><p>
 													{{ field.errors }}
-													{{ form.label_tag }}</br>
+													{{ field.label_tag }}</br>
 													<input type="date" data-dojo-type="dijit/form/DateTextBox" id="{{field.name}}" name="{{field.name}}" value='{{field.value.date|date:"Y-m-d"}}' />
 													<input type="text" data-dojo-type="dijit/form/TimeTextBox" id="{{field.name}}_time" name="{{field.name}}-time" value='T{{field.value.time|time:"H:i:s"}}' /></br>
 													<span class="helptext">{{ form.help_text|safe }}</span>
@@ -60,86 +59,49 @@
 												{% else %}
 													<div class="form-group"><p>
 														{{ field.errors }}
-														{{ form.label_tag }}
+														{{ field.label_tag }}
 														{{ field }}
-														{% if form.help_text %}
+														{% if field.help_text %}
 															{% if field.name != 'geo' %}
-															<span class="helptext">{{ form.help_text|safe }}</span>
+															<span class="helptext">{{ field.help_text|safe }}</span>
 															{% endif %}
 														{% endif %}
 													</p></div>
 												{% endif %}
-											{% endfor %}
 										{% endfor %}
 									</div>
 								</div>
 								<div class="col-md-6  col-md-pull-6  col-xs-12 col-sm-6">
 									<div class="form-grid" >
+										<!--/{/{vcard_main.as_p/}/}-->
 										{{vcard_main.media}}
-										{{vcard_main.management_form}}
+										{{vcard_main.management_form}}										
 										{% for hidden in vcard_main.hidden_fields %}
-											{{ hidden }}
+										{{ hidden }}
 										{% endfor %}										
-										{% for form in vcard_main.visible_fields %}
-											{% for field in form %}
-												{% if field.name == 'start' or field.name == 'end' %}
+										{% for field in vcard_main.visible_fields %}
+											{% if field.name == 'start' or field.name == 'end' %}
+											<div class="form-group"><p>
+												{{ field.errors }}
+												{{ field.label_tag }}</br>
+												<input type="date" data-dojo-type="dijit/form/DateTextBox" id="{{field.name}}" name="{{field.name}}" value='{{field.value.date|date:"Y-m-d"}}' />
+												<input type="text" data-dojo-type="dijit/form/TimeTextBox" id="{{field.name}}_time" name="{{field.name}}-time" value='T{{field.value.time|time:"H:i:s"}}' /></br>
+												<span class="helptext">{{ field.help_text }}</span>
+											</p></div>
+											{% else %}
 												<div class="form-group"><p>
-													{{ field.errors }}
-													{{ form.label_tag }}</br>
-													<input type="date" data-dojo-type="dijit/form/DateTextBox" id="{{field.name}}" name="{{field.name}}" value='{{field.value.date|date:"Y-m-d"}}' />
-													<input type="text" data-dojo-type="dijit/form/TimeTextBox" id="{{field.name}}_time" name="{{field.name}}-time" value='T{{field.value.time|time:"H:i:s"}}' /></br>
-													<span class="helptext">{{ form.help_text|safe }}</span>
-												</p></div>
-												{% else %}
-													{% if field.name == 'photo' %}
-														{{ form.label_tag }}
-														<div class="form-group photo-group"><p>
-															{{ field.errors }}
-															{{ field }}
-														</div>
-														{% if form.help_text %}
-															<p style="margin-top: -8px; padding-bottom: 5px;">
-																<span class="helptext">{{ form.help_text|safe }}</span>
-															</p></p>
-														{% endif %}
-													{% elif field.name == 'logo' %}
-														{{ form.label_tag }}
-														<div class="form-group photo-group"><p>
-															{{ field.errors }}
-															{{ field }}
-														</div>
-														{% if form.help_text %}
-															<p style="margin-top: -8px; padding-bottom: 5px;">
-																<span class="helptext">{{ form.help_text|safe }}</span>
-															</p></p>
-														{% endif %}
-													{% elif field.name == 'sound' %}
-														{{ form.label_tag }}
-														<div class="form-group photo-group"><p>
-															{{ field.errors }}
-															{{ field }}
-														</div>
-														{% if form.help_text %}
-															<p style="margin-top: -8px; padding-bottom: 5px;">
-																<span class="helptext">{{ form.help_text|safe }}</span>
-															</p>
-														{% endif %}
-													{% elif field.name == 'tz' %}
-													{% else %}
-														<div class="form-group"><p>
-															{{ field.errors }}
-															{{ form.label_tag }}
-															{{ field }}
-															{% if form.help_text %}
-																{% if field.name != 'geo' %}
-																<span class="helptext">{{ form.help_text|safe }}</span>
-																{% endif %}
-															{% endif %}
-														</p></div>
+												{{ field.errors }}
+												{{ field.label_tag }}</br>
+												{{ field}}
+												{% if field.help_text %}
+													{% if field.name != 'geo' %}
+													<span class="helptext">{{ field.help_text|safe }}</span>
 													{% endif %}
 												{% endif %}
-											{% endfor %}
+												</p></div>
+											{% endif %}
 										{% endfor %}
+										
 									</div>
 								</div>
 							</div>
