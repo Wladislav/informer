@@ -4,6 +4,7 @@ from informer_core.base_models import BaseInformerModel
 from informer_core.base_models import BaseInformerModel
 from django.conf import settings
 from django.db import models
+from django.db.models.signals import post_save
 #https://github.com/carljm/django-model-utils
 from model_utils import Choices
 from model_utils.models import TimeFramedModel
@@ -11,7 +12,6 @@ from model_utils.fields import StatusField
 from informer_core.utils import INFORMER_STATUS
 from django_tz.fields import TimeZoneField
 from geoposition.fields import GeopositionField
-
 
 #https://ru.wikipedia.org/wiki/VCard
 
@@ -24,17 +24,12 @@ class vCard(BaseInformerModel, TimeFramedModel):
     STATUS = INFORMER_STATUS
     CLASS = Choices(('public', _('Публично')), ('private', _('Приватно')), ('confidential', _('Конфедициально')))
     
-    # Черновик, Опубликовано, Удалено
-    status = StatusField(verbose_name = _('Статус'),
-                         help_text= _('Статус объекта'))
-    
-    profile = models.CharField(verbose_name = _('Имя модели'),
-                               max_length=5,
-                               default='VCARD',
-                               blank=False,
-                               help_text= _('*')
-                               )
-    
+    label = models.CharField(verbose_name = _('Представление'),
+                            max_length=256,
+                            default='',
+                            blank=False,
+                            help_text= _('Основное представление')
+                            )
     language = models.CharField(choices=settings.LANGUAGES,
                                 verbose_name = _('Язык'),
                                 max_length=5,
@@ -42,60 +37,44 @@ class vCard(BaseInformerModel, TimeFramedModel):
                                 default=settings.LANGUAGE_CODE,
                                 help_text= _('Язык общения')
                                 )
-    main_name = models.ForeignKey('vCard_names',
-                                  verbose_name = _('Владелец vCard'),
-                                  null=True,
-                                  blank=True,
-                                  on_delete=models.CASCADE,
-                                  help_text= _('Основное наименование')
-                                  )
-    tz = TimeZoneField(verbose_name = _('Часовой пояс'),
-                       default=settings.TIME_ZONE,
-                       help_text= _('Выберите из списка')
-                       )
- 
     photo = models.ImageField(verbose_name = _('Фотография'),
                               upload_to='vcard_photo/',
                               blank=True,
-                              help_text= _('Фотография')
+                              help_text= _('Фотография в формате jpg, png, gif')
                               )
-    label = models.CharField(verbose_name = _('Представление'),
-                            max_length=256,
-                            default='',
-                            blank=False,
-                            help_text= _('Основное представление')
-                            )
-    
-    geo = GeopositionField(verbose_name = _('GPS'),
-                           blank=True,
-                           help_text= _('Глобальное позиционирование Nord, West (21.36214, -157.95341)')
-                           )
     logo = models.ImageField(verbose_name = _('Логотип'),
                              upload_to='vcard_logo/',
                              blank=True,
-                             help_text= _('Логотип')
+                             help_text= _('Логотип персонального бренда или предприятия')
                              )
+    sound = models.FileField(upload_to='vcard_sound/',
+                             verbose_name = _('Звук'),
+                             blank=True,
+                             help_text= _('Голос или музыкальное сопровождение mp3, ogg, wav')
+                             )    
+    geo = GeopositionField(verbose_name = _('Геопозиция GPS'),
+                           blank=True,
+                           help_text= _('Глобальное позиционирование Nord, West (21.36214, -157.95341)')
+                           )
     note = models.CharField(verbose_name = _('Заметка'),
                             max_length=256,
                             default='',
                             blank=True,
                             help_text= _('Заметка')
                             )
-    
-    bday = models.DateTimeField(verbose_name = _('День рождения'),
-                                help_text= _('День рождения (создания)'),
-                                blank=True)
-    
-    sound = models.FileField(upload_to='vcard_media/',
-                             verbose_name = _('Звуковой файл'),
-                             blank=True,
-                             help_text= _('Звуковой файл')
-                             )
     url = models.URLField(max_length=256,
                           verbose_name = _('URL'),
                           blank=True,
                           help_text= _('Ссылка в интернете')
                           )
+    tz = TimeZoneField(verbose_name = _('Часовой пояс'),
+                       default=settings.TIME_ZONE,
+                       help_text= _('Выберите из списка')
+                       )    
+    # Черновик, Опубликовано, Удалено
+    status = StatusField(verbose_name = _('Статус'),
+                         help_text= _('Статус объекта')
+                         )
     secure = models.CharField(verbose_name = _('Доступ'),
                                     choices=CLASS,
                                     default=CLASS.public,
@@ -106,9 +85,22 @@ class vCard(BaseInformerModel, TimeFramedModel):
                                     blank=True,
                                     help_text= _('Открытый ключ или сертификат аутентификации')
                                     )
-
+    objectname = models.CharField(verbose_name = _('Имя модели'),
+                               max_length=5,
+                               default='VCARD',
+                               blank=False,
+                               help_text= _('*')
+                               )    
     def __str__(self):
          return 'vCard: %s' % self.label
+        
+def create_vcard(sender, **kwargs):
+     vCard = kwargs["instance"]
+     if kwargs["created"]:
+         vcard_names = vCard_names(owner=vCard)
+         vcard_names.save()
+
+post_save.connect(create_vcard, sender=vCard)
 
 class vCard_phone(models.Model):
     
@@ -194,6 +186,10 @@ class vCard_adress(models.Model):
                             max_length=20,
                             help_text= _('Тип Адреса')
                             )
+    geo = GeopositionField(verbose_name = _('GPS'),
+                           blank=True,
+                           help_text= _('Глобальное позиционирование Nord, West (21.36214, -157.95341)')
+                           )
     prefer = models.BooleanField(verbose_name = _('Предпочтительный'),
                                  default=False,
                                  help_text= _('Предпочтительный')
@@ -240,18 +236,24 @@ class vCard_names(models.Model):
         verbose_name = _('vCard Имена')
         verbose_name_plural = _(' vCard Имена')
         
-    owner = models.ForeignKey(vCard,
-                              verbose_name = _('Владелец'),
-                              on_delete=models.CASCADE,
-                              help_text= _('*')
-                              )
+    owner = models.OneToOneField(vCard,
+                                 primary_key=True,
+                                 verbose_name = _('Владелец'),
+                                 on_delete=models.CASCADE,
+                                 blank = True,
+                                 help_text= _('*')
+                                 )
     
     full_name = models.CharField(verbose_name = _('Полное имя'),
                                  max_length=256,
                                  default='',
                                  blank=False,
                                  help_text= _('Полное имя')
-                                 )    
+                                 )
+    bday = models.DateTimeField(verbose_name = _('День рождения'),
+                                help_text= _('День рождения или создания'),
+                                null=True,
+                                blank=True)       
     first_name = models.CharField(verbose_name = _('Имя'),
                                   max_length=256,
                                   default='',

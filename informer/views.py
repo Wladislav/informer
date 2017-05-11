@@ -109,10 +109,11 @@ def logout_user(request):
 def index(request, form_class=SubscriptionForm, model_str="newsletter.subscription"):
     site = get_current_site(request)
     user = request.user
+    prefix = lang_context_processor(request)['LANG']
     context = {'site': site,
                'user': user,
                'index_page': True,
-               'vcards': '/vcards',
+               'vcards': '/'+prefix+'/vcards',
                }
     if request.POST:   
         try:
@@ -154,9 +155,15 @@ def user_profile(request):
     user_form = UserProfileForm(instance=user)
     DjangoProfileInlineFormset = modelform_factory(User, DjangoProfileForm, fields=('first_name', 'last_name', 'email'))
     formusr_main = DjangoProfileInlineFormset(instance=user)
-    ProfileInlineFormset = inlineformset_factory(User, UserProfile, can_delete=False,
-                                                 fields=('user', 'photo', 'website', 'bio', 'phone', 'city', 'country', 'language', 'timezone'),)
-                                                 #widgets = {'language':forms.Select(choices=settings.LANGUAGES)})
+    ProfileInlineFormset = inlineformset_factory(
+        User, UserProfile, can_delete=False,
+        fields=('user', 'photo', 'website', 'bio', 'phone', 'city', 'country', 'language', 'timezone'),
+        widgets = {
+            'language':forms.Select(attrs={'class':'form-control'}),
+            'timezone':forms.Select(attrs={'class':'form-control'})
+            },
+        )
+
     formset_adds = ProfileInlineFormset(instance=user)
     if request.user.is_authenticated() and request.user.id == user.id:
         if request.method == "POST":

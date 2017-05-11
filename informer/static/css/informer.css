@@ -1,3 +1,123 @@
+.panel-body {
+    padding: 5px;
+}
+
+input[type="file"] {
+    display: initial;
+}
+
+input, button, select, textarea {
+    line-height: normal;
+}
+
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: 14px;
+}
+
+label.clear-or-change {
+    padding-left: 5px;
+}
+
+audio, canvas, progress, video {
+    width: 100%;
+}
+
+input#photo-clear_id, input#logo-clear_id, input#sound-clear_id {
+    margin-left: 6px;
+    margin-bottom: 10px;
+}
+
+span.dijitReset.dijitInline.dijitButtonNode {
+   min-width: 80px;
+}
+
+p.form-group.photo-group {
+    margin-top: -5px;
+}
+
+.photo-group {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.img-responsive {
+    padding-bottom: 10px;
+}
+
+span.helptext {
+    padding-bottom: 3px;
+    color: darkgray;
+    font-weight: 200;
+}
+
+.tundra .dojoxGridCellFocus {
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: transparent !important;
+}
+
+.geoposition-widget table {
+    border-spacing: 5px;
+    border-collapse: initial;
+}
+
+.geoposition-search {
+    float: right;
+    text-align: left;
+    padding-bottom: 5px;
+    width: 100%;
+}
+
+.geoposition-search input {
+    width: 100%;
+    border: 1px solid #ccc;
+}
+
+.geoposition input {
+    border: 1px solid #ccc;
+}
+
+.geoposition-map {
+    height: 280px;
+}
+
+input.geoposition {
+    line-height: initial;
+}
+
+.tundra .dijitTextBox {
+	width: 12em;
+    height: 26px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.tundra .dijitInputField {
+    padding-left: 5px;
+}
+
+.tundra .dijitTextBox input {
+     padding-top: 4px;
+}
+
+.tundra .dijitTextBoxFocused {
+    border-color: #f58936;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(245, 137, 54, .6);
+}
+
+.tundra .dijitTextBox {
+    background-image: inherit;
+}
+
+/*.tundra .dojoxGridCellFocus {
+    border: 1px dashed rgba(51, 51, 51, 0.69) !important;
+    padding-top: 1px;
+}*/
+
+.tundra .dijitSelect .dijitArrowButton, .tundra .dijitComboBox .dijitButtonNode {
+    height: 24px;
+}
+
 .dijitAddIcon {
   background-image: url('../images/16x16/add.png');
   background-repeat: no-repeat;
@@ -89,7 +209,7 @@
 
 .dijitButtonNode {
     border: 1px solid gray;
-    min-width: 100px;
+    /*min-width: 100px;*/
 }
 .tundra .dojoxGridRowbarSelected {
     background: inherit;
@@ -101,11 +221,6 @@
     border: none;
     border-bottom: 1px dotted #c8c1c1;
     border-right: 1px dotted #c8c1c1;
-}
-
-.tundra .dojoxGridCellFocus {
-    border: 1px dashed rgba(51, 51, 51, 0.69) !important;
-    padding-top: 1px;
 }
 
 .tundra .dojoxGridRowOdd {
@@ -182,6 +297,7 @@ p {
 .icheckbox_minimal {
     background-color: white;
     margin-bottom: 3px;
+    margin-right: 5px;
 }
 
 label.subscribe {
@@ -296,14 +412,14 @@ textarea#id_comment {
 
 .skin-minimal .list li label {
     padding-left: 0px;
-    font-weight: 300;
+    font-weight: 400;
     color: #555;
-    font-size: 16px;
-    font-family: Fira Sans Extra Condensed;
+    font-size: 14px;
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
 }
  
  .blog-detial .author-title strong {
-    font-family: Fira Sans Extra Condensed;
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
     font-weight: 600;
 }
 
@@ -413,7 +529,7 @@ label.label-user-trumb {
 
 .form-grid {
     /*box-shadow: 0 2px 2px #ccc;*/
-    padding: 30px;
+    padding: 10px;
 }
 
 .form-grid-profile {
@@ -426,7 +542,8 @@ label.label-user-trumb {
 }
 
 .btn-sm {
-    padding: 15px 16px;
+    /*padding: 15px 15px;*/
+    box-shadow: 0 2px 2px #ccc;
     font-size: 12px;
     blogborder-radius: 2px;
     -moz-border-radius: 2px;

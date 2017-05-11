@@ -1,0 +1,197 @@
+{% extends "informer/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+		<div class="page-header-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+                        <div class="header-page">
+                            <h1>{% trans 'Создание нового контакта' %}</h1>
+                        </div>                        
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="vcard">
+			<section class="section-padding error-page pattern-bg">
+				<div id="container" class="container">
+					<div class="ad-archive-desc box-shadow">
+						<form action="" method="POST" enctype="multipart/form-data">
+							{% csrf_token %}
+							<div class="row">
+								<div class="col-md-6 col-md-push-6 col-sm-6 col-xs-12">
+									<div class="form-grid" >
+										<div class="panel with-nav-tabs panel-default">
+											<div class="panel-heading">
+												<ul class="nav nav-tabs">
+													{% for key, pic in media_dict.items %}
+													<li class="{% if forloop.first %}active{% else %}{% endif %}"><a href="#tab{{forloop.counter}}default" data-toggle="tab" aria-expanded="true">{{ pic.name }}</a></li>										
+													{% endfor %}		
+												</ul>
+											</div>
+											<div class="panel-body">
+												<div class="tab-content">
+													{% for key, pic in media_dict.items %}
+													<div class="tab-pane fade {% if forloop.first %}active in{% else %}{% endif %}" id="tab{{forloop.counter}}default">
+														<img id="img-upload" alt="{{ pic.name }}" src="/{{STATIC_URL|cut:'/'}}{{ pic.path }}" style="width:100%">
+													</div>
+													{% endfor %}				
+												</div>
+											</div>
+										</div>		
+										<!--/{/{vcarf_name.as_p/}/}-->
+										{{vcarf_name.media}}
+										{{vcarf_name.management_form}}
+										{% for hidden in vcarf_name.hidden_fields %}
+											{{ hidden }}
+										{% endfor %}										
+										{% for form in vcarf_name.visible_fields %}
+											{% for field in form %}
+												{% if field.name == 'bday' %}
+												<div class="form-group"><p>
+													{{ field.errors }}
+													{{ form.label_tag }}</br>
+													<input type="date" data-dojo-type="dijit/form/DateTextBox" id="{{field.name}}" name="{{field.name}}" value='{{field.value.date|date:"Y-m-d"}}' />
+													<input type="text" data-dojo-type="dijit/form/TimeTextBox" id="{{field.name}}_time" name="{{field.name}}-time" value='T{{field.value.time|time:"H:i:s"}}' /></br>
+													<span class="helptext">{{ form.help_text|safe }}</span>
+												</p></div>
+												{% else %}
+													<div class="form-group"><p>
+														{{ field.errors }}
+														{{ form.label_tag }}
+														{{ field }}
+														{% if form.help_text %}
+															{% if field.name != 'geo' %}
+															<span class="helptext">{{ form.help_text|safe }}</span>
+															{% endif %}
+														{% endif %}
+													</p></div>
+												{% endif %}
+											{% endfor %}
+										{% endfor %}
+									</div>
+								</div>
+								<div class="col-md-6  col-md-pull-6  col-xs-12 col-sm-6">
+									<div class="form-grid" >
+										{{vcard_main.media}}
+										{{vcard_main.management_form}}
+										{% for hidden in vcard_main.hidden_fields %}
+											{{ hidden }}
+										{% endfor %}										
+										{% for form in vcard_main.visible_fields %}
+											{% for field in form %}
+												{% if field.name == 'start' or field.name == 'end' %}
+												<div class="form-group"><p>
+													{{ field.errors }}
+													{{ form.label_tag }}</br>
+													<input type="date" data-dojo-type="dijit/form/DateTextBox" id="{{field.name}}" name="{{field.name}}" value='{{field.value.date|date:"Y-m-d"}}' />
+													<input type="text" data-dojo-type="dijit/form/TimeTextBox" id="{{field.name}}_time" name="{{field.name}}-time" value='T{{field.value.time|time:"H:i:s"}}' /></br>
+													<span class="helptext">{{ form.help_text|safe }}</span>
+												</p></div>
+												{% else %}
+													{% if field.name == 'photo' %}
+														{{ form.label_tag }}
+														<div class="form-group photo-group"><p>
+															{{ field.errors }}
+															{{ field }}
+														</div>
+														{% if form.help_text %}
+															<p style="margin-top: -8px; padding-bottom: 5px;">
+																<span class="helptext">{{ form.help_text|safe }}</span>
+															</p></p>
+														{% endif %}
+													{% elif field.name == 'logo' %}
+														{{ form.label_tag }}
+														<div class="form-group photo-group"><p>
+															{{ field.errors }}
+															{{ field }}
+														</div>
+														{% if form.help_text %}
+															<p style="margin-top: -8px; padding-bottom: 5px;">
+																<span class="helptext">{{ form.help_text|safe }}</span>
+															</p></p>
+														{% endif %}
+													{% elif field.name == 'sound' %}
+														{{ form.label_tag }}
+														<div class="form-group photo-group"><p>
+															{{ field.errors }}
+															{{ field }}
+														</div>
+														{% if form.help_text %}
+															<p style="margin-top: -8px; padding-bottom: 5px;">
+																<span class="helptext">{{ form.help_text|safe }}</span>
+															</p>
+														{% endif %}
+													{% else %}
+														<div class="form-group"><p>
+															{{ field.errors }}
+															{{ form.label_tag }}
+															{{ field }}
+															{% if form.help_text %}
+																{% if field.name != 'geo' %}
+																<span class="helptext">{{ form.help_text|safe }}</span>
+																{% endif %}
+															{% endif %}
+														</p></div>
+													{% endif %}
+												{% endif %}
+											{% endfor %}
+										{% endfor %}
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6 col-sm-6 col-xs-12">
+								   <div class="form-group">
+									  <div class="skin-minimal form-grid-profile">
+										 <ul class="list">
+											<li>
+											 {% if messages %}
+												 {% for message in messages %}
+												 <div role="alert" class="alert alert-success alert-dismissible">
+													<button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span></button>
+													<strong>{% trans 'Сохранено' %}</strong> - {{ message }}
+												 </div>
+												 {% endfor %}
+											 {% endif %}													
+											</li>
+										 </ul>
+									  </div>
+								   </div>
+								</div>
+								<div class="col-md-6 col-sm-6 col-xs-12 text-right">
+									 <div class="form-grid-profile">
+										 <button id="vcard_submit" type="submit" class="btn btn-theme btn-sm">{% trans 'Сохранить' %}</button>
+									 </div>
+								</div>
+							</div>					
+						</form>
+					</div>
+				</div>
+            </section>
+        </div>
+		<script>
+		require(['dojo/parser',
+				 'dojo/dom',
+				 'dojo/query',
+				 'dojo/on',
+				 //'dijit/layout/ContentPane',
+				 'dijit/form/DateTextBox',
+				 'dijit/form/TimeTextBox',
+				 'dojo/domReady!'], function(parser, dom, query, on){
+			var container = dom.byId("container");
+			parser.parse(container);
+			on(dom.byId("vcard_submit"), "click", function(){
+				var inputs_start = query('input[type=hidden][name|=start]', container);
+				var inputs_end = query('input[type=hidden][name|=end]', container);
+				var inputs_bday = query('input[type=hidden][name|=bday]', container);
+				if (inputs_start[0].value) inputs_start[0].value = inputs_start[0].value+" "+inputs_start[1].value.substring(1);
+				if (inputs_end[0].value) inputs_end[0].value = inputs_end[0].value+" "+inputs_end[1].value.substring(1);
+				if (inputs_bday[0].value) inputs_bday[0].value = inputs_bday[0].value+" "+inputs_bday[1].value.substring(1);
+				});
+		});
+		</script>
+		
+{% endblock %}

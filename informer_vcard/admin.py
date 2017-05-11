@@ -16,10 +16,8 @@ class vCardAdmin(admin.ModelAdmin):
         ('start',
         'end'),
         'status',
-        'profile',
+        'objectname',
         'language',
-        'main_name',
-        'bday',
         'tz',
         'photo',
         'label',
@@ -30,7 +28,7 @@ class vCardAdmin(admin.ModelAdmin):
         'url',
         'secure',
     )
-    list_filter = ('user', 'revision', 'start', 'end', 'main_name', 'bday')
+    list_filter = ('user', 'revision', 'start', 'end')
 
 @admin.register(vCard_phone)
 class vCard_phoneAdmin(admin.ModelAdmin):
@@ -53,12 +51,13 @@ class vCard_emailAdmin(admin.ModelAdmin):
 @admin.register(vCard_names)
 class vCard_namesAdmin(admin.ModelAdmin):
     list_display = (
-        'id',
+        #'id',
         'owner',
         'full_name',
         'first_name',
         'second_name',
         'middle_name',
+        'bday',
         'prefix',
         'suffix',
         'nickname',

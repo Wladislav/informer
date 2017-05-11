@@ -1,4 +1,5 @@
 {% load gapless %}
+{% gapless %}
 {% load compress %}
 {% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
@@ -15,11 +16,10 @@
    {# if the context processor did not pass the DOJANGO context, we set it here #}
    {% set_dojango_context %}
 {% endif %}
-{% gapless %}
 <!DOCTYPE html>
 <html lang="{{LANGUAGE_CODE}}">
    <head {% meta_namespaces %}>
-      <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
       {% include 'meta/meta.html' %}
         <!--[if IE]>-->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -87,14 +87,13 @@
 					  };
 		</script>      
       <script src="https://ajax.googleapis.com/ajax/libs/dojo/1.12.2/dojo/dojo.js"></script>
-		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.12.2/dijit/themes/tundra/tundra.css" media="screen">
+		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.12.2/dijit/themes/tundra/tundra.css" />
 		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.12.2/dojox/grid/resources/Grid.css" />
 		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.12.2/dojox/grid/resources/tundraGrid.css" />
-      <!-- =-=-=-=-=-=-= Informer style =-=-=-=-=-=-= -->
-      <link rel="stylesheet" href="/static/css/informer.css">
+
 
    </head>
-   <body>
+   <body class="tundra">
       <!-- =-=-=-=-=-=-= Light Header =-=-=-=-=-=-= -->
       <div class="colored-header">
          <!-- Top Bar -->
@@ -353,6 +352,8 @@
       <script src="/static/js/theia-sticky-sidebar.js"></script>
       <script src="/static/js/custom.js"></script>
       {% endcompress %}
+      <!-- =-=-=-=-=-=-= Informer style =-=-=-=-=-=-= -->
+      <link rel="stylesheet" href="/static/css/informer.css">		
    </body>
 </html>
 {% endgapless %}

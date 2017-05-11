@@ -2,7 +2,6 @@
 {% load compress %}
 {% load i18n %}
 {% load static %}
-
 {% block content %}
 
 		<div class="page-header-area">
@@ -34,13 +33,12 @@
 				 'dijit/registry',
 				 'dijit/layout/ContentPane',
 				 'dijit/form/Button',
-				 'dojox/grid/Selection',
 				 'dojo/domReady!'],
 				function(request, dom, Memory, ObjectStore, DataGrid, gridCells, mathRound, DateLocale, DateStamp, baseArray, lang, _CheckBoxSelector, parser, registry){
 					
-					var btCopy, btEdit, grid;
+					var btCopy, btEdit, UID;
 					
-					request("vcard-list.json", { handleAs: "json" }).then(function(data){
+					request("vcard_list.json", { handleAs: "json" }).then(function(data){
 						var store = new Memory({ data: data, idProperty: "uid" });
 	
 						test_store = new ObjectStore({objectStore: store});
@@ -133,8 +131,8 @@
 						grid.on("SelectionChanged",
 								lang.hitch(grid, reportSelection, document.getElementById("results")), true);
 					
-					}, function(err){
-						alert(err);
+					}, function(error){
+						alert(error);
 						});
 
 					function manageButtons(items){
@@ -144,6 +142,7 @@
 							} else {
 							btCopy.set("disabled", false);
 							btEdit.set("disabled", false);
+							UID = items[0].uid;
 							}
 						if (items.length > 0) {
 							btDelete.set("disabled", false);
@@ -153,12 +152,18 @@
 					}						
 					
 					parser.parse(dom.byId('container')).then(function(){
+						//Кнопки
 						btCopy = registry.byId("btCopy");
 						btEdit = registry.byId("btEdit");
 						btDelete = registry.byId("btDelete");
+						//Состояние
 						btCopy.set("disabled", true);
 						btEdit.set("disabled", true);
 						btDelete.set("disabled", true);
+						//События
+						btEdit.on("Click", function(){
+							document.location.href = '/'+dojoConfig.locale+'/vcards/'+UID+'/change';
+							});
 					});					
 					
 				});
@@ -166,11 +171,11 @@
 		
 		<div class="main-content-area "><!-- =-=-=-=-=-=-= Main Content Area =-=-=-=-=-=-= -->
 			<section class="section-padding error-page pattern-bg">
-				<div  id="container" class="container tundra" ><!-- Main Container -->
+				<div  id="container" class="container" ><!-- Main Container -->
 					
 					<div id="basicFormTab" data-dojo-type="dijit/layout/ContentPane">
 						<button id="btAdd" data-dojo-type="dijit/form/Button"
-								data-dojo-props="iconClass:'dijitAddIcon', onClick:function(){ console.debug('clicked simple') }">
+								data-dojo-props="iconClass:'dijitAddIcon', onClick:function(){ document.location.href = '/'+dojoConfig.locale+'/vcards/add' }">
 							{% trans 'Add' %}
 						</button>						
 						<button id="btCopy" data-dojo-type="dijit/form/Button"
@@ -178,7 +183,7 @@
 							{% trans 'Copy' %}
 						</button>
 						<button id="btEdit" data-dojo-type="dijit/form/Button"
-								data-dojo-props="iconClass:'dijitEdit', onClick:function(){ console.debug('clicked simple') }">
+								data-dojo-props="iconClass:'dijitEdit' ">
 							{% trans 'Edit' %}
 						</button>							
 						<button id="btDelete" data-dojo-type="dijit/form/Button"

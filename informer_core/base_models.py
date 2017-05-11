@@ -9,7 +9,10 @@ class BaseInformerModel(VersionedMixin, models.Model):
     
     uid = models.UUIDField(primary_key=True, default=uuid.uuid4, verbose_name = _('UID'), editable=False)
     
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name = _('Пользователь'), on_delete=models.CASCADE, help_text= _('Пользователь как владелец объекта'))
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             verbose_name = _('Пользователь'),
+                             on_delete=models.CASCADE,
+                             help_text= _('Пользователь как владелец объекта'))
     
     created = models.DateTimeField(verbose_name = _('Создано'), auto_now_add=True, help_text= _('Дата и время создания'), editable=False)
     

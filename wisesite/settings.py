@@ -84,8 +84,9 @@ INSTALLED_APPS = [
     'subscribe',
     'newsletter',
     'dojango',
+    #'floppyforms',
     'informer_vcard',
-    'debug_toolbar',
+    #'debug_toolbar',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -100,7 +101,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'wagtail.wagtailcore.middleware.SiteMiddleware',
     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    #'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 DEBUG_TOOLBAR_PANELS = [
@@ -184,7 +185,8 @@ META_SITE_DOMAIN = 'photocritic.pythonanywhere.com'
 META_IMAGE_URL = '/media/images/'
 GOOGLE_ANALYTICS_TRACKING_ID = ''
 #GEO 
-GEOPOSITION_GOOGLE_MAPS_API_KEY = ''
+GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyBmx9uxTpb8VljwAQQqvZQzkuDyKqY8_9o'
+GEOPOSITION_MAP_WIDGET_HEIGHT = 280
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 DATABASES = {
     'default': {
@@ -240,7 +242,7 @@ MEDIA_URL = '/media/'
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale/'),
 )
-
+ALLOWED_IMAGE_TYPES = ("jpeg", "jpg", "png", "gif")
 COMPRESS_ENABLED = False
 COMPRESS_OFFLINE = True
 COMPRESS_OUTPUT_DIR = 'cache'

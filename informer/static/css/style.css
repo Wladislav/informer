@@ -88,6 +88,8 @@ Designed and Development by: ScriptsBundle
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i);
 @import url(http://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i);
 @import url(http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic);
+
+
 /* =-=-=-=-=-=-= General Styling =-=-=-=-=-=-= */
 html, body {
 	height: 100%;
@@ -364,7 +366,7 @@ p {
 	color: #555;
 	font-size: 14px;
 	height: auto;
-	padding: 8px 8px;
+	padding: 4px 3px;
 	transition: all 0.2s cubic-bezier(0, 0, 0.58, 1) 0s;
 }
 ul {
@@ -375,7 +377,8 @@ ul {
 	color: #fff;
 }
 .btn-lg {
-	padding: 12px 22px;
+	/*padding: 12px 22px;*/
+	box-shadow: 0 2px 2px #ccc;
 	letter-spacing: 1.3px;
 }
 .btn-md {
@@ -2437,7 +2440,7 @@ ul.category-list-style li a span {
 }
 .ad-archive-desc p {
 	font-size: 14px;
-	margin-bottom: 4px;
+	margin-bottom: 5px;
 }
 ul.add_info {
 	margin: 0;
@@ -3680,8 +3683,9 @@ span.required {
 }
 label {
 	font-size: 14px;
-	font-weight: 600;
-	color: #232323;
+	font-weight: 500;
+	color: #555;
+    text-transform: uppercase;	
 }
 /* =-=-=-=-=-=-= Featured Sliders =-=-=-=-=-=-= */
 .featured-slider-1 .owl-item .category-grid-box {
