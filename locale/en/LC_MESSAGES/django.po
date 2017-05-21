@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-09 21:17+0300\n"
+"POT-Creation-Date: 2017-05-19 01:36+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -177,26 +177,6 @@ msgstr ""
 
 #: .\django_tz\forms.py:119
 msgid "Enter a valid time."
-msgstr ""
-
-#: .\dojango\contrib\auth\forms.py:11
-msgid "New password"
-msgstr ""
-
-#: .\dojango\contrib\auth\forms.py:12
-msgid "New password confirmation"
-msgstr ""
-
-#: .\dojango\contrib\auth\forms.py:19
-msgid "Old password"
-msgstr ""
-
-#: .\dojango\forms\formsets.py:65 .\dojango\forms\formsets.py:67
-msgid "Order"
-msgstr ""
-
-#: .\dojango\forms\formsets.py:69
-msgid "Delete"
 msgstr ""
 
 #: .\newsletter\forms.py:11

@@ -84,6 +84,7 @@ INSTALLED_APPS = [
     'subscribe',
     'newsletter',
     #'floppyforms',
+    'informer_core',
     'informer_vcard',
     #'debug_toolbar',
 ]
@@ -134,6 +135,7 @@ TEMPLATES = [
             'newsletter/templates/admin',
             'newsletter/templates/newsletter',
             'subscribe/templates/subscribe',
+            'informer_core/templates/informer_core/',
             'informer_vcard/templates/informer_vcard/',
             ],
         'APP_DIRS': True,

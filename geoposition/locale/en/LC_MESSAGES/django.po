@@ -1,0 +1,36 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-19 01:36+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\geoposition\fields.py:13
+msgid "A geoposition (latitude and longitude)"
+msgstr ""
+
+#: .\geoposition\forms.py:12
+msgid "Enter a valid geoposition."
+msgstr ""
+
+#: .\geoposition\forms.py:18 .\geoposition\widgets.py:34
+#: .\geoposition\widgets.py:51
+msgid "latitude"
+msgstr ""
+
+#: .\geoposition\forms.py:19 .\geoposition\widgets.py:38
+#: .\geoposition\widgets.py:55
+msgid "longitude"
+msgstr ""

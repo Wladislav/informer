@@ -1,0 +1,9 @@
+<div class="skin-minimal informer_checkbox">
+	<ul class="list">
+		<li>
+			<label for="{{ widget.name }}">
+			<input type="{{ widget.type }}" name="{{ widget.name }}"{% if widget.value != None %} value="{{ widget.value }}"{% endif %}{% include "forms/widgets/attrs.html" %} />
+			</label>
+		</li>
+    </ul>
+</div>

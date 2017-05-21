@@ -1,13 +1,12 @@
 from phonenumber_field.modelfields import PhoneNumberField
 from django.utils.translation import ugettext_lazy as _
 from informer_core.base_models import BaseInformerModel
-from informer_core.base_models import BaseInformerModel
+from informer_core.base_models import TimeFramedModel
 from django.conf import settings
 from django.db import models
 from django.db.models.signals import post_save
 #https://github.com/carljm/django-model-utils
 from model_utils import Choices
-from model_utils.models import TimeFramedModel
 from model_utils.fields import StatusField
 from informer_core.utils import INFORMER_STATUS
 from django_tz.fields import TimeZoneField
@@ -27,7 +26,7 @@ class vCard(BaseInformerModel, TimeFramedModel):
     label = models.CharField(verbose_name = _('Представление'),
                             max_length=256,
                             default='',
-                            blank=False,
+                            blank=True,
                             help_text= _('Основное представление')
                             )
     language = models.CharField(choices=settings.LANGUAGES,
@@ -52,10 +51,10 @@ class vCard(BaseInformerModel, TimeFramedModel):
                              blank=True,
                              help_text= _('Голос или музыкальное сопровождение mp3, ogg, wav')
                              )    
-    geo = GeopositionField(verbose_name = _('Геопозиция GPS'),
-                           blank=True,
-                           help_text= _('Глобальное позиционирование Nord, West (21.36214, -157.95341)')
-                           )
+    # geo = GeopositionField(verbose_name = _('Геопозиция GPS'),
+    #                        blank=True,
+    #                        help_text= _('Глобальное позиционирование Nord, West (21.36214, -157.95341)')
+    #                        )
     note = models.CharField(verbose_name = _('Заметка'),
                             max_length=256,
                             default='',
@@ -70,7 +69,13 @@ class vCard(BaseInformerModel, TimeFramedModel):
     tz = TimeZoneField(verbose_name = _('Часовой пояс'),
                        default=settings.TIME_ZONE,
                        help_text= _('Выберите из списка')
-                       )    
+                       )
+    category = models.CharField(verbose_name = _('Категория'),
+                            max_length=256,
+                            default='',
+                            blank=False,
+                            help_text= _('Категория информации')
+                            )
     # Черновик, Опубликовано, Удалено
     status = StatusField(verbose_name = _('Статус'),
                          help_text= _('Статус объекта')
@@ -111,7 +116,6 @@ class vCard_phone(models.Model):
     PHONE_TYPES = Choices(
         ('home',_('По месту проживания')),
         ('work',_('По месту работы')),
-        ('pref',_('Предпочитаемый')),
         ('voice',_('Для голосового общения')),
         ('fax',_('Для передачи факсов')),
         ('cell',_('Сотовый')),
@@ -131,13 +135,13 @@ class vCard_phone(models.Model):
                               help_text= _('*')
                               )
     tel = PhoneNumberField(verbose_name = _('Телефон'),
-                           blank=False,
+                           blank=True,
                            default='',
                            help_text= _('Телефон с кодом города')
                            )
     type = models.CharField(verbose_name = _('Тип телефона'),
                             choices=PHONE_TYPES,
-                            default=PHONE_TYPES.voice,
+                            default=PHONE_TYPES.cell,
                             max_length=20,
                             help_text= _('Тип телефона')
                             )
@@ -149,7 +153,7 @@ class vCard_phone(models.Model):
                                 )
     prefer = models.BooleanField(verbose_name = _('Предпочтительный'),
                                  default=False,
-                                 help_text= _('Предпочтительный')
+                                 help_text= _('Рекомендуется как основной')
                                  )
     def __str__(self):
          return 'vCard phone: %s' % self.tel    
@@ -167,17 +171,16 @@ class vCard_adress(models.Model):
         ('parcel',_('Для посылок')),
         ('home',_('Место проживания')),
         ('work',_('Место работы')),
-        ('pref',_('Предпочитаемый'))
         )
     owner = models.ForeignKey(vCard,
                               verbose_name = _('Владелец'),
                               on_delete=models.CASCADE,
                               help_text= _('*')
                               )
-    adr = models.CharField(verbose_name = _('Адрес'),
+    adress = models.CharField(verbose_name = _('Адрес'),
                            max_length=256,
                            default='',
-                           blank=False,
+                           blank=True,
                            help_text= _('Полный адрес строкой')
                            )
     type = models.CharField(verbose_name = _('Тип адреса'),
@@ -192,10 +195,10 @@ class vCard_adress(models.Model):
                            )
     prefer = models.BooleanField(verbose_name = _('Предпочтительный'),
                                  default=False,
-                                 help_text= _('Предпочтительный')
+                                 help_text= _('Рекомендуется как основной')
                                  )
     def __str__(self):
-         return 'vCard adress: %s' % self.adr    
+         return 'vCard adress: %s' % self.adress    
     
 class vCard_email(models.Model):
     
@@ -204,8 +207,8 @@ class vCard_email(models.Model):
         verbose_name_plural = _(' vCard Email')
         
     EMAIL_TYPE = Choices(
-        ('home',_('домашний')),
-        ('work',_('рабочий'))
+        ('home',_('Домашний')),
+        ('work',_('Рабочий'))
         )
     owner = models.ForeignKey(vCard,
                               verbose_name = _('Владелец'),
@@ -225,7 +228,7 @@ class vCard_email(models.Model):
                             )    
     prefer = models.BooleanField(verbose_name = _('Предпочтительный'),
                                  default=False,
-                                 help_text= _('Предпочтительный')
+                                 help_text= _('Рекомендуется как основной')
                                  )
     def __str__(self):
          return 'vCard Email: %s' % self.email
@@ -311,26 +314,6 @@ class vCard_names(models.Model):
     def __str__(self):
          return '%s' % self.full_name
 
-class vCard_category(models.Model):
-    
-    class Meta:
-        verbose_name = _('vCard Категория')
-        verbose_name_plural = _(' vCard Категории')
-        
-    owner = models.ForeignKey(vCard,
-                              verbose_name = _('Владелец'),
-                              on_delete=models.CASCADE,
-                              help_text= _('*')
-                              )
-    category = models.CharField(verbose_name = _('Категория'),
-                            max_length=256,
-                            default='',
-                            blank=False,
-                            help_text= _('Категория информации')
-                            )
-    def __str__(self):
-         return 'vCard category: %s' % self.category
-        
 class vCard_impp(models.Model):
     
     class Meta:
@@ -349,7 +332,7 @@ class vCard_impp(models.Model):
                           )
     prefer = models.BooleanField(verbose_name = _('Предпочтительный'),
                                  default=False,
-                                 help_text= _('Предпочтительный')
+                                 help_text= _('Рекомендуется как основной')
                                  )
     def __str__(self):
          return 'vCard social: %s' % self.url    
@@ -386,7 +369,7 @@ class vCard_organization(models.Model):
                            )    
     prefer = models.BooleanField(verbose_name = _('Предпочтительный'),
                                  default=False,
-                                 help_text= _('Предпочтительный')
+                                 help_text= _('Рекомендуется как основной')
                                  )
     def __str__(self):
          return 'vCard organization: %s' % self.org     

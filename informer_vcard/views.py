@@ -10,7 +10,6 @@ from django.core.exceptions import ObjectDoesNotExist
 from informer_core.utils import INFORMER_STATUS as info_status
 from .models import (vCard,
                      vCard_adress,
-                     vCard_category,
                      vCard_email,
                      vCard_expertise,
                      vCard_hobby,
@@ -20,7 +19,7 @@ from .models import (vCard,
                      vCard_organization,
                      vCard_phone,
                      vCard_related)
-from .forms import vCardMainForm, vCardNamesForm
+from .forms import vCardMainForm, vCardNamesForm, vCardPhoneForm
 import json, uuid, datetime
 from django import forms
 from django.forms import modelform_factory
@@ -142,14 +141,7 @@ def vcard_list(request, template_name='informer_vcard/vcard_index.html',):
 class InformerClearableFileInput(widgets.ClearableFileInput):
     
     template_name = 'forms/widgets/clearable_file_input.html'
-    # initial_text = ugettext('Currently')
-    # input_text = ugettext('Change')
-    # clear_checkbox_label = ugettext('Clear')
-    # 
-    # template_with_initial = (
-    #     '%(initial_text)s: <a href="%(initial_url)s">%(initial)s</a>'
-    #     '%(clear_template)s%(input_text)s: %(input)s'
-    # )
+
     # template_with_initial_sound = (
     #     '<audio controls>'
     #         '<source src="%(initial_url)s" type="audio/ogg; codecs=vorbis">'
@@ -167,18 +159,9 @@ class InformerClearableFileInput(widgets.ClearableFileInput):
     #     )
     # 
     # #template_with_clear = '<label for="%(clear_checkbox_id)s">%(clear_checkbox_label)s%(clear)s</label>'
-    # 
-    # template_with_clear = (
-    #     '<div class="skin-minimal">'
-    #        '<ul class="list">'
-    #           '<li>'
-    #             '<label for="%(clear_checkbox_id)s">%(clear)s%(clear_checkbox_label)s</label>'
-    #           '</li>'
-    #        '</ul>'
-    #     '</div>'
-    # )
-    # 
- 
+
+class InformerCheckboxInput(widgets.CheckboxInput):
+    template_name = 'forms/widgets/checkbox.html'
 
 @login_required
 def vcard_add_copy_change(request, template_name='informer_vcard/vcard_add_copy_change.html',):
@@ -209,6 +192,7 @@ def vcard_add_copy_change(request, template_name='informer_vcard/vcard_add_copy_
             
             vcard_main = vCardMainForm(request.POST, request.FILES, instance = vcard_to_change)
             vcard_name = vCardNamesForm(request.POST, instance = vcard_names_to_change)
+            vcard_phone = vCardPhoneForm(request.POST, instance = vcard_names_to_change)
             form_vcard_main = vcard_main.is_valid()
             form_vcard_name = vcard_name.is_valid()
             print(request.POST)                
@@ -244,15 +228,14 @@ def vcard_add_copy_change(request, template_name='informer_vcard/vcard_add_copy_
                 except ObjectDoesNotExist:
                     return HttpResponseBadRequest('Object vCard_names does not exist...', status = 400)
                     
-        css_class = {'class':'form-control'}
         media_dict = {}
         if vcard_to_change:
             if vcard_to_change.photo:
                 media_dict[1] = {'path':vcard_to_change.photo.url, 'name':vCard._meta.get_field('photo').verbose_name.title()}
             else:
-                media_dict[1] = {'path':'/media/avatars/avatar.png', 'name':_('Здесь будет фотография')}
+                media_dict[1] = {'path':'/media/avatars/avatar.png', 'name':_('Фотография')}
         else:
-            media_dict[1] = {'path':'/media/avatars/avatar.png', 'name':_('Здесь будет фотография')}
+            media_dict[1] = {'path':'/media/avatars/avatar.png', 'name':_('Фотография')}
         if vcard_to_change:
             if vcard_to_change.logo:
                 media_dict[2] = {'path':vcard_to_change.logo.url, 'name':vCard._meta.get_field('logo').verbose_name.title()}
@@ -266,13 +249,14 @@ def vcard_add_copy_change(request, template_name='informer_vcard/vcard_add_copy_
                 'photo':     InformerClearableFileInput(attrs={'class':'input-photo'},),
                 'logo':      InformerClearableFileInput(attrs={'class':'input-photo'},),
                 'sound':     InformerClearableFileInput(attrs={'class':'input-photo'},),                    
-                'label':     forms.TextInput(attrs=css_class),
-                'status':    forms.Select(attrs=css_class),
-                'note':      forms.TextInput(attrs=css_class),
-                'language':  forms.Select(attrs=css_class),
-                'tz':        forms.Select(attrs=css_class),
-                'url':       forms.TextInput(attrs=css_class),
-                'secure':    forms.Select(attrs=css_class),
+                'label':     forms.TextInput(attrs={'type':'hidden'}),
+                'status':    forms.Select(attrs={'class':'form-control'}),
+                'category':  forms.TextInput(attrs={'class':'form-control'}),
+                'note':      forms.TextInput(attrs={'class':'form-control'}),
+                'language':  forms.Select(attrs={'class':'form-control'}),
+                'tz':        forms.Select(attrs={'class':'form-control'}),
+                'url':       forms.TextInput(attrs={'class':'form-control'}),
+                'secure':    forms.Select(attrs={'class':'form-control'}),
                 'start':     forms.DateTimeInput(attrs={
                     'required':'false',
                     'type':'text',
@@ -290,43 +274,86 @@ def vcard_add_copy_change(request, template_name='informer_vcard/vcard_add_copy_
                 'language': user_profile.language,
                 'user': user,
                 }
-        initial_vcard_name={}            
+        initial_vcard_name={}
+        initial_vcard_phone={}
+        initial_vcard_adress={}
+        initial_vcard_email={}
         vcard_name_formfactory = modelform_factory(
             vCard_names,
             fields = '__all__',
             widgets = {
                 'owner':        forms.TextInput(attrs={'type':'hidden'}),
-                'full_name':    forms.TextInput(attrs=css_class),
-                'first_name':   forms.TextInput(attrs=css_class),
-                'second_name':  forms.TextInput(attrs=css_class),
-                'middle_name':  forms.TextInput(attrs=css_class),
+                'full_name':    forms.TextInput(attrs={'class':'form-control'}),
+                'first_name':   forms.TextInput(attrs={'class':'form-control'}),
+                'second_name':  forms.TextInput(attrs={'class':'form-control'}),
+                'middle_name':  forms.TextInput(attrs={'class':'form-control'}),
                 'bday':         forms.DateTimeInput(attrs={
                     'required':'false',
                     'type':'text',
                     'data-dojo-type':'dijit/form/DateTextBox',
                     }),                
-                'prefix':       forms.TextInput(attrs=css_class),
-                'suffix':       forms.TextInput(attrs=css_class),
-                'nickname':     forms.TextInput(attrs=css_class),
-                'title':        forms.TextInput(attrs=css_class),
-                'role':         forms.TextInput(attrs=css_class),
+                'prefix':       forms.TextInput(attrs={'class':'form-control'}),
+                'suffix':       forms.TextInput(attrs={'class':'form-control'}),
+                'nickname':     forms.TextInput(attrs={'class':'form-control'}),
+                'title':        forms.TextInput(attrs={'class':'form-control'}),
+                'role':         forms.TextInput(attrs={'class':'form-control'}),
                 'sort_as':      forms.TextInput(attrs={'class':'form-control','type':'hidden'}),
             },
-        )            
+        )
+        vcard_phone_formfactory = modelform_factory(
+            vCard_phone,
+            fields = '__all__',
+            widgets = {
+                'owner':        forms.TextInput(attrs={'type':'hidden'}),
+                'tel':          forms.TextInput(attrs={'class':'form-control'}),
+                'type':         forms.Select(attrs={'class':'form-control','id':'id_type_phone'}),
+                'function':     forms.Select(attrs={'class':'form-control'}),
+                'prefer':       InformerCheckboxInput(attrs={'class':'form-control','id':'id_prefer_phone'}),
+                },
+        )
+        vcard_adress_formfactory = modelform_factory(
+            vCard_adress,
+            fields = '__all__',
+            widgets = {
+                'owner':        forms.TextInput(attrs={'type':'hidden'}),
+                'adress':       forms.TextInput(attrs={'class':'form-control'}),
+                'type':         forms.Select(attrs={'class':'form-control','id':'id_type_adress'}),
+                'prefer':       InformerCheckboxInput(attrs={'class':'form-control','id':'id_prefer_adress'}),
+                },            
+        )
+        vсard_email_formfactory = modelform_factory(
+            vCard_email,
+            fields = '__all__',
+            widgets = {
+                'owner':        forms.TextInput(attrs={'type':'hidden'}),
+                'email':        forms.TextInput(attrs={'class':'form-control'}),
+                'type':         forms.Select(attrs={'class':'form-control','id':'id_type_email'}),
+                'prefer':       InformerCheckboxInput(attrs={'class':'form-control','id':'id_prefer_email'}),
+                },
+        )
         if vcard_to_change:
-            vcard_main = vcard_main_formfactory(instance=vcard_to_change)
-            vcarf_name = vcard_name_formfactory(instance=vcard_names_to_change)
+            vcard_main   = vcard_main_formfactory(instance=vcard_to_change)
+            vcard_name   = vcard_name_formfactory(instance=vcard_names_to_change)
+            vcard_phone  = vcard_phone_formfactory(instance=vcard_names_to_change)
+            vcard_adress = vcard_adress_formfactory(instance=vcard_names_to_change)
+            vсard_email  = vсard_email_formfactory(instance=vcard_names_to_change)
         else:
-            vcard_main = vcard_main_formfactory(initial_vcard_main)
-            vcarf_name = vcard_name_formfactory(initial_vcard_name)
+            vcard_main   = vcard_main_formfactory(initial_vcard_main)
+            vcard_name   = vcard_name_formfactory(initial_vcard_name)
+            vcard_phone  = vcard_phone_formfactory(initial_vcard_phone)
+            vcard_adress = vcard_adress_formfactory(initial_vcard_adress)
+            vсard_email  = vсard_email_formfactory(initial_vcard_email)
                
         return render(request, "informer_vcard/vcard_add_copy_change.html", {
             "user": user,
-            "vcard_main": vcard_main,
-            "vcarf_name": vcarf_name,
-            "media_dict": media_dict,
-            "MEDIA_URL": settings.MEDIA_URL,
-            "STATIC_URL": settings.STATIC_URL,
+            "vcard_main":   vcard_main,
+            "vcard_name":   vcard_name,
+            "vcard_phone":  vcard_phone,
+            "vcard_adress": vcard_adress,
+            "vсard_email":  vсard_email,
+            "media_dict":   media_dict,
+            "MEDIA_URL":    settings.MEDIA_URL,
+            "STATIC_URL":   settings.STATIC_URL,
         })        
 
     

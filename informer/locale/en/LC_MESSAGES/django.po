@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-09 21:17+0300\n"
+"POT-Creation-Date: 2017-05-19 01:36+0300\n"
 "PO-Revision-Date: 2017-02-08 02:35+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -29,7 +29,7 @@ msgstr ""
 msgid "Email address"
 msgstr "Email address"
 
-#: .\informer\models.py:15 .\informer_core\base_models.py:12
+#: .\informer\models.py:15 .\informer_core\base_models.py:25
 #, fuzzy
 #| msgid "Имя пользователя"
 msgid "Пользователь"
@@ -43,8 +43,8 @@ msgstr "Height"
 msgid "Ширина (px)"
 msgstr "Width"
 
-#: .\informer\models.py:28 .\informer_vcard\models.py:56
-#: .\informer_vcard\models.py:59
+#: .\informer\models.py:28 .\informer_vcard\models.py:39
+#: .\informer_vcard\views.py:235 .\informer_vcard\views.py:237
 msgid "Фотография"
 msgstr "Avatar"
 
@@ -60,7 +60,7 @@ msgstr "About myself"
 
 #: .\informer\models.py:42 .\informer\templates\informer\userprofile.html:37
 #: .\informer\templates\informer\userprofile.html:38
-#: .\informer_vcard\models.py:140
+#: .\informer_vcard\models.py:132
 msgid "Телефон"
 msgstr "Phone"
 
@@ -75,7 +75,7 @@ msgid "Страна"
 msgstr "Country"
 
 #: .\informer\models.py:57 .\informer\templates\informer\userprofile.html:55
-#: .\informer_vcard\models.py:38
+#: .\informer_vcard\models.py:33
 msgid "Язык"
 msgstr "Language"
 
@@ -96,124 +96,124 @@ msgid "Профили пользователей"
 msgstr "Users profile"
 
 #. Translators: Ссылка на форму авторизации пользователя
-#: .\informer\templates\informer\base.html:126
+#: .\informer\templates\informer\base.html:119
 #: .\informer\templates\password_reset\recovery_form.html:44
 #: .\informer\templates\registration\registration_form.html:97
 msgid "Войти"
 msgstr "Login"
 
 #. Translators: Ссылка на форму регистрации пользователя
-#: .\informer\templates\informer\base.html:128
+#: .\informer\templates\informer\base.html:121
 msgid "Регистрация"
 msgstr "Register"
 
 #. Translators: Ссылка на преход к профилю пользователя
-#: .\informer\templates\informer\base.html:136
+#: .\informer\templates\informer\base.html:129
 msgid "Мой профиль"
 msgstr "My profile"
 
-#: .\informer\templates\informer\base.html:138
+#: .\informer\templates\informer\base.html:131
 msgid "Администрировать"
 msgstr "Administrate"
 
 #. Translators: Пользователь покидает сайт (logout)
-#: .\informer\templates\informer\base.html:141
+#: .\informer\templates\informer\base.html:134
 #: .\informer\templates\password_reset\recovery_form.html:33
 #: .\informer\templates\registration\login.html:29
 msgid "Выйти"
 msgstr "Logout"
 
 #. Translators: Это страницы сайта
-#: .\informer\templates\informer\base.html:174
+#: .\informer\templates\informer\base.html:167
 msgid "Страницы"
 msgstr "Pages"
 
 #. Translators: Переход на главную страницу сайта
-#: .\informer\templates\informer\base.html:178
+#: .\informer\templates\informer\base.html:171
 msgid "На главную"
 msgstr "Home"
 
-#: .\informer\templates\informer\base.html:179
+#: .\informer\templates\informer\base.html:172
 msgid "Новости в блоге"
 msgstr "Blog news"
 
-#: .\informer\templates\informer\base.html:180
+#: .\informer\templates\informer\base.html:173
 msgid "Ответы на вопросы"
 msgstr "Answers on questions"
 
 #. Translators: Переход на страницу с контактной информацией владельца сайта
-#: .\informer\templates\informer\base.html:181
-#: .\informer\templates\informer\base.html:187
+#: .\informer\templates\informer\base.html:174
+#: .\informer\templates\informer\base.html:180
 msgid "Контакты"
 msgstr "Contacts"
 
-#: .\informer\templates\informer\base.html:184
+#: .\informer\templates\informer\base.html:177
 msgid "Новости"
 msgstr "News"
 
-#: .\informer\templates\informer\base.html:185
+#: .\informer\templates\informer\base.html:178
 msgid "FAQ"
 msgstr "FAQ"
 
-#: .\informer\templates\informer\base.html:222
+#: .\informer\templates\informer\base.html:215
 msgid "Платформа: Python3 + Django"
 msgstr "Created on: Python3 + Django"
 
-#: .\informer\templates\informer\base.html:225
+#: .\informer\templates\informer\base.html:218
 msgid "ул. Яснополянская 13, г. Краснодар"
 msgstr "str. Yasnopolyanskaya 13, Krasnodar"
 
 #. Translators: Подвал сайта, краткий список приложений
-#: .\informer\templates\informer\base.html:242
+#: .\informer\templates\informer\base.html:235
 msgid "Приложения"
 msgstr "Mobile APP"
 
 #. Translators: Форма ввода почты пользователя для подписки на новости
-#: .\informer\templates\informer\base.html:263
+#: .\informer\templates\informer\base.html:256
 #: .\informer\templates\informer\footer.html:45
 msgid "Подписаться на новости по почте"
 msgstr "Subscribe to news by e-mail"
 
-#: .\informer\templates\informer\base.html:267
+#: .\informer\templates\informer\base.html:260
 #: .\informer\templates\informer\footer.html:47
 msgid ""
 "Мы будем отправлять Вам информацию о событиях и интересных информерах, "
 "которые создают пользователи."
 msgstr "We will send you information about events and interesting informers"
 
-#: .\informer\templates\informer\base.html:271
+#: .\informer\templates\informer\base.html:264
 #: .\informer\templates\informer\footer.html:49
 msgid "Введите ваш почтовый адрес"
 msgstr "Enter email"
 
 #. Translators: Пользователь при регистрации должен согласится с правилами (галочка)
-#: .\informer\templates\informer\base.html:272
+#: .\informer\templates\informer\base.html:265
 #: .\informer\templates\informer\footer.html:50
 #: .\informer\templates\registration\registration_form.html:62
 msgid "Согласен"
 msgstr "Agree"
 
-#: .\informer\templates\informer\base.html:277
+#: .\informer\templates\informer\base.html:270
 #, fuzzy
 #| msgid "Зарегистрироваться"
 msgid "Подписаться"
 msgstr "Sign up"
 
-#: .\informer\templates\informer\base.html:277
+#: .\informer\templates\informer\base.html:270
 #, fuzzy
 #| msgid "Подписаться или отказаться от рассылки"
 msgid "или отказаться от рассылки"
 msgstr "Subscribe or unsubscribe"
 
 #. Translators: Последние комментариии в футере
-#: .\informer\templates\informer\base.html:288
+#: .\informer\templates\informer\base.html:281
 #, fuzzy
 #| msgid "Последние новости в"
 msgid "Последние комментарии в блоге"
 msgstr "Latest news in"
 
 #. Translators: Подвал сайта, копирайтинг и слово Дизайн = внешний вид
-#: .\informer\templates\informer\base.html:332
+#: .\informer\templates\informer\base.html:325
 #: .\informer\templates\informer\footer.html:66
 msgid "Все права защищены. Дизайн"
 msgstr "All rights reserved. Design by "
@@ -357,7 +357,7 @@ msgstr ""
 "customer feedback of our service"
 
 #: .\informer\templates\informer\userprofile.html:61
-#: .\informer_vcard\models.py:51
+#: .\informer_vcard\models.py:69
 msgid "Часовой пояс"
 msgstr ""
 
@@ -374,7 +374,7 @@ msgid "Изменить"
 msgstr "Change"
 
 #: .\informer\templates\informer\userprofile.html:105
-#: .\informer_vcard\models.py:254
+#: .\informer_vcard\models.py:256
 msgid "Имя"
 msgstr "First name"
 
@@ -384,7 +384,7 @@ msgid "Введите имя"
 msgstr "Enter your username"
 
 #: .\informer\templates\informer\userprofile.html:111
-#: .\informer_vcard\models.py:260
+#: .\informer_vcard\models.py:262
 msgid "Фамилия"
 msgstr "Last name"
 
@@ -402,6 +402,7 @@ msgid "email"
 msgstr "email"
 
 #: .\informer\templates\informer\userprofile.html:154
+#: .\informer_vcard\templates\informer_vcard\vcard_add_copy_change.html:118
 #, fuzzy
 #| msgid "Сохранить"
 msgid "Сохранено"
@@ -855,39 +856,79 @@ msgstr "Want more options?"
 msgid "Узнать о всех возможностях можно кликнув по ссылке"
 msgstr "Learn about all the opportunities you can by clicking on the link"
 
-#: .\informer\views.py:126
+#: .\informer\views.py:127
 msgid "Успешно! Вы подписаны на рассылку"
 msgstr "Successfully! You are subscribed to the newsletter"
 
-#: .\informer\views.py:127
+#: .\informer\views.py:128
 msgid "Вы были удалены из рассылки"
 msgstr "You have been removed from the mailing list"
 
-#: .\informer\views.py:172
+#: .\informer\views.py:179
 #, fuzzy
 #| msgid "Ваш пароль успешно изменен!"
 msgid "Профиль успешно обновлен."
 msgstr "Your password was successfully changed!"
 
-#: .\informer_core\base_models.py:10
+#: .\informer_core\base_models.py:14
+#, fuzzy
+#| msgid "Начальный"
+msgid "Начало"
+msgstr "Elementary"
+
+#: .\informer_core\base_models.py:15
+#, fuzzy
+#| msgid "Знание"
+msgid "Окончание"
+msgstr "Knowledge"
+
+#: .\informer_core\base_models.py:22
 msgid "UID"
 msgstr "UID"
 
-#: .\informer_core\base_models.py:14
+#: .\informer_core\base_models.py:27
+msgid "Пользователь как владелец объекта"
+msgstr ""
+
+#: .\informer_core\base_models.py:29
+#, fuzzy
+#| msgid "Уже создано"
+msgid "Создано"
+msgstr "already created"
+
+#: .\informer_core\base_models.py:29
+#, fuzzy
+#| msgid "День рождения (создания)"
+msgid "Дата и время создания"
+msgstr "Birthday (creation)"
+
+#: .\informer_core\base_models.py:31
 msgid "Обновлено"
 msgstr "Updated"
 
-#: .\informer_core\base_models.py:16
-msgid "Версия"
-msgstr "Version"
+#: .\informer_core\base_models.py:31
+#, fuzzy
+#| msgid "Дата обновления"
+msgid "Дата и время обновления"
+msgstr "Update date"
 
-#: .\informer_core\base_models.py:22
+#: .\informer_core\base_models.py:33
+#, fuzzy
+#| msgid "Программа создатель"
+msgid "Программа"
+msgstr "Username"
+
+#: .\informer_core\base_models.py:37
 msgid "Программа создатель"
 msgstr "Username"
 
-#: .\informer_core\base_models.py:28
-msgid "Версия Object Optimistic Lock"
-msgstr "Version of Object Optimistic Lock"
+#: .\informer_core\base_models.py:41
+msgid "OOL"
+msgstr ""
+
+#: .\informer_core\base_models.py:41
+msgid "Версия оптимистической блокировки объектов"
+msgstr ""
 
 #: .\informer_core\utils.py:5
 msgid "Черновик"
@@ -898,619 +939,687 @@ msgid "Опубликовано"
 msgstr "Published"
 
 #: .\informer_core\utils.py:7
-msgid "Удалено"
+#, fuzzy
+#| msgid "Удалено"
+msgid "На удаление"
 msgstr "Deleted"
 
-#: .\informer_vcard\models.py:21
+#: .\informer_vcard\models.py:20
 msgid "Карточка vCard"
 msgstr "Person card"
 
-#: .\informer_vcard\models.py:22
+#: .\informer_vcard\models.py:21
 msgid "Карточки vCard"
 msgstr "Person cards"
 
-#: .\informer_vcard\models.py:25
-msgid "публично"
+#: .\informer_vcard\models.py:24
+#, fuzzy
+#| msgid "публично"
+msgid "Публично"
 msgstr "public"
 
-#: .\informer_vcard\models.py:25
-msgid "приватно"
+#: .\informer_vcard\models.py:24
+#, fuzzy
+#| msgid "приватно"
+msgid "Приватно"
 msgstr "private"
 
-#: .\informer_vcard\models.py:25
-msgid "конфедициально"
+#: .\informer_vcard\models.py:24
+#, fuzzy
+#| msgid "конфедициально"
+msgid "Конфедициально"
 msgstr "confidentially"
 
-#: .\informer_vcard\models.py:27
-msgid "Статус"
-msgstr "Status"
-
-#: .\informer_vcard\models.py:28
-msgid "Статус объекта"
-msgstr "Object status"
-
-#: .\informer_vcard\models.py:30
-msgid "Имя модели"
-msgstr "Model name"
-
-#: .\informer_vcard\models.py:34 .\informer_vcard\models.py:138
-#: .\informer_vcard\models.py:182 .\informer_vcard\models.py:216
-#: .\informer_vcard\models.py:245 .\informer_vcard\models.py:306
-#: .\informer_vcard\models.py:320 .\informer_vcard\models.py:340
-#: .\informer_vcard\models.py:363 .\informer_vcard\models.py:431
-#: .\informer_vcard\models.py:469 .\informer_vcard\models.py:500
-#: .\informer_vcard\models.py:531
-msgid "*"
-msgstr "*"
-
-#: .\informer_vcard\models.py:42
-msgid "Язык общения"
-msgstr "Language"
-
-#: .\informer_vcard\models.py:45
-msgid "Владелец vCard"
-msgstr "Owner vCard"
-
-#: .\informer_vcard\models.py:49
-msgid "Основное наименование"
-msgstr "Main name"
-
-#: .\informer_vcard\models.py:53
-msgid "Выберите из списка"
-msgstr "Choose color"
-
-#: .\informer_vcard\models.py:61
+#: .\informer_vcard\models.py:26
 msgid "Представление"
 msgstr "View"
 
-#: .\informer_vcard\models.py:65
+#: .\informer_vcard\models.py:30
 msgid "Основное представление"
 msgstr "Main view"
 
-#: .\informer_vcard\models.py:68
-msgid "GPS"
-msgstr "GPS"
+#: .\informer_vcard\models.py:37
+msgid "Язык общения"
+msgstr "Language"
 
-#: .\informer_vcard\models.py:70
-msgid "Глобальное позиционирование Nord, West (21.36214, -157.95341)"
-msgstr "Global positioning system Nord, West (21.36214, -157.95341)"
+#: .\informer_vcard\models.py:42
+msgid "Фотография в формате jpg, png, gif"
+msgstr ""
 
-#: .\informer_vcard\models.py:72 .\informer_vcard\models.py:75
+#: .\informer_vcard\models.py:44
 msgid "Логотип"
 msgstr "Logo"
 
-#: .\informer_vcard\models.py:77 .\informer_vcard\models.py:81
+#: .\informer_vcard\models.py:47
+#, fuzzy
+#| msgid "Организационно правовая форма предприятия"
+msgid "Логотип персонального бренда или предприятия"
+msgstr "Organizational legal form of the enterprise"
+
+#: .\informer_vcard\models.py:50
+msgid "Звук"
+msgstr ""
+
+#: .\informer_vcard\models.py:52
+msgid "Голос или музыкальное сопровождение mp3, ogg, wav"
+msgstr ""
+
+#: .\informer_vcard\models.py:54
+msgid "Геопозиция GPS"
+msgstr ""
+
+#: .\informer_vcard\models.py:56 .\informer_vcard\models.py:190
+msgid "Глобальное позиционирование Nord, West (21.36214, -157.95341)"
+msgstr "Global positioning system Nord, West (21.36214, -157.95341)"
+
+#: .\informer_vcard\models.py:58 .\informer_vcard\models.py:62
 msgid "Заметка"
 msgstr "Note"
 
-#: .\informer_vcard\models.py:84
+#: .\informer_vcard\models.py:65 .\informer_vcard\models.py:345
+msgid "URL"
+msgstr "URL"
+
+#: .\informer_vcard\models.py:67 .\informer_vcard\models.py:347
+msgid "Ссылка в интернете"
+msgstr "Internet link"
+
+#: .\informer_vcard\models.py:71
+msgid "Выберите из списка"
+msgstr "Choose color"
+
+#: .\informer_vcard\models.py:74
+msgid "Статус"
+msgstr "Status"
+
+#: .\informer_vcard\models.py:75
+msgid "Статус объекта"
+msgstr "Object status"
+
+#: .\informer_vcard\models.py:77
+msgid "Доступ"
+msgstr "Access"
+
+#: .\informer_vcard\models.py:81
+msgid "Уровень доступа к этой информации"
+msgstr "Level of access to this information"
+
+#: .\informer_vcard\models.py:83 .\informer_vcard\models.py:85
+msgid "Открытый ключ или сертификат аутентификации"
+msgstr "Public key or authentication certificate"
+
+#: .\informer_vcard\models.py:87
+msgid "Имя модели"
+msgstr "Model name"
+
+#: .\informer_vcard\models.py:91 .\informer_vcard\models.py:130
+#: .\informer_vcard\models.py:174 .\informer_vcard\models.py:212
+#: .\informer_vcard\models.py:243 .\informer_vcard\models.py:308
+#: .\informer_vcard\models.py:322 .\informer_vcard\models.py:342
+#: .\informer_vcard\models.py:365 .\informer_vcard\models.py:433
+#: .\informer_vcard\models.py:471 .\informer_vcard\models.py:502
+#: .\informer_vcard\models.py:539
+msgid "*"
+msgstr "*"
+
+#: .\informer_vcard\models.py:107
+msgid "vCard Телефон"
+msgstr "vCard Phone"
+
+#: .\informer_vcard\models.py:108
+msgid " vCard Телефоны"
+msgstr " vCard Phones"
+
+#: .\informer_vcard\models.py:111
+msgid "По месту проживания"
+msgstr "By place of residence"
+
+#: .\informer_vcard\models.py:112
+msgid "По месту работы"
+msgstr "In the place of work"
+
+#: .\informer_vcard\models.py:113 .\informer_vcard\models.py:169
+msgid "Предпочитаемый"
+msgstr "Preferred"
+
+#: .\informer_vcard\models.py:114
+msgid "Для голосового общения"
+msgstr "For voice communication"
+
+#: .\informer_vcard\models.py:115
+msgid "Для передачи факсов"
+msgstr "To send faxes"
+
+#: .\informer_vcard\models.py:116
+msgid "Сотовый"
+msgstr "Cellular"
+
+#: .\informer_vcard\models.py:117
+msgid "Для передачи сообщений на пейджер"
+msgstr "To send messages to a pager"
+
+#: .\informer_vcard\models.py:118
+msgid "Обслуживает электронную доску объявлений"
+msgstr "Serves an electronic bulletin board"
+
+#: .\informer_vcard\models.py:119
+msgid "Автомобильный"
+msgstr "car's"
+
+#: .\informer_vcard\models.py:122
+msgid "Поддерживает передачу голосовых сообщений"
+msgstr "Supports the transmission of voice messages"
+
+#: .\informer_vcard\models.py:123
+msgid "Поддерживает видеоконференции"
+msgstr "Supports video conferencing"
+
+#: .\informer_vcard\models.py:124
+msgid "По этому номеру работает модем"
+msgstr "This number is modem"
+
+#: .\informer_vcard\models.py:125
+msgid "Предоставляет услуги ISDN"
+msgstr "Provides ISDN services"
+
+#: .\informer_vcard\models.py:128 .\informer_vcard\models.py:172
+#: .\informer_vcard\models.py:210 .\informer_vcard\models.py:240
+#: .\informer_vcard\models.py:320 .\informer_vcard\models.py:340
+#: .\informer_vcard\models.py:363 .\informer_vcard\models.py:431
+#: .\informer_vcard\models.py:469 .\informer_vcard\models.py:500
+#: .\informer_vcard\models.py:537
+msgid "Владелец"
+msgstr "Owner"
+
+#: .\informer_vcard\models.py:135
+msgid "Телефон с кодом города"
+msgstr "Phone number with city code"
+
+#: .\informer_vcard\models.py:137 .\informer_vcard\models.py:141
+msgid "Тип телефона"
+msgstr "Phone type"
+
+#: .\informer_vcard\models.py:143
+msgid "Функциональность"
+msgstr "Functionality"
+
+#: .\informer_vcard\models.py:147
+msgid "Функциональность телефона"
+msgstr "Functionality of the phone"
+
+#: .\informer_vcard\models.py:149 .\informer_vcard\models.py:151
+#: .\informer_vcard\models.py:192 .\informer_vcard\models.py:194
+#: .\informer_vcard\models.py:225 .\informer_vcard\models.py:227
+#: .\informer_vcard\models.py:349 .\informer_vcard\models.py:351
+#: .\informer_vcard\models.py:386 .\informer_vcard\models.py:388
+msgid "Предпочтительный"
+msgstr "Preferred"
+
+#: .\informer_vcard\models.py:159
+msgid "vCard Адрес"
+msgstr "vCard Adress"
+
+#: .\informer_vcard\models.py:160
+msgid " vCard Адреса"
+msgstr " vCard Adress"
+
+#: .\informer_vcard\models.py:163
+msgid "Местный"
+msgstr "Local"
+
+#: .\informer_vcard\models.py:164
+msgid "Международный"
+msgstr "International"
+
+#: .\informer_vcard\models.py:165
+msgid "Для писем"
+msgstr "For letters"
+
+#: .\informer_vcard\models.py:166
+msgid "Для посылок"
+msgstr "For parcels"
+
+#: .\informer_vcard\models.py:167
+msgid "Место проживания"
+msgstr "Place of residence"
+
+#: .\informer_vcard\models.py:168
+msgid "Место работы"
+msgstr "Place of work"
+
+#: .\informer_vcard\models.py:176
+msgid "Адрес"
+msgstr "Address"
+
+#: .\informer_vcard\models.py:180
+msgid "Полный адрес строкой"
+msgstr "Full address string"
+
+#: .\informer_vcard\models.py:182
+msgid "Тип адреса"
+msgstr "Address type"
+
+#: .\informer_vcard\models.py:186
+msgid "Тип Адреса"
+msgstr "Address type"
+
+#: .\informer_vcard\models.py:188
+msgid "GPS"
+msgstr "GPS"
+
+#: .\informer_vcard\models.py:202
+msgid "vCard Email"
+msgstr "vCard Email"
+
+#: .\informer_vcard\models.py:203
+msgid " vCard Email"
+msgstr ""
+
+#: .\informer_vcard\models.py:206
+msgid "домашний"
+msgstr "home"
+
+#: .\informer_vcard\models.py:207
+msgid "рабочий"
+msgstr "work"
+
+#: .\informer_vcard\models.py:216
+msgid "Электронный почтовый адрес"
+msgstr "email"
+
+#: .\informer_vcard\models.py:219
+msgid "Тип email"
+msgstr "Emil type"
+
+#: .\informer_vcard\models.py:223
+msgid "Тип электронного почтового адреса"
+msgstr "Type of e-mail address"
+
+#: .\informer_vcard\models.py:235
+msgid "vCard Имена"
+msgstr "vCard Names"
+
+#: .\informer_vcard\models.py:236
+msgid " vCard Имена"
+msgstr " vCard Names"
+
+#: .\informer_vcard\models.py:246 .\informer_vcard\models.py:250
+msgid "Полное имя"
+msgstr "Full name"
+
+#: .\informer_vcard\models.py:252
 #, fuzzy
 #| msgid "Приложения"
 msgid "День рождения"
 msgstr "Mobile APP"
 
-#: .\informer_vcard\models.py:85
-msgid "День рождения (создания)"
+#: .\informer_vcard\models.py:253
+#, fuzzy
+#| msgid "День рождения (создания)"
+msgid "День рождения или создания"
 msgstr "Birthday (creation)"
 
-#: .\informer_vcard\models.py:89
-msgid "Звуковой файл"
-msgstr "Audio file"
-
-#: .\informer_vcard\models.py:94 .\informer_vcard\models.py:343
-msgid "URL"
-msgstr "URL"
-
-#: .\informer_vcard\models.py:96 .\informer_vcard\models.py:345
-msgid "Ссылка в интернете"
-msgstr "Internet link"
-
-#: .\informer_vcard\models.py:98
-msgid "Доступ"
-msgstr "Access"
-
-#: .\informer_vcard\models.py:102
-msgid "Уровень доступа к этой информации"
-msgstr "Level of access to this information"
-
-#: .\informer_vcard\models.py:104 .\informer_vcard\models.py:106
-msgid "Открытый ключ или сертификат аутентификации"
-msgstr "Public key or authentication certificate"
-
-#: .\informer_vcard\models.py:115
-msgid "vCard Телефон"
-msgstr "vCard Phone"
-
-#: .\informer_vcard\models.py:116
-msgid " vCard Телефоны"
-msgstr " vCard Phones"
-
-#: .\informer_vcard\models.py:119
-msgid "По месту проживания"
-msgstr "By place of residence"
-
-#: .\informer_vcard\models.py:120
-msgid "По месту работы"
-msgstr "In the place of work"
-
-#: .\informer_vcard\models.py:121 .\informer_vcard\models.py:177
-msgid "Предпочитаемый"
-msgstr "Preferred"
-
-#: .\informer_vcard\models.py:122
-msgid "Для голосового общения"
-msgstr "For voice communication"
-
-#: .\informer_vcard\models.py:123
-msgid "Для передачи факсов"
-msgstr "To send faxes"
-
-#: .\informer_vcard\models.py:124
-msgid "Сотовый"
-msgstr "Cellular"
-
-#: .\informer_vcard\models.py:125
-msgid "Для передачи сообщений на пейджер"
-msgstr "To send messages to a pager"
-
-#: .\informer_vcard\models.py:126
-msgid "Обслуживает электронную доску объявлений"
-msgstr "Serves an electronic bulletin board"
-
-#: .\informer_vcard\models.py:127
-msgid "Автомобильный"
-msgstr "car's"
-
-#: .\informer_vcard\models.py:130
-msgid "Поддерживает передачу голосовых сообщений"
-msgstr "Supports the transmission of voice messages"
-
-#: .\informer_vcard\models.py:131
-msgid "Поддерживает видеоконференции"
-msgstr "Supports video conferencing"
-
-#: .\informer_vcard\models.py:132
-msgid "По этому номеру работает модем"
-msgstr "This number is modem"
-
-#: .\informer_vcard\models.py:133
-msgid "Предоставляет услуги ISDN"
-msgstr "Provides ISDN services"
-
-#: .\informer_vcard\models.py:136 .\informer_vcard\models.py:180
-#: .\informer_vcard\models.py:214 .\informer_vcard\models.py:243
-#: .\informer_vcard\models.py:318 .\informer_vcard\models.py:338
-#: .\informer_vcard\models.py:361 .\informer_vcard\models.py:429
-#: .\informer_vcard\models.py:467 .\informer_vcard\models.py:498
-#: .\informer_vcard\models.py:529
-msgid "Владелец"
-msgstr "Owner"
-
-#: .\informer_vcard\models.py:143
-msgid "Телефон с кодом города"
-msgstr "Phone number with city code"
-
-#: .\informer_vcard\models.py:145 .\informer_vcard\models.py:149
-msgid "Тип телефона"
-msgstr "Phone type"
-
-#: .\informer_vcard\models.py:151
-msgid "Функциональность"
-msgstr "Functionality"
-
-#: .\informer_vcard\models.py:155
-msgid "Функциональность телефона"
-msgstr "Functionality of the phone"
-
-#: .\informer_vcard\models.py:157 .\informer_vcard\models.py:159
-#: .\informer_vcard\models.py:196 .\informer_vcard\models.py:198
-#: .\informer_vcard\models.py:229 .\informer_vcard\models.py:231
-#: .\informer_vcard\models.py:347 .\informer_vcard\models.py:349
-#: .\informer_vcard\models.py:384 .\informer_vcard\models.py:386
-msgid "Предпочтительный"
-msgstr "Preferred"
-
-#: .\informer_vcard\models.py:167
-msgid "vCard Адрес"
-msgstr "vCard Adress"
-
-#: .\informer_vcard\models.py:168
-msgid " vCard Адреса"
-msgstr " vCard Adress"
-
-#: .\informer_vcard\models.py:171
-msgid "Местный"
-msgstr "Local"
-
-#: .\informer_vcard\models.py:172
-msgid "Международный"
-msgstr "International"
-
-#: .\informer_vcard\models.py:173
-msgid "Для писем"
-msgstr "For letters"
-
-#: .\informer_vcard\models.py:174
-msgid "Для посылок"
-msgstr "For parcels"
-
-#: .\informer_vcard\models.py:175
-msgid "Место проживания"
-msgstr "Place of residence"
-
-#: .\informer_vcard\models.py:176
-msgid "Место работы"
-msgstr "Place of work"
-
-#: .\informer_vcard\models.py:184
-msgid "Адрес"
-msgstr "Address"
-
-#: .\informer_vcard\models.py:188
-msgid "Полный адрес строкой"
-msgstr "Full address string"
-
-#: .\informer_vcard\models.py:190
-msgid "Тип адреса"
-msgstr "Address type"
-
-#: .\informer_vcard\models.py:194
-msgid "Тип Адреса"
-msgstr "Address type"
-
-#: .\informer_vcard\models.py:206
-msgid "vCard Email"
-msgstr "vCard Email"
-
-#: .\informer_vcard\models.py:207
-msgid " vCard Email"
-msgstr ""
-
-#: .\informer_vcard\models.py:210
-msgid "домашний"
-msgstr "home"
-
-#: .\informer_vcard\models.py:211
-msgid "рабочий"
-msgstr "work"
-
-#: .\informer_vcard\models.py:220
-msgid "Электронный почтовый адрес"
-msgstr "email"
-
-#: .\informer_vcard\models.py:223
-msgid "Тип email"
-msgstr "Emil type"
-
-#: .\informer_vcard\models.py:227
-msgid "Тип электронного почтового адреса"
-msgstr "Type of e-mail address"
-
-#: .\informer_vcard\models.py:239
-msgid "vCard Имена"
-msgstr "vCard Names"
-
-#: .\informer_vcard\models.py:240
-msgid " vCard Имена"
-msgstr " vCard Names"
-
-#: .\informer_vcard\models.py:248 .\informer_vcard\models.py:252
-msgid "Полное имя"
-msgstr "Full name"
-
-#: .\informer_vcard\models.py:258
+#: .\informer_vcard\models.py:260
 msgid "Часть имени: Имя"
 msgstr "Part of name: First name"
 
-#: .\informer_vcard\models.py:264
+#: .\informer_vcard\models.py:266
 msgid "Часть имени: Фамилия"
 msgstr "Part of name: Family name"
 
-#: .\informer_vcard\models.py:266
+#: .\informer_vcard\models.py:268
 msgid "Отчество"
 msgstr "Middle name"
 
-#: .\informer_vcard\models.py:270
+#: .\informer_vcard\models.py:272
 msgid "Часть имени: Отчество"
 msgstr "Part of name: Middle name"
 
-#: .\informer_vcard\models.py:272
+#: .\informer_vcard\models.py:274
 msgid "Префикс"
 msgstr "Prefix"
 
-#: .\informer_vcard\models.py:276
+#: .\informer_vcard\models.py:278
 msgid "Префикс имени (Господин, Доктор)"
 msgstr "Prefix of name (Sir, Doctor)"
 
-#: .\informer_vcard\models.py:278
+#: .\informer_vcard\models.py:280
 msgid "Суффикс"
 msgstr "Suffix"
 
-#: .\informer_vcard\models.py:282
+#: .\informer_vcard\models.py:284
 msgid "Суффикс имени (Младший)"
 msgstr "Suffix name (Junior)"
 
-#: .\informer_vcard\models.py:284
+#: .\informer_vcard\models.py:286
 msgid "Ник"
 msgstr "Nick"
 
-#: .\informer_vcard\models.py:288
+#: .\informer_vcard\models.py:290
 msgid "Прозвище"
 msgstr "Nickname"
 
-#: .\informer_vcard\models.py:290
+#: .\informer_vcard\models.py:292
 msgid "Должность"
 msgstr "Position"
 
-#: .\informer_vcard\models.py:294
+#: .\informer_vcard\models.py:296
 msgid "Должность на предприятии"
 msgstr "Position in the company"
 
-#: .\informer_vcard\models.py:296
+#: .\informer_vcard\models.py:298
 msgid "Роль"
 msgstr "Role"
 
-#: .\informer_vcard\models.py:300
+#: .\informer_vcard\models.py:302
 msgid "Ведущая роль на предприятии"
 msgstr "Main role in the enterprise"
 
-#: .\informer_vcard\models.py:302
+#: .\informer_vcard\models.py:304
 msgid "Сортировка"
 msgstr "Sorting"
 
-#: .\informer_vcard\models.py:314
+#: .\informer_vcard\models.py:316
 msgid "vCard Категория"
 msgstr "vCard Category"
 
-#: .\informer_vcard\models.py:315
+#: .\informer_vcard\models.py:317
 msgid " vCard Категории"
 msgstr " vCard Categories"
 
-#: .\informer_vcard\models.py:322
+#: .\informer_vcard\models.py:324
 msgid "Категория"
 msgstr "Category"
 
-#: .\informer_vcard\models.py:326
+#: .\informer_vcard\models.py:328
 msgid "Категория информации"
 msgstr "Category of information"
 
-#: .\informer_vcard\models.py:334
+#: .\informer_vcard\models.py:336
 msgid "vCard Социальная сеть"
 msgstr "vCard Social Networking"
 
-#: .\informer_vcard\models.py:335
+#: .\informer_vcard\models.py:337
 msgid " vCard Социальнае сети"
 msgstr " vCard Social Networking"
 
-#: .\informer_vcard\models.py:357
+#: .\informer_vcard\models.py:359
 msgid "vCard Организация"
 msgstr ""
 
-#: .\informer_vcard\models.py:358
+#: .\informer_vcard\models.py:360
 msgid " vCard Организации"
 msgstr " vCard Organization"
 
-#: .\informer_vcard\models.py:365
+#: .\informer_vcard\models.py:367
 msgid "Правовая форма"
 msgstr "Legal Form"
 
-#: .\informer_vcard\models.py:369
+#: .\informer_vcard\models.py:371
 msgid "Организационно правовая форма предприятия"
 msgstr "Organizational legal form of the enterprise"
 
-#: .\informer_vcard\models.py:371
+#: .\informer_vcard\models.py:373
 msgid "Наименование организации"
 msgstr "Name of company"
 
-#: .\informer_vcard\models.py:375
+#: .\informer_vcard\models.py:377
 msgid "Полное наименование организации"
 msgstr "Full name of organization"
 
-#: .\informer_vcard\models.py:378
+#: .\informer_vcard\models.py:380
 msgid "Дополнительно"
 msgstr "Additionally"
 
-#: .\informer_vcard\models.py:382
+#: .\informer_vcard\models.py:384
 msgid "Дополнительная информация"
 msgstr "Additional information"
 
-#: .\informer_vcard\models.py:395
+#: .\informer_vcard\models.py:397
 msgid "vCard Связь"
 msgstr "vCard Communications"
 
-#: .\informer_vcard\models.py:396
+#: .\informer_vcard\models.py:398
 msgid " vCard Связи"
 msgstr " vCard Communications"
 
-#: .\informer_vcard\models.py:399
+#: .\informer_vcard\models.py:401
 msgid "Контактируем"
 msgstr "Contacting"
 
-#: .\informer_vcard\models.py:400
+#: .\informer_vcard\models.py:402
 msgid "Знакомый/Знакомая"
 msgstr "Familiar"
 
-#: .\informer_vcard\models.py:401
+#: .\informer_vcard\models.py:403
 msgid "Друг/Подружка"
 msgstr "Friend"
 
-#: .\informer_vcard\models.py:402
+#: .\informer_vcard\models.py:404
 msgid "Встречились"
 msgstr "They met"
 
-#: .\informer_vcard\models.py:403
+#: .\informer_vcard\models.py:405
 msgid "Сотрудник/Сотрудница"
 msgstr "Employee"
 
-#: .\informer_vcard\models.py:404
+#: .\informer_vcard\models.py:406
 msgid "Коллега"
 msgstr "Colleague"
 
-#: .\informer_vcard\models.py:405
+#: .\informer_vcard\models.py:407
 msgid "Живем вместе"
 msgstr "We live together"
 
-#: .\informer_vcard\models.py:406
+#: .\informer_vcard\models.py:408
 msgid "Сосед"
 msgstr "Neighbor"
 
-#: .\informer_vcard\models.py:407
+#: .\informer_vcard\models.py:409
 msgid "Ребенок"
 msgstr "Child"
 
-#: .\informer_vcard\models.py:408
+#: .\informer_vcard\models.py:410
 msgid "Родитель"
 msgstr "Parent"
 
-#: .\informer_vcard\models.py:409
+#: .\informer_vcard\models.py:411
 msgid "Брат/Сестра"
 msgstr "Brother/Sister"
 
-#: .\informer_vcard\models.py:410
+#: .\informer_vcard\models.py:412
 msgid "Супруг(а)"
 msgstr "Spouse"
 
-#: .\informer_vcard\models.py:411
+#: .\informer_vcard\models.py:413
 msgid "Родственник"
 msgstr "Relative"
 
-#: .\informer_vcard\models.py:412
+#: .\informer_vcard\models.py:414
 msgid "Муза"
 msgstr "Muse"
 
-#: .\informer_vcard\models.py:413
+#: .\informer_vcard\models.py:415
 msgid "Подавляет"
 msgstr "Suppresses"
 
-#: .\informer_vcard\models.py:414
+#: .\informer_vcard\models.py:416
 msgid "Встречаемся"
 msgstr "We meet"
 
-#: .\informer_vcard\models.py:415
+#: .\informer_vcard\models.py:417
 msgid "Любимый/Любимая"
 msgstr "Favorite"
 
-#: .\informer_vcard\models.py:416
+#: .\informer_vcard\models.py:418
 msgid "Я сам"
 msgstr "Myself"
 
-#: .\informer_vcard\models.py:417
+#: .\informer_vcard\models.py:419
 msgid "Доверенное лицо"
 msgstr "Agent"
 
-#: .\informer_vcard\models.py:418
+#: .\informer_vcard\models.py:420
 msgid "Запасной"
 msgstr "Reserve"
 
-#: .\informer_vcard\models.py:422
+#: .\informer_vcard\models.py:424
 msgid "Индивидульная"
 msgstr "Individual"
 
-#: .\informer_vcard\models.py:423
+#: .\informer_vcard\models.py:425
 msgid "Организация"
 msgstr "Organization"
 
-#: .\informer_vcard\models.py:424
+#: .\informer_vcard\models.py:426
 msgid "Группа"
 msgstr "Group"
 
-#: .\informer_vcard\models.py:425
+#: .\informer_vcard\models.py:427
 msgid "Местонахождение"
 msgstr "Location"
 
-#: .\informer_vcard\models.py:438
+#: .\informer_vcard\models.py:440
 msgid "Связи с другой информацией"
 msgstr "Links with other information"
 
-#: .\informer_vcard\models.py:440 .\informer_vcard\models.py:444
+#: .\informer_vcard\models.py:442 .\informer_vcard\models.py:446
 msgid "Тип связи"
 msgstr "Type of links"
 
-#: .\informer_vcard\models.py:446 .\informer_vcard\models.py:450
+#: .\informer_vcard\models.py:448 .\informer_vcard\models.py:452
 msgid "Вид группы"
 msgstr "Kind of group"
 
-#: .\informer_vcard\models.py:458
+#: .\informer_vcard\models.py:460
 msgid "vCard Знание"
 msgstr "vCard Knowledge"
 
-#: .\informer_vcard\models.py:459
+#: .\informer_vcard\models.py:461
 msgid " vCard Знания"
 msgstr " vCard Knowledge"
 
-#: .\informer_vcard\models.py:462
+#: .\informer_vcard\models.py:464
 msgid "Начальный"
 msgstr "Elementary"
 
-#: .\informer_vcard\models.py:463 .\informer_vcard\models.py:494
-#: .\informer_vcard\models.py:525
+#: .\informer_vcard\models.py:465 .\informer_vcard\models.py:496
+#: .\informer_vcard\models.py:533
 msgid "Средний"
 msgstr "Medium"
 
-#: .\informer_vcard\models.py:464
+#: .\informer_vcard\models.py:466
 msgid "Эксперт"
 msgstr "Expert"
 
-#: .\informer_vcard\models.py:471
+#: .\informer_vcard\models.py:473
 msgid "Знание"
 msgstr "Knowledge"
 
-#: .\informer_vcard\models.py:475
+#: .\informer_vcard\models.py:477
 msgid "Наименование знания"
 msgstr "Name of knowledge"
 
-#: .\informer_vcard\models.py:477 .\informer_vcard\models.py:508
-#: .\informer_vcard\models.py:539
+#: .\informer_vcard\models.py:479 .\informer_vcard\models.py:516
+#: .\informer_vcard\models.py:547
 msgid "Уровень"
 msgstr "Level"
 
-#: .\informer_vcard\models.py:481 .\informer_vcard\models.py:512
+#: .\informer_vcard\models.py:483 .\informer_vcard\models.py:520
 msgid "Уровень экспертности"
 msgstr "Level of expertise"
 
-#: .\informer_vcard\models.py:489
+#: .\informer_vcard\models.py:491
 msgid "vCard Увлечение"
 msgstr "vCard hobby"
 
-#: .\informer_vcard\models.py:490
+#: .\informer_vcard\models.py:492
 msgid " vCard Увлечения"
 msgstr " vCard hobbys"
 
-#: .\informer_vcard\models.py:493 .\informer_vcard\models.py:524
+#: .\informer_vcard\models.py:495 .\informer_vcard\models.py:532
 msgid "Высокий"
 msgstr "High"
 
-#: .\informer_vcard\models.py:495 .\informer_vcard\models.py:526
+#: .\informer_vcard\models.py:497 .\informer_vcard\models.py:534
 msgid "Низкий"
 msgstr "Low"
 
-#: .\informer_vcard\models.py:502 .\informer_vcard\models.py:506
+#: .\informer_vcard\models.py:504 .\informer_vcard\models.py:510
+#: .\informer_vcard\models.py:514
 msgid "Увлечение"
 msgstr "Hobby"
 
-#: .\informer_vcard\models.py:520
+#: .\informer_vcard\models.py:508
+#, fuzzy
+#| msgid "Наименование знания"
+msgid "Наименование Увлечения"
+msgstr "Name of knowledge"
+
+#: .\informer_vcard\models.py:528
 msgid "vCard Интерес"
 msgstr "vCard Interest"
 
-#: .\informer_vcard\models.py:521
+#: .\informer_vcard\models.py:529
 msgid " vCard Интересы"
 msgstr " vCard Interests"
 
-#: .\informer_vcard\models.py:533
+#: .\informer_vcard\models.py:541
 msgid "Интерес"
 msgstr "Interest"
 
-#: .\informer_vcard\models.py:537
+#: .\informer_vcard\models.py:545
 msgid "Наименование интереса"
 msgstr "Name of interest"
 
-#: .\informer_vcard\models.py:543
+#: .\informer_vcard\models.py:551
 msgid "Уровень эксперности"
 msgstr "Level of expertise"
 
-#: .\informer_vcard\templates\informer_vcard\vcard_index.html:13
+#: .\informer_vcard\templates\informer_vcard\vcard_add_copy_change.html:11
+#, fuzzy
+#| msgid "Создание нового пароля"
+msgid "Создание нового контакта"
+msgstr "Create a new password"
+
+#: .\informer_vcard\templates\informer_vcard\vcard_add_copy_change.html:129
+msgid "Сохранить"
+msgstr "Save"
+
+#: .\informer_vcard\templates\informer_vcard\vcard_index.html:12
 msgid "Ваши карточки контактов"
 msgstr "Your contacts cards"
+
+#: .\informer_vcard\templates\informer_vcard\vcard_index.html:179
+msgid "Add"
+msgstr ""
+
+#: .\informer_vcard\templates\informer_vcard\vcard_index.html:183
+msgid "Copy"
+msgstr ""
+
+#: .\informer_vcard\templates\informer_vcard\vcard_index.html:187
+msgid "Edit"
+msgstr ""
+
+#: .\informer_vcard\templates\informer_vcard\vcard_index.html:191
+msgid "Delete"
+msgstr ""
+
+#~ msgid "Версия"
+#~ msgstr "Version"
+
+#~ msgid "Версия Object Optimistic Lock"
+#~ msgstr "Version of Object Optimistic Lock"
+
+#~ msgid "Владелец vCard"
+#~ msgstr "Owner vCard"
+
+#~ msgid "Основное наименование"
+#~ msgstr "Main name"
+
+#~ msgid "Звуковой файл"
+#~ msgstr "Audio file"
 
 #~ msgid "Последнее обновление"
 #~ msgstr "Latest news in"
@@ -1520,9 +1629,6 @@ msgstr "Your contacts cards"
 
 #~ msgid "ЦВЕТОВОЙ СТИЛЬ"
 #~ msgstr "THEME"
-
-#~ msgid "Сохранить"
-#~ msgstr "Save"
 
 #~ msgid "Перевод"
 #~ msgstr "Language"

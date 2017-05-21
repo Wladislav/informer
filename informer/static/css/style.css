@@ -366,7 +366,7 @@ p {
 	color: #555;
 	font-size: 14px;
 	height: auto;
-	padding: 4px 3px;
+	padding: 3px 3px;
 	transition: all 0.2s cubic-bezier(0, 0, 0.58, 1) 0s;
 }
 ul {

@@ -1,3 +1,25 @@
+
+.informer_checkbox {
+    display: inline-block;
+}
+
+.icheckbox_minimal, .iradio_minimal {
+    background: url(./minimal/orange.png) no-repeat;
+}
+
+.panel-default {
+    border-color: white;
+}
+
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
 .form-horizontal .form-group {
      margin-right: 0px; 
      margin-left: 0px; 
@@ -52,10 +74,11 @@ p.form-group.photo-group {
 }
 
 span.helptext {
-    padding-bottom: 3px;
     color: darkgray;
     font-weight: 200;
     font-size: 14px;
+    display: block;
+    padding-top: 2px;    
 }
 
 .tundra .dojoxGridCellFocus {
@@ -95,6 +118,13 @@ input.geoposition {
     font-family: 'Roboto', sans-serif;
 }
 
+.tundra .dijitButtonNode {
+     background: INHERIT;
+}
+
+.tundra .dijitTextBoxFocused .dijitButtonNode  {
+     border-color: #9b9b9b;
+}
 .tundra .dijitTextBox {
 	width: 12em;
     height: 26px;
@@ -178,7 +208,7 @@ input.geoposition {
 }
 
 .dojoxGridView {
-    line-height: 1.3em;
+    line-height: 1.5em;
 }
 
 .tundra .dojoxGridRowSelected {
@@ -271,6 +301,10 @@ input.geoposition {
     font-family: Fira Sans Extra Condensed;
     font-weight: 400;
     text-transform: uppercase;    
+}
+
+.ad-archive-desc {
+     padding: 10px 10px;
 }
 
 textarea.form-control {
@@ -555,8 +589,8 @@ label.label-user-trumb {
 }
 
 .form-grid-profile {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .box-shadow {

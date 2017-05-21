@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
 
-from .models import vCard, vCard_phone, vCard_adress, vCard_email, vCard_names, vCard_category, vCard_impp, vCard_organization, vCard_related, vCard_expertise, vCard_hobby, vCard_interest
+from .models import vCard, vCard_phone, vCard_adress, vCard_email, vCard_names, vCard_impp, vCard_organization, vCard_related, vCard_expertise, vCard_hobby, vCard_interest
 
 
 @admin.register(vCard)
@@ -38,7 +38,7 @@ class vCard_phoneAdmin(admin.ModelAdmin):
 
 @admin.register(vCard_adress)
 class vCard_adressAdmin(admin.ModelAdmin):
-    list_display = ('id', 'owner', 'adr', 'type', 'prefer')
+    list_display = ('id', 'owner', 'adress', 'type', 'prefer')
     list_filter = ('owner', 'prefer')
 
 
@@ -66,13 +66,6 @@ class vCard_namesAdmin(admin.ModelAdmin):
         'sort_as',
     )
     list_filter = ('owner',)
-
-
-@admin.register(vCard_category)
-class vCard_categoryAdmin(admin.ModelAdmin):
-    list_display = ('id', 'owner', 'category')
-    list_filter = ('owner',)
-
 
 @admin.register(vCard_impp)
 class vCard_imppAdmin(admin.ModelAdmin):

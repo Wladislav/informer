@@ -17,130 +17,169 @@
 		<div class="vcard">
 			<section class="section-padding error-page pattern-bg">
 				<div id="container" class="container">
-					<div class="ad-archive-desc box-shadow">
+					<div class="ad-archive-desc">
 						<form action="" method="POST" enctype="multipart/form-data">
-							{% csrf_token %}
-							<div class="row">
-								<div class="col-md-6 col-md-push-6 col-sm-6 col-xs-12">
-									<div class="form-grid" >
-										<div class="panel with-nav-tabs panel-default">
-											<div class="panel-heading">
-												<ul class="nav nav-tabs">
-													{% for key, pic in media_dict.items %}
-													<li class="{% if forloop.first %}active{% else %}{% endif %}"><a href="#tab{{forloop.counter}}default" data-toggle="tab" aria-expanded="true">{{ pic.name }}</a></li>										
-													{% endfor %}		
-												</ul>
-											</div>
-											<div class="panel-body">
-												<div class="tab-content">
-													{% for key, pic in media_dict.items %}
-													<div class="tab-pane fade {% if forloop.first %}active in{% else %}{% endif %}" id="tab{{forloop.counter}}default">
-														<img id="img-upload" alt="{{ pic.name }}" src="/{{STATIC_URL|cut:'/'}}{{ pic.path }}" style="width:100%">
+						<div class="panel with-nav-tabs panel-default-informer">
+							<div class="panel-heading">
+								<ul class="nav nav-tabs">
+									<li class="active"><a href="#tabb1default" data-toggle="tab" aria-expanded="true">{% trans 'Основная' %}</a></li>
+									<li class=""><a href="#tabb2default" data-toggle="tab" aria-expanded="false">{% trans 'Телефоны' %}</a></li>
+									<li class=""><a href="#tabb3default" data-toggle="tab" aria-expanded="false">{% trans 'Адреса' %}</a></li>
+									<li class=""><a href="#tabb4default" data-toggle="tab" aria-expanded="false">{% trans 'Почта' %}</a></li>
+								</ul>
+							</div>
+							<div class="panel-body">
+								<div class="tab-content">
+									<div class="tab-pane fade active in" id="tabb1default">
+										<!--<form action="" method="POST" enctype="multipart/form-data">-->
+											{% csrf_token %}
+											<div class="row">
+												<div class="col-md-6 col-md-push-6 col-sm-6 col-xs-12">
+													<div class="form-grid" >
+														<div class="panel with-nav-tabs panel-default">
+															<div class="panel-heading">
+																<ul class="nav nav-tabs">
+																	{% for key, pic in media_dict.items %}
+																	<li class="{% if forloop.first %}active{% else %}{% endif %}"><a href="#tab{{forloop.counter}}default" data-toggle="tab" aria-expanded="true">{{ pic.name }}</a></li>										
+																	{% endfor %}		
+																</ul>
+															</div>
+															<div class="panel-body">
+																<div class="tab-content">
+																	{% for key, pic in media_dict.items %}
+																	<div class="tab-pane fade {% if forloop.first %}active in{% else %}{% endif %}" id="tab{{forloop.counter}}default">
+																		<img id="img-upload" alt="{{ pic.name }}" src="/{{STATIC_URL|cut:'/'}}{{ pic.path }}" style="width:100%">
+																	</div>
+																	{% endfor %}				
+																</div>
+															</div>
+														</div>		
+														{{vcard_name.media}}
+														{{vcard_name.management_form}}
+														{% for hidden in vcard_name.hidden_fields %}
+															{{ hidden }}
+														{% endfor %}										
+														{% for field in vcard_name.visible_fields %}
+																{% if field.name == 'bday' %}
+																<div class="form-group"><p>
+																	{{ field.errors }}
+																	{{ field.label_tag }}</br>
+																	<input type="date" data-dojo-type="dijit/form/DateTextBox" id="{{field.name}}" name="{{field.name}}" value='{{field.value.date|date:"Y-m-d"}}' />
+																	<input type="text" data-dojo-type="dijit/form/TimeTextBox" id="{{field.name}}_time" name="{{field.name}}-time" value='T{{field.value.time|time:"H:i:s"}}' /></br>
+																	<span class="helptext">{{ form.help_text|safe }}</span>
+																</p></div>
+																{% else %}
+																	<div class="form-group"><p>
+																		{{ field.errors }}
+																		{{ field.label_tag }}
+																		{{ field }}
+																		{% if field.help_text %}
+																			{% if field.name != 'geo' %}
+																			<span class="helptext">{{ field.help_text|safe }}</span>
+																			{% endif %}
+																		{% endif %}
+																	</p></div>
+																{% endif %}
+														{% endfor %}
 													</div>
-													{% endfor %}				
+												</div>
+												<div class="col-md-6  col-md-pull-6  col-xs-12 col-sm-6">
+													<div class="form-grid" >
+														{{vcard_main.media}}
+														{{vcard_main.management_form}}										
+														{% for hidden in vcard_main.hidden_fields %}
+														{{ hidden }}
+														{% endfor %}										
+														{% for field in vcard_main.visible_fields %}
+															{% if field.name == 'start' or field.name == 'end' %}
+															<div class="form-group"><p>
+																{{ field.errors }}
+																{{ field.label_tag }}</br>
+																<input type="date" data-dojo-type="dijit/form/DateTextBox" id="{{field.name}}" name="{{field.name}}" value='{{field.value.date|date:"Y-m-d"}}' />
+																<input type="text" data-dojo-type="dijit/form/TimeTextBox" id="{{field.name}}_time" name="{{field.name}}-time" value='T{{field.value.time|time:"H:i:s"}}' /></br>
+																<span class="helptext">{{ field.help_text }}</span>
+															</p></div>
+															{% else %}
+																<div class="form-group"><p>
+																{{ field.errors }}
+																{{ field.label_tag }}</br>
+																{{ field}}
+																{% if field.help_text %}
+																	{% if field.name != 'geo' %}
+																	<span class="helptext">{{ field.help_text|safe }}</span>
+																	{% endif %}
+																{% endif %}
+																</p></div>
+															{% endif %}
+														{% endfor %}
+														
+													</div>
 												</div>
 											</div>
-										</div>		
-										<!--/{/{vcarf_name.as_p/}/}-->
-										{{vcarf_name.media}}
-										{{vcarf_name.management_form}}
-										{% for hidden in vcarf_name.hidden_fields %}
-											{{ hidden }}
-										{% endfor %}										
-										{% for field in vcarf_name.visible_fields %}
-												{% if field.name == 'bday' %}
-												<div class="form-group"><p>
-													{{ field.errors }}
-													{{ field.label_tag }}</br>
-													<input type="date" data-dojo-type="dijit/form/DateTextBox" id="{{field.name}}" name="{{field.name}}" value='{{field.value.date|date:"Y-m-d"}}' />
-													<input type="text" data-dojo-type="dijit/form/TimeTextBox" id="{{field.name}}_time" name="{{field.name}}-time" value='T{{field.value.time|time:"H:i:s"}}' /></br>
-													<span class="helptext">{{ form.help_text|safe }}</span>
-												</p></div>
-												{% else %}
-													<div class="form-group"><p>
-														{{ field.errors }}
-														{{ field.label_tag }}
-														{{ field }}
-														{% if field.help_text %}
-															{% if field.name != 'geo' %}
-															<span class="helptext">{{ field.help_text|safe }}</span>
-															{% endif %}
-														{% endif %}
-													</p></div>
-												{% endif %}
-										{% endfor %}
+										<!--</form>-->
 									</div>
-								</div>
-								<div class="col-md-6  col-md-pull-6  col-xs-12 col-sm-6">
-									<div class="form-grid" >
-										<!--/{/{vcard_main.as_p/}/}-->
-										{{vcard_main.media}}
-										{{vcard_main.management_form}}										
-										{% for hidden in vcard_main.hidden_fields %}
-										{{ hidden }}
-										{% endfor %}										
-										{% for field in vcard_main.visible_fields %}
-											{% if field.name == 'start' or field.name == 'end' %}
-											<div class="form-group"><p>
-												{{ field.errors }}
-												{{ field.label_tag }}</br>
-												<input type="date" data-dojo-type="dijit/form/DateTextBox" id="{{field.name}}" name="{{field.name}}" value='{{field.value.date|date:"Y-m-d"}}' />
-												<input type="text" data-dojo-type="dijit/form/TimeTextBox" id="{{field.name}}_time" name="{{field.name}}-time" value='T{{field.value.time|time:"H:i:s"}}' /></br>
-												<span class="helptext">{{ field.help_text }}</span>
-											</p></div>
-											{% else %}
-												<div class="form-group"><p>
-												{{ field.errors }}
-												{{ field.label_tag }}</br>
-												{{ field}}
-												{% if field.help_text %}
-													{% if field.name != 'geo' %}
-													<span class="helptext">{{ field.help_text|safe }}</span>
-													{% endif %}
-												{% endif %}
-												</p></div>
-											{% endif %}
-										{% endfor %}
-										
+									<div class="tab-pane fade" id="tabb2default">
+										<div class="form-grid" >
+										{{vcard_phone.as_p}}
+										</div>
 									</div>
+									<div class="tab-pane fade" id="tabb3default">
+										<div class="form-grid" >
+										{{vcard_adress.media}}
+										{{vcard_adress.management_form}}	
+										{{vcard_adress.as_p}}
+										</div>
+									</div>
+									<div class="tab-pane fade" id="tabb4default">
+										<div class="form-grid" >
+										{{vсard_email.media}}
+										{{vсard_email.management_form}}	
+										{{vсard_email.as_p}}
+										</div>
+									</div>										
 								</div>
+								<div class="row">
+									<div class="col-md-6 col-sm-6 col-xs-12">
+									   <div class="form-group">
+										  <div class="skin-minimal form-grid-profile">
+											 <ul class="list">
+												<li>
+												 {% if messages %}
+													 {% for message in messages %}
+													 <div role="alert" class="alert alert-success alert-dismissible">
+														<button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span></button>
+														<strong>{% trans 'Сохранено' %}</strong> - {{ message }}
+													 </div>
+													 {% endfor %}
+												 {% endif %}													
+												</li>
+											 </ul>
+										  </div>
+									   </div>
+									</div>
+									<div class="col-md-6 col-sm-6 col-xs-12 text-right">
+										 <div class="form-grid-profile">
+											<button id="vcard_submit" type="submit" class="btn btn-theme btn-sm">{% trans 'Сохранить' %}</button>
+										 </div>
+									</div>
+								</div>		
 							</div>
-							<div class="row">
-								<div class="col-md-6 col-sm-6 col-xs-12">
-								   <div class="form-group">
-									  <div class="skin-minimal form-grid-profile">
-										 <ul class="list">
-											<li>
-											 {% if messages %}
-												 {% for message in messages %}
-												 <div role="alert" class="alert alert-success alert-dismissible">
-													<button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span></button>
-													<strong>{% trans 'Сохранено' %}</strong> - {{ message }}
-												 </div>
-												 {% endfor %}
-											 {% endif %}													
-											</li>
-										 </ul>
-									  </div>
-								   </div>
-								</div>
-								<div class="col-md-6 col-sm-6 col-xs-12 text-right">
-									 <div class="form-grid-profile">
-										 <button id="vcard_submit" type="submit" class="btn btn-theme btn-sm">{% trans 'Сохранить' %}</button>
-									 </div>
-								</div>
-							</div>					
+						</div>
 						</form>
 					</div>
 				</div>
             </section>
         </div>
 		<script>
+		
+		</script>
+		<script>
 		require(['dojo/parser',
 				 'dojo/dom',
 				 'dojo/query',
 				 'dojo/on',
-				 //'dijit/layout/ContentPane',
+				 'dojox/form/Uploader',
+				 'dojox/embed/Flash',
 				 'dijit/form/DateTextBox',
 				 'dijit/form/TimeTextBox',
 				 'dojo/domReady!'], function(parser, dom, query, on){
