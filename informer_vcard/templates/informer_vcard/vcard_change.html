@@ -1,0 +1,585 @@
+{% extends "informer/base.html" %}
+{% load i18n %}
+{% load compress %}
+{% load static %}
+{% block content %}
+
+		<div class="page-header-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+                        <div class="header-page">
+                            <h1>{% trans 'Настройка карточки' %}</h1>
+                        </div>                        
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="vcard">
+			<section class="section-padding error-page pattern-bg">
+				<div id="container" class="container">
+					<div class="ad-archive-desc">
+						<form action="" method="POST" enctype="multipart/form-data">
+						{% csrf_token %}
+						<div class="with-nav-tabs panel-default-informer">
+							<div class="profile-tabs">
+								<ul class="nav nav-justified nav-tabs">
+									<li class="active"><a href="#tabb_card" data-toggle="tab" aria-expanded="true">{% trans 'Карточка' %}</a></li>
+									<li class=""><a href="#tabb_names" data-toggle="tab" aria-expanded="false">{% trans 'Имена' %}</a></li>
+									<li class=""><a href="#tabb_adress" data-toggle="tab" aria-expanded="false">{% trans 'Адреса' %}</a></li>
+									<li class=""><a href="#tabb_contakts" data-toggle="tab" aria-expanded="false">{% trans 'Контакты' %}</a></li>
+									<li class=""><a href="#tabb_mentality" data-toggle="tab" aria-expanded="false">{% trans 'Ментальность' %}</a></li>
+									<li class=""><a href="#tabb_organization" data-toggle="tab" aria-expanded="false">{% trans 'Предприятие' %}</a></li>
+									<li class=""><a href="#tabb_related" data-toggle="tab" aria-expanded="false">{% trans 'Связи' %}</a></li>
+									<li class=""><a href="#tabb_media" data-toggle="tab" aria-expanded="false">{% trans 'Медиа' %}</a></li>
+								</ul>
+							</div>
+							<div class="panel-body">
+								<div class="tab-content">
+									<div class="tab-pane fade active in" id="tabb_card">
+										<!--<form action="" method="POST" enctype="multipart/form-data">-->
+											<div class="row">
+												<div class="col-md-6 col-md-push-6 col-sm-6 col-xs-12">
+													<div class="form-grid" >
+														<div class="heading-panel">
+														   <h3 class="main-title text-left">
+															  {% trans 'Подсказка' %}
+														   </h3>
+														</div>
+														<h2></h2>
+														<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambledit to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+														<p> It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It has survived not only five centuries, but also the leap into  publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+														<p>Hmply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambledit to make a type specimen It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+													</div>
+												</div>
+												<div class="col-md-6 col-md-pull-6 col-sm-6 col-xs-12">
+													<div class="form-grid" >
+														{{vcard_main.media}}
+														{{vcard_main.management_form}}										
+														{% for hidden in vcard_main.hidden_fields %}
+															{{ hidden }}
+														{% endfor %}										
+														{% for field in vcard_main.visible_fields %}
+															{% if field.name == 'start' or field.name == 'end' %}
+																{% if field.name == 'start' %}
+																	<label for="id_period">{% trans 'Период действия' %}:</label>
+																	<div class="form-group" style="display: table;">
+																	<input type="date" data-dojo-type="dijit/form/DateTextBox" id="{{field.name}}" name="{{field.name}}" value='{{field.value.date|date:"Y-m-d"}}' />&nbsp;
+																	<input type="text" data-dojo-type="dijit/form/TimeTextBox" id="{{field.name}}_time" name="{{field.name}}-time" value='T{{field.value.time|time:"H:i:s"}}' />
+																	<label>&nbsp;&nbsp;</label>
+																{% endif %}
+																{% if field.name == 'end' %}
+																	<input type="date" data-dojo-type="dijit/form/DateTextBox" id="{{field.name}}" name="{{field.name}}" value='{{field.value.date|date:"Y-m-d"}}' />&nbsp;
+																	<input type="text" data-dojo-type="dijit/form/TimeTextBox" id="{{field.name}}_time" name="{{field.name}}-time" value='T{{field.value.time|time:"H:i:s"}}' />
+																	</div>
+																{% endif %}																
+																<!--<span class="helptext">{{ field.help_text }}</span>-->
+															{% else %}
+																<div class="form-group"><p>
+																{{ field.errors }}
+																{{ field.label_tag }}</br>
+																{{ field}}
+																{% if field.help_text %}
+																	{% if field.name != 'geo' %}
+																	<span class="helptext">{{ field.help_text|safe }}</span>
+																	{% endif %}
+																{% endif %}
+																</p></div>
+															{% endif %}
+														{% endfor %}
+													</div>
+												</div>
+											</div>
+										<!--</form>-->
+									</div>
+					
+									<div class="tab-pane fade" id="tabb_names">
+										<div class="row">
+											<div class="col-md-6 col-md-push-6 col-sm-6 col-xs-12">										
+												<div class="form-grid">
+													
+													<div class="heading-panel">
+													   <h3 class="main-title text-left">
+														  {% trans 'Подсказка' %}
+													   </h3>
+													</div>
+													<h2></h2>
+													<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambledit to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+													<p> It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It has survived not only five centuries, but also the leap into  publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+													<p>Hmply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambledit to make a type specimen It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+													
+												</div>	
+											</div>
+											<div class="col-md-6 col-md-pull-6 col-sm-6 col-xs-12">
+												<div class="form-grid">
+													{{vcard_name.media}}
+													{{vcard_name.management_form}}
+													{% for hidden in vcard_name.hidden_fields %}
+														{{ hidden }}
+													{% endfor %}										
+													{% for field in vcard_name.visible_fields %}
+															{% if field.name == 'bday' %}
+															<div class="form-group"><p>
+																{{ field.errors }}
+																{{ field.label_tag }}</br>
+																<input type="date" data-dojo-type="dijit/form/DateTextBox" id="{{field.name}}" name="{{field.name}}" value='{{field.value.date|date:"Y-m-d"}}' />
+																<input type="text" data-dojo-type="dijit/form/TimeTextBox" id="{{field.name}}_time" name="{{field.name}}-time" value='T{{field.value.time|time:"H:i:s"}}' /></br>
+																<span class="helptext">{{ form.help_text|safe }}</span>
+															</p></div>
+															{% else %}
+																<div class="form-group"><p>
+																	{{ field.errors }}
+																	{{ field.label_tag }}
+																	{{ field }}
+																	{% if field.help_text %}
+																		{% if field.name != 'geo' %}
+																		<span class="helptext">{{ field.help_text|safe }}</span>
+																		{% endif %}
+																	{% endif %}
+																</p></div>
+															{% endif %}
+													{% endfor %}
+												</div>
+											</div>
+										</div>
+									</div>					
+									<!--КОНТАКТЫ-->
+									<div class="tab-pane fade" id="tabb_contakts">
+										<div class="row">
+											<div class="col-md-4 col-md-push-8 col-sm-4 col-xs-12">										
+												<div class="form-grid">
+													
+													<div class="heading-panel">
+													   <h3 class="main-title text-left">
+														  {% trans 'Подсказка' %}
+													   </h3>
+													</div>
+													<h2></h2>
+													<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambledit to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+													<p> It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It has survived not only five centuries, but also the leap into  publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+													<p>Hmply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambledit to make a type specimen It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+													
+												</div>	
+											</div>
+											<div class="col-md-8 col-md-pull-4 col-sm-8 col-xs-12">
+
+												<div class="with-nav-tabs panel-default">
+													<div class="profile-tabs">
+														<ul class="nav nav-tabs">
+															<li class="active"><a href="#tabb_phone" data-toggle="tab" aria-expanded="false">{% trans 'Телефоны' %}</a></li>
+															<li class=""><a href="#tabb_email" data-toggle="tab" aria-expanded="false">{% trans 'Почта' %}</a></li>
+															<li class=""><a href="#tabb_social" data-toggle="tab" aria-expanded="false">{% trans 'Соцсети' %}</a></li>
+															<li class=""><a href="#tabb_messengers" data-toggle="tab" aria-expanded="false">{% trans 'Мессанджеры' %}</a></li>									
+														</ul>
+													</div>
+												</div>
+												<div class="panel">
+													<div class="tab-content">
+														<!--  ТЕЛЕФОНЫ -->
+														<div class="tab-pane fade active in" id="tabb_phone">
+															<div class="form-grid">
+																<div class="space-5"></div>							
+																<div id="grid_phones" style="width: 100%; height: 210px;border: 1px solid #999;"></div>
+																{{vcard_phone.media}}
+																{{vcard_phone.management_form}}										
+																{% for hidden in vcard_phone.hidden_fields %}
+																	{{ hidden }}
+																{% endfor %}										
+																{% for field in vcard_phone.visible_fields %}
+																	<div class="form-group"><p>
+																	{{ field.errors }}
+																	{{ field.label_tag }}</br>
+																	{{ field}}
+																	{% if field.help_text %}
+																		<span class="helptext">{{ field.help_text|safe }}</span>
+																	{% endif %}
+																	</p></div>
+																{% endfor %}													
+															</div>
+														</div>
+														<!-- EMAIL -->
+														<div class="tab-pane fade" id="tabb_email">
+															<div class="form-grid">
+																<div class="space-5"></div>							
+																<div id="grid_email" style="width: 100%; height: 210px;border: 1px solid #999;"></div>	
+																<!--<div id="results" class="results" style="height: 30px;border: 1px solid #999;"></div>-->																
+																{{vсard_email.media}}
+																{{vсard_email.management_form}}										
+																{% for hidden in vсard_email.hidden_fields %}
+																	{{ hidden }}
+																{% endfor %}										
+																{% for field in vсard_email.visible_fields %}
+																	<div class="form-group"><p>
+																	{{ field.errors }}
+																	{{ field.label_tag }}</br>
+																	{{ field}}
+																	{% if field.help_text %}
+																		<span class="helptext">{{ field.help_text|safe }}</span>
+																	{% endif %}
+																	</p></div>
+																{% endfor %}													
+															</div>
+														</div>
+														<div class="tab-pane fade" id="tabb_social">
+															<div class="form-grid" >
+																<div class="space-5"></div>							
+																<div id="grid_social" style="width: 100%; height: 210px;border: 1px solid #999;"></div>																
+																{{vсard_social.media}}
+																{{vсard_social.management_form}}										
+																{% for hidden in vсard_social.hidden_fields %}
+																	{{ hidden }}
+																{% endfor %}										
+																{% for field in vсard_social.visible_fields %}
+																	<div class="form-group"><p>
+																	{{ field.errors }}
+																	{{ field.label_tag }}</br>
+																	{{ field}}
+																	{% if field.help_text %}
+																		<span class="helptext">{{ field.help_text|safe }}</span>
+																	{% endif %}
+																	</p></div>
+																{% endfor %}
+															</div>
+														</div>
+														<div class="tab-pane fade" id="tabb_messengers">
+															<div class="form-grid" >
+																<div class="space-5"></div>							
+																<div id="grid_messenger" style="width: 100%; height: 210px;border: 1px solid #999;"></div>																
+																{{vсard_messengers.media}}
+																{{vсard_messengers.management_form}}										
+																{% for hidden in vсard_messengers.hidden_fields %}
+																	{{ hidden }}
+																{% endfor %}										
+																{% for field in vсard_messengers.visible_fields %}
+																	<div class="form-group"><p>
+																	{{ field.errors }}
+																	{{ field.label_tag }}</br>
+																	{{ field}}
+																	{% if field.help_text %}
+																		<span class="helptext">{{ field.help_text|safe }}</span>
+																	{% endif %}
+																	</p></div>
+																{% endfor %}
+															</div>
+														</div>
+													</div>
+												</div>
+												
+											</div>
+										</div>
+									</div>
+									<!-- АДРЕСА -->
+									<div class="tab-pane fade" id="tabb_adress">
+										<div class="row">
+											<div class="col-md-4 col-md-push-8 col-sm-4 col-xs-12">										
+												<div class="form-grid">
+												<!--<div class="with-nav-tabs panel-default">
+													<div class="profile-tabs">
+														<ul class="nav nav-tabs">
+															<li class="active"><a href="#tabb_help_text_adress" data-toggle="tab" aria-expanded="false">{% trans 'Подсказка' %}</a></li>
+															<li class=""><a href="#tabb_add_adress" data-toggle="tab" aria-expanded="false">{% trans 'Добавить' %}</a></li>
+														</ul>
+													</div>
+												</div>-->
+												<div class="panel">
+													<div class="tab-content">
+														<div class="tab-pane fade active in" id="tabb_help_text_adress">
+															<div class="heading-panel">
+															   <h3 class="main-title text-left">
+																  {% trans 'Подсказка' %}
+															   </h3>
+															</div>
+															<h2></h2>
+															<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambledit to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+															<p> It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It has survived not only five centuries, but also the leap into  publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+															<p>Hmply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambledit to make a type specimen It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+														</div>
+														<div class="tab-pane fade" id="tabb_add_adress">
+															<div class="form-grid-tab" >
+															{{vcard_adress.media}}
+															{{vcard_adress.management_form}}										
+															{% for hidden in vcard_adress.hidden_fields %}
+																{{ hidden }}
+															{% endfor %}										
+															{% for field in vcard_adress.visible_fields %}
+																<div class="form-group"><p>
+																{{ field.errors }}
+																{{ field.label_tag }}</br>
+																{{ field}}
+																{% if field.help_text %}
+																	<span class="helptext">{{ field.help_text|safe }}</span>
+																{% endif %}
+																</p></div>
+															{% endfor %}
+															</div>
+														</div>
+													</div>
+												</div>
+
+												</div>	
+											</div>
+											<div class="col-md-8 col-md-pull-4 col-sm-8 col-xs-12">
+												<div class="form-grid" >
+													<div id="basicFormTab" data-dojo-type="dijit/layout/ContentPane">
+														<button id="btAdd" data-dojo-type="dijit/form/Button"
+																data-dojo-props="iconClass:'dijitAddIcon', onClick:function(){ document.location.href = '/'+dojoConfig.locale+'/vcards/add' }">
+															{% trans 'Add' %}
+														</button>						
+														<button id="btEdit" data-dojo-type="dijit/form/Button"
+																data-dojo-props="iconClass:'dijitEdit' ">
+															{% trans 'Edit' %}
+														</button>							
+														<button id="btDelete" data-dojo-type="dijit/form/Button"
+																data-dojo-props="iconClass:'dijitDelete', onClick:function(){ console.debug('clicked simple') }">
+															{% trans 'Delete' %}
+														</button>
+													</div>													
+													<div class="space-5"></div>							
+													<div id="grid_adress" style="width: 100%; height: 210px;border: 1px solid #999;"></div>	
+													<!--<div id="results" class="results" style="height: 30px;border: 1px solid #999;"></div>-->
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- МЕНТАЛЬНОСТЬ -->
+									<div class="tab-pane fade" id="tabb_mentality">
+										<div class="row">
+											<div class="col-md-4 col-md-push-8 col-sm-4 col-xs-12">										
+												<div class="form-grid">
+													
+													<div class="heading-panel">
+													   <h3 class="main-title text-left">
+														  {% trans 'Подсказка' %}
+													   </h3>
+													</div>
+													<h2></h2>
+													<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambledit to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+													<p> It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It has survived not only five centuries, but also the leap into  publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+													<p>Hmply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambledit to make a type specimen It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+													
+												</div>	
+											</div>
+											<div class="col-md-8 col-md-pull-4 col-sm-8 col-xs-12">
+												<div class="form-grid" >
+
+													<div class="with-nav-tabs panel-default">
+														<div class="profile-tabs">
+															<ul class="nav nav-tabs">
+																<li class="active"><a href="#tabb_hobby" data-toggle="tab" aria-expanded="false">{% trans 'Увлечения' %}</a></li>
+																<li class=""><a href="#tabb_expertise" data-toggle="tab" aria-expanded="false">{% trans 'Знания' %}</a></li>
+																<li class=""><a href="#tabb_interest" data-toggle="tab" aria-expanded="false">{% trans 'Интересы' %}</a></li>
+															</ul>
+														</div>
+													</div>
+													<div class="panel">
+														<div class="tab-content">
+															<!-- ХОББИ -->
+															<div class="tab-pane fade active in" id="tabb_hobby">
+																<div class="form-grid" >
+																	<div class="space-5"></div>							
+																	<div id="grid_hobby" style="width: 100%; height: 210px;border: 1px solid #999;"></div>	
+																	<!--<div id="results" class="results" style="height: 30px;border: 1px solid #999;"></div>-->																	
+																	{{vсard_hobby.media}}
+																	{{vсard_hobby.management_form}}										
+																	{% for hidden in vсard_hobby.hidden_fields %}
+																		{{ hidden }}
+																	{% endfor %}										
+																	{% for field in vсard_hobby.visible_fields %}
+																		<div class="form-group"><p>
+																		{{ field.errors }}
+																		{{ field.label_tag }}</br>
+																		{{ field}}
+																		{% if field.help_text %}
+																			<span class="helptext">{{ field.help_text|safe }}</span>
+																		{% endif %}
+																		</p></div>
+																	{% endfor %}
+																</div>
+															</div>
+															<!-- ЗНАНИЯ -->
+															<div class="tab-pane fade" id="tabb_expertise">
+																<div class="form-grid" >
+																	<div id="grid_expertise" style="width: 100%; height: 210px;border: 1px solid #999;"></div>	
+																	<!--<div id="results" class="results" style="height: 30px;border: 1px solid #999;"></div>-->																	
+																	{{vсard_expertise.media}}
+																	{{vсard_expertise.management_form}}										
+																	{% for hidden in vсard_expertise.hidden_fields %}
+																		{{ hidden }}
+																	{% endfor %}										
+																	{% for field in vсard_expertise.visible_fields %}
+																		<div class="form-group"><p>
+																		{{ field.errors }}
+																		{{ field.label_tag }}</br>
+																		{{ field}}
+																		{% if field.help_text %}
+																			<span class="helptext">{{ field.help_text|safe }}</span>
+																		{% endif %}
+																		</p></div>
+																	{% endfor %}
+																</div>
+															</div>
+															<!-- ИНТЕРЕСЫ -->
+															<div class="tab-pane fade" id="tabb_interest">
+																<div class="form-grid" >
+																	<div id="grid_interest" style="width: 100%; height: 210px;border: 1px solid #999;"></div>	
+																	<!--<div id="results" class="results" style="height: 30px;border: 1px solid #999;"></div>-->																	
+																	{{vсard_interest.media}}
+																	{{vсard_interest.management_form}}										
+																	{% for hidden in vсard_interest.hidden_fields %}
+																		{{ hidden }}
+																	{% endfor %}										
+																	{% for field in vсard_interest.visible_fields %}
+																		<div class="form-group"><p>
+																		{{ field.errors }}
+																		{{ field.label_tag }}</br>
+																		{{ field}}
+																		{% if field.help_text %}
+																			<span class="helptext">{{ field.help_text|safe }}</span>
+																		{% endif %}
+																		</p></div>
+																	{% endfor %}
+																</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>																		
+									<!-- ПРЕДПРИЯТИЕ -->
+									<div class="tab-pane fade" id="tabb_organization">
+										<div class="row">
+											<div class="col-md-6 col-md-push-6 col-sm-6 col-xs-12">										
+												<div class="form-grid">
+													
+													<div class="heading-panel">
+													   <h3 class="main-title text-left">
+														  {% trans 'Подсказка' %}
+													   </h3>
+													</div>
+													<h2></h2>
+													<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambledit to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+													<p> It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It has survived not only five centuries, but also the leap into  publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+													<p>Hmply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambledit to make a type specimen It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+													
+												</div>	
+											</div>
+											<div class="col-md-6 col-md-pull-6 col-sm-6 col-xs-12">
+												<div class="form-grid" >
+													{{vсard_organization.media}}
+													{{vсard_organization.management_form}}										
+													{% for hidden in vсard_organization.hidden_fields %}
+														{{ hidden }}
+													{% endfor %}										
+													{% for field in vсard_organization.visible_fields %}
+														<div class="form-group"><p>
+														{{ field.errors }}
+														{{ field.label_tag }}</br>
+														{{ field}}
+														{% if field.help_text %}
+															<span class="helptext">{{ field.help_text|safe }}</span>
+														{% endif %}
+														</p></div>
+													{% endfor %}
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- СВЯЗИ -->
+									<div class="tab-pane fade" id="tabb_related">
+										<div class="row">
+											<div class="col-md-6 col-md-push-6 col-sm-6 col-xs-12">										
+												<div class="form-grid">
+													
+													<div class="heading-panel">
+													   <h3 class="main-title text-left">
+														  {% trans 'Подсказка' %}
+													   </h3>
+													</div>
+													<h2></h2>
+													<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambledit to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+													<p> It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It has survived not only five centuries, but also the leap into  publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+													<p>Hmply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambledit to make a type specimen It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+													
+												</div>	
+											</div>
+											<div class="col-md-6 col-md-pull-6 col-sm-6 col-xs-12">
+												<div class="form-grid" >
+													{{vсard_related.media}}
+													{{vсard_related.management_form}}										
+													{% for hidden in vсard_related.hidden_fields %}
+														{{ hidden }}
+													{% endfor %}										
+													{% for field in vсard_related.visible_fields %}
+														<div class="form-group"><p>
+														{{ field.errors }}
+														{{ field.label_tag }}</br>
+														{{ field}}
+														{% if field.help_text %}
+															<span class="helptext">{{ field.help_text|safe }}</span>
+														{% endif %}
+														</p></div>
+													{% endfor %}
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- МЕДИА -->
+									<div class="tab-pane fade" id="tabb_media">
+										<div class="row">
+											<div class="col-md-6 col-md-push-6 col-sm-6 col-xs-12">										
+												<div class="form-grid">
+													
+													<div class="heading-panel">
+													   <h3 class="main-title text-left">
+														  {% trans 'Подсказка' %}
+													   </h3>
+													</div>
+													<h2></h2>
+													<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambledit to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+													<p> It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It has survived not only five centuries, but also the leap into  publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+													<p>Hmply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambledit to make a type specimen It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+													
+												</div>	
+											</div>
+											<div class="col-md-6 col-md-pull-6 col-sm-6 col-xs-12">
+												<div class="form-grid" >
+													{% if media_dict.items %}
+													<div class="panel with-nav-tabs panel-default">
+														<div class="panel-heading">
+															<ul class="nav nav-tabs">
+																{% for key, pic in media_dict.items %}
+																<li class="{% if forloop.first %}active{% else %}{% endif %}"><a href="#tab{{forloop.counter}}default" data-toggle="tab" aria-expanded="true">{{ pic.name }}</a></li>										
+																{% endfor %}		
+															</ul>
+														</div>
+														<div class="panel-body">
+															<div class="tab-content">
+																{% for key, pic in media_dict.items %}
+																<div class="tab-pane fade {% if forloop.first %}active in{% else %}{% endif %}" id="tab{{forloop.counter}}default">
+																	<img id="img-upload" alt="{{ pic.name }}" src="/{{STATIC_URL|cut:'/'}}{{ pic.path }}" style="width:100%">
+																</div>
+																{% endfor %}				
+															</div>
+														</div>
+													</div>
+													{% endif %}
+												</div>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+							</div> <!-- Panel body -->
+						</div>
+						</form>
+					</div>
+				</div>
+            </section>
+        </div>
+		{% compress js %}
+		<script src="/static/informer_vcard/js/informer-vcard.js"></script>
+		{% endcompress %}
+{% endblock %}

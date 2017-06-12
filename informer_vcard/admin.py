@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
 
-from .models import vCard, vCard_phone, vCard_adress, vCard_email, vCard_names, vCard_impp, vCard_organization, vCard_related, vCard_expertise, vCard_hobby, vCard_interest
+from .models import vCard, vCard_phone, vCard_adress, vCard_email, vCard_names, vCard_social, vCard_messengers, vCard_organization, vCard_related, vCard_expertise, vCard_hobby, vCard_interest
 
 
 @admin.register(vCard)
@@ -19,12 +19,12 @@ class vCardAdmin(admin.ModelAdmin):
         'objectname',
         'language',
         'tz',
-        'photo',
+        #'photo',
         'label',
-        'geo',
-        'logo',
+        #'geo',
+        #'logo',
         'note',
-        'sound',
+        #'sound',
         'url',
         'secure',
     )
@@ -32,7 +32,7 @@ class vCardAdmin(admin.ModelAdmin):
 
 @admin.register(vCard_phone)
 class vCard_phoneAdmin(admin.ModelAdmin):
-    list_display = ('id', 'owner', 'tel', 'type', 'function', 'prefer')
+    list_display = ('id', 'owner', 'tel', 'type', 'prefer')
     list_filter = ('owner', 'prefer')
 
 
@@ -61,21 +61,23 @@ class vCard_namesAdmin(admin.ModelAdmin):
         'prefix',
         'suffix',
         'nickname',
-        'title',
-        'role',
         'sort_as',
     )
     list_filter = ('owner',)
 
-@admin.register(vCard_impp)
-class vCard_imppAdmin(admin.ModelAdmin):
+@admin.register(vCard_social)
+class vCard_socialAdmin(admin.ModelAdmin):
     list_display = ('id', 'owner', 'url', 'prefer')
     list_filter = ('owner', 'prefer')
 
+@admin.register(vCard_messengers)
+class vCard_messengersAdmin(admin.ModelAdmin):
+    list_display = ('id', 'owner', 'type', 'identifier', 'prefer')
+    list_filter = ('owner', 'prefer')
 
 @admin.register(vCard_organization)
 class vCard_organizationAdmin(admin.ModelAdmin):
-    list_display = ('id', 'owner', 'form', 'org', 'any', 'prefer')
+    list_display = ('id', 'owner', 'form', 'org', 'description', 'prefer', 'title', 'role',)
     list_filter = ('owner', 'prefer')
 
 
@@ -93,7 +95,7 @@ class vCard_expertiseAdmin(admin.ModelAdmin):
 
 @admin.register(vCard_hobby)
 class vCard_hobbyAdmin(admin.ModelAdmin):
-    list_display = ('id', 'owner', 'expertise', 'type')
+    list_display = ('id', 'owner', 'hobby', 'type')
     list_filter = ('owner',)
 
 

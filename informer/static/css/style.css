@@ -96,11 +96,9 @@ html, body {
 	width: 100%;
 }
 body {
-    /*font-family: 'Roboto', sans-serif;*/
     font-family: 'Fira Sans Extra Condensed', sans-serif;
 	color: #777;
 	font-size: 16px;
-    /*font-size: 22px;*/
 	line-height: 1.7em;
 	font-weight: 400;
 	overflow-x: hidden;
@@ -193,7 +191,7 @@ video, object {
 }
 .section-padding {
 	/*padding: 90px 0;*/
-    padding: 40px 0 150px 0;
+    padding: 20px 0 150px 0;
 }
 .section-padding-140 {
 	padding: 140px 0;
@@ -7049,25 +7047,27 @@ span.app-store-btn {
 	background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
 	border-image: none;
 	border-style: none none solid;
-	border-width: medium medium 2px;
+	/*border-width: medium medium 2px;*/
 }
 .profile-tabs .nav-tabs a {
 	color: #232323 !important;
 	font-size: 16px;
-	padding: 16px 15px;
+	/*padding: 16px 15px;*/
 }
 .profile-tabs .nav-tabs > .active > a, .profile-tabs .nav-tabs > .active > a:hover, .profile-tabs .nav-tabs > .active > a:focus {
 	background: #fff none repeat scroll 0 0;
 	border: medium none;
-	color: #232323 !important;
+	/*color: #232323 !important;*/
+	color: #f58936 !important;
 }
 .profile-tabs .nav-tabs > li > a {
 	border: medium none;
 }
 .profile-tabs .nav-tabs > li > a:hover {
-	background: #fff none repeat scroll 0 0;
-	color: #232323;
+	background: #ccc none repeat scroll 0 0;
+	/*color: #232323;*/
 }
+
 .profile-tabs .tab-content img {
 	margin-bottom: 15px;
 	margin-top: 4px;
@@ -8273,6 +8273,18 @@ footer#footer .widget-newsletter .fieldset P {
 }
 
 .space-10 {
-	padding-bottom: 5px;
-	padding-top: 5px;
+	padding-bottom: 10px;
+	padding-top: 10px;
 }
+
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: #f58936;
+    outline: 0;
+}
+
+.profile-tabs .nav-tabs li .active a {
+    color: #ffffff !important;
+    font-size: 16px;
+ }

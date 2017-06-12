@@ -88,17 +88,17 @@ Designed and Development by: ScriptsBundle
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i);
 @import url(http://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i);
 @import url(http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic);
+
+
 /* =-=-=-=-=-=-= General Styling =-=-=-=-=-=-= */
 html, body {
 	height: 100%;
 	width: 100%;
 }
 body {
-    /*font-family: 'Roboto', sans-serif;*/
     font-family: 'Fira Sans Extra Condensed', sans-serif;
 	color: #777;
 	font-size: 16px;
-    /*font-size: 22px;*/
 	line-height: 1.7em;
 	font-weight: 400;
 	overflow-x: hidden;
@@ -191,7 +191,7 @@ video, object {
 }
 .section-padding {
 	/*padding: 90px 0;*/
-    padding: 40px 0 150px 0;
+    padding: 20px 0 150px 0;
 }
 .section-padding-140 {
 	padding: 140px 0;
@@ -364,7 +364,7 @@ p {
 	color: #555;
 	font-size: 14px;
 	height: auto;
-	padding: 8px 8px;
+	padding: 3px 3px;
 	transition: all 0.2s cubic-bezier(0, 0, 0.58, 1) 0s;
 }
 ul {
@@ -375,7 +375,8 @@ ul {
 	color: #fff;
 }
 .btn-lg {
-	padding: 12px 22px;
+	/*padding: 12px 22px;*/
+	box-shadow: 0 2px 2px #ccc;
 	letter-spacing: 1.3px;
 }
 .btn-md {
@@ -2437,7 +2438,7 @@ ul.category-list-style li a span {
 }
 .ad-archive-desc p {
 	font-size: 14px;
-	margin-bottom: 4px;
+	margin-bottom: 5px;
 }
 ul.add_info {
 	margin: 0;
@@ -3680,8 +3681,9 @@ span.required {
 }
 label {
 	font-size: 14px;
-	font-weight: 600;
-	color: #232323;
+	font-weight: 500;
+	color: #555;
+    text-transform: uppercase;	
 }
 /* =-=-=-=-=-=-= Featured Sliders =-=-=-=-=-=-= */
 .featured-slider-1 .owl-item .category-grid-box {
@@ -7045,25 +7047,27 @@ span.app-store-btn {
 	background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
 	border-image: none;
 	border-style: none none solid;
-	border-width: medium medium 2px;
+	/*border-width: medium medium 2px;*/
 }
 .profile-tabs .nav-tabs a {
 	color: #232323 !important;
 	font-size: 16px;
-	padding: 16px 15px;
+	/*padding: 16px 15px;*/
 }
 .profile-tabs .nav-tabs > .active > a, .profile-tabs .nav-tabs > .active > a:hover, .profile-tabs .nav-tabs > .active > a:focus {
 	background: #fff none repeat scroll 0 0;
 	border: medium none;
-	color: #232323 !important;
+	/*color: #232323 !important;*/
+	color: #f58936 !important;
 }
 .profile-tabs .nav-tabs > li > a {
 	border: medium none;
 }
 .profile-tabs .nav-tabs > li > a:hover {
-	background: #fff none repeat scroll 0 0;
-	color: #232323;
+	background: #ccc none repeat scroll 0 0;
+	/*color: #232323;*/
 }
+
 .profile-tabs .tab-content img {
 	margin-bottom: 15px;
 	margin-top: 4px;
@@ -8269,6 +8273,18 @@ footer#footer .widget-newsletter .fieldset P {
 }
 
 .space-10 {
-	padding-bottom: 5px;
-	padding-top: 5px;
+	padding-bottom: 10px;
+	padding-top: 10px;
 }
+
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: #f58936;
+    outline: 0;
+}
+
+.profile-tabs .nav-tabs li .active a {
+    color: #ffffff !important;
+    font-size: 16px;
+ }

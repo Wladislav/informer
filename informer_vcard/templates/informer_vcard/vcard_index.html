@@ -23,7 +23,7 @@
 				 'dojo/data/ObjectStore',
 				 'dojox/grid/DataGrid',
 				 'dojox/grid/cells',
-				 'dojox/math/round',
+				 //'dojox/math/round',
 				 'dojo/date/locale',
 				 'dojo/date/stamp',
 				 'dojo/_base/array',
@@ -34,7 +34,7 @@
 				 'dijit/layout/ContentPane',
 				 'dijit/form/Button',
 				 'dojo/domReady!'],
-				function(request, dom, Memory, ObjectStore, DataGrid, gridCells, mathRound, DateLocale, DateStamp, baseArray, lang, _CheckBoxSelector, parser, registry){
+				function(request, dom, Memory, ObjectStore, DataGrid, gridCells, DateLocale, DateStamp, baseArray, lang, _CheckBoxSelector, parser, registry){
 					
 					var btCopy, btEdit, UID;
 					
@@ -111,13 +111,6 @@
 						
 						grid.startup();
 	
-						//grid.on("RowClick", function(evt){
-						//	var idx = evt.rowIndex,
-						//			rowData = grid.getItem(idx);
-						//	document.getElementById("results").innerHTML =
-						//			"You have clicked on " + rowData.last + ", " + rowData.first + ".";
-						//}, true);
-						
 						function reportSelection(node){
 							var items = this.selection.getSelected();
 							manageButtons(items);

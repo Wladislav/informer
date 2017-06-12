@@ -5,17 +5,17 @@ from django.db import models
 from ool import VersionField, VersionedMixin
 import uuid
 
-class TimeFramedModel(models.Model):
-    """
-    An abstract base class model that provides ``start``
-    and ``end`` fields to record a timeframe.
-
-    """
-    start = models.DateTimeField(_('Начало'), null=True, blank=True)
-    end = models.DateTimeField(_('Окончание'), null=True, blank=True)
-
-    class Meta:
-        abstract = True
+# class TimeFramedModel(models.Model):
+#     """
+#     An abstract base class model that provides ``start``
+#     and ``end`` fields to record a timeframe.
+# 
+#     """
+#     start = models.DateTimeField(_('Начало'), null=True, blank=True)
+#     end = models.DateTimeField(_('Окончание'), null=True, blank=True)
+# 
+#     class Meta:
+#         abstract = True
 
 class BaseInformerModel(VersionedMixin, models.Model):
     

@@ -1,4 +1,92 @@
 
+.dojoxGrid {
+    background-color: #EBEADB;
+    -moz-outline-style: none;
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+}
+
+.tundra .dijitMenu, .tundra .dijitMenuBar {
+    border: 1px solid #ddd;
+    width: 83px;
+}
+.tundra .dijitButtonNode {
+	border: 1px solid #c0c0c0;
+	border-bottom: 1px solid #9b9b9b;
+	padding: 0.1em 0.2em 0.2em 0.2em;
+}
+
+.tundra .dijitTimePickerItemHover {
+	background: #f58936 none;
+	color:white;
+}
+
+.tundra .dijitCalendarSelectedYear {
+    font-weight: initial;
+    color: black;
+    padding: 0.2em;
+    padding-bottom: 0.1em;
+    background-color: #febe47 !important;
+}
+
+.tundra .dijitCalendarSelectedDate {
+	
+	background-color:#febe47 !important;
+	color:black !important;
+    padding-top: 0px;
+}
+
+.tundra .dijitCalendarMonthMenu .dijitCalendarMonthLabelHover {
+    background-color: #f58936;
+    color: #fff;
+}
+
+.tundra .dijitCalendarMonthLabel {
+    font-weight: initial;
+ }
+
+.nav-tabs.nav-justified > li > a {
+    border-radius: 10px 10px 0 0;
+    box-shadow: 1px 0px #ddd;
+}
+
+textarea#id_description {
+    width: 100%;
+    height: 68px;
+    resize: vertical;
+}
+
+div#widget_start {
+    width:inherit;
+    display: table-cell;
+    font-size: 14px;
+}
+
+div#widget_end {
+    width:inherit;
+    display: table-cell;
+    font-size: 14px;
+}
+
+div#widget_start_time {
+    width:inherit;
+    display: table-cell;
+    /*border-left: 0px;*/
+    max-width: 8em;
+    font-size: 14px;
+}
+
+div#widget_end_time {
+    width:inherit;
+    display: table-cell;
+    /*border-left: 0px;*/
+    max-width: 8em;
+    font-size: 14px;
+}
+
+.heading-panel {
+    margin-bottom: 10px;
+}
+
 .informer_checkbox {
     display: inline-block;
 }
@@ -26,6 +114,9 @@
 }
 .panel-body {
     padding: 5px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 input[type="file"] {
@@ -212,8 +303,8 @@ input.geoposition {
 }
 
 .tundra .dojoxGridRowSelected {
-    background-color: #f58936 !important;
-    color: rgb(255, 255, 255);
+    background-color: #d0ea9a !important;
+    color: #555;
 }
 
 .tundra .dijitContentPane {
@@ -235,8 +326,8 @@ input.geoposition {
 .tundra .dijitComboButton .dijitButtonContentsHover,
 .tundra .dijitComboButton .dijitDownArrowButtonHover {
 
-	border-color: #dfba9d;
-	border-bottom-color:#dfba9d;
+	border-color: #ccc;
+	border-bottom-color:#ccc;
 	color:#2d343d;
 	background:#ffffff url("../images/buttonHover.png") repeat-x bottom;
 }
@@ -290,10 +381,13 @@ input.geoposition {
     padding: 0;
 }
 
+.tundra .dojoxGrid {
+    background-color: inherit;
+    font-size: 0.85em;
+}
+
 .tundra .dojoxGridHeader .dojoxGridCell {
-    border-width: 1px;
     padding-bottom: 0px;
-    border-color: transparent #ACA899 #919191 transparent;
     background-color: #f58936;
     color: #fff !important;
     background-image: inherit;
@@ -585,7 +679,11 @@ label.label-user-trumb {
 
 .form-grid {
     /*box-shadow: 0 2px 2px #ccc;*/
-    padding: 10px;
+    padding: 20px 15px;
+}
+
+.form-grid-tab{
+    padding: 20px 0px;
 }
 
 .form-grid-profile {

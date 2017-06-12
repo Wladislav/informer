@@ -9,8 +9,6 @@
                     {{ latitude.html }}
                 {% endif %}
             </td>
-        </tr>
-        <tr>
             <td>{{ longitude.label|capfirst }}</td>
             <td>
                 {% if longitude.widget %}
@@ -18,7 +16,7 @@
                 {% else %}
                     {{ longitude.html }}
                 {% endif %}
-            </td>
+            </td>            
         </tr>
     </table>
 </div>
